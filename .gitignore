@@ -1,24 +1,20 @@
-# Directories
-/misc
-/.vscode
-
-# Files
-*.code-workspace
-
-
 # Files
 *.code-workspace
 *.vscode
 
+# Directories
+/misc
+/.vscode
+
 # Server
-/app/server/.env
-/app/server/node_modules
+/server/api/.env
+/server/api/node_modules
 
 # Client
-/app/client/.env
-/app/client/.env.production
-/app/client/node_modules
-/app/client/dist
+/client/.env
+/client/.env.production
+/client/node_modules
+/client/dist
 
 # Tracking
-/tracking/__pycache__
+/server/tracking/__pycache__

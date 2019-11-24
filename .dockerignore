@@ -1,0 +1,8 @@
+# Files
+npm-debug.log
+.git
+.gitignore
+
+# Directories
+/client
+/server/api/node_modules
