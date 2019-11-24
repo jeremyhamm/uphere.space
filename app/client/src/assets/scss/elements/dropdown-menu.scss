@@ -1,0 +1,18 @@
+/***
+DROPDOWN MENU 
+https://bootstrap-vue.js.org/docs/components/dropdown/
+***/
+
+.dropdown-menu {
+  background-color: $dark-gray !important;
+  .dropdown-item {
+    &:hover, &:active, &:focus {
+      background-color: $dark-gray !important;
+      color: $orange;
+    }
+  }
+  .dropdown-item.active {
+    background-color: $dark-gray !important;
+    color: $orange !important;
+  }
+}

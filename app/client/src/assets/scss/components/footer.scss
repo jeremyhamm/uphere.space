@@ -1,0 +1,21 @@
+#footer {
+  background-color: $dark-gray;
+  a {
+    color: $white;
+    &:hover {
+      color: $orange;
+    }
+  }
+}
+#xs-footer-menu {
+  ul {
+    background-color: $dark-gray;
+    li {
+      a {
+        &:hover {
+          color: $orange;
+        }
+      }
+    }
+  }
+}

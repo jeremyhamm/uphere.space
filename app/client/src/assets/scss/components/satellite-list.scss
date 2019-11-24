@@ -1,0 +1,121 @@
+#list-container {
+  padding-top: 56px;
+}
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 33% 33% 33%;
+}
+.box {
+  padding: 20px;
+}
+.card.list-card {
+  max-width: 250px;
+  background-color: $dark-gray;
+  border-radius: 3px;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 5px 0 $dark-gray-rgb;
+  }
+  .card-text {
+    .satellite-list-summary {
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+      overflow: hidden;
+    }
+  }
+}
+.filter-nav {
+  background-color: $dark-gray;
+  left: 0;
+  margin-top: 5px;
+  z-index: 3;
+  border-top: 1px solid rgba(247,243,232, 0.15);
+  .nav-item {
+    .nav-link {
+      color: $white;
+    }
+  }
+}
+#filters-container {
+  top: 102px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $dark-gray;
+  z-index: 2;
+  border-top: 1px solid rgba(247,243,232, 0.15);
+  overflow-y: scroll;
+  -webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+#filters-submit {
+  z-index: 3;
+  bottom: 0;
+  background-color: $dark-gray;
+  left: 25%;
+  width: 50%;
+}
+.category-list {
+  .custom-control.custom-checkbox {
+    min-height: 2rem;
+    .custom-control-label {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+/** XS **/
+@media (max-width: 576px) {
+  .wrapper {
+    grid-template-columns: 100%;
+  }
+  .box {
+    padding: 0;
+  }
+  .card.list-card {
+    max-width: 300px;
+  }
+  #xs-filter-icon {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  #filters-container {
+    overflow-x: hidden;
+  }
+  #filters-submit {
+    left: 0;
+    width: 100%;
+  }
+}
+
+/** SM **/
+@media (min-width: 577px) and (max-width: 767px) {
+  .wrapper {
+    grid-template-columns: 100%;
+  }
+  #xs-filter-icon {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  #filters-container {
+    overflow-x: hidden;
+  }
+  #filters-submit {
+    left: 0;
+    width: 100%;
+  }
+}
+
+/** MD **/
+@media (min-width: 768px) and (max-width: 992px) {
+  .wrapper {
+    grid-template-columns: 50% 50%;
+  }
+}

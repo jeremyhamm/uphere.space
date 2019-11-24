@@ -1,0 +1,44 @@
+#map {
+  top: 56px;
+  width: 100%;
+  height: -moz-calc(100% - 96px); /* Firefox */
+  height: -webkit-calc(100% - 96px); /* Chrome, Safari */
+  height: calc(100% - 96px); /* IE9+ and future browsers */
+}
+.visible-alert {
+  z-index: 401;
+  top: 20px;
+  margin: 0 auto;
+  width: 50%;
+}
+
+/* Leaflet Specific Styles */
+.leaflet-touch .leaflet-bar {
+  border: 0 !important;
+  top: 10px;
+}
+.leaflet-control-zoom.leaflet-bar {
+  border-radius: 0;
+  border: 0;
+  a {
+    box-shadow: 0;
+    border-radius: 0 !important;
+    border: 0;
+    background-color: $dark-gray-rgb;
+    color: $black !important;
+    &:hover {
+      background-color: rgba(43,62,66,0.5);
+      border-bottom: 0;
+      color: $black !important;
+    }
+  }
+}
+
+/** XS **/
+@media (max-width: 576px) {}
+
+/** SM **/
+@media (min-width: 577px) and (max-width: 767px) {}
+
+/** MD **/
+@media (min-width: 768px) and (max-width: 992px) {}

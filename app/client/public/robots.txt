@@ -1,0 +1,9 @@
+# Blacklist
+User-agent: *
+Disallow: /api
+
+# Whitelist
+User-agent: *
+Allow: /
+
+Sitemap: https://uphere.space/sitemap.xml

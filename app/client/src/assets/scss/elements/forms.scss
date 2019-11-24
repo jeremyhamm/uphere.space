@@ -1,0 +1,18 @@
+// Text input, select
+.form-control,
+.custom-select,
+.custom-control-label {
+  &:focus {
+    border-color: $orange !important;
+    box-shadow: 0 0 0 0.2rem rgba(242, 88, 62, 0.25) !important;
+  }
+}
+
+// Custom checkbox
+.custom-control-input:checked ~
+.custom-control-label {
+  &::before {
+    border-color: $orange !important;
+    background-color: $orange !important;
+  }
+}

@@ -1,0 +1,14 @@
+/***
+ALERTS 
+https://bootstrap-vue.js.org/docs/components/alert
+***/
+
+.alert.alert-primary {
+  background-color: $orange-rgb;
+  border: 0;
+  color: $white;
+  border-radius: 0;
+  .close {
+    padding: 0.5rem 1rem;
+  }
+}

@@ -1,0 +1,60 @@
+#slide-menu {
+  z-index: 9999;
+  position: fixed;
+  top: 56px;
+	right: 0;
+	width: 20%;
+	height: 100%;
+	margin-right: -20%;
+	overflow-y: auto;
+  background: $dark-gray;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  li {
+    line-height: 40px;
+    a {
+      color: $white;
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
+}
+
+.slide-menu-show {
+  margin-right: 0 !important;
+}
+
+.nav-item.nav-break {
+  border-bottom: 1px solid $dark-gray;
+}
+
+/** XS **/
+@media (max-width: 576px) {
+	#slide-menu {
+    border-left: 0;
+    width: 100%;
+		margin-right: -100%;
+	}
+}
+
+/** SM **/
+@media (min-width: 577px) and (max-width: 767px) {
+  #slide-menu {
+		width: 100%;
+		margin-right: -100%;
+  }
+}
+
+/** MD **/
+@media (min-width: 768px) and (max-width: 992px) {
+  #slide-menu {
+		width: 40%;
+		margin-right: -100%;
+	}
+}
+
+/** LG **/
+@media (min-width: 992px) and (max-width: 1199px) {}

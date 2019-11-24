@@ -1,0 +1,6 @@
+#sidebar {
+  margin-top: 56px;
+  height: -moz-calc(100% - 105px); /* Firefox */
+  height: -webkit-calc(100% - 105px); /* Chrome, Safari */
+  height: calc(100% - 105px); /* IE9+ and future browsers */
+}

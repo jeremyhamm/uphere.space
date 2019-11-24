@@ -1,0 +1,44 @@
+#map-tools {
+  z-index: 401;
+  bottom: 50px;
+}
+#map-tools-toggle, #basemap-toggle {
+  background-color: $dark-gray-rgb;
+  border: 0;
+  border-radius: 0;
+  &:hover {
+    background-color: rgba(43,62,66,0.5);
+  }
+  &:focus, &:active {
+    box-shadow: none;
+  }
+}
+.toggle-icon {
+  color: $black;
+}
+#map-tools-content {
+  background-color: rgba(43,62,66,0.7);
+  color: $white;
+  > div {
+    .list-group {
+      .list-group-item {
+        background-color: transparent;
+        border: 0;
+        border-radius: 0;
+        &:hover {
+          cursor: pointer;
+          background-color: rgba(43,62,66,0.5);
+        }
+      }
+    }
+  }
+}
+
+/** XS **/
+@media (max-width: 576px) {}
+
+/** SM **/
+@media (min-width: 577px) and (max-width: 767px) {}
+
+/** MD **/
+@media (min-width: 768px) and (max-width: 992px) {}

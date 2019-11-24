@@ -1,0 +1,12 @@
+/*** 
+LIST GROUP 
+https://bootstrap-vue.js.org/docs/components/list-group
+***/
+
+.list-group {
+  .list-group-item {
+    border: 0;
+    background-color: $dark-gray;
+    padding: 0.25rem 0.75rem;
+  }
+}
