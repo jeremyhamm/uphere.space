@@ -1,19 +1,26 @@
 version: '3'
 services:
   api:
+    container_name: api
     image: uphere-space-api
     build: .
-    networks:
-      - backend
+    command: node app.js
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
     ports:
       - "3000:3000"
-
-  web-cli:
-    image: uphere-space-api
-    networks:
-      - backend
-    command: sh
-
-networks:
-  backend:
-    driver: bridge
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      DATABASE_URL: postgres://uphere-space@postgres
+  redis:
+    container_name: redis
+    image: "redis:latest"
+  postgres:
+    container_name: postgres
+    image: "postgres:latest"
+    environment:
+      POSTGRES_USER: uphere-admin
+      POSTGRES_DB: uphere-space
