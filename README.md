@@ -1,2 +1,2 @@
-# uphere.space
+# Uphere . Space 🛰️
 Realtime satellite tracking and predictions
