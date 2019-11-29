@@ -1,5 +1,5 @@
 <template>
-  <b-list-group>
+  <b-list-group id="map-tools-content">
     <!-- Tracking -->
     <b-list-group-item
       class="d-flex justify-content-between align-items-center"

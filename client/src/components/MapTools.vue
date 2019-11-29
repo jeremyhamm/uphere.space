@@ -4,16 +4,7 @@
     <b-collapse id="map-tools-collapse" class="mb-1">
       <b-row align-h="end" no-gutters>
         <b-col cols="12" md="6" lg="4" xl="3" class="pl-2 pl-md-0">
-          <b-tabs id="map-tools-content" pills>
-            <!-- Satellite options -->
-            <b-tab title="Satellite Options" active class="pt-3">
-              <satellite-options />
-            </b-tab>
-            <!-- User location options -->
-            <b-tab title="Location Options" class="pt-3">
-              <user-options />
-            </b-tab>
-          </b-tabs>
+          <satellite-options />
         </b-col>
       </b-row>
     </b-collapse>
@@ -30,13 +21,11 @@
 
 <script>
 import SatelliteOptions from "./SatelliteOptions";
-import UserOptions from "./UserOptions";
 import MapService from "@/utils/map.service"
 export default {
   name: "MapTools",
   components: {
-    "satellite-options": SatelliteOptions,
-    "user-options": UserOptions
+    "satellite-options": SatelliteOptions
   },
   data() {
     return {

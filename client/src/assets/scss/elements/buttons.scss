@@ -20,6 +20,7 @@ https://bootstrap-vue.js.org/docs/components/button
   border-color: $orange;
   background-color: $orange;
   &:hover, &:active, &:focus, &:disabled, &:not(:disabled):not(.disabled):active:focus {
+    color: $white !important;
     border-color: $orange-hover;
     background-color: $orange-hover;
     -webkit-box-shadow: none;

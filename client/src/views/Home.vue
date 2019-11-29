@@ -23,7 +23,7 @@
         <!-- Satellite List -->
         <b-row no-gutters class="justify-content-center my-5" style="margin-top: 100%;">
           <b-col cols="12" class="text-center">
-            <b-button variant="danger" to="/list">Satellite Tracking List</b-button>
+            <b-button variant="danger" size="lg" to="/list">Satellite Tracking List</b-button>
           </b-col>
         </b-row>
       </div>

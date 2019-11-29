@@ -17,6 +17,7 @@
 </template>
 
 <script>
+window.prerenderReady = false;
 import L from "leaflet";
 import MapService from "@/utils/map.service";
 import MapTools from "./MapTools";
@@ -29,13 +30,16 @@ export default {
     "map-tools": MapTools
   },
   metaInfo() {
+    const satelliteName = this.selectedSatelliteName ? this.selectedSatelliteName : "N/A";
+    const satelliteDetails = this.selectedSatelliteDetails ? this.selectedSatelliteDetails : "N/A";
+    window.prerenderReady = true;
     return {
-      title: `${this.selectedSatelliteName}`,
+      title: `${satelliteName}`,
       titleTemplate: "%s | uphere.space",
       link: [
         {
           rel: 'canonical',
-          href: `${process.env.VUE_APP_URL}/satellites/${this.selectedSatelliteName}`
+          href: `${process.env.VUE_APP_URL}/satellites/${satelliteName}`
         }
       ],
       meta: [
@@ -43,12 +47,12 @@ export default {
           vmid: "description",
           name: "description",
           content:
-            `Tracking and predictions for ${this.selectedSatelliteName} orbiting earth`
+            `Tracking and predictions for ${satelliteName}. Norad ID ${satelliteDetails.number}. International id ${satelliteDetails.intldes}. Launched by ${satelliteDetails.country}.`
         },
         {
           vmid: "keywords",
           name: "keywords",
-          content: `${this.selectedSatelliteName}, satellite, orbit, tracking, map, mapping, nasa, iss, spacex, launch, goes`
+          content: `${satelliteName}, ${satelliteDetails.number}, ${satelliteDetails.intldes}, ${satelliteDetails.country}, satellite, orbit, tracking, map, mapping, nasa, iss, spacex, launch, goes, noaa`
         },
         // Open Graph
         {
@@ -59,22 +63,22 @@ export default {
         {
           vmid: "og:url",
           name: "og:url",
-          content: `${process.env.VUE_APP_URL}/satellites/${this.selectedSatelliteName}`
+          content: `${process.env.VUE_APP_URL}/satellites/${satelliteName}`
         },
         {
           vmid: "og:title",
           name: "og:title",
-          content: `Realtime satellite tracking and predictions | ${this.selectedSatelliteName}`
+          content: `Realtime satellite tracking and predictions | ${satelliteName}`
         },
         {
           vmid: "og:description",
           name: "og:description",
-          content: `Tracking and predictions for ${this.selectedSatelliteName} orbiting earth`
+          content: `Tracking and predictions for ${satelliteName}. Norad ID ${satelliteDetails.number}. International id ${satelliteDetails.intldes}. Launched by ${satelliteDetails.country}.`
         },
         {
           vmid: "og:image",
           name: "og:image",
-          content: `${process.env.VUE_APP_SPACES_URL}/images/satellites/${this.selectedSatelliteName}.png`
+          content: `${process.env.VUE_APP_SPACES_URL}/images/satellites/${satelliteName}.png`
         },
         // Twitter
         { 
@@ -90,22 +94,22 @@ export default {
         {
           vmid: "twitter:title",
           name: "twitter:title",
-          content: `Live satellite tracking and predictions for ${this.selectedSatelliteName}`
+          content: `Realtime satellite tracking and predictions | ${satelliteName}`
         },
         {
           vmid: "twitter:description",
           name: "twitter:description",
-          content: `Tracking and predictions for ${this.selectedSatelliteName} orbiting earth`
+          content: `Tracking and predictions for ${satelliteName}. Norad ID ${satelliteDetails.number}. International id ${satelliteDetails.intldes}. Launched by ${satelliteDetails.country}.`
         },
         {
           vmid: "twitter:image",
           name: "twitter:image",
-          content: `${process.env.VUE_APP_SPACES_URL}/images/satellites/${this.selectedSatelliteName}.png`
+          content: `${process.env.VUE_APP_SPACES_URL}/images/satellites/${satelliteName}.png`
         },
         {
           vmid: "twitter:image:alt",
           name: "twitter:image:alt",
-          content: `${this.selectedSatelliteName} in orbit`
+          content: `${satelliteName} in orbit`
         }
       ]
     };
@@ -124,12 +128,9 @@ export default {
     },
     cardVisibility() {
       return this.$store.getters["satellite/getCardVisibility"];
-    },
-    selectedSatelliteDetails() {
-      return this.$store.getters["satellite/getSelectedSatelliteDetails"];
     }
   },
-  mounted() {
+  created() {
     this.init();
   },
   methods: {
