@@ -15,7 +15,7 @@ prerender.crawlerUserAgents.push('yandex');
 app.use(prerender
   .set('prerenderToken', process.env.PRERENDER_IO_TOKEN)
   .set('forwardHeaders', true)
-  //.set('host', 'https://uphere.space')
+  .set('host', 'https://uphere.space')
   .blacklisted('^/api')
 );
 
