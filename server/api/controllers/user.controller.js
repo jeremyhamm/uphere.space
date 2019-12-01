@@ -1,10 +1,10 @@
-const request = require('request-promise');
-const nodemailer = require('nodemailer');
+const request = require("request-promise");
+const nodemailer = require("nodemailer");
 
 /**
  * Get current location by IP
  */
-exports.getLocationByIp = async(req, res, next) => {
+exports.getLocationByIp = async(req, res) => {
   const ip = req.clientIp; // '134.209.63.38';
   const url = process.env.IP_DATA_URL + "/" + ip + "?api-key=" + process.env.IP_DATA_API_KEY;
   try {
@@ -13,13 +13,13 @@ exports.getLocationByIp = async(req, res, next) => {
     const location = {
       latitude: jsonparse.latitude,
       longitude: jsonparse.longitude
-    }
+    };
     return res
       .status(200)
-      .cookie('location', JSON.stringify(location), {
+      .cookie("location", JSON.stringify(location), {
         expires: new Date(Date.now() + (365 * 3600000)), 
-        domain: 'uphere.space', 
-        path: '/', 
+        domain: "uphere.space", 
+        path: "/", 
         secure: true, 
         httpOnly: true 
       })
@@ -27,12 +27,12 @@ exports.getLocationByIp = async(req, res, next) => {
   } catch(error) {
     return res.status(error.statusCode).json(JSON.parse(error.error));
   }
-}
+};
 
 /**
  * Send message from contact form
  */
-exports.sendMessage = async (req, res, next) => {
+exports.sendMessage = async (req, res) => {
   let transporter = nodemailer.createTransport({
     host: "smtp.zoho.com",
     port: 465,
@@ -52,11 +52,11 @@ exports.sendMessage = async (req, res, next) => {
     text: req.body.message
   };
 
-  await transporter.sendMail(message,  (error, info) => {
+  await transporter.sendMail(message, (error) => {
     if (error) {
       return res.sendStatus(400);
     } else {
       return res.sendStatus(200);
     }
-  })
-}
+  });
+};

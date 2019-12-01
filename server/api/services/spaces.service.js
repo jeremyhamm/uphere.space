@@ -1,5 +1,5 @@
 // Digitalocean Spaces
-const spaces = require('aws-sdk');
+const spaces = require("aws-sdk");
 
 /**
  * Create new spaces instance
@@ -13,7 +13,7 @@ exports.createNewInstance = () => {
     accessKeyId: process.env.SPACES_API_KEY,
     secretAccessKey: process.env.SPACES_API_SECRET
   });
-}
+};
 
 /**
  * Check existance of object in bucket
@@ -34,5 +34,5 @@ exports.checkObjectExists = async (bucket, key) => {
   } catch (err) {
     return false;
   }
-}
+};
 

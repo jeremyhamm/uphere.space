@@ -28,10 +28,10 @@ exports.formatSatelliteCategory = (satellites) => {
   // Remove unneeded field
   responseData.forEach(sat => {
     delete sat.category_name;
-  })
+  });
 
   return responseData;
-}
+};
 
 /**
  * Format order by based on sort input selected
@@ -41,15 +41,15 @@ exports.formatSatelliteCategory = (satellites) => {
  */
 exports.formatSortQuery = (val) => {
   switch (val) {
-    case 'asc':
-      return ` ORDER BY s.name ASC`;
-    case 'desc':
-      return ` ORDER BY s.name DESC`;;
-    case 'launch':
-      return ` ORDER BY s.launch_date DESC`;
-    case 'popular':
-      return ` ORDER BY views.count DESC`;
-    default:
-      return ` ORDER BY s.id ASC`;
+  case "asc":
+    return " ORDER BY s.name ASC";
+  case "desc":
+    return " ORDER BY s.name DESC";
+  case "launch":
+    return " ORDER BY s.launch_date DESC";
+  case "popular":
+    return " ORDER BY views.count DESC";
+  default:
+    return " ORDER BY s.id ASC";
   }
-}
+};

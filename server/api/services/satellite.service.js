@@ -2,10 +2,10 @@
 const connection = require("../database/postgres.connection");
 
 // Satellite.js
-const satellite = require('satellite.js');
+const satellite = require("satellite.js");
 
 // Utils
-const utils = require('./utils.service');
+const utils = require("./utils.service");
 
 /**
  * Convert Euclidean vector (km/s) to mph
@@ -15,8 +15,8 @@ const utils = require('./utils.service');
  * @returns {Int}                 Converted velocity
  */
 exports.convertVelocity = (velocityEci) => {
-  return Math.sqrt((velocityEci.x * velocityEci.x) + (velocityEci.y * velocityEci.y) + (velocityEci.z * velocityEci.z)) * 2236.9362920544
-}
+  return Math.sqrt((velocityEci.x * velocityEci.x) + (velocityEci.y * velocityEci.y) + (velocityEci.z * velocityEci.z)) * 2236.9362920544;
+};
 
 /**
  * Calculate radius of visible footprint on earth surface in meters
@@ -29,7 +29,7 @@ exports.getVisibleFootprint = (height) => {
   const centerAngle = Math.asin(tangent / (6371 + height));
   const footPrintRadius = 6371 * centerAngle;
   return (footPrintRadius * 1000);
-}
+};
 
 /**
  * Get future satellite track
@@ -53,7 +53,7 @@ exports.getTrack = (satrec) => {
     });
   }
   return trackList;
-}
+};
 
 /**
  * Convert km to mi
@@ -63,7 +63,7 @@ exports.getTrack = (satrec) => {
  */
 exports.convertUnits = (val) => {
   return val * 0.621371;
-}
+};
 
 /**
  * Get total number of satellites in DB (for pagination)
@@ -71,8 +71,8 @@ exports.convertUnits = (val) => {
  * @return {Array}
  */
 exports.getSatelliteTotal = async () => {
-  return await connection.one(`SELECT count(s.id) FROM satellites s`);
-}
+  return await connection.one("SELECT count(s.id) FROM satellites s");
+};
 
 /**
  * Get satellite details by name
@@ -81,8 +81,8 @@ exports.getSatelliteTotal = async () => {
  * @return  {Array}
  */
 exports.getDetailsByName = async (name) => {
-  return await connection.one(`SELECT number, type, country, intldes FROM satellites WHERE name = $1 LIMIT 1`, [name]);
-}
+  return await connection.one("SELECT number, type, country, intldes FROM satellites WHERE name = $1 LIMIT 1", [name]);
+};
 
 /**
  * Get list of satellites and corresponding categories
@@ -97,38 +97,38 @@ exports.getSatellites = async (params) => {
     text: params.text ? params.text.toUpperCase() : null,
     categories: params.categories || null,
     sort: params.sort || null
-  }
+  };
 
   let sql =
-    'SELECT s.name, s.number, s.classification, s.launch_date, s.country, s.type, s.size, s.orbital_period, s.intldes, c.name as category_Name' +
-    ' FROM satellites s' +
-    ' LEFT JOIN satellite_categories sc on s.id = sc.satellite_id' +
-    ' LEFT JOIN categories c ON sc.category_id = c.id';
+    "SELECT s.name, s.number, s.classification, s.launch_date, s.country, s.type, s.size, s.orbital_period, s.intldes, c.name as category_Name" +
+    " FROM satellites s" +
+    " LEFT JOIN satellite_categories sc on s.id = sc.satellite_id" +
+    " LEFT JOIN categories c ON sc.category_id = c.id";
 
-    if (sql_params.sort === 'popular') {
-      sql += `
+  if (sql_params.sort === "popular") {
+    sql += `
         JOIN (
           SELECT v.satellite_id, COUNT(v.id) as count
           FROM views v
           GROUP BY v.satellite_id
         ) views ON s.id = views.satellite_id
       `;
-    }
+  }
 
-    sql += ' WHERE s.active';
-    if (sql_params.text) {
-      sql += ' AND document_vectors @@ plainto_tsquery($3)';
-    }
-    if (sql_params.categories) {
-      sql += ' AND c.name IN ($4:csv)';
-    }
-    if (sql_params.sort) {
-      sql += utils.formatSortQuery(sql_params.sort);
-    } else {
-      sql += ' ORDER BY s.id ASC';
-    }
-    sql += ' LIMIT $1' +
-      ' OFFSET $2';
+  sql += " WHERE s.active";
+  if (sql_params.text) {
+    sql += " AND document_vectors @@ plainto_tsquery($3)";
+  }
+  if (sql_params.categories) {
+    sql += " AND c.name IN ($4:csv)";
+  }
+  if (sql_params.sort) {
+    sql += utils.formatSortQuery(sql_params.sort);
+  } else {
+    sql += " ORDER BY s.id ASC";
+  }
+  sql += " LIMIT $1" +
+      " OFFSET $2";
 
   // Get data
   return await connection.task(async t => {
@@ -137,7 +137,7 @@ exports.getSatellites = async (params) => {
     // Format data
     return utils.formatSatelliteCategory(satellites);
   });
-}
+};
 
 /**
  * Get the most viewed satellites
@@ -168,7 +168,7 @@ exports.getMostViewed = async () => {
     // Format data
     return utils.formatSatelliteCategory(satellites);
   });
-}
+};
 
 /**
  * Save satellite view
@@ -185,4 +185,4 @@ exports.saveView = (name) => {
     RETURNING id
   `;
   connection.one(sql, [name]);   
-}
+};

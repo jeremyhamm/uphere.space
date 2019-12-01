@@ -19,7 +19,7 @@ const satelliteService = require("../services/satellite.service");
 /**
  * Get current location of selected satellite
  */
-exports.getSatelliteLocation = (req, res, next) => {
+exports.getSatelliteLocation = (req, res) => {
   client.hgetall(req.params.satellite, (error, result) => {           
     if (error) {
       res.status(400);
@@ -72,16 +72,16 @@ exports.getSatelliteLocation = (req, res, next) => {
         "footprint_radius": satelliteService.getVisibleFootprint(positionGd.height),
         "track": satelliteService.getTrack(satrec)
       }
-    }
+    };
 
     return res.status(200).json(geoJson);
   });
-}
+};
 
 /**
  * Get icon for satellite type
  */
-exports.getSatelliteDetails = (req, res, next) => {
+exports.getSatelliteDetails = (req, res) => {
   satelliteService.getDetailsByName(req.params.satellite)
     .then(results => {
       
@@ -93,13 +93,13 @@ exports.getSatelliteDetails = (req, res, next) => {
     .catch(error => {
       console.log("ERROR:", error);
       return res.status(400).json(error);
-    })
-}
+    });
+};
 
 /**
  * Get complete list of categories
  */
-exports.getCategoryList = async (req, res, next) => {
+exports.getCategoryList = async (req, res) => {
   
   // Format query
   const sql = `
@@ -116,39 +116,39 @@ exports.getCategoryList = async (req, res, next) => {
     .catch(error => {
       console.log("ERROR:", error);
       return res.status(400).json(error);
-    })
-}
+    });
+};
 
 /**
  * Get all trackable satellites
  */
-exports.getSatelliteList = (req, res, next) => {
+exports.getSatelliteList = (req, res) => {
   satelliteService.getSatellites(req.query)
     .then(response => {
       return res.status(200).json(response);
     })
     .catch(error => {
       return res.status(400).json(error);
-    })
-}
+    });
+};
 
 /**
  * Get most viewed satellites
  */
-exports.getTopList = (req, res, next) => {
+exports.getTopList = (req, res) => {
   satelliteService.getMostViewed()
     .then(response => {
       return res.status(200).json(response);
     })
-    .catch(error => {
+    .catch(() => {
       return res.status(400);
-    })
-}
+    });
+};
 
 /**
  * Get visible passes for x days
  */
-exports.getVisiblePasses = (req, res, next) => {
+exports.getVisiblePasses = (req, res) => {
   client.hgetall(req.params.satellite, (error, result) => {        
     if (error) {
       res.status(400);
@@ -187,7 +187,7 @@ exports.getVisiblePasses = (req, res, next) => {
       visibility.azimuth = lookAngles.azimuth * 180 / Math.PI;
       visibility.elevation = lookAngles.elevation * 180 / Math.PI;
       visibility.date = passTime;
-     // }
+      // }
       if (visibility.elevation > 0) {
         passes.push(visibility);
       }
@@ -195,4 +195,4 @@ exports.getVisiblePasses = (req, res, next) => {
 
     return res.status(200).json(passes);
   });
-}
+};
