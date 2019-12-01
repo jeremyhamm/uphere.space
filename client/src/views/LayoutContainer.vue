@@ -23,7 +23,7 @@
             class="satellite-card-sm"
           />
         </div>
-        <map-container v-if="userLocation" />
+        <map-container />
       </b-col>
     </b-row>
   </b-container>

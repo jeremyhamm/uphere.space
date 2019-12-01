@@ -78,7 +78,7 @@ const user = {
       return state.year;
     },
     getLocation: state => {
-      return state.location ? state.location : 'N/A';
+      return state.location || null;
     },
     getMarker: state => {
       return state.marker;
