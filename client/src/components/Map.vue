@@ -164,7 +164,7 @@ export default {
       );
       this.$store
         .dispatch("satellite/satelliteLocation", this.selectedSatelliteName)
-        .then(response => {
+        .then(() => {
           const coords = this.selectedSatelliteLocation.geometry.coordinates;
           this.createMap(coords[0], coords[1]);
         });
@@ -182,7 +182,7 @@ export default {
       // Controls
       MapService.setScaleControls("imperial").addTo(this.map);
       // Add default basemap
-      const mapboxStreets = L.tileLayer(
+      L.tileLayer(
         "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
         {
           id: "mapbox.streets",

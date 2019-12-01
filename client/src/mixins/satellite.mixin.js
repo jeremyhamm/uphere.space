@@ -278,10 +278,14 @@ const satelliteMixin = {
     },
     toggleLocation() {
       if (!this.userMarker) {
-        this.userMarker = MapService.toggleUserLocation(this.userIcon, this.userLocation).addTo(
-          this.map
-        );
-        this.map.setView([this.userLocation.latitude, this.userLocation.longitude]);
+        this.userMarker = MapService.toggleUserLocation(
+          this.userIcon,
+          this.userLocation
+        ).addTo(this.map);
+        this.map.setView([
+          this.userLocation.latitude,
+          this.userLocation.longitude
+        ]);
       } else {
         this.userMarker.remove();
         this.userMarker = null;

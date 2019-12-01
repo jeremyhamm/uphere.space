@@ -1,3 +1,4 @@
+/* eslint-disable */
 import L from "leaflet";
 /*
 Leaflet.greatCircle.js

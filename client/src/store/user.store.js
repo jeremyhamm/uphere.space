@@ -55,6 +55,7 @@ const user = {
         );
       });
     },
+    // eslint-disable-next-line
     sendContactMessage({}, message) {
       return new Promise((resolve, reject) => {
         axios.post(process.env.VUE_APP_API_URL + "/user/contact", message).then(

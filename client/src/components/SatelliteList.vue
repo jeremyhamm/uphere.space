@@ -15,15 +15,13 @@
 
 <script>
 import SatelliteCardDetails from "@/components/SatelliteCardDetails";
-import SatelliteCategories from "@/components/SatelliteCategories";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 dayjs.extend(utc);
 export default {
   name: "SatelliteList",
   components: {
-    "satellite-card-details": SatelliteCardDetails,
-    "satellite-categories": SatelliteCategories
+    "satellite-card-details": SatelliteCardDetails
   },
   data() {
     return {
