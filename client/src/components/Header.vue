@@ -113,8 +113,9 @@ export default {
       document.querySelector(".navbar-toggler").classList.toggle("open");
     },
     satelliteListNav() {
-      return this.satelliteTextFilter ? 
-        { name: "List", query: { search: this.satelliteTextFilter } } : { name: "List" };
+      return this.satelliteTextFilter
+        ? { name: "List", query: { search: this.satelliteTextFilter } }
+        : { name: "List" };
     }
   }
 };

@@ -14,7 +14,7 @@ const satellite = {
     satelliteList: null,
     categoryList: null,
     cardVisibility: false,
-    topList: [],
+    topList: []
   },
   mutations: {
     setInterval(state, val) {
@@ -64,28 +64,42 @@ const satellite = {
   actions: {
     satelliteLocation({ commit }, name) {
       return new Promise((resolve, reject) => {
-        axios.get(process.env.VUE_APP_API_URL + "/satellite/" + encodeURIComponent(name) + "/location").then(
-          response => {
-            commit("setSelectedSatelliteLocation", response.data);
-            resolve(response);
-          },
-          error => {
-            reject(error);
-          }
-        );
+        axios
+          .get(
+            process.env.VUE_APP_API_URL +
+              "/satellite/" +
+              encodeURIComponent(name) +
+              "/location"
+          )
+          .then(
+            response => {
+              commit("setSelectedSatelliteLocation", response.data);
+              resolve(response);
+            },
+            error => {
+              reject(error);
+            }
+          );
       });
     },
     satelliteDetails({ commit }, name) {
       return new Promise((resolve, reject) => {
-        axios.get(process.env.VUE_APP_API_URL + "/satellite/" + encodeURIComponent(name) + "/details").then(
-          response => {
-            commit("setSelectedSatelliteDetails", response.data);
-            resolve();
-          },
-          error => {
-            reject(error);
-          }
-        );
+        axios
+          .get(
+            process.env.VUE_APP_API_URL +
+              "/satellite/" +
+              encodeURIComponent(name) +
+              "/details"
+          )
+          .then(
+            response => {
+              commit("setSelectedSatelliteDetails", response.data);
+              resolve();
+            },
+            error => {
+              reject(error);
+            }
+          );
       });
     },
     fetchSatelliteList({ state, commit }) {
@@ -96,18 +110,20 @@ const satellite = {
         sort: state.satelliteSort
       };
       return new Promise((resolve, reject) => {
-        axios.get(process.env.VUE_APP_API_URL + "/satellite/list", {
-          params
-        }).then(
-          response => {
-            commit("setSatelliteList", response.data);
-            commit("setSatellitePage", state.satellitePageNumber += 1);
-            resolve(response);
-          },
-          error => {
-            reject(error);
-          }
-        );
+        axios
+          .get(process.env.VUE_APP_API_URL + "/satellite/list", {
+            params
+          })
+          .then(
+            response => {
+              commit("setSatelliteList", response.data);
+              commit("setSatellitePage", (state.satellitePageNumber += 1));
+              resolve(response);
+            },
+            error => {
+              reject(error);
+            }
+          );
       });
     },
     fetchCategoryList({ commit }) {
@@ -127,17 +143,15 @@ const satellite = {
     },
     fetchTopList({ commit }) {
       return new Promise((resolve, reject) => {
-        axios
-          .get(process.env.VUE_APP_API_URL + "/satellite/top")
-          .then(
-            response => {
-              commit("setTopList", response.data);
-              resolve();
-            },
-            error => {
-              reject(error);
-            }
-          );
+        axios.get(process.env.VUE_APP_API_URL + "/satellite/top").then(
+          response => {
+            commit("setTopList", response.data);
+            resolve();
+          },
+          error => {
+            reject(error);
+          }
+        );
       });
     }
   },

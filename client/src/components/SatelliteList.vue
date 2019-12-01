@@ -27,7 +27,7 @@ export default {
   },
   data() {
     return {
-      config: process.env,
+      config: process.env
     };
   },
   metaInfo() {
@@ -36,7 +36,7 @@ export default {
       titleTemplate: "%s | uphere.space",
       link: [
         {
-          rel: 'canonical',
+          rel: "canonical",
           href: `${process.env.VUE_APP_URL}/list`
         }
       ],
@@ -71,18 +71,21 @@ export default {
         {
           vmid: "og:description",
           name: "og:description",
-          content: "List of satellites orbiting earth for tracking and predictions"
+          content:
+            "List of satellites orbiting earth for tracking and predictions"
         },
         {
           vmid: "og:image",
           name: "og:image",
-          content: `${process.env.VUE_APP_SPACES_URL}/images/satellites/ISS (ZARYA).png`
+          content: `${
+            process.env.VUE_APP_SPACES_URL
+          }/images/satellites/ISS (ZARYA).png`
         },
         // Twitter
-        { 
+        {
           vmid: "twitter:card",
           name: "twitter:card",
-          content: "summary" 
+          content: "summary"
         },
         {
           vmid: "twitter:site",
@@ -97,12 +100,15 @@ export default {
         {
           vmid: "twitter:description",
           name: "twitter:description",
-          content: "List of satellites orbiting earth for tracking and predictions"
+          content:
+            "List of satellites orbiting earth for tracking and predictions"
         },
         {
           vmid: "twitter:image",
           name: "twitter:image",
-          content: `${process.env.VUE_APP_SPACES_URL}/images/satellites/ISS (ZARYA).png`
+          content: `${
+            process.env.VUE_APP_SPACES_URL
+          }/images/satellites/ISS (ZARYA).png`
         },
         {
           vmid: "twitter:image:alt",

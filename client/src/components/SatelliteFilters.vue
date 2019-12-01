@@ -1,24 +1,19 @@
 <template>
-  <div
-    id="filters-container"
-    class="fixed-top"
-    v-if="categoryList"
-  >
+  <div id="filters-container" class="fixed-top" v-if="categoryList">
     <b-form @submit="updateList" @reset="resetFilters" novalidate>
       <!-- Text filter -->
       <b-form-row class="mt-3 mx-auto">
         <b-col cols="12" md="8" xl="6" offset-xl="3">
-          <b-form-input
-            v-model="textSearch"
-            placeholder="Search by name or id"
-          >
+          <b-form-input v-model="textSearch" placeholder="Search by name or id">
           </b-form-input>
         </b-col>
       </b-form-row>
       <!-- Category filter -->
       <b-form-row class="mt-3 mb-5 mx-auto">
         <b-col cols="12" md="8" xl="6" offset-xl="3">
-          <div class="mt-4 mb-3 font-weight-bold text-uppercase">Filter by Category</div>
+          <div class="mt-4 mb-3 font-weight-bold text-uppercase">
+            Filter by Category
+          </div>
           <b-form-checkbox-group
             stacked
             :options="categoryList"
@@ -33,7 +28,10 @@
         </b-col>
       </b-form-row>
       <!-- Submit -->
-      <b-form-row id="filters-submit" class="position-fixed d-flex text-center py-2">
+      <b-form-row
+        id="filters-submit"
+        class="position-fixed d-flex text-center py-2"
+      >
         <b-col cols="12">
           <b-button
             type="submit"
@@ -116,7 +114,10 @@ export default {
       this.satelliteList = [];
       this.infiniteReset += 1;
       if (this.textSearch) {
-        this.$router.replace({ path: "/list", query: { search: this.textSearch } });
+        this.$router.replace({
+          path: "/list",
+          query: { search: this.textSearch }
+        });
       }
     },
     resetFilters() {

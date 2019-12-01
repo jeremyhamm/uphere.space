@@ -1,10 +1,7 @@
 <template>
   <b-container fluid id="list-container">
     <!-- Filters -->
-    <b-nav
-      align="left"
-      class="w-100 filter-nav position-fixed"
-    >
+    <b-nav align="left" class="w-100 filter-nav position-fixed">
       <b-nav-item class="ml-md-3" @click="toggleFilters()">
         <font-awesome-icon icon="filter" size="lg" />
         <span class="mr-1">Filters</span>
@@ -23,12 +20,12 @@
           @click="sortBy(option.value)"
           :active="option.active === option.value"
         >
-          <font-awesome-icon :icon="option.icon"/>
+          <font-awesome-icon :icon="option.icon" />
           <span class="pl-2">{{ option.text }}</span>
         </b-dropdown-item>
       </b-nav-item-dropdown>
     </b-nav>
-    <satellite-filters @filters="closeFilters" v-show="filters"/>
+    <satellite-filters @filters="closeFilters" v-show="filters" />
     <!-- List -->
     <b-row v-if="satelliteList && categoryList" class="justify-content-center">
       <b-col cols="12" md="9" xl="8" class="mt-5">
@@ -37,10 +34,15 @@
         <!-- Infinate loader -->
         <b-row class="pb-5 pt-1">
           <b-col cols="12">
-            <infinite-loading :identifier="infiniteReset" @infinite="loadMoreSatellites">
-              <div slot="spinner"><loader/></div>
+            <infinite-loading
+              :identifier="infiniteReset"
+              @infinite="loadMoreSatellites"
+            >
+              <div slot="spinner"><loader /></div>
               <div slot="no-more" class="text-center mb-3">No more results</div>
-              <div slot="no-results" class="text-center mb-3">No more results</div>
+              <div slot="no-results" class="text-center mb-3">
+                No more results
+              </div>
             </infinite-loading>
           </b-col>
         </b-row>
@@ -54,7 +56,7 @@
 import ListMixin from "@/mixins/list.mixin";
 import SatelliteFilters from "@/components/SatelliteFilters";
 import SatelliteList from "@/components/SatelliteList";
-import InfiniteLoading from 'vue-infinite-loading';
+import InfiniteLoading from "vue-infinite-loading";
 import Loader from "@/views/Loader";
 export default {
   name: "ListLayout",
@@ -140,10 +142,14 @@ export default {
       this.filters = !this.filters;
       if (this.filters) {
         document.body.classList.add("overlay-open");
-        document.getElementById("footer").setAttribute("style", "visibility: hidden;");
+        document
+          .getElementById("footer")
+          .setAttribute("style", "visibility: hidden;");
       } else {
         document.body.classList.remove("overlay-open");
-        document.getElementById("footer").setAttribute("style", "visibility: initial;");
+        document
+          .getElementById("footer")
+          .setAttribute("style", "visibility: initial;");
       }
     },
     sortBy(val) {
@@ -152,14 +158,13 @@ export default {
       this.$store.dispatch("satellite/fetchSatelliteList");
     },
     loadMoreSatellites($state) {
-      this.$store.dispatch("satellite/fetchSatelliteList")
-        .then(response => {
-          if (response.data.length === 0) {
-            $state.complete();
-          } else {
-            $state.loaded();
-          }
-        });
+      this.$store.dispatch("satellite/fetchSatelliteList").then(response => {
+        if (response.data.length === 0) {
+          $state.complete();
+        } else {
+          $state.loaded();
+        }
+      });
     },
     closeFilters() {
       this.toggleFilters();

@@ -19,7 +19,7 @@
 <script>
 window.prerenderReady = false;
 import L from "leaflet";
-import MapService from "@/utils/map.service";
+import MapService from "@/services/map.service";
 import MapTools from "./MapTools";
 import SatelliteMixin from "@/mixins/satellite.mixin";
 
@@ -30,15 +30,19 @@ export default {
     "map-tools": MapTools
   },
   metaInfo() {
-    const satelliteName = this.selectedSatelliteName ? this.selectedSatelliteName : "N/A";
-    const satelliteDetails = this.selectedSatelliteDetails ? this.selectedSatelliteDetails : "N/A";
+    const satelliteName = this.selectedSatelliteName
+      ? this.selectedSatelliteName
+      : "N/A";
+    const satelliteDetails = this.selectedSatelliteDetails
+      ? this.selectedSatelliteDetails
+      : "N/A";
     window.prerenderReady = true;
     return {
       title: `${satelliteName}`,
       titleTemplate: "%s | uphere.space",
       link: [
         {
-          rel: 'canonical',
+          rel: "canonical",
           href: `${process.env.VUE_APP_URL}/satellites/${satelliteName}`
         }
       ],
@@ -46,13 +50,20 @@ export default {
         {
           vmid: "description",
           name: "description",
-          content:
-            `Tracking and predictions for ${satelliteName}. Norad ID ${satelliteDetails.number}. International id ${satelliteDetails.intldes}. Launched by ${satelliteDetails.country}.`
+          content: `Tracking and predictions for ${satelliteName}. Norad ID ${
+            satelliteDetails.number
+          }. International id ${satelliteDetails.intldes}. Launched by ${
+            satelliteDetails.country
+          }.`
         },
         {
           vmid: "keywords",
           name: "keywords",
-          content: `${satelliteName}, ${satelliteDetails.number}, ${satelliteDetails.intldes}, ${satelliteDetails.country}, satellite, orbit, tracking, map, mapping, nasa, iss, spacex, launch, goes, noaa`
+          content: `${satelliteName}, ${satelliteDetails.number}, ${
+            satelliteDetails.intldes
+          }, ${
+            satelliteDetails.country
+          }, satellite, orbit, tracking, map, mapping, nasa, iss, spacex, launch, goes, noaa`
         },
         // Open Graph
         {
@@ -73,18 +84,24 @@ export default {
         {
           vmid: "og:description",
           name: "og:description",
-          content: `Tracking and predictions for ${satelliteName}. Norad ID ${satelliteDetails.number}. International id ${satelliteDetails.intldes}. Launched by ${satelliteDetails.country}.`
+          content: `Tracking and predictions for ${satelliteName}. Norad ID ${
+            satelliteDetails.number
+          }. International id ${satelliteDetails.intldes}. Launched by ${
+            satelliteDetails.country
+          }.`
         },
         {
           vmid: "og:image",
           name: "og:image",
-          content: `${process.env.VUE_APP_SPACES_URL}/images/satellites/${satelliteName}.png`
+          content: `${
+            process.env.VUE_APP_SPACES_URL
+          }/images/satellites/${satelliteName}.png`
         },
         // Twitter
-        { 
+        {
           vmid: "twitter:card",
           name: "twitter:card",
-          content: "summary" 
+          content: "summary"
         },
         {
           vmid: "twitter:site",
@@ -99,12 +116,18 @@ export default {
         {
           vmid: "twitter:description",
           name: "twitter:description",
-          content: `Tracking and predictions for ${satelliteName}. Norad ID ${satelliteDetails.number}. International id ${satelliteDetails.intldes}. Launched by ${satelliteDetails.country}.`
+          content: `Tracking and predictions for ${satelliteName}. Norad ID ${
+            satelliteDetails.number
+          }. International id ${satelliteDetails.intldes}. Launched by ${
+            satelliteDetails.country
+          }.`
         },
         {
           vmid: "twitter:image",
           name: "twitter:image",
-          content: `${process.env.VUE_APP_SPACES_URL}/images/satellites/${satelliteName}.png`
+          content: `${
+            process.env.VUE_APP_SPACES_URL
+          }/images/satellites/${satelliteName}.png`
         },
         {
           vmid: "twitter:image:alt",
@@ -135,7 +158,10 @@ export default {
   },
   methods: {
     init() {
-      this.$store.dispatch("satellite/satelliteDetails", this.selectedSatelliteName);
+      this.$store.dispatch(
+        "satellite/satelliteDetails",
+        this.selectedSatelliteName
+      );
       this.$store
         .dispatch("satellite/satelliteLocation", this.selectedSatelliteName)
         .then(response => {

@@ -19,7 +19,8 @@ const user = {
     marker: null,
     icon: {
       iconUrl: `${process.env.VUE_APP_SPACES_URL}/images/icons/home.png`,
-      iconSize: [50, 50]
+      iconSize: [50, 50],
+      iconAnchor: [25, 50]
     }
   },
   mutations: {
@@ -81,7 +82,7 @@ const user = {
       return state.location || null;
     },
     getMarker: state => {
-      return state.marker;
+      return state.marker || null;
     },
     getIcon: state => {
       return state.icon;

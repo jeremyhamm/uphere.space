@@ -1,10 +1,7 @@
 <template>
-  <div> 
+  <div>
     <b-list-group class="pt-3">
-      <b-list-group-item
-        v-for="satellite in satellites"
-        :key="satellite"
-      >
+      <b-list-group-item v-for="satellite in satellites" :key="satellite">
         <b-button
           variant="danger"
           size="sm"
@@ -68,9 +65,9 @@ export default {
       return this.$store.getters["satellite/getSelectedSatelliteName"];
     }
   },
-  methods:{
+  methods: {
     configureButtonText() {
-      switch(this.selectedSatelliteName) {
+      switch (this.selectedSatelliteName) {
         case "ISS (ZARYA)":
           return "video";
         case "GOES 17":

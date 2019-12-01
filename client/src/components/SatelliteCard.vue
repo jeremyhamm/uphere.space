@@ -35,20 +35,36 @@
           </span>
         </b-list-group-item>
         <!-- Azimuth -->
-        <b-list-group-item v-if="selectedSatelliteLocation.properties.visibility.azimuth">
+        <b-list-group-item
+          v-if="selectedSatelliteLocation.properties.visibility.azimuth"
+        >
           <small class="float-left text-uppercase">azimuth</small>
           <span class="float-right">
-            {{ formatFloat(selectedSatelliteLocation.properties.visibility.azimuth) }}
+            {{
+              formatFloat(
+                selectedSatelliteLocation.properties.visibility.azimuth
+              )
+            }}
             <small class="text-uppercase ml-1">
-              {{ getCompassDirection(selectedSatelliteLocation.properties.visibility.azimuth) }}
+              {{
+                getCompassDirection(
+                  selectedSatelliteLocation.properties.visibility.azimuth
+                )
+              }}
             </small>
           </span>
         </b-list-group-item>
         <!-- Elevation -->
-        <b-list-group-item v-if="selectedSatelliteLocation.properties.visibility.elevation">
+        <b-list-group-item
+          v-if="selectedSatelliteLocation.properties.visibility.elevation"
+        >
           <small class="float-left text-uppercase">elevation</small>
           <span class="float-right">
-            {{ formatFloat(selectedSatelliteLocation.properties.visibility.elevation) }}
+            {{
+              formatFloat(
+                selectedSatelliteLocation.properties.visibility.elevation
+              )
+            }}
             &#176;
           </span>
         </b-list-group-item>

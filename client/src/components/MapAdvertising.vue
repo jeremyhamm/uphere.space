@@ -1,8 +1,6 @@
 <template>
   <b-row id="ads" class="position-absolute">
-    <b-col cols="12">
-      
-    </b-col>
+    <b-col cols="12"> </b-col>
   </b-row>
 </template>
 
@@ -20,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss">
-  #ads {
-    bottom: 0;
-  }
+#ads {
+  bottom: 0;
+}
 </style>

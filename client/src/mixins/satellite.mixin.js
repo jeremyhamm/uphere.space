@@ -1,7 +1,8 @@
 import L from "leaflet";
 import "@/utils/Leaflet.greatCircle";
 import "@/utils/Leaflet.Geodesic";
-import ShadowService from "@/utils/shadow.service";
+import ShadowService from "@/services/shadow.service";
+import MapService from "@/services/map.service";
 const satelliteMixin = {
   data() {
     return {
@@ -50,6 +51,20 @@ const satelliteMixin = {
         this.shadows[name] = value;
       }
     },
+    userMarker: {
+      get() {
+        return this.$store.getters["user/getMarker"];
+      },
+      set(val) {
+        return this.$store.commit("user/setMarker", val);
+      }
+    },
+    userIcon() {
+      return this.$store.getters["user/getIcon"];
+    },
+    userLocation() {
+      return this.$store.getters["user/getLocation"];
+    },
     interval: {
       get() {
         return this.$store.getters["satellite/getInterval"];
@@ -91,7 +106,7 @@ const satelliteMixin = {
      */
     setMapTracking() {
       const coords = this.selectedSatelliteLocation.geometry.coordinates;
-      this.map.setView([coords[1], coords[0]], 5);
+      this.map.setView([coords[1], coords[0]]);
     },
     /**
      * Add satellite layer to map
@@ -101,11 +116,11 @@ const satelliteMixin = {
       this.addSatelliteData();
     },
     determineIconSize(icon) {
-      switch(icon) {
+      switch (icon) {
         case "AQUA":
           return [60, 30];
         case "GOES 17":
-            return [60, 40];
+          return [60, 40];
         case "HST":
         case "ISS (ZARYA)":
         case "SWIFT":
@@ -117,7 +132,7 @@ const satelliteMixin = {
       }
     },
     determineIconImage(icon) {
-      switch(icon) {
+      switch (icon) {
         case "AQUA":
           return "aqua.svg";
         case "GOES 17":
@@ -259,6 +274,17 @@ const satelliteMixin = {
         }).addTo(this.map);
       } else {
         this.path.remove();
+      }
+    },
+    toggleLocation() {
+      if (!this.userMarker) {
+        this.userMarker = MapService.toggleUserLocation(this.userIcon, this.userLocation).addTo(
+          this.map
+        );
+        this.map.setView([this.userLocation.latitude, this.userLocation.longitude]);
+      } else {
+        this.userMarker.remove();
+        this.userMarker = null;
       }
     },
     /**

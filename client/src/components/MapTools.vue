@@ -12,10 +12,6 @@
     <b-button id="basemap-toggle" class="mr-3" @click="toggleBasemap()">
       <font-awesome-icon class="toggle-icon" icon="layer-group" size="lg" />
     </b-button>
-    <!-- User Location Toggle -->
-    <b-button v-if="userLocation" id="location-toggle" class="mr-3" @click="toggleLocation()">
-      <font-awesome-icon class="toggle-icon" icon="map-marker-alt" size="lg" />
-    </b-button>
     <!-- Collapse button -->
     <b-button id="map-tools-toggle" v-b-toggle.map-tools-collapse>
       <font-awesome-icon class="toggle-icon" icon="sliders-h" size="lg" />
@@ -25,7 +21,7 @@
 
 <script>
 import SatelliteOptions from "./SatelliteOptions";
-import MapService from "@/utils/map.service"
+import MapService from "@/services/map.service";
 export default {
   name: "MapTools",
   components: {
@@ -47,19 +43,9 @@ export default {
     },
     map() {
       return this.$store.getters["map/getMap"];
-    },
-    userIcon() {
-      return this.$store.getters["user/getIcon"];
-    },
-    userLocation() {
-      return this.$store.getters["user/getLocation"];
     }
   },
   methods: {
-    toggleLocation() {
-      MapService.toggleUserLocation(this.userIcon, this.userLocation)
-        .addTo(this.map);
-    },
     toggleBasemap() {
       if (this.basemap === "default") {
         MapService.getBasemapUrl("night").addTo(this.map);
