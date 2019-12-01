@@ -5,7 +5,7 @@
       <div
         v-for="satellite in satelliteList"
         :key="satellite.number"
-        class="box mb-5 mx-auto pt-3"
+        class="box mx-auto pt-3"
       >
         <satellite-card-details :satellite="satellite" />
       </div>

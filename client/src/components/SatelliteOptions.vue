@@ -45,6 +45,7 @@
       <font-awesome-icon icon="toggle-off" size="2x" v-else />
     </b-list-group-item>
     <b-list-group-item
+      v-if="userLocation"
       class="d-flex justify-content-between align-items-center"
       @click="toggleOptions('location')"
     >

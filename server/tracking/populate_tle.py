@@ -19,7 +19,12 @@ def read_satellite_file(url):
   return satelliteNames
 
 def connect_redis():
-  pool = pool = redis.ConnectionPool(host='redis', port=6379)
+  pool = pool = redis.ConnectionPool(
+    host='satellite-list-do-user-6401666-0.db.ondigitalocean.com',
+    password="du4riwzdieyv098q",
+    port=25061,
+    connection_class=redis.SSLConnection
+  )
   return redis.Redis(connection_pool=pool)
 
 def save_to_redis(name, elements):

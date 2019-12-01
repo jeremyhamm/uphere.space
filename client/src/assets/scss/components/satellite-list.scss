@@ -68,6 +68,18 @@
     }
   }
 }
+#sort {
+  button.dropdown-item {
+    color: $white;
+    outline: 0;
+    .active {
+      background-color: $orange;
+    }
+    &:hover {
+      color: $orange;
+    }
+  }
+}
 
 /** XS **/
 @media (max-width: 576px) {

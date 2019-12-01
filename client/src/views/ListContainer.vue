@@ -14,15 +14,15 @@
         toggle-class="nav-link-custom"
         right
       >
-        <b-dropdown-item
+        <b-dropdown-item-button
           v-for="option in sortOptions"
           :key="option.value"
           @click="sortBy(option.value)"
-          :active="option.active === option.value"
+          :active="option.active"
         >
           <font-awesome-icon :icon="option.icon" />
           <span class="pl-2">{{ option.text }}</span>
-        </b-dropdown-item>
+        </b-dropdown-item-button>
       </b-nav-item-dropdown>
     </b-nav>
     <satellite-filters @filters="closeFilters" v-show="filters" />
@@ -72,11 +72,31 @@ export default {
       config: process.env,
       filters: false,
       sortOptions: [
-        { value: "recommended", text: "Recommended", icon: "award" },
-        { value: "popular", text: "Popular", icon: "fire-alt" },
-        { value: "asc", text: "Ascending", icon: "sort-alpha-down" },
-        { value: "desc", text: "Decending", icon: "sort-alpha-up" },
-        { value: "launch", text: "Recently Launched", icon: "calendar-alt" }
+        {
+          value: "recommended",
+          text: "Recommended",
+          icon: "award",
+          active: true
+        },
+        { value: "popular", text: "Popular", icon: "fire-alt", active: false },
+        {
+          value: "asc",
+          text: "Ascending",
+          icon: "sort-alpha-down",
+          active: false
+        },
+        {
+          value: "desc",
+          text: "Decending",
+          icon: "sort-alpha-up",
+          active: false
+        },
+        {
+          value: "launch",
+          text: "Recently Launched",
+          icon: "calendar-alt",
+          active: false
+        }
       ]
     };
   },
@@ -155,6 +175,13 @@ export default {
     sortBy(val) {
       this.satellitePageNumber = 1;
       this.satelliteSort = val;
+      this.sortOptions.forEach(option => {
+        if (val === option.value) {
+          option.active = true;
+        } else {
+          option.active = false;
+        }
+      });
       this.$store.dispatch("satellite/fetchSatelliteList");
     },
     loadMoreSatellites($state) {
