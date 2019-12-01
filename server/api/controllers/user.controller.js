@@ -3,6 +3,10 @@ const nodemailer = require("nodemailer");
 
 /**
  * Get current location by IP
+ * 
+ * @param {Object} req request object
+ * @param {Object} res response object
+ * @return {JSON} json location information
  */
 exports.getLocationByIp = async(req, res) => {
   const ip = req.clientIp; // '134.209.63.38';
@@ -31,6 +35,10 @@ exports.getLocationByIp = async(req, res) => {
 
 /**
  * Send message from contact form
+ * 
+ * @param {Object} req request object
+ * @param {Object} res response object
+ * @return {Void}
  */
 exports.sendMessage = async (req, res) => {
   let transporter = nodemailer.createTransport({

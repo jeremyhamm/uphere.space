@@ -18,6 +18,10 @@ const satelliteService = require("../services/satellite.service");
 
 /**
  * Get current location of selected satellite
+ * 
+ * @param {Object} req request object
+ * @param {Object} res response object
+ * @return {JSON} satellite location details
  */
 exports.getSatelliteLocation = (req, res) => {
   client.hgetall(req.params.satellite, (error, result) => {           
@@ -80,6 +84,10 @@ exports.getSatelliteLocation = (req, res) => {
 
 /**
  * Get icon for satellite type
+ * 
+ * @param {Object} req request object
+ * @param {Object} res response object
+ * @return {JSON} satellite list
  */
 exports.getSatelliteDetails = (req, res) => {
   satelliteService.getDetailsByName(req.params.satellite)
@@ -91,13 +99,16 @@ exports.getSatelliteDetails = (req, res) => {
       return res.status(200).json(results);
     })
     .catch(error => {
-      console.log("ERROR:", error);
       return res.status(400).json(error);
     });
 };
 
 /**
  * Get complete list of categories
+ * 
+ * @param {Object} req request object
+ * @param {Object} res response object
+ * @return {JSON} category list
  */
 exports.getCategoryList = async (req, res) => {
   
@@ -114,7 +125,6 @@ exports.getCategoryList = async (req, res) => {
       return res.status(200).json(results);
     })
     .catch(error => {
-      console.log("ERROR:", error);
       return res.status(400).json(error);
     });
 };
@@ -134,6 +144,10 @@ exports.getSatelliteList = (req, res) => {
 
 /**
  * Get most viewed satellites
+ * 
+ * @param {Object} req request object
+ * @param {Object} res response object
+ * @return {JSON} most viewed satellite data
  */
 exports.getTopList = (req, res) => {
   satelliteService.getMostViewed()
@@ -147,6 +161,10 @@ exports.getTopList = (req, res) => {
 
 /**
  * Get visible passes for x days
+ * 
+ * @param {Object} req request object
+ * @param {Object} res response object
+ * @return {JSON} satellite pass for current location
  */
 exports.getVisiblePasses = (req, res) => {
   client.hgetall(req.params.satellite, (error, result) => {        

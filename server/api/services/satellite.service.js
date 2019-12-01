@@ -11,8 +11,8 @@ const utils = require("./utils.service");
  * Convert Euclidean vector (km/s) to mph
  * (https://en.wikipedia.org/wiki/Euclidean_vector)
  * 
- * @param   {Object} velocityEci  velocity
- * @returns {Int}                 Converted velocity
+ * @param {Object} velocityEci velocity
+ * @returns {Int} Converted velocity
  */
 exports.convertVelocity = (velocityEci) => {
   return Math.sqrt((velocityEci.x * velocityEci.x) + (velocityEci.y * velocityEci.y) + (velocityEci.z * velocityEci.z)) * 2236.9362920544;
@@ -21,8 +21,8 @@ exports.convertVelocity = (velocityEci) => {
 /**
  * Calculate radius of visible footprint on earth surface in meters
  * 
- * @param   {Int} height  of satellite
- * @return  {Int}         radius of visible sphere
+ * @param {Int} height of satellite
+ * @return {Int} radius of visible sphere
  */
 exports.getVisibleFootprint = (height) => {
   const tangent = Math.sqrt(height * (height + 2 * 6371));
@@ -35,6 +35,7 @@ exports.getVisibleFootprint = (height) => {
  * Get future satellite track
  * 
  * @param {Object} satrec current satellite track
+ * @return {Object} tracklist
  */
 exports.getTrack = (satrec) => {
   let trackList = [];
@@ -59,7 +60,7 @@ exports.getTrack = (satrec) => {
  * Convert km to mi
  * 
  * @param  {Number} val number in kilometers to convert to miles
- * @return {Number}
+ * @return {Number} converted units
  */
 exports.convertUnits = (val) => {
   return val * 0.621371;
@@ -68,7 +69,7 @@ exports.convertUnits = (val) => {
 /**
  * Get total number of satellites in DB (for pagination)
  * 
- * @return {Array}
+ * @return {Array} total count of satellites
  */
 exports.getSatelliteTotal = async () => {
   return await connection.one("SELECT count(s.id) FROM satellites s");
@@ -77,8 +78,8 @@ exports.getSatelliteTotal = async () => {
 /**
  * Get satellite details by name
  * 
- * @param   {String} satellite name
- * @return  {Array}
+ * @param {String} name satellite name for query param
+ * @return {Array}
  */
 exports.getDetailsByName = async (name) => {
   return await connection.one("SELECT number, type, country, intldes FROM satellites WHERE name = $1 LIMIT 1", [name]);
@@ -87,8 +88,8 @@ exports.getDetailsByName = async (name) => {
 /**
  * Get list of satellites and corresponding categories
  * 
- * @param  {Object} params query params
- * @return {Array}
+ * @param {Object} params query params
+ * @return {Array} satellite list
  */
 exports.getSatellites = async (params) => {
   const sql_params = {
@@ -173,8 +174,8 @@ exports.getMostViewed = async () => {
 /**
  * Save satellite view
  * 
- * @param   {String} name satellite name to save view for
- * @return  {Void}
+ * @param {String} name satellite name to save view for
+ * @return {Void}
  */
 exports.saveView = (name) => {
   const sql = `
