@@ -1,5 +1,5 @@
 <template>
-  <div id="filters-container" class="fixed-top" v-if="categoryList">
+  <div id="filters-container" class="fixed-top">
     <b-form @submit="updateList" @reset="resetFilters" novalidate>
       <!-- Text filter -->
       <b-form-row class="mt-3 mx-auto">
@@ -8,8 +8,20 @@
           </b-form-input>
         </b-col>
       </b-form-row>
+      <!-- Country Select -->
+      <b-form-row class="mt-3 mx-auto" v-if="countryList">
+        <b-col cols="12" md="6" lg="4" xl="3" offset-xl="3">
+          <div class="mt-4 mb-3 font-weight-bold text-uppercase">
+            Filter by Country
+          </div>
+          <b-form-select
+            v-model="selectedCountry"
+            :options="countryList"
+          ></b-form-select>
+        </b-col>
+      </b-form-row>
       <!-- Category filter -->
-      <b-form-row class="mt-3 mb-5 mx-auto">
+      <b-form-row class="mt-3 mb-5 mx-auto" v-if="categoryList">
         <b-col cols="12" md="8" xl="6" offset-xl="3">
           <div class="mt-4 mb-3 font-weight-bold text-uppercase">
             Filter by Category
@@ -37,7 +49,9 @@
             type="submit"
             variant="primary"
             class="mr-3"
-            :disabled="!selectedCategories.length && !textSearch"
+            :disabled="
+              !selectedCategories.length && !textSearch && !selectedCountry
+            "
           >
             Update
           </b-button>
@@ -73,6 +87,14 @@ export default {
         this.$store.commit("satellite/setSatelliteCategoryFilter", data);
       }
     },
+    selectedCountry: {
+      get: function() {
+        return this.$store.getters["satellite/getSatelliteCountryFilter"];
+      },
+      set: function(data) {
+        this.$store.commit("satellite/setSatelliteCountryFilter", data);
+      }
+    },
     satelliteList: {
       get: function() {
         return this.$store.getters["satellite/getSatelliteList"];
@@ -99,6 +121,9 @@ export default {
     },
     categoryList() {
       return this.$store.getters["satellite/getCategoryList"];
+    },
+    countryList() {
+      return this.$store.getters["satellite/getCountryList"];
     }
   },
   methods: {

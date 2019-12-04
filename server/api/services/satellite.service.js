@@ -97,6 +97,7 @@ exports.getSatellites = async (params) => {
     offset: process.env.APP_LIST_RESULTS * (params.page - 1),
     text: params.text ? params.text.toUpperCase() : null,
     categories: params.categories || null,
+    country: params.country || null,
     sort: params.sort || null
   };
 
@@ -123,6 +124,9 @@ exports.getSatellites = async (params) => {
   if (sql_params.categories) {
     sql += " AND c.name IN ($4:csv)";
   }
+  if (sql_params.country) {
+    sql += " AND s.country = $5";
+  }
   if (sql_params.sort) {
     sql += utils.formatSortQuery(sql_params.sort);
   } else {
@@ -133,7 +137,7 @@ exports.getSatellites = async (params) => {
 
   // Get data
   return await connection.task(async t => {
-    let satellites = await t.query(sql, [sql_params.limit, sql_params.offset, sql_params.text, sql_params.categories]);
+    let satellites = await t.query(sql, [sql_params.limit, sql_params.offset, sql_params.text, sql_params.categories, sql_params.country]);
     
     // Format data
     return utils.formatSatelliteCategory(satellites);

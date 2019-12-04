@@ -5,19 +5,7 @@ const app = require("express")();
 const http = require("http").createServer(app);
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const prerender = require("prerender-node");
 const cookieParser = require("cookie-parser");
-
-// Prerender.io
-prerender.crawlerUserAgents.push("googlebot");
-prerender.crawlerUserAgents.push("bingbot");
-prerender.crawlerUserAgents.push("yandex");
-app.use(prerender
-  .set("prerenderToken", process.env.PRERENDER_IO_TOKEN)
-  .set("forwardHeaders", true)
-  .set("host", "https://uphere.space")
-  .blacklisted("^/api")
-);
 
 // Helmet
 const helmet = require("helmet");

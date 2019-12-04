@@ -130,6 +130,23 @@ exports.getCategoryList = async (req, res) => {
 };
 
 /**
+ * Get complete list of countries who have launched satellites
+ * 
+ * @param {Object} req request object
+ * @param {Object} res response object
+ * @return {JSON} country list
+ */
+exports.getCountryList = async (req, res) => {
+  await connection.query(`SELECT * FROM countries`)
+    .then(results => {
+      return res.status(200).json(results);
+    })
+    .catch(error => {
+      return res.status(400).json(error);
+    });
+};
+
+/**
  * Get all trackable satellites
  */
 exports.getSatelliteList = (req, res) => {

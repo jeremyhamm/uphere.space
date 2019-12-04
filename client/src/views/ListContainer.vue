@@ -154,7 +154,8 @@ export default {
       this.loading = true;
       let satellite = this.$store.dispatch("satellite/fetchSatelliteList");
       let category = this.$store.dispatch("satellite/fetchCategoryList");
-      Promise.all([satellite, category]).then(response => {
+      let country = this.$store.dispatch("satellite/fetchCountryList");
+      Promise.all([satellite, category, country]).then(response => {
         this.loading = response;
       });
     },

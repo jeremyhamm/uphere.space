@@ -10,6 +10,7 @@ router.get("/top", satelliteController.getTopList);
 // List
 router.get("/list", satelliteController.getSatelliteList);
 router.get("/list/categories", satelliteController.getCategoryList);
+router.get("/list/countries", satelliteController.getCountryList);
 
 // Satellite
 router.get("/:satellite/details", satelliteController.getSatelliteDetails);

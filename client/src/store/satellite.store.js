@@ -9,10 +9,12 @@ const satellite = {
     satellitePageNumber: 1,
     satelliteTextFilter: null,
     satelliteCategoryFilter: [],
+    satelliteCountryFilter: null,
     satelliteSort: null,
     infinateReset: 1,
     satelliteList: null,
     categoryList: null,
+    countryList: null,
     cardVisibility: false,
     topList: []
   },
@@ -38,6 +40,9 @@ const satellite = {
     setSatelliteCategoryFilter(state, categories) {
       state.satelliteCategoryFilter = categories;
     },
+    setSatelliteCountryFilter(state, categories) {
+      state.satelliteCountryFilter = categories;
+    },
     setSatelliteSort(state, val) {
       state.satelliteSort = val;
     },
@@ -53,6 +58,21 @@ const satellite = {
     },
     setCategoryList(state, data) {
       state.categoryList = data;
+    },
+    setCountryList(state, data) {
+      state.countryList = [
+        {
+          value: null,
+          text: "Filter by country",
+          disabled: true
+        }
+      ];
+      data.forEach(val => {
+        state.countryList.push({
+          value: val.abbreviation,
+          text: val.name
+        });
+      });
     },
     setCardVisibility(state, val) {
       state.cardVisibility = val;
@@ -107,6 +127,7 @@ const satellite = {
         page: state.satellitePageNumber,
         text: state.satelliteTextFilter,
         categories: state.satelliteCategoryFilter,
+        country: state.satelliteCountryFilter,
         sort: state.satelliteSort
       };
       return new Promise((resolve, reject) => {
@@ -133,6 +154,21 @@ const satellite = {
           .then(
             response => {
               commit("setCategoryList", response.data);
+              resolve();
+            },
+            error => {
+              reject(error);
+            }
+          );
+      });
+    },
+    fetchCountryList({ commit }) {
+      return new Promise((resolve, reject) => {
+        axios
+          .get(process.env.VUE_APP_API_URL + "/satellite/list/countries")
+          .then(
+            response => {
+              commit("setCountryList", response.data);
               resolve();
             },
             error => {
@@ -180,6 +216,9 @@ const satellite = {
     getSatelliteCategoryFilter: state => {
       return state.satelliteCategoryFilter;
     },
+    getSatelliteCountryFilter: state => {
+      return state.satelliteCountryFilter;
+    },
     getSatelliteSort: state => {
       return state.satelliteSort;
     },
@@ -188,6 +227,9 @@ const satellite = {
     },
     getCategoryList: state => {
       return state.categoryList;
+    },
+    getCountryList: state => {
+      return state.countryList;
     },
     getCardVisibility: state => {
       return state.cardVisibility;
