@@ -176,9 +176,8 @@ const satelliteMixin = {
     selectSatelliteIcon(type) {
       switch (type) {
         case "ROCKET BODY":
-          return "rocket.svg";
         case "DEBRIS":
-          return "debris.svg";
+          return "rocket.svg";
         default:
           return "default.svg";
       }

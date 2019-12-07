@@ -147,8 +147,9 @@ export default {
     },
     resetFilters() {
       this.$emit("filters", "close");
-      this.selectedCategories = [];
       this.textSearch = null;
+      this.selectedCountry = null;
+      this.selectedCategories = [];
       this.satellitePageNumber = 1;
       this.satelliteList = [];
       this.infiniteReset += 1;

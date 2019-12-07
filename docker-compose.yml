@@ -2,7 +2,9 @@ version: '3'
 services:
   api:
     container_name: api
-    build: .
+    build:
+      context: .
+      dockerfile: ./server/api/Dockerfile
     command: node app.js
     volumes:
       - ./server/api:/app
@@ -22,9 +24,14 @@ services:
   postgres:
     container_name: postgres
     image: "postgres:latest"
+    volumes:
+    - ./db/postgres/seed.sql:/docker-entrypoint-initdb.d/seed.sql
+    ports:
+      - "5432:5432"
     environment:
-      POSTGRES_USER: uphere-admin
       POSTGRES_DB: uphere-space
+      POSTGRES_USER: uphere-admin
+      POSTGRES_PASSWORD: c87PGaqOxDR8pdXz15zO
   tracking:
     container_name: python
     image: "python:latest"

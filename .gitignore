@@ -6,6 +6,9 @@
 /misc
 /.vscode
 
+# DB
+/db/postgres/seed.sql
+
 # Server
 /server/api/.env
 /server/api/node_modules

@@ -63,8 +63,7 @@ const satellite = {
       state.countryList = [
         {
           value: null,
-          text: "Filter by country",
-          disabled: true
+          text: "Filter by country"
         }
       ];
       data.forEach(val => {
