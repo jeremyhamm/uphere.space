@@ -119,6 +119,8 @@ const satelliteMixin = {
       switch (icon) {
         case "AQUA":
           return [60, 30];
+        case "DRAGON CRS-19":
+          return [50, 40];
         case "GOES 17":
           return [60, 40];
         case "HST":
@@ -135,6 +137,8 @@ const satelliteMixin = {
       switch (icon) {
         case "AQUA":
           return "aqua.svg";
+        case "DRAGON CRS-19":
+          return "spacex_dragon.svg";
         case "GOES 17":
           return "goes.svg";
         case "HST":
