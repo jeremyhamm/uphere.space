@@ -12,8 +12,7 @@ const connectionString = `
   ${process.env.POSTGRES_PORT}
   /
   ${process.env.POSTGRES_DATABASE}
-  ?ssl=
-  ${process.env.POSTGRES_SSL}
+  ?ssl=true
 `;
 const connection = pgp(connectionString);
 
