@@ -153,7 +153,7 @@ exports.getCountryList = async (req, res) => {
  * @param  {Object} res response object
  * @return {JSON}       most viewed satellite data
  */
-exports.getSatelliteList = (req, res) => {
+exports.getSatelliteList = async (req, res) => {
   try {
     const results = await satelliteService.getSatellites(req.query);
     return res.status(200).json(results);
