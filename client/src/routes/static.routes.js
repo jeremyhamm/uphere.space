@@ -2,6 +2,7 @@ import About from "../views/About";
 import Privacy from "../views/Privacy";
 import Terms from "../views/Terms";
 import Contact from "../views/Contact";
+import FourZeroFour from "../views/404";
 
 export default [
   {
@@ -23,5 +24,14 @@ export default [
     path: "/contact",
     name: "Contact",
     component: Contact
+  },
+  {
+    path: "/404",
+    name: "FourZeroFour",
+    component: FourZeroFour
+  },
+  {
+    path: "*",
+    redirect: { name: "FourZeroFour" }
   }
 ];

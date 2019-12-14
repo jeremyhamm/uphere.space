@@ -3,14 +3,14 @@
     <!-- Welcome -->
     <div class="home">
       <div class="overlay">
-        <b-row no-gutters class="title">
-          <b-col cols="12" class="text-center justify-content-center">
+        <b-row no-gutters class="title justify-content-center">
+          <b-col cols="12" md="10" xl="8" class="text-center">
             <img
               :src="`${config.VUE_APP_SPACES_URL}/images/branding/logo.svg`"
               class="img-fluid logo-filter mr-2"
               height="35"
               width="35"
-              alt="logo"
+              alt="title"
             />
             <img
               :src="`${config.VUE_APP_SPACES_URL}/images/branding/logo-lg.png`"
@@ -18,8 +18,9 @@
               alt="uphere.space"
             />
             <h3 class="mt-3 mb-5 text-center">
-              Realtime tracking and predictions for thousands of satellites
-              currently orbiting earth
+              Realtime tracking and predictions for thousands of satellites.
+              Find the International Space Station, the Hubble Space telescope
+              and many more!
             </h3>
           </b-col>
         </b-row>
@@ -30,9 +31,14 @@
           style="margin-top: 100%;"
         >
           <b-col cols="12" class="text-center">
-            <b-button variant="danger" size="lg" to="/list"
-              >Satellite Tracking List</b-button
+            <b-button
+              href="javascript:void(0)"
+              variant="danger"
+              size="lg"
+              to="/list"
             >
+              Satellite Tracking List
+            </b-button>
           </b-col>
         </b-row>
       </div>
@@ -95,12 +101,13 @@ export default {
           vmid: "description",
           name: "description",
           content:
-            "Realtime tracking and predictions for thousands of satellites currently orbiting earth"
+            "Realtime tracking and predictions for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!"
         },
         {
           vmid: "keywords",
           name: "keywords",
-          content: "satellite,orbit,tracking,map,mapping,nasa,iss"
+          content:
+            "satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite, "
         },
         // Open Graph
         {
@@ -121,7 +128,7 @@ export default {
         {
           vmid: "og:description",
           name: "og:description",
-          content: `Realtime tracking and predictions for thousands of satellites currently orbiting earth`
+          content: `Realtime tracking and predictions for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
         },
         {
           vmid: "og:image",
@@ -149,7 +156,7 @@ export default {
         {
           vmid: "twitter:description",
           name: "twitter:description",
-          content: `Realtime tracking and predictions for thousands of satellites currently orbiting earth`
+          content: `Realtime tracking and predictions for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
         },
         {
           vmid: "twitter:image",

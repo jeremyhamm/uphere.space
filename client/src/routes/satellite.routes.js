@@ -20,6 +20,6 @@ export default [
   },
   {
     path: "*",
-    redirect: { name: "Map", params: { satellite: "ISS (ZARYA)" } }
+    redirect: { name: "404" }
   }
 ];

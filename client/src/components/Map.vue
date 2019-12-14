@@ -167,6 +167,9 @@ export default {
         .then(() => {
           const coords = this.selectedSatelliteLocation.geometry.coordinates;
           this.createMap(coords[0], coords[1]);
+        })
+        .catch(() => {
+          this.$router.push("/FourZeroFour");
         });
     },
     createMap(lng, lat) {

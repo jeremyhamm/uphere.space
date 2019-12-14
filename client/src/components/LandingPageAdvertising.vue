@@ -7,7 +7,7 @@
           <img
             src="//a.impactradius-go.com/display-ad/3944-517989"
             border="0"
-            alt=""
+            alt="treehouse"
             width="720"
             height="90"
           />
@@ -18,6 +18,7 @@
           src="//treehouse.7eer.net/i/1992159/517989/3944"
           style="position:absolute;visibility:hidden;"
           border="0"
+          alt="treehouse"
         />
       </div>
       <!-- sm, xs -->
@@ -26,7 +27,7 @@
           <img
             src="//a.impactradius-go.com/display-ad/3944-517986"
             border="0"
-            alt=""
+            alt="treehouse"
             width="300"
             height="250"
           />
@@ -34,6 +35,7 @@
         <img
           height="0"
           width="0"
+          alt="treehouse"
           src="//treehouse.7eer.net/i/1992159/517986/3944"
           style="position:absolute;visibility:hidden;"
           border="0"

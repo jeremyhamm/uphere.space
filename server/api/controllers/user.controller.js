@@ -29,7 +29,7 @@ exports.getLocationByIp = async(req, res) => {
       })
       .json(jsonparse);
   } catch(error) {
-    return res.status(error.statusCode).json(JSON.parse(error.error));
+    return res.sendStatus(error.statusCode);
   }
 };
 
