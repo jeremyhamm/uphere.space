@@ -111,22 +111,13 @@ exports.getSatelliteDetails = async (req, res) => {
  * @return {JSON}      category list
  */
 exports.getCategoryList = async (req, res) => {
-  
-  // Format query
-  const sql = `
-    SELECT *
-    FROM categories
-    ORDER BY name ASC;
-  `;
-
-  // Get data
-  await connection.query(sql)
-    .then(results => {
-      return res.status(200).json(results);
-    })
-    .catch(error => {
-      return res.sendStatus(404);
-    });
+  try {
+    const results = await satelliteService.getCategoryList();
+    return res.status(200).json(results);
+  }
+  catch(e) {
+    return res.sendStatus(404);
+  }
 };
 
 /**

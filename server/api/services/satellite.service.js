@@ -193,10 +193,18 @@ exports.saveView = (name) => {
 };
 
 /**
- * Save satellite view
+ * Get complete category list
  * 
- * @param {String} name satellite name to save view for
- * @return {Void}
+ * @return {Array} category list
+ */
+exports.getCategoryList = async () => {
+  return await connection.query(`SELECT * FROM categories ORDER BY name ASC`);  
+};
+
+/**
+ * Get complete country list
+ * 
+ * @return {Array} country list
  */
 exports.getCountryList = async () => {
   return await connection.query(`SELECT * FROM countries`);  
