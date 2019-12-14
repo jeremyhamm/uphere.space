@@ -12,7 +12,7 @@ const connection = pgp(
   process.env.POSTGRES_PORT + 
   "/" + 
   process.env.POSTGRES_DATABASE +
-  "?ssl=true"
+  "?ssl=false"
 );
 
 module.exports = connection;

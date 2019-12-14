@@ -20,6 +20,6 @@ export default [
   },
   {
     path: "*",
-    redirect: { name: "404" }
+    redirect: { name: "FourZeroFour" }
   }
 ];

@@ -169,7 +169,7 @@ export default {
           this.createMap(coords[0], coords[1]);
         })
         .catch(() => {
-          this.$router.push("/FourZeroFour");
+          this.$router.push({ name: "FourZeroFour" });
         });
     },
     createMap(lng, lat) {

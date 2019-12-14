@@ -1,0 +1,11 @@
+#fourzerofour {
+  background-image: url('https://resources-uphere.sfo2.cdn.digitaloceanspaces.com/images/branding/404.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#fourzerofour-overlay {
+  background-color: $overlay;
+  height: 100%;
+  width: 100%;
+}

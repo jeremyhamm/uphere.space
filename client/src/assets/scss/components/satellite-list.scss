@@ -15,7 +15,7 @@
   border-radius: 3px;
   &:hover {
     cursor: pointer;
-    box-shadow: 0 5px 5px 0 $dark-gray-rgb;
+    box-shadow: 0 5px 5px 0 $overlay;
   }
   .card-text {
     .satellite-list-summary {

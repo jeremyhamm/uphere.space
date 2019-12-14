@@ -1,16 +1,24 @@
 <template>
-  <b-container fluid>
-    <b-row class="justify-content-center">
-      <b-col cols="12" class="text-center">
-        <h1>We are lost in space.</h1>
-      </b-col>
-    </b-row>
-  </b-container>
+  <div id="fourzerofour-overlay">
+    <b-container fluid id="fourzerofour" class="d-flex align-items-center justify-content-center">
+      <b-row>
+        <b-col cols="12" class="text-center">
+          <h1 class="font-weight-bold">404</h1>
+          <h1>We are lost in space.</h1>
+          <b-nav align="center">
+            <b-nav-item to="/">Home</b-nav-item>
+            <b-nav-item to="/list">Satellite List</b-nav-item>
+            <b-nav-item to="/about">About</b-nav-item>
+          </b-nav>
+        </b-col>
+      </b-row>
+    </b-container>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "404",
+  name: "FourZeroFour",
   data() {
     return {
       config: process.env
