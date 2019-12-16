@@ -57,7 +57,7 @@ def get_launch_data():
 def scrape_photos(site):
   response = requests.get(site)
   html = response.content
-  soup = BeautifulSoup(html, 'html.parser')
+  soup = BeautifulSoup(html, 'lxml')
   urls = []
   for elem in soup.findAll("div", {"class": "satellite-group-item"}):
     urls.append('https://db.satnogs.org/' + elem['data-image'])
