@@ -20,7 +20,8 @@ const user = {
     icon: {
       iconUrl: `${process.env.VUE_APP_SPACES_URL}/images/icons/home.png`,
       iconSize: [50, 50],
-      iconAnchor: [25, 50]
+      iconAnchor: [25, 50],
+      popupAnchor: [0, -50]
     }
   },
   mutations: {

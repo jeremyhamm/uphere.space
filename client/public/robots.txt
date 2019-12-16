@@ -1,6 +1,7 @@
 # Blacklist
 User-agent: *
 Disallow: /api
+Disallow: /404
 
 # Whitelist
 User-agent: *

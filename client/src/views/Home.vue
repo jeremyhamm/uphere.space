@@ -17,11 +17,11 @@
               class="d-none d-md-inline img-fluid"
               alt="uphere.space"
             />
-            <h3 class="mt-3 mb-5 text-center">
+            <h2 class="mt-3 mb-5 text-center">
               Realtime tracking and predictions for thousands of satellites.
               Find the International Space Station, the Hubble Space telescope
               and many more!
-            </h3>
+            </h2>
           </b-col>
         </b-row>
         <!-- Satellite List -->
@@ -107,7 +107,7 @@ export default {
           vmid: "keywords",
           name: "keywords",
           content:
-            "satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite, "
+            "satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite"
         },
         // Open Graph
         {

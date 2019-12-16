@@ -63,7 +63,7 @@ export default {
             satelliteDetails.intldes
           }, ${
             satelliteDetails.country
-          }, satellite, orbit, tracking, map, mapping, nasa, iss, spacex, launch, goes, noaa`
+          }, satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite`
         },
         // Open Graph
         {

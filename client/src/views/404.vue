@@ -1,10 +1,14 @@
 <template>
   <div id="fourzerofour-overlay">
-    <b-container fluid id="fourzerofour" class="d-flex align-items-center justify-content-center">
+    <b-container
+      fluid
+      id="fourzerofour"
+      class="d-flex align-items-center justify-content-center"
+    >
       <b-row>
         <b-col cols="12" class="text-center">
           <h1 class="font-weight-bold">404</h1>
-          <h1>We are lost in space.</h1>
+          <h1>Lost in space.</h1>
           <b-nav align="center">
             <b-nav-item to="/">Home</b-nav-item>
             <b-nav-item to="/list">Satellite List</b-nav-item>

@@ -285,6 +285,19 @@ const satelliteMixin = {
           this.userIcon,
           this.userLocation
         ).addTo(this.map);
+        console.log(this.userLocation);
+        this.userMarker
+          .bindPopup(
+            `
+            <p class="text-center">${this.userLocation.city}, ${
+              this.userLocation.region_code
+            }</p>
+            <p class="text-center"><img src="${
+              this.userLocation.flag
+            }" alt="country_flag" /></p>
+          `
+          )
+          .openPopup();
         this.map.setView([
           this.userLocation.latitude,
           this.userLocation.longitude
