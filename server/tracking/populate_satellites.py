@@ -14,16 +14,16 @@ import datetime
 # Methods
 def connect_db():
   return psycopg2.connect(
-    # dbname = "uphere-space",
-    # user = "doadmin",
-    # password = "i3280utmczxv65vq",
-    # host = "uphere-space-db-do-user-6401666-0.db.ondigitalocean.com",
-    # port = "25060"
     dbname = "uphere-space",
-    user = "uphere-admin",
-    password = "c87PGaqOxDR8pdXz15zO",
-    host = "localhost",
-    port = "5432"
+    user = "doadmin",
+    password = "i3280utmczxv65vq",
+    host = "uphere-space-db-do-user-6401666-0.db.ondigitalocean.com",
+    port = "25060"
+    # dbname = "uphere-space",
+    # user = "uphere-admin",
+    # password = "c87PGaqOxDR8pdXz15zO",
+    # host = "localhost",
+    # port = "5432"
   )
 
 def read_satellite_file(url):
@@ -91,56 +91,56 @@ cursor = connection.cursor()
 
 # 3.
 # Save satellite(s) to DB
-# new_satellite_data = ()
-# for key in satellite_source_data:
-#   print(key)
-#   satellite_list = read_satellite_file(satellite_source_data[key])
-#   for sat in satellite_list:
-#     cursor.execute('SELECT name FROM satellites WHERE number = %(sat_number)s', {'sat_number': sat['number']})
-#     data = cursor.fetchall()
-#     if not data:
-#       try:
-#         cursor.execute(
-#           """
-#             INSERT INTO satellites (name, number, classification, active, launch_date)
-#             VALUES (%(name)s, %(number)s, %(classification)s, %(active)s, %(launch_date)s);
-#           """, 
-#           {'name': sat['name'], 'number': sat['number'], 'classification': 'U', 'active': True, 'launch_date': datetime.datetime.now()}
-#         )
-#         connection.commit()
-#       except psycopg2.Error:
-#         print(psycopg2.Error)
+new_satellite_data = ()
+for key in satellite_source_data:
+  print(key)
+  satellite_list = read_satellite_file(satellite_source_data[key])
+  for sat in satellite_list:
+    cursor.execute('SELECT name FROM satellites WHERE number = %(sat_number)s', {'sat_number': sat['number']})
+    data = cursor.fetchall()
+    if not data:
+      try:
+        cursor.execute(
+          """
+            INSERT INTO satellites (name, number, classification, active, launch_date)
+            VALUES (%(name)s, %(number)s, %(classification)s, %(active)s, %(launch_date)s);
+          """, 
+          {'name': sat['name'], 'number': sat['number'], 'classification': 'U', 'active': True, 'launch_date': datetime.datetime.now()}
+        )
+        connection.commit()
+      except psycopg2.Error:
+        print(psycopg2.Error)
 
 # 4.
 # Add additional properties from space-track.org
-# leo_satellites = get_launch_data()
-# for sat in leo_satellites:
-#   print(sat)
-#   cursor.execute('SELECT name FROM satellites WHERE number = %(sat_number)s', {'sat_number': sat['number']})
-#   data = cursor.fetchall()
-#   if data:
-#     cursor.execute(
-#       """
-#       UPDATE satellites 
-#       SET intldes = %(intldes)s, 
-#       launch_date = %(date)s,
-#       orbital_period = %(period)s,
-#       country = %(country)s,
-#       type = %(type)s,
-#       size = %(size)s
-#       WHERE number = %(number)s
-#       """, 
-#       {
-#         'intldes': sat['intldes'],
-#         'date': sat['date'], 
-#         'period': sat['orbital_period'], 
-#         'country': sat['country'],
-#         'type': sat['type'],
-#         'size': sat['size'],
-#         'number': sat['number']
-#       }
-#     )
-#     connection.commit()
+leo_satellites = get_launch_data()
+for sat in leo_satellites:
+  print(sat)
+  cursor.execute('SELECT name FROM satellites WHERE number = %(sat_number)s', {'sat_number': sat['number']})
+  data = cursor.fetchall()
+  if data:
+    cursor.execute(
+      """
+      UPDATE satellites 
+      SET intldes = %(intldes)s, 
+      launch_date = %(date)s,
+      orbital_period = %(period)s,
+      country = %(country)s,
+      type = %(type)s,
+      size = %(size)s
+      WHERE number = %(number)s
+      """, 
+      {
+        'intldes': sat['intldes'],
+        'date': sat['date'], 
+        'period': sat['orbital_period'], 
+        'country': sat['country'],
+        'type': sat['type'],
+        'size': sat['size'],
+        'number': sat['number']
+      }
+    )
+    connection.commit()
 
 # 5.
 # Parse categories from n2yo.com
@@ -176,12 +176,23 @@ for index, cat in enumerate(category_list):
     cursor.execute('SELECT id, number FROM satellites WHERE number = %(number)s', {'number': nid})
     data = cursor.fetchall()
     if data:
-      cursor.execute('SELECT id, number FROM satellites WHERE number = %(number)s', {'number': nid})
+      # Check for existing satellite_id & category_id in table
       cursor.execute(
         """
-          INSERT INTO satellite_categories (satellite_id, category_id)
-          VALUES (%(satellite_id)s, %(category_id)s);
-        """, 
+          SELECT satellite_id, category_id
+          FROM satellite_categories
+          WHERE satellite_id = %(satellite_id)s AND category_id = %(category_id)s
+        """,
         {'satellite_id': data[0][0], 'category_id': cat['db_id']}
       )
-      connection.commit()
+      existing_category = cursor.fetchall()
+      # If not found add new category to satellite
+      if not existing_category:
+        cursor.execute(
+          """
+            INSERT INTO satellite_categories (satellite_id, category_id)
+            VALUES (%(satellite_id)s, %(category_id)s);
+          """, 
+          {'satellite_id': data[0][0], 'category_id': cat['db_id']}
+        )
+        connection.commit()
