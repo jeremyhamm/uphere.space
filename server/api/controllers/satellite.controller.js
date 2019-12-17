@@ -2,13 +2,10 @@
 const redis = require("redis");
 const client = redis.createClient({
   host: process.env.REDIS_HOST,
-  port: process.env.REDIS_PORT
-  //password: process.env.REDIS_PASSWORD,
-  //tls: true
+  port: process.env.REDIS_PORT,
+  password: process.env.REDIS_PASSWORD,
+  tls: true
 });
-
-// Postgres
-const connection = require("../database/postgres.connection");
 
 // Satellite js
 const satellite = require("satellite.js");
@@ -191,8 +188,11 @@ exports.getVisiblePasses = (req, res) => {
 
     let passes = [];
     const passTime = new Date();
-    for (let i = 0; i <= 14400; i++) {
-      passTime.setMinutes(passTime.getMinutes() + 1);
+    
+    for (let i = 0; i <= 1440; i++) {
+      passTime.setTime(passTime.getTime() + 1000 * (60 * i));
+
+      console.log(passTime);
 
       const positionAndVelocity = satellite.propagate(satrec, passTime);
       const positionEci = positionAndVelocity.position;
