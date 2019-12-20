@@ -41,9 +41,11 @@ def get_launch_data():
   data = st.satcat(decay=None, current='Y')
   launch_data = []
   for sat in data:
+    print(sat)
     launch_data.append(
       {
         "intldes": sat['INTLDES'],
+        'name': sat['SATNAME'],
         "number": sat['NORAD_CAT_ID'],
         "date": sat['LAUNCH'],
         "orbital_period": sat['PERIOD'],
@@ -122,7 +124,8 @@ for sat in leo_satellites:
     cursor.execute(
       """
       UPDATE satellites 
-      SET intldes = %(intldes)s, 
+      SET intldes = %(intldes)s,
+      name = %(name)s, 
       launch_date = %(date)s,
       orbital_period = %(period)s,
       country = %(country)s,
@@ -132,6 +135,7 @@ for sat in leo_satellites:
       """, 
       {
         'intldes': sat['intldes'],
+        'name': sat['name'],
         'date': sat['date'], 
         'period': sat['orbital_period'], 
         'country': sat['country'],
