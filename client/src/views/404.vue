@@ -12,7 +12,7 @@
           <b-nav align="center">
             <b-nav-item to="/">Home</b-nav-item>
             <b-nav-item to="/list">Satellite List</b-nav-item>
-            <b-nav-item to="/about">About</b-nav-item>
+            <b-nav-item to="/contact">Contact</b-nav-item>
           </b-nav>
         </b-col>
       </b-row>

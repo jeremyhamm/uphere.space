@@ -1,10 +1,9 @@
 <template>
-  <div>
+  <div v-if="selectedSatelliteDetails.name && selectedSatelliteLocation">
     <b-card
       id="satellite-card"
-      v-if="selectedSatelliteName && selectedSatelliteLocation"
       :img-src="satelliteImage()"
-      :img-alt="`${selectedSatelliteName} image`"
+      :img-alt="`${selectedSatelliteDetails.name} image`"
       class="text-center"
       ref="card"
     >
@@ -14,7 +13,7 @@
       </b-card-text>
       <!-- Title -->
       <b-card-text class="d-flex justify-content-center">
-        <h4 class="text-center">{{ selectedSatelliteName }}</h4>
+        <h4 class="text-center">{{ selectedSatelliteDetails.name }}</h4>
       </b-card-text>
       <!-- Satellite Details -->
       <b-list-group flush>
@@ -93,8 +92,8 @@ export default {
     };
   },
   computed: {
-    selectedSatelliteName() {
-      return this.$store.getters["satellite/getSelectedSatelliteName"];
+    selectedSatelliteDetails() {
+      return this.$store.getters["satellite/getSelectedSatelliteDetails"];
     },
     selectedSatelliteLocation() {
       return this.$store.getters["satellite/getSelectedSatelliteLocation"];
@@ -123,8 +122,8 @@ export default {
       this.$store.commit("satellite/setCardVisibility", false);
     },
     satelliteImage() {
-      let satelliteName = this.selectedSatelliteName;
-      if (this.selectedSatelliteName.includes("STARLINK")) {
+      let satelliteName = this.selectedSatelliteDetails.name;
+      if (satelliteName.includes("STARLINK")) {
         satelliteName = "STARLINK";
       }
       return `${

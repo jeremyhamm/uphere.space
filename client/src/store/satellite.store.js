@@ -3,7 +3,7 @@ const satellite = {
   namespaced: true,
   state: {
     interval: null,
-    selectedSatelliteName: null,
+    selectedSatelliteNumber: null,
     selectedSatelliteLocation: null,
     selectedSatelliteDetails: {},
     satellitePageNumber: 1,
@@ -22,8 +22,8 @@ const satellite = {
     setInterval(state, val) {
       state.interval = val;
     },
-    setSelectedSatelliteName(state, name) {
-      state.selectedSatelliteName = name;
+    setSelectedSatelliteNumber(state, name) {
+      state.selectedSatelliteNumber = name;
     },
     setSelectedSatelliteLocation(state, data) {
       state.selectedSatelliteLocation = data;
@@ -101,13 +101,13 @@ const satellite = {
           );
       });
     },
-    satelliteDetails({ commit }, name) {
+    satelliteDetails({ commit }, number) {
       return new Promise((resolve, reject) => {
         axios
           .get(
             process.env.VUE_APP_API_URL +
               "/satellite/" +
-              encodeURIComponent(name) +
+              encodeURIComponent(number) +
               "/details"
           )
           .then(
@@ -194,8 +194,8 @@ const satellite = {
     getInterval: state => {
       return state.interval;
     },
-    getSelectedSatelliteName: state => {
-      return state.selectedSatelliteName;
+    getSelectedSatelliteNumber: state => {
+      return state.selectedSatelliteNumber;
     },
     getSelectedSatelliteLocation: state => {
       return state.selectedSatelliteLocation;

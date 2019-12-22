@@ -1,5 +1,5 @@
 <template>
-  <div id="map" v-if="selectedSatelliteName">
+  <div id="map" v-if="selectedSatelliteNumber">
     <map-tools
       id="map-tools"
       class="fixed-bottom text-right pr-2 pb-2 pb-md-0"
@@ -17,7 +17,6 @@
 </template>
 
 <script>
-window.prerenderReady = false;
 import L from "leaflet";
 import MapService from "@/services/map.service";
 import MapTools from "./MapTools";
@@ -30,20 +29,19 @@ export default {
     "map-tools": MapTools
   },
   metaInfo() {
-    const satelliteName = this.selectedSatelliteName
-      ? this.selectedSatelliteName
+    const satelliteName = this.selectedSatelliteDetails.name
+      ? this.selectedSatelliteDetails.name
       : "N/A";
     const satelliteDetails = this.selectedSatelliteDetails
       ? this.selectedSatelliteDetails
       : "N/A";
-    window.prerenderReady = true;
     return {
       title: `${satelliteName}`,
       titleTemplate: "%s | uphere.space",
       link: [
         {
           rel: "canonical",
-          href: `${process.env.VUE_APP_URL}/satellites/${satelliteName}`
+          href: `${process.env.VUE_APP_URL}/satellites/${satelliteDetails.number}`
         }
       ],
       meta: [
@@ -52,7 +50,7 @@ export default {
           name: "description",
           content: `Tracking and predictions for ${satelliteName}. Norad ID ${
             satelliteDetails.number
-          }. International id ${satelliteDetails.intldes}. Launched by ${
+          }. International id ${satelliteDetails.intldes}. Launched by the ${
             satelliteDetails.country
           }.`
         },
@@ -74,7 +72,7 @@ export default {
         {
           vmid: "og:url",
           name: "og:url",
-          content: `${process.env.VUE_APP_URL}/satellites/${satelliteName}`
+          content: `${process.env.VUE_APP_URL}/satellites/${satelliteDetails.number}`
         },
         {
           vmid: "og:title",
@@ -86,7 +84,7 @@ export default {
           name: "og:description",
           content: `Tracking and predictions for ${satelliteName}. Norad ID ${
             satelliteDetails.number
-          }. International id ${satelliteDetails.intldes}. Launched by ${
+          }. International id ${satelliteDetails.intldes}. Launched by the ${
             satelliteDetails.country
           }.`
         },
@@ -118,7 +116,7 @@ export default {
           name: "twitter:description",
           content: `Tracking and predictions for ${satelliteName}. Norad ID ${
             satelliteDetails.number
-          }. International id ${satelliteDetails.intldes}. Launched by ${
+          }. International id ${satelliteDetails.intldes}. Launched by the ${
             satelliteDetails.country
           }.`
         },
@@ -160,10 +158,10 @@ export default {
     init() {
       this.$store.dispatch(
         "satellite/satelliteDetails",
-        this.selectedSatelliteName
+        this.selectedSatelliteNumber
       );
       this.$store
-        .dispatch("satellite/satelliteLocation", this.selectedSatelliteName)
+        .dispatch("satellite/satelliteLocation", this.selectedSatelliteNumber)
         .then(() => {
           const coords = this.selectedSatelliteLocation.geometry.coordinates;
           this.createMap(coords[0], coords[1]);

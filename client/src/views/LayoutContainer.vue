@@ -57,8 +57,8 @@ export default {
     interval() {
       return this.$store.getters["satellite/getInterval"];
     },
-    selectedSatelliteName() {
-      return this.$store.getters["satellite/getSelectedSatelliteName"];
+    selectedSatelliteNumber() {
+      return this.$store.getters["satellite/getSelectedSatelliteNumber"];
     },
     selectedSatelliteLocation() {
       return this.$store.getters["satellite/getSelectedSatelliteLocation"];
@@ -74,7 +74,7 @@ export default {
   methods: {
     init() {
       this.$store.commit(
-        "satellite/setSelectedSatelliteName",
+        "satellite/setSelectedSatelliteNumber",
         this.$route.params.satellite
       );
       this.$store.dispatch("user/userLocation");

@@ -73,8 +73,8 @@ const satelliteMixin = {
         this.$store.commit("satellite/setInterval", val);
       }
     },
-    selectedSatelliteName() {
-      return this.$store.getters["satellite/getSelectedSatelliteName"];
+    selectedSatelliteNumber() {
+      return this.$store.getters["satellite/getSelectedSatelliteNumber"];
     },
     selectedSatelliteLocation() {
       return this.$store.getters["satellite/getSelectedSatelliteLocation"];
@@ -89,7 +89,7 @@ const satelliteMixin = {
      */
     loadLocationData() {
       this.$store
-        .dispatch("satellite/satelliteLocation", this.selectedSatelliteName)
+        .dispatch("satellite/satelliteLocation", this.selectedSatelliteNumber)
         .then(() => {
           this.setSatelliteSource();
           if (this.mapOptions.tracking) {
@@ -285,7 +285,6 @@ const satelliteMixin = {
           this.userIcon,
           this.userLocation
         ).addTo(this.map);
-        console.log(this.userLocation);
         this.userMarker
           .bindPopup(
             `

@@ -1,7 +1,7 @@
 <template>
   <satellite-card
-    :satelliteName="selectedSatelliteName"
-    v-if="selectedSatelliteLocation"
+    :satelliteName="selectedSatelliteNumber"
+    v-if="selectedSatelliteDetails.name && selectedSatelliteLocation"
   />
 </template>
 
@@ -18,14 +18,16 @@ export default {
     };
   },
   computed: {
-    selectedSatelliteName() {
-      return this.$store.getters["satellite/getSelectedSatelliteName"];
+    selectedSatelliteNumber() {
+      return this.$store.getters["satellite/getSelectedSatelliteNumber"];
+    },
+    selectedSatelliteDetails() {
+      return this.$store.getters["satellite/getSelectedSatelliteDetails"];
     },
     selectedSatelliteLocation() {
       return this.$store.getters["satellite/getSelectedSatelliteLocation"];
     }
-  },
-  methods: {}
+  }
 };
 </script>
 
