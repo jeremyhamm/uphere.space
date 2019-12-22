@@ -157,8 +157,12 @@ const satelliteMixin = {
      * Add satellite icon to map
      */
     addSatelliteData() {
-      const iconSize = this.determineIconSize(this.selectedSatelliteName);
-      const iconName = this.determineIconImage(this.selectedSatelliteName);
+      const iconSize = this.determineIconSize(
+        this.selectedSatelliteDetails.name
+      );
+      const iconName = this.determineIconImage(
+        this.selectedSatelliteDetails.name
+      );
       const smallIcon = new L.Icon({
         iconSize: iconSize,
         iconUrl: `${this.config.VUE_APP_SPACES_URL}/images/icons/${iconName}`

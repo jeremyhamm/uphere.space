@@ -6,7 +6,7 @@
           variant="danger"
           size="sm"
           v-b-modal.content-modal
-          v-if="satellite === selectedSatelliteName"
+          v-if="satellite === selectedSatelliteDetails.name"
         >
           Live {{ configureButtonText() }}
         </b-button>
@@ -28,19 +28,19 @@
         width="100%"
         height="455"
         frameborder="0"
-        v-if="selectedSatelliteName === 'ISS (ZARYA)'"
+        v-if="selectedSatelliteDetails.name === 'ISS (ZARYA)'"
       />
       <img
         src="https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/678x678.jpg"
         alt="GOES 17 Image"
         class="img-fluid"
-        v-if="selectedSatelliteName === 'GOES 17'"
+        v-if="selectedSatelliteDetails.name === 'GOES 17'"
       />
       <img
         src="https://cdn.star.nesdis.noaa.gov/GOES16/ABI/FD/GEOCOLOR/20192722210_GOES16-ABI-FD-GEOCOLOR-678x678.jpg"
         alt="GOES 16 Image"
         class="img-fluid"
-        v-if="selectedSatelliteName === 'GOES 16 [+]'"
+        v-if="selectedSatelliteDetails.name === 'GOES 16 [+]'"
       />
     </b-modal>
   </div>
@@ -61,13 +61,13 @@ export default {
     };
   },
   computed: {
-    selectedSatelliteName() {
-      return this.$store.getters["satellite/getSelectedSatelliteName"];
+    selectedSatelliteDetails() {
+      return this.$store.getters["satellite/getSelectedSatelliteDetails"];
     }
   },
   methods: {
     configureButtonText() {
-      switch (this.selectedSatelliteName) {
+      switch (this.selectedSatelliteDetails.name) {
         case "ISS (ZARYA)":
           return "video";
         case "GOES 17":
