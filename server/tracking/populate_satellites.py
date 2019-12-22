@@ -75,7 +75,7 @@ def remove_duplicates(duplicate):
   return final_list
 
 def authenticate_twitter():
-  auth = tweepy.OAuthHandler(twitter_credentials['consumer_key'], twitter_credentials['secret'])
+  auth = tweepy.OAuthHandler(twitter_credentials['consumer_key'], twitter_credentials['consumer_secret'])
   auth.set_access_token(twitter_credentials['access_token'], twitter_credentials['access_token_secret'])
   api = tweepy.API(auth)
   return api
@@ -120,7 +120,7 @@ for key in satellite_source_data:
         
         # Send tweet with my satellite info
         twitter = authenticate_twitter()
-        twitter.update_status("Satellite " + sat['name'] + " was just launched! Follow its orbit here https://uphere.space/satellites" + sat['name'])
+        twitter.update_status("Satellite " + sat['name'] + " was just launched! Follow its orbit here https://uphere.space/satellites/" + sat['number'])
       
       except psycopg2.Error:
         print(psycopg2.Error)
