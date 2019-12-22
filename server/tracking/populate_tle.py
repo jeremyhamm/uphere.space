@@ -7,23 +7,23 @@ from satellite_sources import *
 
 # Methods
 def read_satellite_file(url):
-  satelliteNames = []
+  satelliteNumbers = []
   html = urllib.request.urlopen(url).readlines()
   for index, line in enumerate(html):
-    satellite_value = line.strip().decode('utf-8')
+    #satellite_value = line.strip().decode('utf-8')
     if (index % 3 == 0):
       satellite = {}
-      key = satellite_value #str(html[index+1]).split(' ', 2)[1].replace('U', '').replace(' ', '')
+      key = str(html[index+1]).split(' ', 2)[1].replace('U', '').replace(' ', '')
       satellite[key] = {"tle1": html[index+1], "tle2": html[index+2]} 
-      satelliteNames.append(satellite)
-  return satelliteNames
+      satelliteNumbers.append(satellite)
+  return satelliteNumbers
 
 def connect_redis():
-  # pool = pool = redis.ConnectionPool(
+  # pool = redis.ConnectionPool(
   #   host='redis',
   #   port=6379
   # )
-  pool = pool = redis.ConnectionPool(
+  pool = redis.ConnectionPool(
     host='satellite-list-do-user-6401666-0.db.ondigitalocean.com',
     password="du4riwzdieyv098q",
     port=25061,
@@ -31,17 +31,21 @@ def connect_redis():
   )
   return redis.Redis(connection_pool=pool)
 
-def save_to_redis(name, elements):
-  existing = r.exists(name)
+def save_to_redis(number, elements):
+  existing = r.exists(number)
   if not existing:
-    r.hmset(name, elements)
+    r.hmset(number, elements)
 
 # Logic
 r = connect_redis()
 r.flushall()
+# f = open("temp.txt","w+")
 for key in satellite_source_data:
   print(key)
   satellite_list = read_satellite_file(satellite_source_data[key])
   for sat in satellite_list:
     for key, value in sat.items():
+      # print(key)
+      # f.write(key + "\r")
       save_to_redis(key, value)
+# f.close()

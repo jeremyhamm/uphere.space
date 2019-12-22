@@ -76,13 +76,13 @@ exports.getSatelliteTotal = async () => {
 };
 
 /**
- * Get satellite details by name
+ * Get satellite details by number
  * 
- * @param  {String} name satellite name for query param
+ * @param  {String} number satellite number for query param
  * @return {Array}
  */
-exports.getDetailsByName = async (name) => {
-  return await connection.one("SELECT number, type, country, intldes FROM satellites WHERE name = $1 LIMIT 1", [name]);
+exports.getDetailsByNumber = async (number) => {
+  return await connection.one("SELECT name, number, type, country, intldes FROM satellites WHERE number = $1 LIMIT 1", [number]);
 };
 
 /**
@@ -209,3 +209,25 @@ exports.getCategoryList = async () => {
 exports.getCountryList = async () => {
   return await connection.query(`SELECT * FROM countries`);  
 };
+
+/**
+ * Calculate satellite magnitude for visible pass
+ * 
+ * @param {Object} visibility azimuth and elevation properties
+ * @return
+ */
+exports.calculateMagnitude = (visibility) => {
+  const distanceToSatellite = visibility.height; //This is in KM
+  const phaseAngleDegrees = visibility.elevation; //Angle from sun->satellite->observer
+  const pa = phaseAngleDegrees * 0.0174533; //Convert the phase angle to radians
+  const intrinsicMagnitude = -1.8; //-1.8 is std. mag for iss
+
+
+  const term_1 = intrinsicMagnitude;
+  const term_2 = 5.0 * Math.log10(distanceToSatellite / 1000.0);
+
+  const arg = Math.sin(pa) + (Math.PI - pa) * Math.cos(pa);
+  const term_3 = -2.5 * Math.log10(arg);
+
+  return term_1 + term_2 + term_3;
+}

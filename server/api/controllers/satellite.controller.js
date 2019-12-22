@@ -23,7 +23,7 @@ const satelliteService = require("../services/satellite.service");
 exports.getSatelliteLocation = (req, res) => {
   client.hgetall(req.params.satellite, (error, result) => {           
     if (error || !result) {
-      res.sendStatus(404);
+      return res.sendStatus(404);
     } else {
       
       // TLE data
@@ -88,7 +88,7 @@ exports.getSatelliteLocation = (req, res) => {
  */
 exports.getSatelliteDetails = async (req, res) => {
   try {
-    const response = await satelliteService.getDetailsByName(req.params.satellite);
+    const response = await satelliteService.getDetailsByNumber(req.params.satellite);
     
     // Add satellite view
     satelliteService.saveView(req.params.satellite);
@@ -178,7 +178,7 @@ exports.getTopList = async (req, res) => {
 exports.getVisiblePasses = (req, res) => {
   client.hgetall(req.params.satellite, (error, result) => {        
     if (error) {
-      res.sendStatus(400);
+      return res.sendStatus(400);
     }
     
     // TLE data
@@ -186,17 +186,23 @@ exports.getVisiblePasses = (req, res) => {
     const tleLine2 = result.tle2;
     const satrec = satellite.twoline2satrec(tleLine1, tleLine2);
 
+    // Only calculate visible passes for ISS
+    if (satrec.satnum !== '25544') {
+      return res.sendStatus(400); 
+    }
+
     let passes = [];
     const passTime = new Date();
     
     for (let i = 0; i <= 1440; i++) {
-      passTime.setTime(passTime.getTime() + 1000 * (60 * i));
-
-      console.log(passTime);
+      let finalTime = passTime.setTime(passTime.getTime() + 1000 * 60);
 
       const positionAndVelocity = satellite.propagate(satrec, passTime);
       const positionEci = positionAndVelocity.position;
       const positionEcf = satellite.eciToEcf(positionEci, passTime);
+      
+      const gmst = satellite.gstime(passTime);
+      const positionGd = satellite.eciToGeodetic(positionEci, gmst);
 
       // Get user visibility
       let visibility = {
@@ -204,19 +210,22 @@ exports.getVisiblePasses = (req, res) => {
         "elevation": null,
         "date": null
       };
-      //if (req.cookies.location) {
-        //const coords = JSON.parse(req.cookies.location);
-      const observerGd = {
-        longitude: satellite.degreesToRadians(-117.1366),
-        latitude: satellite.degreesToRadians(32.7794),
-        height: 0
-      };
-      const lookAngles = satellite.ecfToLookAngles(observerGd, positionEcf);
-      visibility.azimuth = lookAngles.azimuth * 180 / Math.PI;
-      visibility.elevation = lookAngles.elevation * 180 / Math.PI;
-      visibility.date = passTime;
-      // }
+      if (req.cookies.location) {
+        const coords = JSON.parse(req.cookies.location);
+        const observerGd = {
+          longitude: satellite.degreesToRadians(-117.1366),
+          latitude: satellite.degreesToRadians(32.7794),
+          height: 0
+        };
+        const lookAngles = satellite.ecfToLookAngles(observerGd, positionEcf);
+        visibility.azimuth = lookAngles.azimuth * 180 / Math.PI;
+        visibility.elevation = lookAngles.elevation * 180 / Math.PI;
+        visibility.date = new Date(finalTime);
+        visibility.height = positionGd.height;
+      }
+
       if (visibility.elevation > 0) {
+        const magnitude = satelliteService.calculateMagnitude(visibility);
         passes.push(visibility);
       }
     }
