@@ -41,7 +41,9 @@ export default {
       link: [
         {
           rel: "canonical",
-          href: `${process.env.VUE_APP_URL}/satellites/${satelliteDetails.number}`
+          href: `${process.env.VUE_APP_URL}/satellites/${
+            satelliteDetails.number
+          }`
         }
       ],
       meta: [
@@ -72,7 +74,9 @@ export default {
         {
           vmid: "og:url",
           name: "og:url",
-          content: `${process.env.VUE_APP_URL}/satellites/${satelliteDetails.number}`
+          content: `${process.env.VUE_APP_URL}/satellites/${
+            satelliteDetails.number
+          }`
         },
         {
           vmid: "og:title",

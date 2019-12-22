@@ -4,7 +4,7 @@
     :img-src="satelliteImage(satellite.name)"
     :img-alt="`${satellite.name} image`"
     ref="card"
-    @click="trackSatellite(satellite.name)"
+    @click="trackSatellite(satellite.number)"
   >
     <!-- Title -->
     <b-card-text class="d-flex justify-content-center">
