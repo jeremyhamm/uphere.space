@@ -10,6 +10,7 @@ import spacetrack.operators as op
 from spacetrack import SpaceTrackClient
 from satellite_sources import *
 import datetime
+import tweepy
 
 # Methods
 def connect_db():
@@ -73,6 +74,12 @@ def remove_duplicates(duplicate):
       final_list.append(num) 
   return final_list
 
+def authenticate_twitter():
+  auth = tweepy.OAuthHandler(twitter_credentials['consumer_key'], twitter_credentials['secret'])
+  auth.set_access_token(twitter_credentials['access_token'], twitter_credentials['access_token_secret'])
+  api = tweepy.API(auth)
+  return api
+
 ### ...
 ### Begin Script
 ### 1. Scrape photos from SatNogs ('https://db.satnogs.org/')
@@ -110,6 +117,11 @@ for key in satellite_source_data:
           {'name': sat['name'], 'number': sat['number'], 'classification': 'U', 'active': True, 'launch_date': datetime.datetime.now()}
         )
         connection.commit()
+        
+        # Send tweet with my satellite info
+        twitter = authenticate_twitter()
+        twitter.update_status("Satellite " + sat['name'] + " was just launched! Follow its orbit here https://uphere.space/satellites" + sat['name'])
+      
       except psycopg2.Error:
         print(psycopg2.Error)
 
@@ -151,6 +163,7 @@ for sat in leo_satellites:
 # Return format {name: "TEST", "ids": []}
 category_list = []
 for key, val in categories.items():
+  print(key)
   category = requests.get(val)
   soup = BeautifulSoup(category.content, 'lxml')
   category_table = soup.find('table', id='categoriestab') 
