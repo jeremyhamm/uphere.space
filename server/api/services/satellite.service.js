@@ -82,7 +82,26 @@ exports.getSatelliteTotal = async () => {
  * @return {Array}
  */
 exports.getDetailsByNumber = async (number) => {
-  return await connection.one("SELECT name, number, type, country, intldes FROM satellites WHERE number = $1 LIMIT 1", [number]);
+  const satellite = await connection.one(`
+    SELECT name, number, type, country, intldes 
+    FROM satellites 
+    WHERE number = $1`,
+    [number]
+  );
+
+  const links = await connection.query(`
+    SELECT link_name, link_url 
+    FROM satellite_links
+    WHERE satellite_number = $1`,
+    [number]
+  );
+
+  satellite.links = [];
+  if (links) {
+    satellite.links = links;
+  }
+
+  return satellite;
 };
 
 /**
