@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-list-group class="pt-3">
+    <b-list-group>
       <b-list-group-item v-for="satellite in satellites" :key="satellite">
         <b-button
           variant="danger"

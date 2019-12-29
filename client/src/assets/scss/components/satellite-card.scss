@@ -22,7 +22,26 @@
     max-width: 300px;
   }
 }
-
+.more-info {
+  &:hover {
+    color: $orange;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+#more-info {
+  .list-group {
+    .list-group-item {
+      a {
+        &:hover {
+          color: $orange;
+          cursor: pointer;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
 
 /** XS **/
 @media (max-width: 576px) {}

@@ -68,8 +68,35 @@
           </span>
         </b-list-group-item>
       </b-list-group>
+      <!-- More Info -->
+      <div
+        v-if="selectedSatelliteDetails.links.length > 0"
+        href="javascript:void(0)"
+        class="more-info text-uppercase mt-2"
+        v-b-toggle.more-info
+      >
+        <small>More Info</small>
+      </div>
+      <b-collapse id="more-info">
+        <b-list-group flush>
+          <b-list-group-item
+            v-for="links in selectedSatelliteDetails.links"
+            :key="links.link_name"
+            class="more-info d-flex justify-content-between align-items-center text-uppercase"
+          >
+            <b-link :href="links.link_url" target="_blank">
+              <small>
+                {{ links.link_name }}
+              </small>
+            </b-link>
+            <font-awesome-icon icon="external-link-alt" size="sm" />
+          </b-list-group-item>
+        </b-list-group>
+      </b-collapse>
+      <!-- Extras -->
       <satellite-card-extra
-        :satellites="['ISS (ZARYA)', 'GOES 17', 'GOES 16 [+]']"
+        v-if="satelliteExtraList.includes(selectedSatelliteDetails.name)"
+        :satellites="satelliteExtraList"
       />
     </b-card>
   </div>
@@ -88,7 +115,13 @@ export default {
   data() {
     return {
       config: process.env,
-      close: false
+      close: false,
+      satelliteExtraList: [
+        "ISS (ZARYA)",
+        "GOES 17",
+        "GOES 16 [+]",
+        "DRAGON CRS-19"
+      ]
     };
   },
   computed: {
