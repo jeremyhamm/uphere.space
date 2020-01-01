@@ -72,7 +72,7 @@
       <div
         v-if="selectedSatelliteDetails.links.length > 0"
         href="javascript:void(0)"
-        class="more-info text-uppercase mt-2"
+        class="more-info text-uppercase mt-2 mb-4"
         v-b-toggle.more-info
       >
         <small>More Info</small>

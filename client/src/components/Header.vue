@@ -32,6 +32,9 @@
         <b-nav-item :to="satelliteListNav()" class="font-weight-bold">
           SATELLITES
         </b-nav-item>
+        <b-nav-item to="/api" class="font-weight-bold">
+          API
+        </b-nav-item>
         <b-nav-text>
           <small class="ml-4 mr-2">UTC {{ utcTime }}</small>
         </b-nav-text>
@@ -41,7 +44,7 @@
     <b-nav
       id="slide-menu"
       vertical
-      class="w-100 h-100 d-flex d-md-none align-items-center text-center"
+      class="w-100 d-flex d-md-none align-items-center text-center"
     >
       <b-nav-item
         :to="{ name: 'List' }"

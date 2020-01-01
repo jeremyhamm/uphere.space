@@ -26,6 +26,9 @@ const userRoutes = require("./routes/user.route");
 app.use(bodyParser.json());
 app.use("/api/satellite", satelliteRoutes);
 app.use("/api/user", userRoutes);
+app.use("*", (req, res) => {
+  res.status(404).send("This is not the endpoint you are looking for");
+});
 
 // Running...
 http.listen(process.env.NODE_PORT, function(){

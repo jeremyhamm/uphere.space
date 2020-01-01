@@ -21,9 +21,6 @@ const satelliteService = require("../services/satellite.service");
  * @return {JSON}       satellite location details
  */
 exports.getSatelliteLocation = (req, res) => {
-  
-  console.log(req.params.satellite);
-  
   client.hgetall(req.params.satellite, (error, result) => {           
     if (error || !result) {
       return res.sendStatus(404);

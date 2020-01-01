@@ -16,7 +16,8 @@
       <!-- Map -->
       <b-col cols="12" md="9" xl="10" class="max-height px-0 flex-fill">
         <div
-          class="card-container position-absolute d-flex d-md-none justify-content-center w-100"
+          id="satellite-card-sm-container"
+          class="position-absolute d-flex d-md-none justify-content-center w-100 overflow-auto"
         >
           <satellite-card
             v-if="selectedSatelliteLocation && cardVisibility"
