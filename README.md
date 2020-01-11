@@ -1,2 +1,2 @@
 # Uphere . Space 🛰️
-Realtime satellite tracking and predictions
+Real-time satellite tracking and predictions

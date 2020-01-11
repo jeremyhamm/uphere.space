@@ -81,7 +81,7 @@ export default {
         {
           vmid: "og:title",
           name: "og:title",
-          content: `Realtime satellite tracking and predictions | ${satelliteName}`
+          content: `Real-time satellite tracking and predictions | ${satelliteName}`
         },
         {
           vmid: "og:description",
@@ -113,7 +113,7 @@ export default {
         {
           vmid: "twitter:title",
           name: "twitter:title",
-          content: `Realtime satellite tracking and predictions | ${satelliteName}`
+          content: `Real-time satellite tracking and predictions | ${satelliteName}`
         },
         {
           vmid: "twitter:description",
@@ -202,7 +202,7 @@ export default {
       if (this.mapOptions["footprint"]) {
         this.toggleViewFootprint();
       }
-      // Start realtime data
+      // Start real-time data
       this.runInterval();
     }
   }

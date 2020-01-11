@@ -58,8 +58,98 @@ export default {
       config: process.env
     };
   },
-  computed: {},
-  methods: {}
+  metaInfo() {
+    return {
+      title: "Privacy Policy",
+      titleTemplate: "%s | uphere.space",
+      link: [
+        {
+          rel: "canonical",
+          href: `${process.env.VUE_APP_URL}/privacy`
+        }
+      ],
+      meta: [
+        {
+          vmid: "description",
+          name: "description",
+          content:
+            "Privacy policy for uphere.space, the premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!"
+        },
+        {
+          vmid: "keywords",
+          name: "keywords",
+          content:
+            "privacy policy,conditions,satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite"
+        },
+        // Open Graph
+        {
+          vmid: "og:type",
+          name: "og:type",
+          content: "website"
+        },
+        {
+          vmid: "og:url",
+          name: "og:url",
+          content: `${process.env.VUE_APP_URL}/privacy`
+        },
+        {
+          vmid: "og:title",
+          name: "og:title",
+          content: `About Us`
+        },
+        {
+          vmid: "og:description",
+          name: "og:description",
+          content: `Privacy policy for uphere.space, the premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
+        },
+        {
+          vmid: "og:image",
+          name: "og:image",
+          content: `${
+            process.env.VUE_APP_SPACES_URL
+          }/images/satellites/ISS (ZARYA).png`
+        },
+        // Twitter
+        {
+          vmid: "twitter:card",
+          name: "twitter:card",
+          content: "summary"
+        },
+        {
+          vmid: "twitter:site",
+          name: "twitter:site",
+          content: "@upheredotspace"
+        },
+        {
+          vmid: "twitter:title",
+          name: "twitter:title",
+          content: `Privacy Policy`
+        },
+        {
+          vmid: "twitter:description",
+          name: "twitter:description",
+          content: `Privacy policy for uphere.space, the premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
+        },
+        {
+          vmid: "twitter:image",
+          name: "twitter:image",
+          content: `${
+            process.env.VUE_APP_SPACES_URL
+          }/images/satellites/ISS (ZARYA).png`
+        },
+        {
+          vmid: "twitter:image:alt",
+          name: "twitter:image:alt",
+          content: `ISS (ZARYA) in orbit`
+        },
+        {
+          vmid: "twitter:creator",
+          name: "twitter:creator",
+          content: "@upheredotspace"
+        }
+      ]
+    };
+  }
 };
 </script>
 

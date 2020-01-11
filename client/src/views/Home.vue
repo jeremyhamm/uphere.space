@@ -18,7 +18,7 @@
               alt="uphere.space"
             />
             <h2 class="mt-3 mb-5 text-center">
-              Realtime tracking and predictions for thousands of satellites.
+              Real-time tracking and predictions for thousands of satellites.
               Find the International Space Station, the Hubble Space telescope
               and many more!
             </h2>
@@ -88,7 +88,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: "Realtime satellite tracking and predictions",
+      title: "Real-time satellite tracking and predictions",
       titleTemplate: "%s | uphere.space",
       link: [
         {
@@ -101,7 +101,7 @@ export default {
           vmid: "description",
           name: "description",
           content:
-            "Realtime tracking and predictions for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!"
+            "Real-time tracking and predictions for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!"
         },
         {
           vmid: "keywords",
@@ -123,12 +123,12 @@ export default {
         {
           vmid: "og:title",
           name: "og:title",
-          content: `Realtime tracking and predictions for thousands of satellites currently orbiting earth`
+          content: `Real-time tracking and predictions for thousands of satellites currently orbiting earth`
         },
         {
           vmid: "og:description",
           name: "og:description",
-          content: `Realtime tracking and predictions for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
+          content: `Real-time tracking and predictions for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
         },
         {
           vmid: "og:image",
@@ -151,12 +151,12 @@ export default {
         {
           vmid: "twitter:title",
           name: "twitter:title",
-          content: `Realtime tracking and predictions for thousands of satellites currently orbiting earth`
+          content: `Real-time tracking and predictions for thousands of satellites currently orbiting earth`
         },
         {
           vmid: "twitter:description",
           name: "twitter:description",
-          content: `Realtime tracking and predictions for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
+          content: `Real-time tracking and predictions for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
         },
         {
           vmid: "twitter:image",

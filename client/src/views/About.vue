@@ -4,7 +4,7 @@
     <b-row class="justify-content-center">
       <b-col cols="12" md="10" xl="8" class="text-center content-padding">
         <h4 class="my-3">
-          Welcome to uphere.space, the premier application for realtime
+          Welcome to uphere.space, the premier application for real-time
           satellite tracking application. Over 2,800 satellates available to
           track, with more added daily. If you are interested in advertising
           please use the
@@ -22,7 +22,7 @@
         >
           <img
             src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=173966&theme=light"
-            alt="uphere . space - Realtime tracking and prediction for thousands of satellites | Product Hunt Embed"
+            alt="uphere . space - real-time tracking and prediction for thousands of satellites | Product Hunt Embed"
             style="width: 250px; height: 54px;"
             width="250px"
             height="54px"
@@ -62,8 +62,98 @@ export default {
       config: process.env
     };
   },
-  computed: {},
-  methods: {}
+  metaInfo() {
+    return {
+      title: "About Us",
+      titleTemplate: "%s | uphere.space",
+      link: [
+        {
+          rel: "canonical",
+          href: `${process.env.VUE_APP_URL}/about`
+        }
+      ],
+      meta: [
+        {
+          vmid: "description",
+          name: "description",
+          content:
+            "About uphere.space, the premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!"
+        },
+        {
+          vmid: "keywords",
+          name: "keywords",
+          content:
+            "about us,conditions,satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite"
+        },
+        // Open Graph
+        {
+          vmid: "og:type",
+          name: "og:type",
+          content: "website"
+        },
+        {
+          vmid: "og:url",
+          name: "og:url",
+          content: `${process.env.VUE_APP_URL}/about`
+        },
+        {
+          vmid: "og:title",
+          name: "og:title",
+          content: `About Us`
+        },
+        {
+          vmid: "og:description",
+          name: "og:description",
+          content: `About uphere.space, the premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
+        },
+        {
+          vmid: "og:image",
+          name: "og:image",
+          content: `${
+            process.env.VUE_APP_SPACES_URL
+          }/images/satellites/ISS (ZARYA).png`
+        },
+        // Twitter
+        {
+          vmid: "twitter:card",
+          name: "twitter:card",
+          content: "summary"
+        },
+        {
+          vmid: "twitter:site",
+          name: "twitter:site",
+          content: "@upheredotspace"
+        },
+        {
+          vmid: "twitter:title",
+          name: "twitter:title",
+          content: `Terms and Conditions`
+        },
+        {
+          vmid: "twitter:description",
+          name: "twitter:description",
+          content: `About uphere.space, the premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
+        },
+        {
+          vmid: "twitter:image",
+          name: "twitter:image",
+          content: `${
+            process.env.VUE_APP_SPACES_URL
+          }/images/satellites/ISS (ZARYA).png`
+        },
+        {
+          vmid: "twitter:image:alt",
+          name: "twitter:image:alt",
+          content: `ISS (ZARYA) in orbit`
+        },
+        {
+          vmid: "twitter:creator",
+          name: "twitter:creator",
+          content: "@upheredotspace"
+        }
+      ]
+    };
+  }
 };
 </script>
 

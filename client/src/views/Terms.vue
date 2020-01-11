@@ -121,6 +121,98 @@ export default {
       config: process.env
     };
   },
+  metaInfo() {
+    return {
+      title: "Terms and Conditions",
+      titleTemplate: "%s | uphere.space",
+      link: [
+        {
+          rel: "canonical",
+          href: `${process.env.VUE_APP_URL}/terms`
+        }
+      ],
+      meta: [
+        {
+          vmid: "description",
+          name: "description",
+          content:
+            "Terms and conditions for uphere.space, the premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!"
+        },
+        {
+          vmid: "keywords",
+          name: "keywords",
+          content:
+            "terms,conditions,satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite"
+        },
+        // Open Graph
+        {
+          vmid: "og:type",
+          name: "og:type",
+          content: "website"
+        },
+        {
+          vmid: "og:url",
+          name: "og:url",
+          content: `${process.env.VUE_APP_URL}/terms`
+        },
+        {
+          vmid: "og:title",
+          name: "og:title",
+          content: `Terms and Conditions`
+        },
+        {
+          vmid: "og:description",
+          name: "og:description",
+          content: `Terms and conditions for uphere.space, the premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
+        },
+        {
+          vmid: "og:image",
+          name: "og:image",
+          content: `${
+            process.env.VUE_APP_SPACES_URL
+          }/images/satellites/ISS (ZARYA).png`
+        },
+        // Twitter
+        {
+          vmid: "twitter:card",
+          name: "twitter:card",
+          content: "summary"
+        },
+        {
+          vmid: "twitter:site",
+          name: "twitter:site",
+          content: "@upheredotspace"
+        },
+        {
+          vmid: "twitter:title",
+          name: "twitter:title",
+          content: `Terms and Conditions`
+        },
+        {
+          vmid: "twitter:description",
+          name: "twitter:description",
+          content: `Terms and conditions for uphere.space, the premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
+        },
+        {
+          vmid: "twitter:image",
+          name: "twitter:image",
+          content: `${
+            process.env.VUE_APP_SPACES_URL
+          }/images/satellites/ISS (ZARYA).png`
+        },
+        {
+          vmid: "twitter:image:alt",
+          name: "twitter:image:alt",
+          content: `ISS (ZARYA) in orbit`
+        },
+        {
+          vmid: "twitter:creator",
+          name: "twitter:creator",
+          content: "@upheredotspace"
+        }
+      ]
+    };
+  },
   computed: {},
   methods: {}
 };

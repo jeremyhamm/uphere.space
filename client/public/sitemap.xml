@@ -8,6 +8,8 @@
   <url><loc>https://uphere.space/terms</loc><priority>0.1</priority></url>
   <!-- List -->
   <url><loc>https://uphere.space/list</loc><priority>0.9</priority></url>
+  <!-- API -->
+  <url><loc>https://uphere.space/satellites/api</loc><priority>0.9</priority></url>
   <!-- Satellites -->
   <url><loc>https://uphere.space/satellites/10061</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/10114</loc><priority>0.9</priority></url>

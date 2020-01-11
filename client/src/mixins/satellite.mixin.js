@@ -7,7 +7,7 @@ const satelliteMixin = {
   data() {
     return {
       config: process.env,
-      realtimeData: null
+      realTimeData: null
     };
   },
   computed: {
@@ -112,7 +112,7 @@ const satelliteMixin = {
      * Add satellite layer to map
      */
     setSatelliteSource() {
-      this.realtimeData.remove();
+      this.realTimeData.remove();
       this.addSatelliteData();
     },
     determineIconSize(icon) {
@@ -167,12 +167,12 @@ const satelliteMixin = {
         iconSize: iconSize,
         iconUrl: `${this.config.VUE_APP_SPACES_URL}/images/icons/${iconName}`
       });
-      this.realtimeData = L.geoJSON(this.selectedSatelliteLocation, {
+      this.realTimeData = L.geoJSON(this.selectedSatelliteLocation, {
         pointToLayer: (feature, latlng) => {
           return L.marker(latlng, { icon: smallIcon });
         }
       }).addTo(this.map);
-      this.realtimeData.on("click", () => {
+      this.realTimeData.on("click", () => {
         this.satelliteClickHandler();
       });
     },

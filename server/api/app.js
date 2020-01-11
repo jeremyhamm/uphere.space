@@ -7,6 +7,10 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 
+// Compression
+const compression = require('compression');
+app.use(compression());
+
 // Helmet
 const helmet = require("helmet");
 app.use(helmet());
@@ -26,6 +30,8 @@ const userRoutes = require("./routes/user.route");
 app.use(bodyParser.json());
 app.use("/api/satellite", satelliteRoutes);
 app.use("/api/user", userRoutes);
+
+// 404
 app.use("*", (req, res) => {
   res.status(404).send("This is not the endpoint you are looking for");
 });

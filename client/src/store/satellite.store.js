@@ -85,10 +85,12 @@ const satellite = {
       return new Promise((resolve, reject) => {
         axios
           .get(
-            process.env.VUE_APP_API_URL +
-              "/satellite/" +
-              encodeURIComponent(name) +
-              "/location"
+            `${process.env.VUE_APP_API_URL}/satellite/${encodeURIComponent(
+              name
+            )}/location`,
+            {
+              headers: { "X-RapidAPI-Key": process.env.VUE_APP_API_KEY }
+            }
           )
           .then(
             response => {
@@ -105,10 +107,12 @@ const satellite = {
       return new Promise((resolve, reject) => {
         axios
           .get(
-            process.env.VUE_APP_API_URL +
-              "/satellite/" +
-              encodeURIComponent(number) +
-              "/details"
+            `${process.env.VUE_APP_API_URL}/satellite/${encodeURIComponent(
+              number
+            )}/details`,
+            {
+              headers: { "X-RapidAPI-Key": process.env.VUE_APP_API_KEY }
+            }
           )
           .then(
             response => {
@@ -132,7 +136,8 @@ const satellite = {
       return new Promise((resolve, reject) => {
         axios
           .get(process.env.VUE_APP_API_URL + "/satellite/list", {
-            params
+            params,
+            headers: { "X-RapidAPI-Key": process.env.VUE_APP_API_KEY }
           })
           .then(
             response => {
@@ -149,7 +154,9 @@ const satellite = {
     fetchCategoryList({ commit }) {
       return new Promise((resolve, reject) => {
         axios
-          .get(process.env.VUE_APP_API_URL + "/satellite/list/categories")
+          .get(process.env.VUE_APP_API_URL + "/satellite/list/categories", {
+            headers: { "X-RapidAPI-Key": process.env.VUE_APP_API_KEY }
+          })
           .then(
             response => {
               commit("setCategoryList", response.data);
@@ -164,7 +171,9 @@ const satellite = {
     fetchCountryList({ commit }) {
       return new Promise((resolve, reject) => {
         axios
-          .get(process.env.VUE_APP_API_URL + "/satellite/list/countries")
+          .get(process.env.VUE_APP_API_URL + "/satellite/list/countries", {
+            headers: { "X-RapidAPI-Key": process.env.VUE_APP_API_KEY }
+          })
           .then(
             response => {
               commit("setCountryList", response.data);
@@ -178,15 +187,19 @@ const satellite = {
     },
     fetchTopList({ commit }) {
       return new Promise((resolve, reject) => {
-        axios.get(process.env.VUE_APP_API_URL + "/satellite/top").then(
-          response => {
-            commit("setTopList", response.data);
-            resolve();
-          },
-          error => {
-            reject(error);
-          }
-        );
+        axios
+          .get(process.env.VUE_APP_API_URL + "/satellite/top", {
+            headers: { "X-RapidAPI-Key": process.env.VUE_APP_API_KEY }
+          })
+          .then(
+            response => {
+              commit("setTopList", response.data);
+              resolve();
+            },
+            error => {
+              reject(error);
+            }
+          );
       });
     }
   },

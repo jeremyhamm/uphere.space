@@ -32,7 +32,7 @@
         <b-nav-item :to="satelliteListNav()" class="font-weight-bold">
           SATELLITES
         </b-nav-item>
-        <b-nav-item to="/api" class="font-weight-bold">
+        <b-nav-item :to="{ name: 'API-Overview' }" class="font-weight-bold">
           API
         </b-nav-item>
         <b-nav-text>
@@ -51,6 +51,9 @@
         class="font-weight-bold text-uppercase"
       >
         Satellites
+      </b-nav-item>
+      <b-nav-item :to="{ name: 'API-Overview' }" class="font-weight-bold">
+        API
       </b-nav-item>
       <b-nav-item
         :to="{ name: 'About' }"

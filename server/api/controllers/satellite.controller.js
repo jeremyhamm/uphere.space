@@ -1,16 +1,6 @@
-// Redis
-const redis = require("redis");
-const client = redis.createClient({
-  host: process.env.REDIS_HOST,
-  port: process.env.REDIS_PORT,
-  password: process.env.REDIS_PASSWORD,
-  tls: true
-});
-
-// Satellite js
+// Imports
+const client = require("../database/redis.connection");
 const satellite = require("satellite.js");
-
-// Services
 const satelliteService = require("../services/satellite.service");
 
 /**

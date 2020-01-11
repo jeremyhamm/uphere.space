@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const rapidAPiMiddleware = require('../middleware/rapidapi');
 
 // Controller
 const satelliteController = require("../controllers/satellite.controller");
@@ -8,13 +9,13 @@ const satelliteController = require("../controllers/satellite.controller");
 router.get("/top", satelliteController.getTopList);
 
 // List
-router.get("/list", satelliteController.getSatelliteList);
-router.get("/list/categories", satelliteController.getCategoryList);
-router.get("/list/countries", satelliteController.getCountryList);
+router.get("/list", rapidAPiMiddleware, satelliteController.getSatelliteList);
+router.get("/list/categories", rapidAPiMiddleware, satelliteController.getCategoryList);
+router.get("/list/countries", rapidAPiMiddleware, satelliteController.getCountryList);
 
 // Satellite
-router.get("/:satellite/details", satelliteController.getSatelliteDetails);
-router.get("/:satellite/location", satelliteController.getSatelliteLocation);
-router.get("/:satellite/passes", satelliteController.getVisiblePasses);
+router.get("/:satellite/details", rapidAPiMiddleware, satelliteController.getSatelliteDetails);
+router.get("/:satellite/location", rapidAPiMiddleware, satelliteController.getSatelliteLocation);
+router.get("/:satellite/passes", rapidAPiMiddleware, satelliteController.getVisiblePasses);
 
 module.exports = router;
