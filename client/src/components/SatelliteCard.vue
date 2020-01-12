@@ -33,6 +33,14 @@
             <small class="text-uppercase ml-1">mph</small>
           </span>
         </b-list-group-item>
+        <!-- Orbital Period -->
+        <b-list-group-item>
+          <small class="float-left text-uppercase">period</small>
+          <span class="float-right">
+            {{ formatFloat(selectedSatelliteDetails.orbital_period) }}
+            <small class="text-uppercase ml-1">min</small>
+          </span>
+        </b-list-group-item>
         <!-- Azimuth -->
         <b-list-group-item
           v-if="selectedSatelliteLocation.properties.visibility.azimuth"

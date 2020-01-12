@@ -122,7 +122,7 @@ exports.getSatelliteDetails = async (req, res) => {
  */
 exports.getCategoryList = async (req, res) => {
   try {
-    const results = await satelliteService.getCategoryList();
+    const results = await satelliteService.getCategoryList(req.query.sort);
     return res.status(200).json(results);
   }
   catch(e) {
