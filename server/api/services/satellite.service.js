@@ -217,14 +217,8 @@ exports.saveView = (name) => {
  * @param  {String} sort direction to sort list
  * @return {Array}       category list
  */
-exports.getCategoryList = async (sort) => {
-  const sortDirection = 'ASC' || sort.toUpperCase();
-  let sql = `
-    SELECT * 
-    FROM categories 
-    ORDER BY name $1
-  `;
-  return await connection.query(sql, [sortDirection]);  
+exports.getCategoryList = async () => {
+  return await connection.query(`SELECT * FROM categories ORDER BY name ASC`);  
 };
 
 /**
