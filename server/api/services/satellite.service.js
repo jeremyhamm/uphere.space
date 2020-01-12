@@ -37,9 +37,9 @@ exports.getVisibleFootprint = (height) => {
  * @param  {Object} satrec current satellite track
  * @return {Object}        tracklist
  */
-exports.getTrack = (satrec) => {
+exports.getOrbit = (satrec, period) => {
   let trackList = [];
-  for (let i = -1; i <= 92; i++) {
+  for (let i = -1; i <= period; i++) {
     const trackProjection = new Date();
     trackProjection.setMinutes(trackProjection.getMinutes() + i);
     const positionAndVelocity = satellite.propagate(satrec, trackProjection);
@@ -83,7 +83,7 @@ exports.getSatelliteTotal = async () => {
  */
 exports.getDetailsByNumber = async (number) => {
   const satellite = await connection.one(`
-    SELECT name, number, type, country, intldes 
+    SELECT name, number, type, country, intldes, orbital_period, launch_date 
     FROM satellites 
     WHERE number = $1`,
     [number]

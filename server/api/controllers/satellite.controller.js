@@ -4,6 +4,29 @@ const satellite = require("satellite.js");
 const satelliteService = require("../services/satellite.service");
 
 /**
+ * Get satellite track for n minutes
+ * 
+ * @param  {Object} req request object
+ * @param  {Object} res response object
+ * @return {JSON}       satellite track
+ */
+exports.getSatelliteOrbit = (req, res) => {
+  client.hgetall(req.params.satellite, (error, result) => {
+    if (error || !result) {
+      return res.sendStatus(404);
+    } else {
+      // TLE data
+      const tleLine1 = result.tle1;
+      const tleLine2 = result.tle2;
+      const satrec = satellite.twoline2satrec(tleLine1, tleLine2);
+      const track = satelliteService.getOrbit(satrec, req.query.period);
+      
+      return res.status(200).json(track);
+    }
+  });
+}
+
+/**
  * Get current location of selected satellite
  * 
  * @param  {Object} req request object
@@ -61,7 +84,7 @@ exports.getSatelliteLocation = (req, res) => {
           "speed": satelliteService.convertVelocity(velocityEci),
           "visibility": visibility,
           "footprint_radius": satelliteService.getVisibleFootprint(positionGd.height),
-          "track": satelliteService.getTrack(satrec)
+          "track": satelliteService.getOrbit(satrec, (req.query.period || 90))
         }
       };
       return res.status(200).json(geoJson);

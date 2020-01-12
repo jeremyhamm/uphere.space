@@ -15,6 +15,7 @@ router.get("/list/countries", rapidAPiMiddleware, satelliteController.getCountry
 
 // Satellite
 router.get("/:satellite/details", rapidAPiMiddleware, satelliteController.getSatelliteDetails);
+router.get("/:satellite/orbit", rapidAPiMiddleware, satelliteController.getSatelliteOrbit);
 router.get("/:satellite/location", rapidAPiMiddleware, satelliteController.getSatelliteLocation);
 router.get("/:satellite/passes", rapidAPiMiddleware, satelliteController.getVisiblePasses);
 

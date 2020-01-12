@@ -160,18 +160,22 @@ export default {
   },
   methods: {
     init() {
-      this.$store.dispatch(
-        "satellite/satelliteDetails",
-        this.selectedSatelliteNumber
-      );
       this.$store
-        .dispatch("satellite/satelliteLocation", this.selectedSatelliteNumber)
+        .dispatch("satellite/satelliteDetails", this.selectedSatelliteNumber)
         .then(() => {
-          const coords = this.selectedSatelliteLocation.geometry.coordinates;
-          this.createMap(coords[0], coords[1]);
-        })
-        .catch(() => {
-          this.$router.push({ name: "FourZeroFour" });
+          this.$store
+            .dispatch("satellite/satelliteLocation", {
+              number: this.selectedSatelliteNumber,
+              period: this.selectedSatelliteDetails.orbital_period
+            })
+            .then(() => {
+              const coords = this.selectedSatelliteLocation.geometry
+                .coordinates;
+              this.createMap(coords[0], coords[1]);
+            })
+            .catch(() => {
+              this.$router.push({ name: "FourZeroFour" });
+            });
         });
     },
     createMap(lng, lat) {

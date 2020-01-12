@@ -21,21 +21,14 @@
         <!-- Get Access -->
         <b-row class="text-center mt-5">
           <b-col cols="12">
-            <a :href="config.VUE_APP_API_DOCS" target="_blank">
+            <!-- <a :href="config.VUE_APP_API_DOCS" target="_blank">
               <img
                 src="https://storage.googleapis.com/code-snippets/connect-on-rapidapi-light.png"
                 width="215"
                 alt="Connect on RapidAPI"
               />
-            </a>
-            <!-- <b-button
-              :href="config.VUE_APP_API_DOCS"
-              variant="danger"
-              size="lg"
-              target="_blank"
-            >
-              Get Access
-            </b-button> -->
+            </a> -->
+            <p>Coming Soon!</p>
           </b-col>
         </b-row>
       </b-col>

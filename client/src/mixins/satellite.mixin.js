@@ -89,7 +89,10 @@ const satelliteMixin = {
      */
     loadLocationData() {
       this.$store
-        .dispatch("satellite/satelliteLocation", this.selectedSatelliteNumber)
+        .dispatch("satellite/satelliteLocation", {
+          number: this.selectedSatelliteNumber,
+          period: this.selectedSatelliteDetails.orbital_period
+        })
         .then(() => {
           this.setSatelliteSource();
           if (this.mapOptions.tracking) {

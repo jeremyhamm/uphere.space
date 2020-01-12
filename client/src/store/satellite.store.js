@@ -81,14 +81,15 @@ const satellite = {
     }
   },
   actions: {
-    satelliteLocation({ commit }, name) {
+    satelliteLocation({ commit }, params) {
       return new Promise((resolve, reject) => {
         axios
           .get(
             `${process.env.VUE_APP_API_URL}/satellite/${encodeURIComponent(
-              name
+              params.number
             )}/location`,
             {
+              params: { period: params.period },
               headers: { "X-RapidAPI-Key": process.env.VUE_APP_API_KEY }
             }
           )
