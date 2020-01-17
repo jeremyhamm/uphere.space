@@ -10,36 +10,15 @@
             height="35"
             width="35"
           />
-          API Overview
+          API Documentation
         </h1>
         <h4 class="pt-2">
-          Welcome to the premier API for real-time satellite tracking!
-          Satellites are added to the database and available for tracking as
-          soon as they are launched. Any questions for comments can be submitted
-          via the
-          <router-link :to="{ name: 'Contact' }">contact</router-link>
-          page.
+          test
         </h4>
         <!-- Get Access -->
         <b-row class="text-center mt-5">
           <b-col cols="12">
-            <a :href="config.VUE_APP_API_DOCS" target="_blank">
-              <img
-                src="https://storage.googleapis.com/code-snippets/connect-on-rapidapi-light.png"
-                width="215"
-                alt="Connect on RapidAPI"
-              />
-            </a>
-          </b-col>
-        </b-row>
-        <!-- Documentation -->
-        <b-row class="text-center mt-5">
-          <b-col cols="12">
-            <h3>
-              <router-link to="/development/api/documentation"
-                >Documentation</router-link
-              >
-            </h3>
+            <p>Coming Soon!</p>
           </b-col>
         </b-row>
       </b-col>
@@ -49,7 +28,7 @@
 
 <script>
 export default {
-  name: "API-Overview",
+  name: "API-Documentation",
   data() {
     return {
       config: process.env
@@ -57,12 +36,12 @@ export default {
   },
   metaInfo() {
     return {
-      title: "API Overview",
+      title: "API Documentation",
       titleTemplate: "%s | uphere.space",
       link: [
         {
           rel: "canonical",
-          href: `${process.env.VUE_APP_URL}/development/api/overview`
+          href: `${process.env.VUE_APP_URL}/development/api/documentation`
         }
       ],
       meta: [
@@ -70,13 +49,13 @@ export default {
           vmid: "description",
           name: "description",
           content:
-            "Public uphere.space API overview. The premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!"
+            "Public uphere.space API documentation. The premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!"
         },
         {
           vmid: "keywords",
           name: "keywords",
           content:
-            "api,overview,satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite"
+            "api,documentation,satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite"
         },
         // Open Graph
         {
@@ -87,7 +66,7 @@ export default {
         {
           vmid: "og:url",
           name: "og:url",
-          content: `${process.env.VUE_APP_URL}/development/api/overview`
+          content: `${process.env.VUE_APP_URL}/development/api/documentation`
         },
         {
           vmid: "og:title",
@@ -97,7 +76,7 @@ export default {
         {
           vmid: "og:description",
           name: "og:description",
-          content: `Public uphere.space API overview. The premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
+          content: `Public uphere.space API documentation. The premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
         },
         {
           vmid: "og:image",
@@ -125,7 +104,7 @@ export default {
         {
           vmid: "twitter:description",
           name: "twitter:description",
-          content: `Public uphere.space API overview. The premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
+          content: `Public uphere.space API documentation. The premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
         },
         {
           vmid: "twitter:image",
@@ -152,11 +131,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-a {
-  &:hover {
-    text-decoration: none;
-  }
-}
 .content-top {
   padding-top: 100px;
 }

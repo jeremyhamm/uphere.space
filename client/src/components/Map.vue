@@ -169,13 +169,12 @@ export default {
               period: this.selectedSatelliteDetails.orbital_period
             })
             .then(() => {
-              const coords = this.selectedSatelliteLocation.geometry
-                .coordinates;
+              const coords = this.selectedSatelliteLocation.coordinates;
               this.createMap(coords[0], coords[1]);
-            })
-            .catch(() => {
-              this.$router.push({ name: "FourZeroFour" });
             });
+          // .catch(() => {
+          //   this.$router.push({ name: "FourZeroFour" });
+          // });
         });
     },
     createMap(lng, lat) {

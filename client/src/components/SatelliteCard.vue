@@ -21,7 +21,7 @@
         <b-list-group-item>
           <small class="float-left text-uppercase">height</small>
           <span class="float-right">
-            {{ formatFloat(selectedSatelliteLocation.properties.height) }}
+            {{ formatFloat(selectedSatelliteLocation.height) }}
             <small class="text-uppercase ml-1">mi</small>
           </span>
         </b-list-group-item>
@@ -29,7 +29,7 @@
         <b-list-group-item>
           <small class="float-left text-uppercase">speed</small>
           <span class="float-right">
-            {{ formatFloat(selectedSatelliteLocation.properties.speed) }}
+            {{ formatFloat(selectedSatelliteLocation.speed) }}
             <small class="text-uppercase ml-1">mph</small>
           </span>
         </b-list-group-item>
@@ -42,36 +42,24 @@
           </span>
         </b-list-group-item>
         <!-- Azimuth -->
-        <b-list-group-item
-          v-if="selectedSatelliteLocation.properties.visibility.azimuth"
-        >
+        <b-list-group-item v-if="selectedSatelliteLocation.visibility">
           <small class="float-left text-uppercase">azimuth</small>
           <span class="float-right">
-            {{
-              formatFloat(
-                selectedSatelliteLocation.properties.visibility.azimuth
-              )
-            }}
+            {{ formatFloat(selectedSatelliteLocation.visibility.azimuth) }}
             <small class="text-uppercase ml-1">
               {{
                 getCompassDirection(
-                  selectedSatelliteLocation.properties.visibility.azimuth
+                  selectedSatelliteLocation.visibility.azimuth
                 )
               }}
             </small>
           </span>
         </b-list-group-item>
         <!-- Elevation -->
-        <b-list-group-item
-          v-if="selectedSatelliteLocation.properties.visibility.elevation"
-        >
+        <b-list-group-item v-if="selectedSatelliteLocation.visibility">
           <small class="float-left text-uppercase">elevation</small>
           <span class="float-right">
-            {{
-              formatFloat(
-                selectedSatelliteLocation.properties.visibility.elevation
-              )
-            }}
+            {{ formatFloat(selectedSatelliteLocation.visibility.elevation) }}
             &#176;
           </span>
         </b-list-group-item>

@@ -108,7 +108,7 @@ const satelliteMixin = {
      * Follow satellite toggle
      */
     setMapTracking() {
-      const coords = this.selectedSatelliteLocation.geometry.coordinates;
+      const coords = this.selectedSatelliteLocation.coordinates;
       this.map.setView([coords[1], coords[0]]);
     },
     /**
@@ -170,10 +170,9 @@ const satelliteMixin = {
         iconSize: iconSize,
         iconUrl: `${this.config.VUE_APP_SPACES_URL}/images/icons/${iconName}`
       });
-      this.realTimeData = L.geoJSON(this.selectedSatelliteLocation, {
-        pointToLayer: (feature, latlng) => {
-          return L.marker(latlng, { icon: smallIcon });
-        }
+      const coords = this.selectedSatelliteLocation.coordinates;
+      this.realTimeData = L.marker([coords[1], coords[0]], {
+        icon: smallIcon
       }).addTo(this.map);
       this.realTimeData.on("click", () => {
         this.satelliteClickHandler();
@@ -247,9 +246,9 @@ const satelliteMixin = {
      */
     toggleViewFootprint() {
       if (this.mapOptions["footprint"]) {
-        const coords = this.selectedSatelliteLocation.geometry.coordinates;
+        const coords = this.selectedSatelliteLocation.coordinates;
         this.footprint = L.greatCircle([coords[1], coords[0]], {
-          radius: this.selectedSatelliteLocation.properties.footprint_radius,
+          radius: this.selectedSatelliteLocation.footprint_radius,
           stroke: false,
           fillColor: "#F2583E",
           fillOpacity: 0.25
@@ -263,7 +262,7 @@ const satelliteMixin = {
      * Format orbital path array
      */
     formatOrbitalPath() {
-      const track = this.selectedSatelliteLocation.properties.track;
+      const track = this.selectedSatelliteLocation.track;
       const orbitalPath = [];
       track.forEach(val => {
         const latlng = new L.LatLng(val.lat, val.lng);
@@ -317,7 +316,10 @@ const satelliteMixin = {
      * Toggle satellite visibility alert
      */
     showVisibilityAlert() {
-      if (this.selectedSatelliteLocation.properties.visibility.elevation > 0) {
+      if (
+        this.selectedSatelliteLocation.visibility &&
+        this.selectedSatelliteLocation.visibility.elevation > 0
+      ) {
         return true;
       } else {
         return false;

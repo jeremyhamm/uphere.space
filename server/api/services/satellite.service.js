@@ -56,6 +56,23 @@ exports.getOrbit = (satrec, period) => {
   return trackList;
 };
 
+exports.getVisibility = (positionEcf, location) => {
+  let visibility = {
+    "azimuth": null,
+    "elevation": null
+  };
+  const observerGd = {
+    longitude: satellite.degreesToRadians(location.longitude),
+    latitude: satellite.degreesToRadians(location.latitude),
+    height: 0.370
+  };
+  const lookAngles = satellite.ecfToLookAngles(observerGd, positionEcf);
+  visibility.azimuth = lookAngles.azimuth * 180 / Math.PI;
+  visibility.elevation = lookAngles.elevation * 180 / Math.PI;
+
+  return visibility;
+}
+
 /**
  * Convert km to mi
  * 

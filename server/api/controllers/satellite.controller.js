@@ -55,39 +55,38 @@ exports.getSatelliteLocation = (req, res) => {
       const heightMi = satelliteService.convertUnits(positionGd.height);
 
       // Get user visibility
-      let visibility = {
-        "azimuth": null,
-        "elevation": null
-      };
+      let visibility = null;
       if (req.cookies.location) {
         const coords = JSON.parse(req.cookies.location);
-        const observerGd = {
-          longitude: satellite.degreesToRadians(coords.longitude),
-          latitude: satellite.degreesToRadians(coords.latitude),
-          height: 0.370
-        };
-        const lookAngles = satellite.ecfToLookAngles(observerGd, positionEcf);
-        visibility.azimuth = lookAngles.azimuth * 180 / Math.PI;
-        visibility.elevation = lookAngles.elevation * 180 / Math.PI;
+        const location = {
+          'latitude': coords.latitude,
+          'longitude': coords.longitude
+        }
+        visibility = satelliteService.getVisibility(positionEci, location);
+      } else if (req.query.lat && req.query.lng) {
+        const location = {
+          'latitude': req.query.lat,
+          'longitude': req.query.lng
+        }
+        visibility = satelliteService.getVisibility(positionEci, location);
       }
 
       // Format return data
-      const geoJson = {
-        "geometry": {
-          "type": "Point", 
-          "coordinates": [satellite.degreesLong(positionGd.longitude), satellite.degreesLat(positionGd.latitude)]
-        }, 
-        "type": "Feature", 
-        "properties": {
-          "name": req.params.satellite,
-          "height": heightMi,
-          "speed": satelliteService.convertVelocity(velocityEci),
-          "visibility": visibility,
-          "footprint_radius": satelliteService.getVisibleFootprint(positionGd.height),
-          "track": satelliteService.getOrbit(satrec, (req.query.period || 90))
-        }
+      const currentLocation = {
+        'coordinates': [satellite.degreesLong(positionGd.longitude), satellite.degreesLat(positionGd.latitude)],
+        'norad_id': req.params.satellite,
+        'height': heightMi,
+        'speed': satelliteService.convertVelocity(velocityEci),
+        'visibility': visibility,
+        'footprint_radius': satelliteService.getVisibleFootprint(positionGd.height)
       };
-      return res.status(200).json(geoJson);
+      
+      // Add track if request is from app
+      if (!req.query.lat || !req.query.lng) {
+        currentLocation.track = satelliteService.getOrbit(satrec, (req.query.period || 90));
+      }
+
+      return res.status(200).json(currentLocation);
     }
   });
 };
