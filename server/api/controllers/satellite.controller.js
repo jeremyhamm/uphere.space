@@ -62,13 +62,13 @@ exports.getSatelliteLocation = (req, res) => {
           'latitude': coords.latitude,
           'longitude': coords.longitude
         }
-        visibility = satelliteService.getVisibility(positionEci, location);
+        visibility = satelliteService.getVisibility(positionEcf, location);
       } else if (req.query.lat && req.query.lng) {
         const location = {
           'latitude': req.query.lat,
           'longitude': req.query.lng
         }
-        visibility = satelliteService.getVisibility(positionEci, location);
+        visibility = satelliteService.getVisibility(positionEcf, location);
       }
 
       // Format return data
