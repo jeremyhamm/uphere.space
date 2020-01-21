@@ -173,7 +173,7 @@ exports.getSatelliteList = async (req, res) => {
  */
 exports.getTopList = async (req, res) => {
   try {
-    const results = await satelliteService.getMostViewed();
+    const results = await satelliteService.getMostViewed(req.query);
     return res.status(200).json(results);
   }
   catch(e) {

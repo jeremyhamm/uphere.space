@@ -185,7 +185,7 @@ exports.getSatellites = async (params) => {
  * 
  * @return {Array} list of satellites
  */
-exports.getMostViewed = async () => {
+exports.getMostViewed = async (params) => {
   const sql = `
     SELECT s.id, s.name, s.number, s.classification, s.launch_date, s.country, s.type, s.size, s.orbital_period, s.intldes, c.name as category_Name, views.count
     FROM satellites s
@@ -217,15 +217,15 @@ exports.getMostViewed = async () => {
  * @param {String} name satellite name to save view for
  * @return {Void}
  */
-exports.saveView = (name) => {
+exports.saveView = (number) => {
   const sql = `
     INSERT INTO views(satellite_id, date)
     SELECT id as satellite_id, CURRENT_TIMESTAMP as date
     FROM satellites
-    WHERE name = $1
+    WHERE number = $1
     RETURNING id
   `;
-  connection.one(sql, [name]);   
+  connection.one(sql, [number]);   
 };
 
 /**

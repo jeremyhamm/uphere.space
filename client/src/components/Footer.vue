@@ -24,7 +24,7 @@
         <b-nav-item :href="config.VUE_APP_TWITTER" target="_blank">
           <font-awesome-icon :icon="['fab', 'twitter']" size="lg" />
         </b-nav-item>
-        <b-nav-item href="config.VUE_APP_FACEBOOK" target="_blank">
+        <b-nav-item :href="config.VUE_APP_FACEBOOK" target="_blank">
           <font-awesome-icon :icon="['fab', 'facebook']" size="lg" />
         </b-nav-item>
       </b-nav>

@@ -12,9 +12,6 @@
           />
           API Documentation
         </h1>
-        <h4 class="pt-2">
-          test
-        </h4>
         <!-- Get Access -->
         <b-row class="text-center mt-5">
           <b-col cols="12">

@@ -187,9 +187,13 @@ const satellite = {
       });
     },
     fetchTopList({ commit }) {
+      let params = {
+        
+      }
       return new Promise((resolve, reject) => {
         axios
           .get(process.env.VUE_APP_API_URL + "/satellite/top", {
+            params,
             headers: { "X-RapidAPI-Key": process.env.VUE_APP_API_KEY }
           })
           .then(
