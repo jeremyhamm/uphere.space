@@ -206,6 +206,8 @@ exports.getMostViewed = async (params) => {
   // Get data
   return await connection.task(async t => {
     let satellites = await t.query(sql, params);
+
+    return satellites;
     
     // Format data
     //return utils.formatSatelliteCategory(satellites);
