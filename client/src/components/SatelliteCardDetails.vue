@@ -62,7 +62,7 @@
     <!-- Categories -->
     <p
       class="small d-flex justify-content-left mt-3"
-      v-if="satellite.categories.length"
+      v-if="satellite.categories && satellite.categories.length"
     >
       Categories
     </p>
