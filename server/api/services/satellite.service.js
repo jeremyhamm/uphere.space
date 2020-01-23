@@ -208,7 +208,7 @@ exports.getMostViewed = async (params) => {
     let satellites = await t.query(sql, params);
     
     // Format data
-    return utils.formatSatelliteCategory(satellites);
+    //return utils.formatSatelliteCategory(satellites);
   });
 };
 
