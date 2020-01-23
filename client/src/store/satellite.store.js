@@ -188,8 +188,8 @@ const satellite = {
     },
     fetchTopList({ commit }) {
       let params = {
-        
-      }
+        days: 1
+      };
       return new Promise((resolve, reject) => {
         axios
           .get(process.env.VUE_APP_API_URL + "/satellite/top", {

@@ -17,8 +17,10 @@
               class="d-none d-md-inline img-fluid"
               alt="uphere.space"
             />
-            <h2 class="mt-3 mb-5 text-center">
+            <h1 class="mt-3 mb-2 text-center">
               Real-time tracking and predictions for thousands of satellites.
+            </h1>
+            <h2 class="mb-5 text-center">
               Find the International Space Station, the Hubble Space telescope
               and many more!
             </h2>
@@ -87,8 +89,11 @@ export default {
     };
   },
   metaInfo() {
+    const title = "Real-time satellite tracking and predictions";
+    const description =
+      "Real-time tracking and predictions for thousands of satellites for your location. Find the International Space Station, the Hubble Space telescope and many more!";
     return {
-      title: "Real-time satellite tracking and predictions",
+      title: title,
       titleTemplate: "%s | uphere.space",
       link: [
         {
@@ -98,82 +103,94 @@ export default {
       ],
       meta: [
         {
-          vmid: "description",
           name: "description",
-          content:
-            "Real-time tracking and predictions for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!"
+          content: description
         },
         {
-          vmid: "keywords",
           name: "keywords",
           content:
-            "satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite"
+            "satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite,launch,real-time tracking,space"
+        },
+        {
+          name: "subject",
+          content: "Satellite Tracking"
+        },
+        {
+          name: "url",
+          content: `${process.env.VUE_APP_URL}`
         },
         // Open Graph
         {
-          vmid: "og:type",
-          name: "og:type",
+          property: "og:site_name",
+          content: "uphere.space"
+        },
+        {
+          property: "og:type",
           content: "website"
         },
         {
-          vmid: "og:url",
-          name: "og:url",
+          property: "og:url",
           content: `${process.env.VUE_APP_URL}`
         },
         {
-          vmid: "og:title",
-          name: "og:title",
-          content: `Real-time tracking and predictions for thousands of satellites currently orbiting earth`
+          property: "og:title",
+          content: title
         },
         {
-          vmid: "og:description",
-          name: "og:description",
-          content: `Real-time tracking and predictions for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
+          property: "og:description",
+          content: description
         },
         {
-          vmid: "og:image",
-          name: "og:image",
+          property: "og:image",
           content: `${
             process.env.VUE_APP_SPACES_URL
           }/images/satellites/ISS (ZARYA).png`
         },
         // Twitter
         {
-          vmid: "twitter:card",
           name: "twitter:card",
           content: "summary"
         },
         {
-          vmid: "twitter:site",
           name: "twitter:site",
           content: "@upheredotspace"
         },
         {
-          vmid: "twitter:title",
           name: "twitter:title",
           content: `Real-time tracking and predictions for thousands of satellites currently orbiting earth`
         },
         {
-          vmid: "twitter:description",
           name: "twitter:description",
-          content: `Real-time tracking and predictions for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
+          content: description
         },
         {
-          vmid: "twitter:image",
           name: "twitter:image",
           content: `${
             process.env.VUE_APP_SPACES_URL
           }/images/satellites/ISS (ZARYA).png`
         },
         {
-          vmid: "twitter:image:alt",
           name: "twitter:image:alt",
           content: `ISS (ZARYA) in orbit`
         },
         {
-          vmid: "twitter:creator",
           name: "twitter:creator",
           content: "@upheredotspace"
+        },
+        // Google / Schema.org markup:
+        {
+          itemprop: "name",
+          content: title
+        },
+        {
+          itemprop: "description",
+          content: description
+        },
+        {
+          itemprop: "image",
+          content: `${
+            process.env.VUE_APP_SPACES_URL
+          }/images/satellites/ISS (ZARYA).png`
         }
       ]
     };

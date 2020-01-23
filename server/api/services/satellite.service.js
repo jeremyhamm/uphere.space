@@ -190,9 +190,10 @@ exports.getMostViewed = async (params) => {
     SELECT s.id, s.name, s.number, s.classification, s.launch_date, s.country, s.type, s.size, s.orbital_period, s.intldes, c.name as category_Name, views.count
     FROM satellites s
     JOIN (
-      SELECT v.satellite_id, COUNT(v.id) as count
+      SELECT v.satellite_id, COUNT(v.id) as count, v.date
       FROM views v
-      GROUP BY v.satellite_id
+      WHERE v.date >= (NOW() - interval '${params.days} day')
+      GROUP BY v.satellite_id, v.date
       ORDER BY count DESC
       LIMIT 6
     ) views ON s.id = views.satellite_id
@@ -204,7 +205,7 @@ exports.getMostViewed = async (params) => {
   
   // Get data
   return await connection.task(async t => {
-    let satellites = await t.query(sql);
+    let satellites = await t.query(sql, params);
     
     // Format data
     return utils.formatSatelliteCategory(satellites);
