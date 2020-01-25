@@ -162,7 +162,7 @@ for sat in leo_satellites:
     cursor.execute(
       """
       UPDATE satellites 
-      SET active = 0
+      SET active = FALSE
       WHERE number = %(number)s
       """, 
       {
