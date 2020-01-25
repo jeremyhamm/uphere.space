@@ -168,6 +168,7 @@ for sat in leo_satellites:
         'number': sat['number']
       }
     )
+    connection.commit()
 
 # 5.
 # Parse categories from n2yo.com
