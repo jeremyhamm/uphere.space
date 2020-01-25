@@ -158,10 +158,11 @@ for sat in leo_satellites:
     )
     connection.commit()
   else:
+    print("Inactive: " + sat['name'])
     cursor.execute(
       """
       UPDATE satellites 
-      SET active = 0,
+      SET active = 0
       WHERE number = %(number)s
       """, 
       {
