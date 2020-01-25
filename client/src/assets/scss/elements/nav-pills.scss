@@ -1,12 +1,14 @@
 .nav.nav-pills {
   a.nav-link {
-    border-radius: 0;
+    border-radius: 3px;
     color: $white;
     &:hover {
-      background-color: rgba(43,62,66,0.5);
+      color: $white !important;
+      background-color: $orange-transparent;
     }
     &.active {
-      background-color: rgba(43,62,66,0.5);
+      color: $white !important;
+      background-color: $orange-transparent;
     }
   }
 }

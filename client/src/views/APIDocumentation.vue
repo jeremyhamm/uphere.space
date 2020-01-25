@@ -12,7 +12,7 @@
           />
           API Documentation
         </h1>
-        <!-- Get Access -->
+        <!-- Overview -->
         <b-row class="text-center mt-5">
           <b-col cols="12">
             <p>Coming Soon!</p>

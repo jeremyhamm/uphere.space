@@ -157,6 +157,17 @@ for sat in leo_satellites:
       }
     )
     connection.commit()
+  else:
+    cursor.execute(
+      """
+      UPDATE satellites 
+      SET active = 0,
+      WHERE number = %(number)s
+      """, 
+      {
+        'number': sat['number']
+      }
+    )
 
 # 5.
 # Parse categories from n2yo.com

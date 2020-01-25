@@ -16,7 +16,8 @@ const satellite = {
     categoryList: null,
     countryList: null,
     cardVisibility: false,
-    topList: []
+    topList: [],
+    topListTimeRange: 1
   },
   mutations: {
     setInterval(state, val) {
@@ -78,6 +79,9 @@ const satellite = {
     },
     setTopList(state, list) {
       state.topList = list;
+    },
+    setTopListTimeRange(state, time) {
+      state.topListTimeRange = time;
     }
   },
   actions: {
@@ -186,9 +190,9 @@ const satellite = {
           );
       });
     },
-    fetchTopList({ commit }) {
+    fetchTopList({ commit }, time) {
       let params = {
-        days: 1
+        days: time
       };
       return new Promise((resolve, reject) => {
         axios
@@ -198,6 +202,7 @@ const satellite = {
           })
           .then(
             response => {
+              commit("setTopListTimeRange", params.days);
               commit("setTopList", response.data);
               resolve();
             },
@@ -253,6 +258,9 @@ const satellite = {
     },
     getTopList: state => {
       return state.topList;
+    },
+    getTopListTimeRange: state => {
+      return state.topListTimeRange;
     }
   }
 };
