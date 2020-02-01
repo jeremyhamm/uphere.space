@@ -100,8 +100,12 @@ export default {
       ]
     };
   },
+  beforeRouteUpdate(to, from, next) {
+    this.init(to.query);
+    next();
+  },
   created() {
-    this.init();
+    this.init(this.$route.query);
   },
   computed: {
     satellitePageNumber: {
@@ -147,11 +151,11 @@ export default {
     }
   },
   methods: {
-    init() {
-      if (this.$route.query && this.$route.query.search) {
-        this.satelliteTextFilter = this.$route.query.search;
-      }
+    init(query) {
       this.loading = true;
+      if (query && query.search) {
+        this.satelliteTextFilter = query.search;
+      }
       let satellite = this.$store.dispatch("satellite/fetchSatelliteList");
       let category = this.$store.dispatch("satellite/fetchCategoryList");
       let country = this.$store.dispatch("satellite/fetchCountryList");

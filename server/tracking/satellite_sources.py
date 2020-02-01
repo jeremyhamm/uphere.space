@@ -114,11 +114,3 @@ categories = {
   'xm_and_sirius': 'https://www.n2yo.com/satellites/?c=33',
   'yaogan': 'https://www.n2yo.com/satellites/?c=36'
 }
-
-# Twitter credentials
-twitter_credentials = {
-  'consumer_key': 'tD6sFxHUTczoSOnvnztFwIIs9',
-  'consumer_secret': 'L51qGSMMDbxeXAZqZ2JLPkqdMiYYamJcjW1kMTVK2QZzK9ylGS',
-  'access_token': '1183116222159716352-AEW6Yh8ZkUKHZFI7chQJVYBmvuoxWO',
-  'access_token_secret': 'inCz7I4a5QNVISetL0X1r4Tbgg3ECWDuGat1QrI5sfKUX'
-}

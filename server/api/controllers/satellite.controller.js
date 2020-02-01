@@ -125,7 +125,6 @@ exports.getCategoryList = async (req, res) => {
     return res.status(200).json(results);
   }
   catch(e) {
-    console.log(e);
     return res.sendStatus(404);
   }
 };

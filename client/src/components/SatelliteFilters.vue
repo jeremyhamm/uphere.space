@@ -1,13 +1,6 @@
 <template>
   <div id="filters-container" class="fixed-top">
     <b-form @submit="updateList" @reset="resetFilters" novalidate>
-      <!-- Text filter -->
-      <b-form-row class="mt-3 mx-auto">
-        <b-col cols="12" md="8" xl="6" offset-xl="3">
-          <b-form-input v-model="textSearch" placeholder="Search by name or id">
-          </b-form-input>
-        </b-col>
-      </b-form-row>
       <!-- Country Select -->
       <b-form-row class="mt-3 mx-auto" v-if="countryList">
         <b-col cols="12" md="6" lg="4" xl="3" offset-xl="3">
@@ -47,15 +40,13 @@
         <b-col cols="12">
           <b-button
             type="submit"
-            variant="primary"
+            variant="danger"
             class="mr-3"
-            :disabled="
-              !selectedCategories.length && !textSearch && !selectedCountry
-            "
+            :disabled="!selectedCategories.length && !selectedCountry"
           >
             Update
           </b-button>
-          <b-button type="reset" variant="outline-primary">Reset</b-button>
+          <b-button type="reset" variant="outline-danger">Reset</b-button>
         </b-col>
       </b-form-row>
     </b-form>
@@ -71,14 +62,6 @@ export default {
     };
   },
   computed: {
-    textSearch: {
-      get: function() {
-        return this.$store.getters["satellite/getSatelliteTextFilter"];
-      },
-      set: function(data) {
-        this.$store.commit("satellite/setSatelliteTextFilter", data);
-      }
-    },
     selectedCategories: {
       get: function() {
         return this.$store.getters["satellite/getSatelliteCategoryFilter"];
@@ -138,16 +121,9 @@ export default {
       this.satellitePageNumber = 1;
       this.satelliteList = [];
       this.infiniteReset += 1;
-      if (this.textSearch) {
-        this.$router.replace({
-          path: "/list",
-          query: { search: this.textSearch }
-        });
-      }
     },
     resetFilters() {
       this.$emit("filters", "close");
-      this.textSearch = null;
       this.selectedCountry = null;
       this.selectedCategories = [];
       this.satellitePageNumber = 1;

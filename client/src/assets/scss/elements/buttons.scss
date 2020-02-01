@@ -15,7 +15,6 @@ https://bootstrap-vue.js.org/docs/components/button
 	  box-shadow: none;
   }
 }
-
 .btn.btn-danger {
   border-color: $orange;
   background-color: $orange;
@@ -40,5 +39,17 @@ https://bootstrap-vue.js.org/docs/components/button
     -webkit-box-shadow: none;
 	  -moz-box-shadow: none;
 	  box-shadow: none;
+  }
+}
+.btn.btn-outline-danger {
+  border-color: $orange;
+  color: $orange;
+  &:hover, &:active, &:focus, &:disabled, &:not(:disabled):not(.disabled):active:focus {
+    color: $orange-hover !important;
+    border-color: $orange-hover;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
   }
 }

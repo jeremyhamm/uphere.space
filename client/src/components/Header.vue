@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar id="header" toggleable="md" fixed="top">
+    <b-navbar id="header" toggleable="lg" fixed="top">
       <b-navbar-brand align-v="center" to="/">
         <img
           :src="`${config.VUE_APP_SPACES_URL}/images/branding/logo.svg`"
@@ -11,10 +11,11 @@
         <img
           :src="`${config.VUE_APP_SPACES_URL}/images/branding/logo-lg.png`"
           alt="logo"
-          class="d-none d-md-inline img-fluid"
+          class="d-none d-lg-inline img-fluid"
         />
       </b-navbar-brand>
-      <b-nav-text class="d-md-none justify-content-end">
+      <!-- Time -->
+      <b-nav-text class="d-lg-none justify-content-end">
         <small>UTC</small>
         {{ utcTime }}
       </b-nav-text>
@@ -27,8 +28,30 @@
         <span></span>
       </b-navbar-toggle>
       <b-navbar-nav
-        class="d-none d-md-flex justify-content-end align-items-center w-100"
+        class="d-none d-lg-flex justify-content-end align-items-center w-100"
       >
+        <!-- Search -->
+        <b-nav-form class="mr-4" @submit.prevent="searchSubmit">
+          <b-form-input
+            v-model="satelliteTextFilter"
+            placeholder="Search for satellites..."
+            class="search-input-right"
+          ></b-form-input>
+          <div v-if="satelliteTextFilter" class="clear-search-container">
+            <div class="clear-search" @click="satelliteTextFilter = null">
+              <font-awesome-icon icon="times" />
+            </div>
+          </div>
+          <b-button
+            type="submit"
+            variant="danger"
+            class="search-input-left"
+            :disabled="!satelliteTextFilter"
+          >
+            <font-awesome-icon icon="search" />
+          </b-button>
+        </b-nav-form>
+        <!-- Links -->
         <b-nav-item :to="satelliteListNav()" class="font-weight-bold">
           SATELLITES
         </b-nav-item>
@@ -44,8 +67,30 @@
     <b-nav
       id="slide-menu"
       vertical
-      class="w-100 d-flex d-md-none align-items-center text-center"
+      class="w-100 d-flex d-lg-none align-items-center text-center"
     >
+      <!-- Search -->
+      <b-nav-form
+        class="my-4 justify-content-center"
+        @submit.prevent="searchSubmit"
+      >
+        <b-form-input
+          v-model="satelliteTextFilter"
+          placeholder="Search for satellites..."
+          class="mb-1"
+          size="sm"
+        ></b-form-input>
+        <b-button
+          type="submit"
+          size="sm"
+          variant="danger"
+          block
+          :disabled="!satelliteTextFilter"
+        >
+          <font-awesome-icon icon="search" />
+        </b-button>
+      </b-nav-form>
+      <!-- Links -->
       <b-nav-item
         :to="{ name: 'List' }"
         class="font-weight-bold text-uppercase"
@@ -98,8 +143,13 @@ export default {
     utcTime() {
       return this.$store.getters["user/getUTCTime"];
     },
-    satelliteTextFilter() {
-      return this.$store.getters["satellite/getSatelliteTextFilter"];
+    satelliteTextFilter: {
+      get() {
+        return this.$store.getters["satellite/getSatelliteTextFilter"];
+      },
+      set(term) {
+        this.$store.commit("satellite/setSatelliteTextFilter", term);
+      }
     }
   },
   methods: {
@@ -122,6 +172,13 @@ export default {
       return this.satelliteTextFilter
         ? { name: "List", query: { search: this.satelliteTextFilter } }
         : { name: "List" };
+    },
+    searchSubmit() {
+      this.$store.commit("satellite/setSatellitePage", 1);
+      this.$router.push({
+        name: "List",
+        query: { search: this.satelliteTextFilter }
+      });
     }
   }
 };
