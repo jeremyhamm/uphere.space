@@ -228,6 +228,7 @@ def addSummaryToSatellite(cursor):
     SELECT DISTINCT(s.name) as name, s.intldes as int_id
     FROM satellites s
     JOIN satellite_categories sc ON s.id = sc.satellite_id
+    WHERE s.description IS NULL
   """)
   data = cursor.fetchall()
   for sat in data:
