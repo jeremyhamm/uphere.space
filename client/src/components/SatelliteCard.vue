@@ -151,17 +151,30 @@ export default {
       this.$store.commit("satellite/setCardVisibility", false);
     },
     satelliteImage() {
-      let satelliteName = this.selectedSatelliteDetails.name;
-      if (satelliteName.includes("STARLINK")) {
-        satelliteName = "STARLINK";
+      let satelliteNumber = this.selectedSatelliteDetails.number;
+      if (satelliteNumber.includes("STARLINK")) {
+        satelliteNumber = "STARLINK";
+      }
+      if (satelliteNumber.includes("GLOBALSTAR")) {
+        satelliteNumber = "GLOBALSTAR";
+      }
+      if (
+        satelliteNumber.includes("GONETS") ||
+        satelliteNumber.includes("STRELA")
+      ) {
+        satelliteNumber = "GONETS";
+      }
+      if (satelliteNumber.includes("GORIZONT")) {
+        satelliteNumber = "GORIZONT";
       }
       return `${
         this.config.VUE_APP_SPACES_URL
-      }/images/satellites/${satelliteName}.png`;
+      }/images/satellites_numbers/${satelliteNumber}.webp`;
     },
     showDefault(evt) {
       evt.target.src =
-        this.config.VUE_APP_SPACES_URL + "/images/satellites/default.png";
+        this.config.VUE_APP_SPACES_URL +
+        "/images/satellites_numbers/default.webp";
     },
     getCompassDirection(deg) {
       switch (true) {

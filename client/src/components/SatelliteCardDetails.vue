@@ -1,7 +1,7 @@
 <template>
   <b-card
     class="text-center list-card"
-    :img-src="satelliteImage(satellite.name)"
+    :img-src="satelliteImage(satellite.number, satellite.name)"
     :img-alt="`${satellite.name} image`"
     ref="card"
     @click="trackSatellite(satellite.number)"
@@ -115,20 +115,22 @@ export default {
         .utc()
         .format("MM/DD/YY");
     },
-    satelliteImage(name) {
+    satelliteImage(number, name) {
       if (name.includes("STARLINK")) {
-        name = "STARLINK";
+        number = "STARLINK";
       }
       if (name.includes("GLOBALSTAR")) {
-        name = "GLOBALSTAR";
+        number = "GLOBALSTAR";
       }
       if (name.includes("GONETS") || name.includes("STRELA")) {
-        name = "GONETS";
+        number = "GONETS";
       }
       if (name.includes("GORIZONT")) {
-        name = "GORIZONT";
+        number = "GORIZONT";
       }
-      return `${this.config.VUE_APP_SPACES_URL}/images/satellites/${name}.png`;
+      return `${
+        this.config.VUE_APP_SPACES_URL
+      }/images/satellites_numbers/${number}.webp`;
     }
   }
 };

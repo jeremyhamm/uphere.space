@@ -129,21 +129,6 @@ export default {
       return dayjs(date)
         .utc()
         .format("MM/DD/YY");
-    },
-    satelliteImage(name) {
-      if (name.includes("STARLINK")) {
-        name = "STARLINK";
-      }
-      if (name.includes("GLOBALSTAR")) {
-        name = "GLOBALSTAR";
-      }
-      if (name.includes("GONETS") || name.includes("STRELA")) {
-        name = "GONETS";
-      }
-      if (name.includes("GORIZONT")) {
-        name = "GORIZONT";
-      }
-      return `${this.config.VUE_APP_SPACES_URL}/images/satellites/${name}.png`;
     }
   }
 };

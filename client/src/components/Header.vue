@@ -72,7 +72,7 @@
       <!-- Search -->
       <b-nav-form
         class="my-4 justify-content-center"
-      @submit.prevent="searchSubmit"
+        @submit.prevent="searchSubmit"
       >
         <b-form-input
           v-model="satelliteTextFilter"

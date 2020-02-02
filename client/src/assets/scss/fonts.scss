@@ -1,0 +1,13 @@
+// Font
+@font-face {
+  font-family: 'Sunflower';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://resources-uphere.sfo2.cdn.digitaloceanspaces.com/fonts/sunflower/Sunflower-Light.woff) format('woff');
+}
+
+$font: 'Sunflower', sans-serif;
+$regular: 300;
+$bold: 700;
+$black: 900;
