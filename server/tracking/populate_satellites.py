@@ -159,24 +159,6 @@ def updateDocumentVectors(cursor):
   )
   connection.commit()
 
-# Add wikipedia sum
-def addSummaryToSatellite(cursor):
-  cursor.execute('SELECT name FROM satellites')
-  data = cursor.fetchall()
-  title = getPageTitle(data)
-  summary = getSummary(title)
-  if summary:
-    cursor.execute(
-        """
-        UPDATE satellites 
-        SET description = %(description)s
-        """, 
-        {
-          'description': summary
-        }
-      )
-      connection.commit()
-
 # Remove duplicate categories
 def removeDuplicateCategories(duplicate): 
   final_list = [] 
@@ -240,6 +222,35 @@ def addCategories(cursor):
           )
           connection.commit()
 
+# Add wikipedia summary
+def addSummaryToSatellite(cursor):
+  cursor.execute("""
+    SELECT DISTINCT(s.name) as name, s.intldes as int_id
+    FROM satellites s
+    JOIN satellite_categories sc ON s.id = sc.satellite_id
+  """)
+  data = cursor.fetchall()
+  for sat in data:
+    title = getPageTitle(sat[0], sat[1])
+    if (title):
+      summary = getSummary(title)
+      if summary:
+        #print(sat[0])
+        #print(summary)
+        cursor.execute(
+          """
+          UPDATE satellites
+          SET description = %(description)s
+          WHERE name = %(name)s
+          """, 
+          {
+            'description': summary,
+            'name': sat[0]
+          }
+        )
+        connection.commit()
+
+
 ### ...
 ### Begin Script
 ### 1. Scrape photos from SatNogs ('https://db.satnogs.org/')
@@ -247,8 +258,8 @@ def addCategories(cursor):
 ### 3. Scrape data from CelsTrak (https://celestrak.com/NORAD/elements/) and insert into DB
 ### 4. Deactivate satellites no longer in orbit
 ### 5. Add additional fields from Space-Track.org (https://www.space-track.org/#catalog)
-### 6. Add wikipedia summary from Wikipedia API
-### 7. Add categories from n2yo.com (https://www.n2yo.com/satellites/)
+### 6. Add categories from n2yo.com (https://www.n2yo.com/satellites/)
+### 7. Add wikipedia summary from Wikipedia API
 ### ...
 
 # 1.
@@ -271,7 +282,7 @@ saveSatellitesToDB(cursor)
 # 4.
 # Deactivate satellites no longer in orbit
 print("STEP 4 - Deactivate Satellites no longer in orbit")
-deactivateSatellites(cursor)
+#deactivateSatellites(cursor)
 
 # 5.
 # Add additional properties from space-track.org
@@ -280,12 +291,12 @@ addAdditionalProperties(cursor)
 updateDocumentVectors(cursor)
 
 # 6.
-# Add Wikipedia summary
-print("STEP 6 - Add wikipedia summary to satellite")
-addSummaryToSatellite(cursor)
-
-# 7.
 # Parse categories from n2yo.com
 # Return format {name: "TEST", "ids": []}
-print("STEP 7 - Add categories from n2yo.com")
+print("STEP 6 - Add categories from n2yo.com")
 addCategories(cursor)
+
+# 7.
+# Add Wikipedia summary
+print("STEP 7 - Add wikipedia summary to satellite")
+addSummaryToSatellite(cursor)

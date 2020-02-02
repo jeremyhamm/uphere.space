@@ -133,7 +133,7 @@ const satelliteMixin = {
         case "TERRA":
           return [40, 60];
         default:
-          return [30, 30];
+          return [40, 40];
       }
     },
     determineIconImage(icon) {
