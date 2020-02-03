@@ -72,7 +72,7 @@ def saveSatellitesToDB(cursor):
           connection.commit()
           
           # Send tweet with my satellite info
-          #send_tweet(sat)
+          send_tweet(sat)
         
         except psycopg2.Error:
           print(psycopg2.Error)
