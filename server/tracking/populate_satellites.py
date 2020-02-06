@@ -18,16 +18,16 @@ import datetime
 # Connect to local or remote postgres DB
 def connectDB():
   return psycopg2.connect(
-    # dbname = "uphere-space",
-    # user = "doadmin",
-    # password = "i3280utmczxv65vq",
-    # host = "uphere-space-db-do-user-6401666-0.db.ondigitalocean.com",
-    # port = "25060"
     dbname = "uphere-space",
-    user = "uphere-admin",
-    password = "c87PGaqOxDR8pdXz15zO",
-    host = "localhost",
-    port = "5432"
+    user = "doadmin",
+    password = "i3280utmczxv65vq",
+    host = "uphere-space-db-do-user-6401666-0.db.ondigitalocean.com",
+    port = "25060"
+    # dbname = "uphere-space",
+    # user = "uphere-admin",
+    # password = "c87PGaqOxDR8pdXz15zO",
+    # host = "localhost",
+    # port = "5432"
   )
 
 # Scape photos from url
