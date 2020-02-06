@@ -175,6 +175,9 @@ export default {
             .catch(() => {
               this.$router.push({ name: "FourZeroFour" });
             });
+        })
+        .catch(() => {
+          this.$router.push({ name: "FourZeroFour" });
         });
     },
     createMap(lng, lat) {
