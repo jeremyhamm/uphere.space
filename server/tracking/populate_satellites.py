@@ -84,7 +84,6 @@ def deactivateSatellites(cursor):
   for key in satellite_source_data:
     satellite_list = readSatelliteFile(satellite_source_data[key])
     for sat in satellite_list:
-      print(sat['number'])
       active.append(sat['number'])
   
   # Get satellites in DB
