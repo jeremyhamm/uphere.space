@@ -72,21 +72,45 @@ def saveSatellitesToDB(cursor):
           connection.commit()
           
           # Send tweet with my satellite info
-          send_tweet(sat)
+          #send_tweet(sat)
         
         except psycopg2.Error:
           print(psycopg2.Error)
 
 # Deactivate satellites no longer in orbit
 def deactivateSatellites(cursor):
-  inactive_satellites = ()
-  satellite_query = cursor.execute('SELECT number FROM satellites')
-  data = cursor.fetchall()
+  # Get all active satellites
+  active = []
   for key in satellite_source_data:
     satellite_list = readSatelliteFile(satellite_source_data[key])
     for sat in satellite_list:
-      if sat['number'] not in data:
-        print(sat)
+      print(sat['number'])
+      active.append(sat['number'])
+  
+  # Get satellites in DB
+  existing = []
+  cursor.execute('SELECT number FROM satellites')
+  data = cursor.fetchall()
+  for sat in data:
+    existing.append(sat[0])
+
+  inactive = list(set(existing) - set(active))
+  print("Not in Orbit: ")
+  print(inactive)
+
+  if inactive:
+    for remove_sat in inactive:
+      cursor.execute(
+        """
+        UPDATE satellites 
+        SET active = FALSE
+        WHERE number = %(number)s
+        """, 
+        {
+          'number': remove_sat
+        }
+      )
+      connection.commit()
 
 # Get launch data from Space-Track.org
 def getLaunchData():
@@ -283,7 +307,7 @@ saveSatellitesToDB(cursor)
 # 4.
 # Deactivate satellites no longer in orbit
 print("STEP 4 - Deactivate Satellites no longer in orbit")
-#deactivateSatellites(cursor)
+deactivateSatellites(cursor)
 
 # 5.
 # Add additional properties from space-track.org
