@@ -73,12 +73,17 @@ export default {
       filters: false,
       sortOptions: [
         {
-          value: "recommended",
-          text: "Recommended",
-          icon: "award",
+          value: "popular",
+          text: "Popular",
+          icon: "fire-alt",
           active: true
         },
-        { value: "popular", text: "Popular", icon: "fire-alt", active: false },
+        {
+          value: "launch",
+          text: "Recently Launched",
+          icon: "calendar-alt",
+          active: false
+        },
         {
           value: "asc",
           text: "Ascending",
@@ -89,12 +94,6 @@ export default {
           value: "desc",
           text: "Decending",
           icon: "sort-alpha-up",
-          active: false
-        },
-        {
-          value: "launch",
-          text: "Recently Launched",
-          icon: "calendar-alt",
           active: false
         }
       ]

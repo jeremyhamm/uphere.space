@@ -10,7 +10,7 @@ const satellite = {
     satelliteTextFilter: null,
     satelliteCategoryFilter: [],
     satelliteCountryFilter: null,
-    satelliteSort: null,
+    satelliteSort: "popular",
     infinateReset: 1,
     satelliteList: null,
     categoryList: null,

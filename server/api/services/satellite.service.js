@@ -138,14 +138,17 @@ exports.getSatellites = async (params) => {
   };
 
   let sql =
-    "SELECT s.name, s.number, s.classification, s.launch_date, s.country, s.type, s.size, s.orbital_period, s.intldes, c.name as category_Name" +
-    " FROM satellites s" +
+    "SELECT s.name, s.number, s.classification, s.launch_date, s.country, s.type, s.size, s.orbital_period, s.intldes, c.name as category_name ";
+    if (sql_params.sort === "popular") {
+      sql += ", COALESCE(views.count, 0) as count";
+    }
+    sql += " FROM satellites s" +
     " LEFT JOIN satellite_categories sc on s.id = sc.satellite_id" +
     " LEFT JOIN categories c ON sc.category_id = c.id";
 
   if (sql_params.sort === "popular") {
     sql += `
-        JOIN (
+        LEFT JOIN (
           SELECT v.satellite_id, COUNT(v.id) as count
           FROM views v
           GROUP BY v.satellite_id
@@ -165,9 +168,8 @@ exports.getSatellites = async (params) => {
   }
   if (sql_params.sort) {
     sql += utils.formatSortQuery(sql_params.sort);
-  } else {
-    sql += " ORDER BY s.id ASC";
   }
+
   sql += " LIMIT $1" +
       " OFFSET $2";
 
