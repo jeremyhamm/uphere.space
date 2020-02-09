@@ -100,7 +100,7 @@ exports.getSatelliteTotal = async () => {
  */
 exports.getDetailsByNumber = async (number) => {
   const satellite = await connection.one(`
-    SELECT name, number, type, country, intldes, orbital_period, launch_date 
+    SELECT name, number, type, country, intldes, orbital_period, launch_date, description 
     FROM satellites 
     WHERE number = $1`,
     [number]

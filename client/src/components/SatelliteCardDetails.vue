@@ -80,13 +80,14 @@
 
 <script>
 import ListMixin from "@/mixins/list.mixin";
+import ImageMixin from "@/mixins/image.mixin";
 import SatelliteCategories from "@/components/SatelliteCategories";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 dayjs.extend(utc);
 export default {
   name: "SatelliteList",
-  mixins: [ListMixin],
+  mixins: [ListMixin, ImageMixin],
   components: {
     "satellite-categories": SatelliteCategories
   },
@@ -114,23 +115,6 @@ export default {
       return dayjs(date)
         .utc()
         .format("MM/DD/YY");
-    },
-    satelliteImage(number, name) {
-      if (name.includes("STARLINK")) {
-        number = "STARLINK";
-      }
-      if (name.includes("GLOBALSTAR")) {
-        number = "GLOBALSTAR";
-      }
-      if (name.includes("GONETS") || name.includes("STRELA")) {
-        number = "GONETS";
-      }
-      if (name.includes("GORIZONT")) {
-        number = "GORIZONT";
-      }
-      return `${
-        this.config.VUE_APP_SPACES_URL
-      }/images/satellites_numbers/${number}.webp`;
     }
   }
 };

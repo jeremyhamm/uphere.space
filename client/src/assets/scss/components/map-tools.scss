@@ -2,19 +2,26 @@
   z-index: 401;
   bottom: 50px;
 }
-#map-tools-toggle, #location-toggle, #basemap-toggle {
+#info-toggle, #basemap-toggle, #map-tools-toggle {
   background-color: $overlay;
   border: 0;
   border-radius: 0;
   &:hover {
-    background-color: rgba(43,62,66,0.5);
+    background-color: rgba(43,62,66,0.75);
   }
   &:focus, &:active {
     box-shadow: none;
   }
 }
-.toggle-icon {
-  color: $black;
+#info-collapse {
+  .modal-content {
+    background-color: transparent;
+    border: 0;
+  }
+  .info-collapse-body {
+    background-color: rgba(43,62,66,0.75);
+    color: $white;
+  }
 }
 #map-tools-content.list-group {
   background-color: rgba(43,62,66,0.7);

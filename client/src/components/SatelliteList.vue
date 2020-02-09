@@ -19,7 +19,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 dayjs.extend(utc);
 export default {
-  name: "SatelliteList",
+  name: "Satellite-List",
   components: {
     "satellite-card-details": SatelliteCardDetails
   },

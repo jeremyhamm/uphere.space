@@ -1,8 +1,13 @@
 <template>
-  <div v-if="selectedSatelliteDetails.name && selectedSatelliteLocation">
+  <div v-if="selectedSatelliteDetails && selectedSatelliteLocation">
     <b-card
       id="satellite-card"
-      :img-src="satelliteImage()"
+      :img-src="
+        satelliteImage(
+          selectedSatelliteDetails.number,
+          selectedSatelliteDetails.name
+        )
+      "
       :img-alt="`${selectedSatelliteDetails.name} image`"
       class="text-center"
       ref="card"
@@ -99,12 +104,14 @@
 </template>
 
 <script>
+import ImageMixin from "@/mixins/image.mixin";
 import SatelliteCardExtra from "@/components/SatelliteCardExtra";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 dayjs.extend(utc);
 export default {
   name: "Satellite-Card",
+  mixins: [ImageMixin],
   components: {
     "satellite-card-extra": SatelliteCardExtra
   },
@@ -149,27 +156,6 @@ export default {
     },
     closeCard() {
       this.$store.commit("satellite/setCardVisibility", false);
-    },
-    satelliteImage() {
-      let satelliteNumber = this.selectedSatelliteDetails.number;
-      if (satelliteNumber.includes("STARLINK")) {
-        satelliteNumber = "STARLINK";
-      }
-      if (satelliteNumber.includes("GLOBALSTAR")) {
-        satelliteNumber = "GLOBALSTAR";
-      }
-      if (
-        satelliteNumber.includes("GONETS") ||
-        satelliteNumber.includes("STRELA")
-      ) {
-        satelliteNumber = "GONETS";
-      }
-      if (satelliteNumber.includes("GORIZONT")) {
-        satelliteNumber = "GORIZONT";
-      }
-      return `${
-        this.config.VUE_APP_SPACES_URL
-      }/images/satellites_numbers/${satelliteNumber}.webp`;
     },
     showDefault(evt) {
       evt.target.src =

@@ -4,7 +4,6 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faAngleDoubleDown,
   faAngleDoubleUp,
-  faAward,
   faBook,
   faBroadcastTower,
   faCalendarAlt,
@@ -22,6 +21,7 @@ import {
   faGlobeAmericas,
   faHouseDamage,
   faImages,
+  faInfoCircle,
   faLayerGroup,
   faLocationArrow,
   faMapMarkerAlt,
@@ -51,7 +51,6 @@ export default [
   library.add(
     faAngleDoubleDown,
     faAngleDoubleUp,
-    faAward,
     faBook,
     faBroadcastTower,
     faCalendarAlt,
@@ -70,6 +69,7 @@ export default [
     faGlobeAmericas,
     faHouseDamage,
     faImages,
+    faInfoCircle,
     faLayerGroup,
     faLocationArrow,
     faMapMarkerAlt,

@@ -151,6 +151,7 @@ export default {
   },
   methods: {
     init(query) {
+      this.satellitePageNumber = 1;
       this.loading = true;
       if (query && query.search) {
         this.satelliteTextFilter = query.search;
