@@ -8,8 +8,8 @@
             <img
               :src="`${config.VUE_APP_SPACES_URL}/images/branding/logo.svg`"
               class="img-fluid logo-filter mr-2"
-              height="35"
-              width="35"
+              height="50"
+              width="50"
               alt="title"
             />
             <img
@@ -41,6 +41,12 @@
         </b-row>
       </div>
     </div>
+    <b-row no-gutters v-if="satelliteList" class="justify-content-center mt-3">
+      <b-col cols="12" md="10" xl="8">
+        
+        
+      </b-col>
+    </b-row>
     <!-- Popular Satellites -->
     <b-row no-gutters class="justify-content-center mt-5">
       <b-col cols="12">
