@@ -54,7 +54,7 @@ export default {
             satelliteDetails.number
           }. International id ${satelliteDetails.intldes}. Launched by the ${
             satelliteDetails.country
-          }.`
+          }. ${satelliteDetails.description}`
         },
         {
           vmid: "keywords",
@@ -90,7 +90,7 @@ export default {
             satelliteDetails.number
           }. International id ${satelliteDetails.intldes}. Launched by the ${
             satelliteDetails.country
-          }.`
+          }. ${satelliteDetails.description}`
         },
         {
           vmid: "og:image",
@@ -122,7 +122,7 @@ export default {
             satelliteDetails.number
           }. International id ${satelliteDetails.intldes}. Launched by the ${
             satelliteDetails.country
-          }.`
+          }. ${satelliteDetails.description}`
         },
         {
           vmid: "twitter:image",
