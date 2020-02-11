@@ -3,7 +3,7 @@
 .custom-select,
 .custom-control-label {
   &:focus {
-    border-color: $orange !important;
+    border-color: $secondary !important;
     box-shadow: 0 0 0 0.2rem rgba(242, 88, 62, 0.25) !important;
   }
 }
@@ -12,7 +12,7 @@
 .custom-control-input:checked ~
 .custom-control-label {
   &::before {
-    border-color: $orange !important;
-    background-color: $orange !important;
+    border-color: $secondary !important;
+    background-color: $secondary !important;
   }
 }

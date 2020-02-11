@@ -38,8 +38,8 @@ html, body, #app, .container-fluid {
 	height: 100vh;
   min-height: 100vh;
   font-family: $font;
-  color: $white;
-  background-color: $gray;
+  color: $color-base;
+  background-color: $background-light;
 }
 body.overlay-open {
   overflow-y: hidden;

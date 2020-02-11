@@ -4,15 +4,15 @@ https://bootstrap-vue.js.org/docs/components/dropdown/
 ***/
 
 .dropdown-menu {
-  background-color: $dark-gray !important;
+  background-color: $color-base !important;
   .dropdown-item {
     &:hover, &:active, &:focus {
-      background-color: $dark-gray !important;
-      color: $orange;
+      background-color: $color-base !important;
+      color: $secondary;
     }
   }
   .dropdown-item.active {
-    background-color: $dark-gray !important;
-    color: $orange !important;
+    background-color: $color-base !important;
+    color: $secondary !important;
   }
 }

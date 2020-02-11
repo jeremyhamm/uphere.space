@@ -44,7 +44,7 @@
           </div>
           <b-button
             type="submit"
-            variant="danger"
+            variant="primary"
             class="search-input-left"
             :disabled="!satelliteTextFilter"
           >
@@ -83,7 +83,7 @@
         <b-button
           type="submit"
           size="sm"
-          variant="danger"
+          variant="primary"
           block
           :disabled="!satelliteTextFilter"
         >

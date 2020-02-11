@@ -1,5 +1,5 @@
 #header {
-  background-color: $dark-gray;
+  background-color: $color-base;
   .navbar-brand, .navbar-text {
     color: $white;
   }
@@ -9,13 +9,13 @@
     .nav-link {
       color: $white !important;
       &:hover {
-        color: $orange !important;
+        color: $primary !important;
       }
     }
   }
 }
 .logo-filter {
-  filter: invert(64%) sepia(54%) saturate(7474%) hue-rotate(339deg) brightness(100%) contrast(91%);
+  filter: invert(28%) sepia(60%) saturate(3044%) hue-rotate(210deg) brightness(85%) contrast(98%);
 }
 
 /* Hamburger menu */
@@ -115,13 +115,13 @@
 .clear-search-container {
   position: relative;
   .clear-search {
-    color: $gray;
+    color: $color-base;
     position: absolute;
     top: -10px;
     right: 10px;
     &:hover {
       cursor: pointer;
-      color: $dark-gray;
+      color: $dark-grey;
     }
   }
 }

@@ -2,11 +2,21 @@
   <b-row id="footer" class="fixed-bottom py-1">
     <b-col cols="6">
       <b-nav align="left" class="pl-4" small>
-        <b-nav-text class="font-italic">&copy; {{ currentYear }} uphere.space</b-nav-text>
-        <b-nav-item :href="config.VUE_APP_TWITTER" target="_blank" class="pl-3 d-none d-lg-flex">
+        <b-nav-text class="font-italic"
+          >&copy; {{ currentYear }} uphere.space</b-nav-text
+        >
+        <b-nav-item
+          :href="config.VUE_APP_TWITTER"
+          target="_blank"
+          class="pl-3 d-none d-lg-flex"
+        >
           <font-awesome-icon :icon="['fab', 'twitter']" size="lg" />
         </b-nav-item>
-        <b-nav-item :href="config.VUE_APP_FACEBOOK" target="_blank" class="d-none d-lg-flex">
+        <b-nav-item
+          :href="config.VUE_APP_FACEBOOK"
+          target="_blank"
+          class="d-none d-lg-flex"
+        >
           <font-awesome-icon :icon="['fab', 'facebook']" size="lg" />
         </b-nav-item>
       </b-nav>

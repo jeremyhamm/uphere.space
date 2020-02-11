@@ -1,16 +1,28 @@
-/** Color Theme **/
+/** 
+Color Theme 
+https://nasa.github.io/nasawds-site/components/colors/
+**/
 
-// Theme colors (hex)
+// Primary colors
 $black: #000000;
-$dark-gray: #2B3E42;	
-$gray: #747E80;	
-$light-grey: #D5E1DD;
-$white: #F7F3E8;	
-$orange: #F2583E;
-$orange-hover: #6b0000;
-$blue: #77BED2;
-$blue-hover: #4F9EB5;
+$color-base: #212121;		
+$dark-grey: #6C7A7D;
+$light-grey: #aeb0b5;
+$white: #FFFFFF;
+$primary: #105bd8;
+$primary-dark: #0b3d91;
+
+// Secondary Colors
+$secondary: #dd361c;
+$secondary-darkest: #99231b;
+$secondary-dark: #c62d1f;
+$secondary-light: #e59892;
+
+
+// Background colors
+$background-light: #dce4ef;
+$background-dark: $color-base;
 
 // Theme colors overlay
 $overlay: rgba(0,0,0, 0.25);
-$orange-transparent: rgba(242,88,62, 0.5);
+$secondary-: rgba(238,192,21, 0.5);

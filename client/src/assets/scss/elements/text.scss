@@ -6,9 +6,15 @@ https://bootstrap-vue.js.org/docs/components/spinner
 a {
   color: $white !important;
   &:hover {
-    color: $orange !important;
+    color: $primary !important;
   }
 }
-.text-main {
-  color: $orange;
+.text-dark {
+  color: $color-base;
+}
+.text-light {
+  color: $white;
+}
+.text-primary {
+  color: $primary;
 }
