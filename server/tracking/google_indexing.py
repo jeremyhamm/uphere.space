@@ -2757,7 +2757,7 @@ def sendRequest(url):
   http = authenticate()
   body = dict(url=url, type="URL_DELETED")
   content = json.dumps(body)
-  http.request(
+  return http.request(
     endpoint,
     "POST",
     body=content,
@@ -2768,4 +2768,5 @@ def sendRequest(url):
 
 for url in old_urls:
   print(url)
-  sendRequest(url)
+  response = sendRequest(url)
+  print(response)
