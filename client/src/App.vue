@@ -2,7 +2,11 @@
   <div id="app">
     <app-header v-if="$route.name !== 'Home'" />
     <router-view />
-    <app-footer :class="$route.name === 'Home' ? 'position-relative no-gutters' : 'fixed-bottom'" />
+    <app-footer
+      :class="
+        $route.name === 'Home' ? 'position-relative no-gutters' : 'fixed-bottom'
+      "
+    />
   </div>
 </template>
 
