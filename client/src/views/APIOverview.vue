@@ -17,7 +17,7 @@
           Satellites are added to the database and available for tracking as
           soon as they are launched. Any questions for comments can be submitted
           via the
-          <router-link :to="{ name: 'Contact' }">contact</router-link>
+          <router-link class="text-dark" :to="{ name: 'Contact' }">contact</router-link>
           page.
         </h4>
         <!-- Get Access -->

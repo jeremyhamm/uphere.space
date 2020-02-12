@@ -6,7 +6,7 @@
         <h3>1. Terms</h3>
         <p>
           By accessing the website at
-          <a href="https://uphere.space">https://uphere.space</a>, you are
+          <a class="text-dark" href="https://uphere.space">https://uphere.space</a>, you are
           agreeing to be bound by these terms of service, all applicable laws
           and regulations, and agree that you are responsible for compliance
           with any applicable local laws. If you do not agree with any of these

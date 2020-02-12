@@ -7,7 +7,7 @@
           Your privacy is important to us. It is uphere.space's policy to
           respect your privacy regarding any information we may collect from you
           across our website,
-          <a href="https://uphere.space">https://uphere.space</a>, and other
+          <a class="text-dark" href="https://uphere.space">https://uphere.space</a>, and other
           sites we own and operate.
         </p>
         <p>
