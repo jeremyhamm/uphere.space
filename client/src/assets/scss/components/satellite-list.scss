@@ -74,10 +74,10 @@
     color: $white;
     outline: 0;
     .active {
-      background-color: $secondary;
+      background-color: $primary;
     }
     &:hover {
-      color: $secondary;
+      color: $primary;
     }
   }
 }

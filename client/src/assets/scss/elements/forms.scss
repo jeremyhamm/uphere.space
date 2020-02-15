@@ -3,8 +3,8 @@
 .custom-select,
 .custom-control-label {
   &:focus {
-    border-color: $secondary !important;
-    box-shadow: 0 0 0 0.2rem rgba(242, 88, 62, 0.25) !important;
+    border-color: $primary !important;
+    box-shadow: 0 0 0 0.2rem $box-shadow !important;
   }
 }
 
@@ -12,7 +12,7 @@
 .custom-control-input:checked ~
 .custom-control-label {
   &::before {
-    border-color: $secondary !important;
-    background-color: $secondary !important;
+    border-color: $primary !important;
+    background-color: $primary !important;
   }
 }

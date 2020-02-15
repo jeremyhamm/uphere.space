@@ -24,7 +24,7 @@
 }
 .more-info {
   &:hover {
-    color: $secondary;
+    color: $primary;
     cursor: pointer;
     text-decoration: none;
   }
@@ -34,7 +34,7 @@
     .list-group-item {
       a {
         &:hover {
-          color: $secondary;
+          color: $primary;
           cursor: pointer;
           text-decoration: none;
         }

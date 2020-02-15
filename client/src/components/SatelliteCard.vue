@@ -85,12 +85,16 @@
             :key="links.link_name"
             class="more-info d-flex justify-content-between align-items-center text-uppercase"
           >
-            <b-link :href="links.link_url" target="_blank">
-              <small>
+            <b-link :href="links.link_url" target="_blank" class="w-100">
+              <small class="float-left">
                 {{ links.link_name }}
               </small>
+              <font-awesome-icon
+                class="float-right"
+                icon="external-link-alt"
+                size="sm"
+              />
             </b-link>
-            <font-awesome-icon icon="external-link-alt" size="sm" />
           </b-list-group-item>
         </b-list-group>
       </b-collapse>

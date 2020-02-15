@@ -8,11 +8,11 @@ https://bootstrap-vue.js.org/docs/components/dropdown/
   .dropdown-item {
     &:hover, &:active, &:focus {
       background-color: $color-base !important;
-      color: $secondary;
+      color: $primary;
     }
   }
   .dropdown-item.active {
     background-color: $color-base !important;
-    color: $secondary !important;
+    color: $primary !important;
   }
 }
