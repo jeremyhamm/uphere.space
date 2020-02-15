@@ -34,20 +34,22 @@
             </a>
           </b-col>
           <!-- Documentation -->
-          <b-col cols="12" md="6" class="d-flex align-items-center">
-            <h3>
-              <router-link
-                class="text-color-dark"
-                to="/development/api/documentation"
-              >
-                <font-awesome-icon
-                  class="px-1"
-                  :icon="['far', 'file-alt']"
-                  size="lg"
-                />
-                Documentation
-              </router-link>
-            </h3>
+          <b-col
+            cols="12"
+            md="6"
+            class="d-flex align-items-center mt-3 mt-lg-0 h3 justify-content-center"
+          >
+            <router-link
+              class="text-color-dark"
+              to="/development/api/documentation"
+            >
+              <font-awesome-icon
+                class="px-1"
+                :icon="['far', 'file-alt']"
+                size="lg"
+              />
+              Documentation
+            </router-link>
           </b-col>
         </b-row>
       </b-col>
