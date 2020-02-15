@@ -33,7 +33,12 @@
       </b-row>
     </b-collapse>
     <!-- Info -->
-    <b-button id="info-toggle" class="mr-3" v-b-modal.info-collapse>
+    <b-button
+      id="info-toggle"
+      class="mr-3"
+      v-b-modal.info-collapse
+      v-if="selectedSatelliteDetails.description"
+    >
       <font-awesome-icon class="toggle-icon" icon="info-circle" size="lg" />
     </b-button>
     <!-- Basemap Toggle -->
