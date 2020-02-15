@@ -17,12 +17,14 @@
           Satellites are added to the database and available for tracking as
           soon as they are launched. Any questions for comments can be submitted
           via the
-          <router-link class="text-dark" :to="{ name: 'Contact' }">contact</router-link>
+          <router-link class="text-color-dark" :to="{ name: 'Contact' }"
+            >contact</router-link
+          >
           page.
         </h4>
-        <!-- Get Access -->
         <b-row class="text-center mt-5">
-          <b-col cols="12">
+          <!-- Get Access -->
+          <b-col cols="12" md="6">
             <a :href="config.VUE_APP_API_DOCS" target="_blank">
               <img
                 src="https://storage.googleapis.com/code-snippets/connect-on-rapidapi-light.png"
@@ -31,14 +33,20 @@
               />
             </a>
           </b-col>
-        </b-row>
-        <!-- Documentation -->
-        <b-row class="text-center mt-5">
-          <b-col cols="12">
+          <!-- Documentation -->
+          <b-col cols="12" md="6" class="d-flex align-items-center">
             <h3>
-              <router-link to="/development/api/documentation"
-                >Documentation</router-link
+              <router-link
+                class="text-color-dark"
+                to="/development/api/documentation"
               >
+                <font-awesome-icon
+                  class="px-1"
+                  :icon="['far', 'file-alt']"
+                  size="lg"
+                />
+                Documentation
+              </router-link>
             </h3>
           </b-col>
         </b-row>
@@ -146,8 +154,7 @@ export default {
         }
       ]
     };
-  },
-  methods: {}
+  }
 };
 </script>
 

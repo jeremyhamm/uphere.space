@@ -17,7 +17,7 @@
               class="d-none d-md-inline img-fluid"
               alt="uphere.space"
             />
-            <h1 class="mt-3 mb-2 text-center text-light">
+            <h1 class="mt-3 mb-2 text-center text-color-light">
               Real-time tracking and predictions for thousands of satellites.
             </h1>
           </b-col>
