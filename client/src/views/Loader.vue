@@ -2,8 +2,8 @@
   <b-container>
     <b-row class="text-center mt-5">
       <b-col cols="12">
-        <b-spinner variant="main" label="Loading..."></b-spinner>
-        <p class="text-main">Loading...</p>
+        <b-spinner variant="primary" label="Loading..."></b-spinner>
+        <p class="text-primary">Loading...</p>
       </b-col>
     </b-row>
   </b-container>

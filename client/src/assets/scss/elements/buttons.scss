@@ -5,51 +5,29 @@ https://bootstrap-vue.js.org/docs/components/button
 
 // Solid
 .btn.btn-primary {
-  border-color: $blue;
-  background-color: $blue;
+  border-color: $primary;
+  background-color: $primary;
+  color: $white;
   &:hover, &:active, &:focus, &:disabled, &:not(:disabled):not(.disabled):active:focus {
-    border-color: $blue-hover;
-    background-color: $blue-hover;
+    border-color: $primary-dark;
+    background-color: $primary-dark;
+    color: $white !important;
     -webkit-box-shadow: none;
 	  -moz-box-shadow: none;
 	  box-shadow: none;
-  }
-}
-.btn.btn-danger {
-  border-color: $orange;
-  background-color: $orange;
-  &:hover, &:active, &:focus, &:disabled, &:not(:disabled):not(.disabled):active:focus {
-    color: $white !important;
-    border-color: $orange-hover;
-    background-color: $orange-hover;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
   }
 }
 
 // Outline
 .btn.btn-outline-primary {
-  border-color: $blue;
-  color: $blue;
+  border-color: $primary-dark;
+  color: $primary-dark;
   &:hover, &:active, &:focus, &:disabled, &:not(:disabled):not(.disabled):active:focus {
-    border-color: $blue-hover;
-    color: $dark-gray;
-    background-color: $blue-hover;
+    border-color: $primary-dark;
+    color: $white;
+    background-color: $primary-dark;
     -webkit-box-shadow: none;
 	  -moz-box-shadow: none;
 	  box-shadow: none;
-  }
-}
-.btn.btn-outline-danger {
-  border-color: $orange;
-  color: $orange;
-  &:hover, &:active, &:focus, &:disabled, &:not(:disabled):not(.disabled):active:focus {
-    color: $orange-hover !important;
-    border-color: $orange-hover;
-    background-color: transparent;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
   }
 }

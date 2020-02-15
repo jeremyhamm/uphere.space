@@ -6,7 +6,7 @@
       class="d-flex align-items-center justify-content-center"
     >
       <b-row>
-        <b-col cols="12" class="text-center">
+        <b-col cols="12" class="text-center text-color-light">
           <h1 class="font-weight-bold">404</h1>
           <h1>Lost in space.</h1>
           <b-nav align="center">

@@ -40,13 +40,13 @@
         <b-col cols="12">
           <b-button
             type="submit"
-            variant="danger"
+            variant="primary"
             class="mr-3"
             :disabled="!selectedCategories.length && !selectedCountry"
           >
             Update
           </b-button>
-          <b-button type="reset" variant="outline-danger">Reset</b-button>
+          <b-button type="reset" variant="outline-primary">Reset</b-button>
         </b-col>
       </b-form-row>
     </b-form>

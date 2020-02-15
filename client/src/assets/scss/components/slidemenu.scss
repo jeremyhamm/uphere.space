@@ -7,7 +7,7 @@
 	height: 100%;
 	margin-right: -20%;
 	overflow-y: auto;
-  background: $dark-gray;
+  background: $color-base;
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
@@ -17,7 +17,7 @@
     a {
       color: $white;
       &:hover {
-        color: $orange;
+        color: $secondary;
       }
     }
   }
@@ -28,7 +28,7 @@
 }
 
 .nav-item.nav-break {
-  border-bottom: 1px solid $dark-gray;
+  border-bottom: 1px solid $dark-grey;
 }
 
 /** XS **/

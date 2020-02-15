@@ -17,7 +17,7 @@
               class="d-none d-md-inline img-fluid"
               alt="uphere.space"
             />
-            <h1 class="mt-3 mb-2 text-center">
+            <h1 class="mt-3 mb-2 text-center text-color-light">
               Real-time tracking and predictions for thousands of satellites.
             </h1>
           </b-col>
@@ -31,7 +31,7 @@
           <b-col cols="12" class="text-center">
             <b-button
               href="javascript:void(0)"
-              variant="danger"
+              variant="primary"
               size="lg"
               to="/list"
             >

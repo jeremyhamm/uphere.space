@@ -1,19 +1,20 @@
 #footer {
-  background-color: $dark-gray;
+  background-color: $color-base;
+  color: $white;
   a {
     color: $white;
     &:hover {
-      color: $orange;
+      color: $secondary;
     }
   }
 }
 #xs-footer-menu {
   ul {
-    background-color: $dark-gray;
+    background-color: $dark-grey;
     li {
       a {
         &:hover {
-          color: $orange;
+          color: $secondary;
         }
       }
     }

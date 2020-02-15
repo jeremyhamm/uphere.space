@@ -11,7 +11,7 @@
 }
 .card.list-card {
   max-width: 250px;
-  background-color: $dark-gray;
+  background-color: $background-dark;
   border-radius: 3px;
   &:hover {
     cursor: pointer;
@@ -27,7 +27,7 @@
   }
 }
 .filter-nav {
-  background-color: $dark-gray;
+  background-color: $background-dark;
   left: 0;
   margin-top: 5px;
   z-index: 3;
@@ -43,7 +43,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: $dark-gray;
+  background: $background-dark;
+  color: $white;
   z-index: 2;
   border-top: 1px solid rgba(247,243,232, 0.15);
   overflow-y: scroll;
@@ -55,7 +56,7 @@
 #filters-submit {
   z-index: 3;
   bottom: 0;
-  background-color: $dark-gray;
+  background-color: $background-dark;
   left: 25%;
   width: 50%;
 }
@@ -73,10 +74,10 @@
     color: $white;
     outline: 0;
     .active {
-      background-color: $orange;
+      background-color: $primary;
     }
     &:hover {
-      color: $orange;
+      color: $primary;
     }
   }
 }

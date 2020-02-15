@@ -6,13 +6,14 @@
         <h3>1. Terms</h3>
         <p>
           By accessing the website at
-          <a href="https://uphere.space">https://uphere.space</a>, you are
-          agreeing to be bound by these terms of service, all applicable laws
-          and regulations, and agree that you are responsible for compliance
-          with any applicable local laws. If you do not agree with any of these
-          terms, you are prohibited from using or accessing this site. The
-          materials contained in this website are protected by applicable
-          copyright and trademark law.
+          <a class="text-color-dark" href="https://uphere.space"
+            >https://uphere.space</a
+          >, you are agreeing to be bound by these terms of service, all
+          applicable laws and regulations, and agree that you are responsible
+          for compliance with any applicable local laws. If you do not agree
+          with any of these terms, you are prohibited from using or accessing
+          this site. The materials contained in this website are protected by
+          applicable copyright and trademark law.
         </p>
         <h3>2. Use License</h3>
         <ol type="a">

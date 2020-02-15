@@ -44,6 +44,9 @@ import {
   faVideo
 } from "@fortawesome/free-solid-svg-icons";
 
+// Regular icons
+import { faFileAlt } from "@fortawesome/free-regular-svg-icons";
+
 // Brand icons
 import { faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
@@ -62,6 +65,7 @@ export default [
     faExternalLinkAlt,
     faFacebook,
     faFighterJet,
+    faFileAlt,
     faFilter,
     faFireAlt,
     faFirstAid,
