@@ -54,6 +54,7 @@ exports.getSatelliteLocation = (req, res) => {
       const positionGd = satellite.eciToGeodetic(positionEci, gmst);
       
       // Get current telemetry
+      console.log(req.cookies.settings.units);
       let satelliteHeight = req.cookies.settings && req.cookies.settings.units === 'metric' ? positionGd.height : satelliteService.convertUnits(positionGd.height);
       let satelliteSpeed = req.cookies.settings && req.cookies.settings.units === 'metric' ? velocityEci : satelliteService.convertVelocity(velocityEci);
 

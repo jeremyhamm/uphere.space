@@ -53,10 +53,3 @@ exports.formatSortQuery = (val) => {
     return " ORDER BY s.id ASC";
   }
 };
-
-/**
- * Set units for 
- */
-exports.setUnits = () => {
-
-}
