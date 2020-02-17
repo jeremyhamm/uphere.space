@@ -9,8 +9,8 @@ const nodemailer = require("nodemailer");
  * @return {JSON}       json location information
  */
 exports.getLocationByIp = async(req, res) => {
-  const ip = '134.209.63.38';
-  // const ip = req.clientIp;
+  //const ip = '134.209.63.38';
+  const ip = req.clientIp;
   const url = process.env.IP_DATA_URL + "/" + ip + "?api-key=" + process.env.IP_DATA_API_KEY;
   try {
     let response = await request.get(url);
