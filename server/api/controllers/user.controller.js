@@ -77,7 +77,7 @@ exports.sendMessage = async (req, res) => {
  * @param {Object}   res response object
 * @return {Response}     http response
  */
-exports.updateSettings = async(req, res) => {
+exports.updateSettings = (req, res) => {
   const settings = req.body;
   return res
     .status(200)
