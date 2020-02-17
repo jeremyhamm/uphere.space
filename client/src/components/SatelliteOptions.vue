@@ -117,9 +117,6 @@ export default {
       const settings = {
         units: this.units
       };
-
-      console.log(this.units);
-
       this.$store.dispatch("user/toggleSettings", settings);
     }
   }

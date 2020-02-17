@@ -56,9 +56,6 @@ exports.getSatelliteLocation = (req, res) => {
       // Get current telemetry
       let satelliteHeight = req.cookies.settings && req.cookies.settings.units === 'metric' ? positionGd.height : satelliteService.convertUnits(positionGd.height);
       let satelliteSpeed = req.cookies.settings && req.cookies.settings.units === 'metric' ? velocityEci : satelliteService.convertVelocity(velocityEci);
-
-      console.log(positionGd.height);
-      console.log(satelliteService.convertUnits(positionGd.height));
       
       // Get user visibility
       let visibility = null;
