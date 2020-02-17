@@ -80,13 +80,12 @@ exports.sendMessage = async (req, res) => {
 exports.updateSettings = (req, res) => {
   const settings = req.body;
   return res
-    .status(200)
+    ..sendStatus(200)
     .cookie("settings", JSON.stringify(settings), {
       expires: new Date(Date.now() + (365 * 3600000)), 
       domain: "uphere.space", 
       path: "/", 
       secure: true, 
       httpOnly: true 
-    })
-    .json(settings);
+    });
 }
