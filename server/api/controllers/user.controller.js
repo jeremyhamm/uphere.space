@@ -87,6 +87,5 @@ exports.updateSettings = async(req, res) => {
       path: "/", 
       secure: true, 
       httpOnly: true 
-    })
-    .json(jsonparse);
+    });
 }

@@ -53,20 +53,19 @@
       <font-awesome-icon icon="toggle-on" size="2x" v-if="userMarker" />
       <font-awesome-icon icon="toggle-off" size="2x" v-else />
     </b-list-group-item>
-    <b-list-group-item
-      class="d-flex justify-content-between align-items-center"
-    >
-      <b-form-group
-        label="Toggle Units"
-        class="d-flex justify-content-between"
-        @change="toggleUnits()"
-      >
-        <b-form-radio v-model="units" name="toggle-units" value="imperial"
-          >Imperial</b-form-radio
+    <b-list-group-item class="text-left">
+      <b-form-group label="Toggle Units">
+        <b-form-radio-group
+          id="units-toggle"
+          v-model="units"
+          name="units-toggle"
+          @change="toggleUnits()"
         >
-        <b-form-radio v-model="units" name="toggle-units" value="metric"
-          >Metric</b-form-radio
-        >
+          <b-form-radio name="toggle-units" value="imperial"
+            >Imperial</b-form-radio
+          >
+          <b-form-radio name="toggle-units" value="metric">Metric</b-form-radio>
+        </b-form-radio-group>
       </b-form-group>
     </b-list-group-item>
   </b-list-group>
@@ -83,8 +82,13 @@ export default {
     };
   },
   computed: {
-    units() {
-      return this.$store.getters["user/getUnits"];
+    units: {
+      get() {
+        return this.$store.getters["user/getUnits"];
+      },
+      set(val) {
+        this.$store.commit("user/setUnits", val);
+      }
     }
   },
   methods: {
