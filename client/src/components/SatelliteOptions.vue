@@ -61,10 +61,12 @@
           name="units-toggle"
           @change="toggleUnits()"
         >
-          <b-form-radio name="toggle-units" value="imperial"
+          <b-form-radio name="toggle-units" value="metric"
             >Imperial</b-form-radio
           >
-          <b-form-radio name="toggle-units" value="metric">Metric</b-form-radio>
+          <b-form-radio name="toggle-units" value="imperial"
+            >Metric</b-form-radio
+          >
         </b-form-radio-group>
       </b-form-group>
     </b-list-group-item>
@@ -115,6 +117,9 @@ export default {
       const settings = {
         units: this.units
       };
+
+      console.log(this.units);
+
       this.$store.dispatch("user/toggleSettings", settings);
     }
   }

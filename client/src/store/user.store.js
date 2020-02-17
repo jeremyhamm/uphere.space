@@ -23,7 +23,7 @@ const user = {
       iconAnchor: [25, 50],
       popupAnchor: [0, -50]
     },
-    units: "imperial"
+    units: "metric"
   },
   mutations: {
     setUTCTime(state) {
@@ -80,7 +80,6 @@ const user = {
           .post(process.env.VUE_APP_API_URL + "/user/settings", settings)
           .then(
             response => {
-              commit("setUnits", settings.units);
               resolve(response);
             },
             error => {
