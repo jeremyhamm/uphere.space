@@ -52,7 +52,10 @@ exports.getSatelliteLocation = (req, res) => {
       const gmst = satellite.gstime(now);
       const positionEcf = satellite.eciToEcf(positionEci, gmst);
       const positionGd = satellite.eciToGeodetic(positionEci, gmst);
-      const heightMi = satelliteService.convertUnits(positionGd.height);
+      
+      // Get current telemetry
+      let satelliteHeight = req.cookies.settings && req.cookies.settings.units === 'metric' ? positionGd.height : satelliteService.convertUnits(positionGd.height);
+      let satelliteSpeed = req.cookies.settings && req.cookies.settings.units === 'metric' ? velocityEci : satelliteService.convertVelocity(velocityEci);
 
       // Get user visibility
       let visibility = null;
@@ -75,8 +78,8 @@ exports.getSatelliteLocation = (req, res) => {
       const currentLocation = {
         'coordinates': [satellite.degreesLong(positionGd.longitude), satellite.degreesLat(positionGd.latitude)],
         'norad_id': req.params.satellite,
-        'height': heightMi,
-        'speed': satelliteService.convertVelocity(velocityEci),
+        'height': satelliteHeight,
+        'speed': satelliteSpeed,
         'visibility': visibility,
         'footprint_radius': satelliteService.getVisibleFootprint(positionGd.height)
       };

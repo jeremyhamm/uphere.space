@@ -29,115 +29,124 @@ export default {
     "map-tools": MapTools
   },
   metaInfo() {
-    const satelliteName = this.selectedSatelliteDetails.name
-      ? this.selectedSatelliteDetails.name
-      : "N/A";
-    const satelliteDetails = this.selectedSatelliteDetails
-      ? this.selectedSatelliteDetails
-      : "N/A";
-    return {
-      title: `${satelliteName}`,
-      titleTemplate: "%s | uphere.space",
-      link: [
-        {
-          rel: "canonical",
-          href: `${process.env.VUE_APP_URL}/satellites/${
-            satelliteDetails.number
-          }`
-        }
-      ],
-      meta: [
-        {
-          vmid: "description",
-          name: "description",
-          content: `Tracking and predictions for ${satelliteName}. Norad ID ${
-            satelliteDetails.number
-          }. International id ${satelliteDetails.intldes}. Launched by the ${
-            satelliteDetails.country
-          }. ${satelliteDetails.description}`
-        },
-        {
-          vmid: "keywords",
-          name: "keywords",
-          content: `${satelliteName}, ${satelliteDetails.number}, ${
-            satelliteDetails.intldes
-          }, ${
-            satelliteDetails.country
-          }, satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite`
-        },
-        // Open Graph
-        {
-          vmid: "og:type",
-          name: "og:type",
-          content: "website"
-        },
-        {
-          vmid: "og:url",
-          name: "og:url",
-          content: `${process.env.VUE_APP_URL}/satellites/${
-            satelliteDetails.number
-          }`
-        },
-        {
-          vmid: "og:title",
-          name: "og:title",
-          content: `Real-time satellite tracking and predictions | ${satelliteName}`
-        },
-        {
-          vmid: "og:description",
-          name: "og:description",
-          content: `Tracking and predictions for ${satelliteName}. Norad ID ${
-            satelliteDetails.number
-          }. International id ${satelliteDetails.intldes}. Launched by the ${
-            satelliteDetails.country
-          }. ${satelliteDetails.description}`
-        },
-        {
-          vmid: "og:image",
-          name: "og:image",
-          content: `${
-            process.env.VUE_APP_SPACES_URL
-          }/images/satellites/${satelliteName}.png`
-        },
-        // Twitter
-        {
-          vmid: "twitter:card",
-          name: "twitter:card",
-          content: "summary"
-        },
-        {
-          vmid: "twitter:site",
-          name: "twitter:site",
-          content: "@upheredotspace"
-        },
-        {
-          vmid: "twitter:title",
-          name: "twitter:title",
-          content: `Real-time satellite tracking and predictions | ${satelliteName}`
-        },
-        {
-          vmid: "twitter:description",
-          name: "twitter:description",
-          content: `Tracking and predictions for ${satelliteName}. Norad ID ${
-            satelliteDetails.number
-          }. International id ${satelliteDetails.intldes}. Launched by the ${
-            satelliteDetails.country
-          }. ${satelliteDetails.description}`
-        },
-        {
-          vmid: "twitter:image",
-          name: "twitter:image",
-          content: `${
-            process.env.VUE_APP_SPACES_URL
-          }/images/satellites/${satelliteName}.png`
-        },
-        {
-          vmid: "twitter:image:alt",
-          name: "twitter:image:alt",
-          content: `${satelliteName} in orbit`
-        }
-      ]
-    };
+    if (this.selectedSatelliteDetails === undefined) {
+      return {
+        title: "404",
+        titleTemplate: "%s | uphere.space",
+        meta: [
+          {
+            name: "prerender-status-code",
+            content: 404
+          }
+        ]
+      };
+    } else {
+      const satelliteName = this.selectedSatelliteDetails.name;
+      const satelliteDetails = this.selectedSatelliteDetails;
+      return {
+        title: `${satelliteName}`,
+        titleTemplate: "%s | uphere.space",
+        link: [
+          {
+            rel: "canonical",
+            href: `${process.env.VUE_APP_URL}/satellites/${
+              satelliteDetails.number
+            }`
+          }
+        ],
+        meta: [
+          {
+            vmid: "description",
+            name: "description",
+            content: `Tracking and predictions for ${satelliteName}. Norad ID ${
+              satelliteDetails.number
+            }. International id ${satelliteDetails.intldes}. Launched by the ${
+              satelliteDetails.country
+            }. ${satelliteDetails.description}`
+          },
+          {
+            vmid: "keywords",
+            name: "keywords",
+            content: `${satelliteName}, ${satelliteDetails.number}, ${
+              satelliteDetails.intldes
+            }, ${
+              satelliteDetails.country
+            }, satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite`
+          },
+          // Open Graph
+          {
+            vmid: "og:type",
+            name: "og:type",
+            content: "website"
+          },
+          {
+            vmid: "og:url",
+            name: "og:url",
+            content: `${process.env.VUE_APP_URL}/satellites/${
+              satelliteDetails.number
+            }`
+          },
+          {
+            vmid: "og:title",
+            name: "og:title",
+            content: `Real-time satellite tracking and predictions | ${satelliteName}`
+          },
+          {
+            vmid: "og:description",
+            name: "og:description",
+            content: `Tracking and predictions for ${satelliteName}. Norad ID ${
+              satelliteDetails.number
+            }. International id ${satelliteDetails.intldes}. Launched by the ${
+              satelliteDetails.country
+            }. ${satelliteDetails.description}`
+          },
+          {
+            vmid: "og:image",
+            name: "og:image",
+            content: `${
+              process.env.VUE_APP_SPACES_URL
+            }/images/satellites/${satelliteName}.png`
+          },
+          // Twitter
+          {
+            vmid: "twitter:card",
+            name: "twitter:card",
+            content: "summary"
+          },
+          {
+            vmid: "twitter:site",
+            name: "twitter:site",
+            content: "@upheredotspace"
+          },
+          {
+            vmid: "twitter:title",
+            name: "twitter:title",
+            content: `Real-time satellite tracking and predictions | ${satelliteName}`
+          },
+          {
+            vmid: "twitter:description",
+            name: "twitter:description",
+            content: `Tracking and predictions for ${satelliteName}. Norad ID ${
+              satelliteDetails.number
+            }. International id ${satelliteDetails.intldes}. Launched by the ${
+              satelliteDetails.country
+            }. ${satelliteDetails.description}`
+          },
+          {
+            vmid: "twitter:image",
+            name: "twitter:image",
+            content: `${
+              process.env.VUE_APP_SPACES_URL
+            }/images/satellites/${satelliteName}.png`
+          },
+          {
+            vmid: "twitter:image:alt",
+            name: "twitter:image:alt",
+            content: `${satelliteName} in orbit`
+          }
+        ]
+      };
+    }
   },
   computed: {
     basemap: {

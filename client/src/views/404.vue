@@ -23,12 +23,23 @@
 <script>
 export default {
   name: "FourZeroFour",
+  metaInfo() {
+    return {
+      title: "404",
+      titleTemplate: "%s | uphere.space",
+      meta: [
+        {
+          name: "prerender-status-code",
+          content: 404
+        }
+      ]
+    };
+  },
   data() {
     return {
       config: process.env
     };
-  },
-  methods: {}
+  }
 };
 </script>
 

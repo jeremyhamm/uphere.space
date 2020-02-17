@@ -9,7 +9,8 @@ const nodemailer = require("nodemailer");
  * @return {JSON}       json location information
  */
 exports.getLocationByIp = async(req, res) => {
-  const ip = req.clientIp; //'134.209.63.38';
+  const ip = '134.209.63.38';
+  // const ip = req.clientIp;
   const url = process.env.IP_DATA_URL + "/" + ip + "?api-key=" + process.env.IP_DATA_API_KEY;
   try {
     let response = await request.get(url);
@@ -36,9 +37,9 @@ exports.getLocationByIp = async(req, res) => {
 /**
  * Send message from contact form
  * 
- * @param  {Object} req request object
- * @param  {Object} res response object
- * @return {Void}
+ * @param  {Object}   req request object
+ * @param  {Object}   res response object
+ * @return {Response}     http response
  */
 exports.sendMessage = async (req, res) => {
   let transporter = nodemailer.createTransport({
@@ -68,3 +69,24 @@ exports.sendMessage = async (req, res) => {
     }
   });
 };
+
+/**
+ * Send message from contact form
+ * 
+ * @param {Object}   req request object
+ * @param {Object}   res response object
+* @return {Response}     http response
+ */
+exports.updateSettings = async(req, res) => {
+  const settings = req.body;
+  return res
+    .status(200)
+    .cookie("settings", JSON.stringify(settings), {
+      expires: new Date(Date.now() + (365 * 3600000)), 
+      domain: "uphere.space", 
+      path: "/", 
+      secure: true, 
+      httpOnly: true 
+    })
+    .json(jsonparse);
+}

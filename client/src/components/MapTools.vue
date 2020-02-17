@@ -5,23 +5,12 @@
       id="info-collapse"
       :hide-header="true"
       :hide-footer="true"
-      size="lg"
+      size="md"
       body-class="info-collapse-body"
       :centered="true"
       class="text-wrap"
     >
       <h1>{{ selectedSatelliteDetails.name }}</h1>
-      <img
-        v-if="selectedSatelliteDetails.name"
-        :src="
-          satelliteImage(
-            selectedSatelliteDetails.number,
-            selectedSatelliteDetails.name
-          )
-        "
-        class="rounded float-right"
-        :alt="`NORAD ID: ${selectedSatelliteDetails.number}`"
-      />
       <p>{{ selectedSatelliteDetails.description }}</p>
     </b-modal>
     <!-- Map Tools content -->

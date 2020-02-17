@@ -11,5 +11,6 @@ const userController = require("../controllers/user.controller");
 // Routes
 router.get("/location", userController.getLocationByIp);
 router.post("/contact", userController.sendMessage);
+router.post("/settings", userController.updateSettings);
 
 module.exports = router;

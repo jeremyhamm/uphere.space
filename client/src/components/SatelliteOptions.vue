@@ -53,6 +53,22 @@
       <font-awesome-icon icon="toggle-on" size="2x" v-if="userMarker" />
       <font-awesome-icon icon="toggle-off" size="2x" v-else />
     </b-list-group-item>
+    <b-list-group-item
+      class="d-flex justify-content-between align-items-center"
+    >
+      <b-form-group
+        label="Toggle Units"
+        class="d-flex justify-content-between"
+        @change="toggleUnits()"
+      >
+        <b-form-radio v-model="units" name="toggle-units" value="imperial"
+          >Imperial</b-form-radio
+        >
+        <b-form-radio v-model="units" name="toggle-units" value="metric"
+          >Metric</b-form-radio
+        >
+      </b-form-group>
+    </b-list-group-item>
   </b-list-group>
 </template>
 
@@ -65,6 +81,11 @@ export default {
     return {
       config: process.env
     };
+  },
+  computed: {
+    units() {
+      return this.$store.getters["user/getUnits"];
+    }
   },
   methods: {
     toggleOptions(name) {
@@ -85,6 +106,12 @@ export default {
         default:
           break;
       }
+    },
+    toggleUnits() {
+      const settings = {
+        units: this.units
+      };
+      this.$store.dispatch("user/toggleSettings", settings);
     }
   }
 };

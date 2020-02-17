@@ -22,7 +22,8 @@ const user = {
       iconSize: [50, 50],
       iconAnchor: [25, 50],
       popupAnchor: [0, -50]
-    }
+    },
+    units: "imperial"
   },
   mutations: {
     setUTCTime(state) {
@@ -40,6 +41,9 @@ const user = {
     },
     setMarker(state, marker) {
       state.marker = marker;
+    },
+    setUnits(state, val) {
+      state.units = val;
     }
   },
   actions: {
@@ -68,6 +72,22 @@ const user = {
           }
         );
       });
+    },
+    // eslint-disable-next-line
+    toggleSettings({ commit }, settings) {
+      return new Promise((resolve, reject) => {
+        axios
+          .post(process.env.VUE_APP_API_URL + "/user/settings", settings)
+          .then(
+            response => {
+              commit("setUnits", settings.units);
+              resolve(response);
+            },
+            error => {
+              reject(error);
+            }
+          );
+      });
     }
   },
   getters: {
@@ -88,6 +108,9 @@ const user = {
     },
     getIcon: state => {
       return state.icon;
+    },
+    getUnits: state => {
+      return state.units;
     }
   }
 };
