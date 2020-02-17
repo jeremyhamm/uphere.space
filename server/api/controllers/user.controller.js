@@ -87,5 +87,6 @@ exports.updateSettings = (req, res) => {
       path: "/", 
       secure: true, 
       httpOnly: true 
-    });
+    })
+    .json(settings);
 }
