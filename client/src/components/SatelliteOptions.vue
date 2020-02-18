@@ -61,12 +61,11 @@
           id="units-toggle"
           v-model="units"
           name="units-toggle"
-          @change="toggleUnits()"
         >
-          <b-form-radio name="toggle-units" value="metric"
+          <b-form-radio name="toggle-units" value="imperial"
             >Imperial</b-form-radio
           >
-          <b-form-radio name="toggle-units" value="imperial"
+          <b-form-radio name="toggle-units" value="metric"
             >Metric</b-form-radio
           >
         </b-form-radio-group>
@@ -114,12 +113,6 @@ export default {
         default:
           break;
       }
-    },
-    toggleUnits() {
-      const settings = {
-        units: this.units
-      };
-      this.$store.dispatch("user/toggleSettings", settings);
     }
   }
 };

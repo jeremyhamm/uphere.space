@@ -23,7 +23,7 @@ const user = {
       iconAnchor: [25, 50],
       popupAnchor: [0, -50]
     },
-    units: null
+    units: "imperial"
   },
   mutations: {
     setUTCTime(state) {
@@ -71,35 +71,6 @@ const user = {
             reject(error);
           }
         );
-      });
-    },
-    // eslint-disable-next-line
-    getUserSettings({ commit }, settings) {
-      return new Promise((resolve, reject) => {
-        axios.get(process.env.VUE_APP_API_URL + "/user/settings").then(
-          response => {
-            commit("setUnits", response.units);
-            resolve(response);
-          },
-          error => {
-            reject(error);
-          }
-        );
-      });
-    },
-    // eslint-disable-next-line
-    toggleSettings({ commit }, settings) {
-      return new Promise((resolve, reject) => {
-        axios
-          .post(process.env.VUE_APP_API_URL + "/user/settings", settings)
-          .then(
-            response => {
-              resolve(response);
-            },
-            error => {
-              reject(error);
-            }
-          );
       });
     }
   },

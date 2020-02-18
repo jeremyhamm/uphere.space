@@ -69,38 +69,3 @@ exports.sendMessage = async (req, res) => {
     }
   });
 };
-
-/**
- * Get user settings from cookie
- * 
- * @param  {Object}   req request object
- * @param  {Object}   res response object
- * @return {Response}     http response
- */
-exports.getSettings = (req, res) => {
-  let settings = null;
-  if (req.cookies.settings) {
-    settings = JSON.parse(req.cookies.settings);
-  }
-  res.status(200).json(settings);
-}
-
-/**
- * Send message from contact form
- * 
- * @param {Object}   req request object
- * @param {Object}   res response object
-* @return {Response}     http response
- */
-exports.updateSettings = (req, res) => {
-  const settings = req.body;
-  return res
-    .cookie("settings", JSON.stringify(settings), {
-      expires: new Date(Date.now() + (365 * 3600000)), 
-      domain: "uphere.space", 
-      path: "/", 
-      secure: true, 
-      httpOnly: true 
-    })
-    .sendStatus(200);
-}

@@ -26,9 +26,9 @@
         <b-list-group-item>
           <small class="float-left text-uppercase">height</small>
           <span class="float-right">
-            {{ formatFloat(selectedSatelliteLocation.height) }}
+            {{ formatMetricUnits(selectedSatelliteLocation.height) }}
             <small class="text-uppercase ml-1">
-              <span v-if="units === 'imperial'">km</span>
+              <span v-if="units === 'metric'">km</span>
               <span v-else>mi</span>
             </small>
           </span>
@@ -37,9 +37,9 @@
         <b-list-group-item>
           <small class="float-left text-uppercase">speed</small>
           <span class="float-right">
-            {{ formatFloat(selectedSatelliteLocation.speed) }}
+            {{ formatMetricUnits(selectedSatelliteLocation.speed) }}
             <small class="text-uppercase ml-1">
-              <span v-if="units === 'imperial'">kph</span>
+              <span v-if="units === 'metric'">kph</span>
               <span v-else>mph</span>
             </small>
           </span>
@@ -211,6 +211,13 @@ export default {
           return "NNW";
         default:
           return "N/A";
+      }
+    },
+    formatMetricUnits(val) {
+      if (this.units === 'metric') {
+        return parseFloat(val * 1.60934).toFixed(2);
+      } else {
+        return parseFloat(val).toFixed(2);
       }
     }
   }
