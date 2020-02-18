@@ -79,6 +79,7 @@ export default {
         this.$route.params.satellite
       );
       this.$store.dispatch("user/userLocation");
+      this.$store.dispatch("user/getUserSettings");
     }
   }
 };

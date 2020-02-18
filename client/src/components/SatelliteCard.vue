@@ -27,7 +27,10 @@
           <small class="float-left text-uppercase">height</small>
           <span class="float-right">
             {{ formatFloat(selectedSatelliteLocation.height) }}
-            <small class="text-uppercase ml-1">mi</small>
+            <small class="text-uppercase ml-1">
+              <span v-if="units === 'metric'">km</span>
+              <span v-else>mi</span>
+            </small>
           </span>
         </b-list-group-item>
         <!-- Speed -->
@@ -35,7 +38,10 @@
           <small class="float-left text-uppercase">speed</small>
           <span class="float-right">
             {{ formatFloat(selectedSatelliteLocation.speed) }}
-            <small class="text-uppercase ml-1">mph</small>
+            <small class="text-uppercase ml-1">
+              <span v-if="units === 'metric'">kph</span>
+              <span v-else>mph</span>
+            </small>
           </span>
         </b-list-group-item>
         <!-- Orbital Period -->
@@ -137,6 +143,9 @@ export default {
     },
     selectedSatelliteLocation() {
       return this.$store.getters["satellite/getSelectedSatelliteLocation"];
+    },
+    units() {
+      return this.$store.getters["user/getUnits"];
     }
   },
   mounted() {

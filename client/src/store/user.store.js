@@ -23,7 +23,7 @@ const user = {
       iconAnchor: [25, 50],
       popupAnchor: [0, -50]
     },
-    units: getUserSettings()
+    units: null
   },
   mutations: {
     setUTCTime(state) {
@@ -76,19 +76,17 @@ const user = {
     // eslint-disable-next-line
     getUserSettings({ commit }, settings) {
       return new Promise((resolve, reject) => {
-        axios
-          .get(process.env.VUE_APP_API_URL + "/user/settings")
-          .then(
-            response => {
-              commit("setUnits", response.units);
-              resolve(response);
-            },
-            error => {
-              reject(error);
-            }
-          );
+        axios.get(process.env.VUE_APP_API_URL + "/user/settings").then(
+          response => {
+            commit("setUnits", response.units);
+            resolve(response);
+          },
+          error => {
+            reject(error);
+          }
+        );
       });
-    }
+    },
     // eslint-disable-next-line
     toggleSettings({ commit }, settings) {
       return new Promise((resolve, reject) => {

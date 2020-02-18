@@ -44,6 +44,7 @@
       <font-awesome-icon icon="toggle-on" size="2x" v-if="mapOptions.shadow" />
       <font-awesome-icon icon="toggle-off" size="2x" v-else />
     </b-list-group-item>
+    <!-- User location -->
     <b-list-group-item
       v-if="userLocation"
       class="d-flex justify-content-between align-items-center"
@@ -53,7 +54,8 @@
       <font-awesome-icon icon="toggle-on" size="2x" v-if="userMarker" />
       <font-awesome-icon icon="toggle-off" size="2x" v-else />
     </b-list-group-item>
-    <b-list-group-item class="text-left">
+    <!-- Toggle units -->
+    <b-list-group-item class="text-left" v-if="units">
       <b-form-group label="Toggle Units">
         <b-form-radio-group
           id="units-toggle"
