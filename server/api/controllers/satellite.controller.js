@@ -82,7 +82,7 @@ exports.getSatelliteLocation = (req, res) => {
         'speed': satelliteSpeed,
         'visibility': visibility,
         'footprint_radius': satelliteService.getVisibleFootprint(positionGd.height),
-        'temp': req.cookies.settings || "N/A"
+        'temp': req.cookies || "N/A"
       };
       
       // Add track if request is from app
