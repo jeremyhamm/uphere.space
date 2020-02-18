@@ -14,8 +14,19 @@ const utils = require("./utils.service");
  * @param   {Object} velocityEci velocity
  * @returns {Int}                Converted velocity
  */
-exports.convertVelocity = (velocityEci) => {
+exports.convertVelocitytoMPH = (velocityEci) => {
   return Math.sqrt((velocityEci.x * velocityEci.x) + (velocityEci.y * velocityEci.y) + (velocityEci.z * velocityEci.z)) * 2236.9362920544;
+};
+
+/**
+ * Convert Euclidean vector km/s to km/h
+ * (https://en.wikipedia.org/wiki/Euclidean_vector)
+ * 
+ * @param   {Object} velocityEci velocity
+ * @returns {Int}                Converted velocity
+ */
+exports.convertVelocitytoKPH = (velocityEci) => {
+  return velocityEci * 3600;
 };
 
 /**
