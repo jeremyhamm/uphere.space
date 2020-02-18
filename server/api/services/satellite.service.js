@@ -26,7 +26,7 @@ exports.convertVelocitytoMPH = (velocityEci) => {
  * @returns {Int}                Converted velocity
  */
 exports.convertVelocitytoKPH = (velocityEci) => {
-  return velocityEci * 3600;
+  return Math.sqrt((velocityEci.x * velocityEci.x) + (velocityEci.y * velocityEci.y) + (velocityEci.z * velocityEci.z)) * 3600;
 };
 
 /**
