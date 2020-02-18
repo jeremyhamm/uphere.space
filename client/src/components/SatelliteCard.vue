@@ -28,7 +28,7 @@
           <span class="float-right">
             {{ formatFloat(selectedSatelliteLocation.height) }}
             <small class="text-uppercase ml-1">
-              <span v-if="units === 'metric'">km</span>
+              <span v-if="units === 'imperial'">km</span>
               <span v-else>mi</span>
             </small>
           </span>
@@ -39,7 +39,7 @@
           <span class="float-right">
             {{ formatFloat(selectedSatelliteLocation.speed) }}
             <small class="text-uppercase ml-1">
-              <span v-if="units === 'metric'">kph</span>
+              <span v-if="units === 'imperial'">kph</span>
               <span v-else>mph</span>
             </small>
           </span>

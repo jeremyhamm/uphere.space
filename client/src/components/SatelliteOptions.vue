@@ -55,7 +55,7 @@
       <font-awesome-icon icon="toggle-off" size="2x" v-else />
     </b-list-group-item>
     <!-- Toggle units -->
-    <b-list-group-item class="text-left" v-if="units">
+    <b-list-group-item class="text-left">
       <b-form-group label="Toggle Units">
         <b-form-radio-group
           id="units-toggle"
