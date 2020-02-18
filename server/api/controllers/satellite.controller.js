@@ -54,8 +54,8 @@ exports.getSatelliteLocation = (req, res) => {
       const positionGd = satellite.eciToGeodetic(positionEci, gmst);
       
       // Get current telemetry
-      let satelliteHeight = req.cookies.settings && req.cookies.settings.units === 'metric' ? positionGd.height : satelliteService.convertUnits(positionGd.height);
-      let satelliteSpeed = req.cookies.settings && req.cookies.settings.units === 'metric' ? velocityEci : satelliteService.convertVelocity(velocityEci);
+      let satelliteHeight = JSON.parse(req.cookies.settings).units === 'metric' ? positionGd.height : satelliteService.convertUnits(positionGd.height);
+      let satelliteSpeed = JSON.parse(req.cookies.settings).units === 'metric' ? velocityEci : satelliteService.convertVelocity(velocityEci);
       
       // Get user visibility
       let visibility = null;
@@ -81,8 +81,7 @@ exports.getSatelliteLocation = (req, res) => {
         'height': satelliteHeight,
         'speed': satelliteSpeed,
         'visibility': visibility,
-        'footprint_radius': satelliteService.getVisibleFootprint(positionGd.height),
-        'units': JSON.parse(req.cookies.settings).units || "imperial",
+        'footprint_radius': satelliteService.getVisibleFootprint(positionGd.height)
       };
       
       // Add track if request is from app
