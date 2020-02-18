@@ -71,6 +71,18 @@ exports.sendMessage = async (req, res) => {
 };
 
 /**
+ * Get user settings from cookie
+ * 
+ * @param  {Object}   req request object
+ * @param  {Object}   res response object
+ * @return {Response}     http response
+ */
+exports.getSettings = (req, res) => {
+  const settings = JSON.parse(req.cookies.settings) || null;
+  res.status(200).json(settings);
+}
+
+/**
  * Send message from contact form
  * 
  * @param {Object}   req request object
