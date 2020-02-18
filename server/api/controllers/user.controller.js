@@ -78,12 +78,11 @@ exports.sendMessage = async (req, res) => {
  * @return {Response}     http response
  */
 exports.getSettings = (req, res) => {
-  const settings = JSON.parse(req.cookies.settings) || null;
-  if (settings) {
-    res.status(200).json(settings);
-  } else {
-    res.setStatus(404);
+  let settings = null;
+  if (req.cookies.settings) {
+    settings = JSON.parse(req.cookies.settings);
   }
+  res.status(200).json(settings);
 }
 
 /**
