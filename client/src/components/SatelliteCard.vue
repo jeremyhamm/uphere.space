@@ -214,7 +214,7 @@ export default {
       }
     },
     formatMetricUnits(val) {
-      if (this.units === 'metric') {
+      if (this.units === "metric") {
         return parseFloat(val * 1.60934).toFixed(2);
       } else {
         return parseFloat(val).toFixed(2);

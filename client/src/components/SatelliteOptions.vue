@@ -65,9 +65,7 @@
           <b-form-radio name="toggle-units" value="imperial"
             >Imperial</b-form-radio
           >
-          <b-form-radio name="toggle-units" value="metric"
-            >Metric</b-form-radio
-          >
+          <b-form-radio name="toggle-units" value="metric">Metric</b-form-radio>
         </b-form-radio-group>
       </b-form-group>
     </b-list-group-item>

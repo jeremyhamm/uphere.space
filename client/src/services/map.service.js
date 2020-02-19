@@ -3,7 +3,7 @@ import L from "leaflet";
 /**
  * Add scale controls to map
  *
- * @param {String} units map units
+ * @param  {String} units map units
  * @return {Object}
  */
 const setScaleControls = units => {
@@ -35,8 +35,8 @@ const setAttributionControls = () => {
 /**
  * Toggle basemap
  *
- * @param {String} mode basemap style
- * @return {Object} basemap url
+ * @param  {String} mode basemap style
+ * @return {Object}      basemap url
  */
 const getBasemapUrl = mode => {
   switch (mode) {
@@ -51,6 +51,13 @@ const getBasemapUrl = mode => {
           tilematrixset: "GoogleMapsCompatible_Level"
         }
       );
+    case "satellite":
+      return L.tileLayer(
+        "http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        {
+          maxZoom: 18,
+        }
+      )
     default:
       return L.tileLayer(
         "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
@@ -65,9 +72,9 @@ const getBasemapUrl = mode => {
 /**
  * Toggle user location icon
  *
- * @param {Number} lat latitude of user location
- * @param {Number} lng longitude of user location
- * @return {Object} leaflet marker
+ * @param  {Number} lat latitude of user location
+ * @param  {Number} lng longitude of user location
+ * @return {Object}     leaflet marker
  */
 const toggleUserLocation = (icon, location) => {
   const homeIcon = L.icon(icon);

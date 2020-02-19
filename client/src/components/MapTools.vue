@@ -75,6 +75,9 @@ export default {
   methods: {
     toggleBasemap() {
       if (this.basemap === "default") {
+        MapService.getBasemapUrl("satellite").addTo(this.map);
+        this.basemap = "satellite";
+      } else if(this.basemap === "satellite"){
         MapService.getBasemapUrl("night").addTo(this.map);
         this.basemap = "night";
       } else {
