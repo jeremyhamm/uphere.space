@@ -55,7 +55,7 @@ export default {
         satelliteDetails.intldes
       }, ${
         satelliteDetails.country
-      }, satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite`;
+      }, real time tracking, passes, orbit, orbiters, satellite, satellites, satellite tracking, Tracking, Position, ISS, Mir, Hubble, Space shuttle, suitsat, geostationary, GOES, NOAA, TV satellites, weather, Iridium, Intelsat, Globalstar, amateur radio, GPS, Military Satellites, Cubesat, Galileo, Beidou, Mapping, Spacex, Uphere`;
       return {
         title: title,
         link: [

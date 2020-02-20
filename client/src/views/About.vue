@@ -63,9 +63,13 @@ export default {
     };
   },
   metaInfo() {
+    const title = "About | Real-time satellite tracking and predictions";
+    const description =
+      "Real-time tracking and predictions for thousands of satellites for your location. Find the International Space Station, the Hubble Space telescope and many more!";
+    const keywords =
+      "real time tracking, passes, orbit, orbiters, satellite, satellites, satellite tracking, Tracking, Position, ISS, Mir, Hubble, Space shuttle, suitsat, geostationary, GOES, NOAA, TV satellites, weather, Iridium, Intelsat, Globalstar, amateur radio, GPS, Military Satellites, Cubesat, Galileo, Beidou, Mapping, Spacex, Uphere";
     return {
-      title: "About Us",
-      titleTemplate: "%s | uphere.space",
+      title: title,
       link: [
         {
           rel: "canonical",
@@ -74,40 +78,36 @@ export default {
       ],
       meta: [
         {
-          vmid: "description",
           name: "description",
-          content:
-            "About uphere.space, the premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!"
+          content: description
         },
         {
           vmid: "keywords",
           name: "keywords",
-          content:
-            "about us,conditions,satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite"
+          content: keywords
         },
         // Open Graph
         {
-          vmid: "og:type",
+          property: "og:site_name",
+          content: "uphere.space"
+        },
+        {
           name: "og:type",
           content: "website"
         },
         {
-          vmid: "og:url",
           name: "og:url",
           content: `${process.env.VUE_APP_URL}/about`
         },
         {
-          vmid: "og:title",
           name: "og:title",
-          content: `About Us`
+          content: title
         },
         {
-          vmid: "og:description",
           name: "og:description",
-          content: `About uphere.space, the premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
+          content: description
         },
         {
-          vmid: "og:image",
           name: "og:image",
           content: `${
             process.env.VUE_APP_SPACES_URL
@@ -115,41 +115,57 @@ export default {
         },
         // Twitter
         {
-          vmid: "twitter:card",
           name: "twitter:card",
           content: "summary"
         },
         {
-          vmid: "twitter:site",
           name: "twitter:site",
           content: "@upheredotspace"
         },
         {
-          vmid: "twitter:title",
           name: "twitter:title",
-          content: `Terms and Conditions`
+          content: title
         },
         {
-          vmid: "twitter:description",
           name: "twitter:description",
-          content: `About uphere.space, the premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
+          content: description
         },
         {
-          vmid: "twitter:image",
           name: "twitter:image",
           content: `${
             process.env.VUE_APP_SPACES_URL
           }/images/satellites/ISS (ZARYA).png`
         },
         {
-          vmid: "twitter:image:alt",
           name: "twitter:image:alt",
           content: `ISS (ZARYA) in orbit`
         },
         {
-          vmid: "twitter:creator",
           name: "twitter:creator",
           content: "@upheredotspace"
+        },
+        // Google / Schema.org markup:
+        {
+          itemprop: "name",
+          content: title
+        },
+        {
+          itemprop: "description",
+          content: description
+        },
+        {
+          itemprop: "url",
+          content: `${process.env.VUE_APP_URL}/about`
+        },
+        {
+          itemprop: "image",
+          content: `${
+            process.env.VUE_APP_SPACES_URL
+          }/images/satellites/ISS (ZARYA).png`
+        },
+        {
+          itemprop: "keywords",
+          content: keywords
         }
       ]
     };
