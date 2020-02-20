@@ -75,12 +75,19 @@ export default {
   methods: {
     toggleBasemap() {
       if (this.basemap === "default") {
+        this.map.removeLayer(MapService.getBasemapUrl("default"));
         MapService.getBasemapUrl("satellite").addTo(this.map);
         this.basemap = "satellite";
-      } else if(this.basemap === "satellite"){
+      } else if (this.basemap === "satellite") {
+        this.map.removeLayer(MapService.getBasemapUrl("satellite"));
         MapService.getBasemapUrl("night").addTo(this.map);
         this.basemap = "night";
+      } else if (this.basemap === "night") {
+        this.map.removeLayer(MapService.getBasemapUrl("night"));
+        MapService.getBasemapUrl("national_geographic").addTo(this.map);
+        this.basemap = "national_geographic";
       } else {
+        this.map.removeLayer(MapService.getBasemapUrl("national_geographic"));
         MapService.getBasemapUrl("default").addTo(this.map);
         this.basemap = "default";
       }

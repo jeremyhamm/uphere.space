@@ -43,9 +43,21 @@ export default {
     } else {
       const satelliteName = this.selectedSatelliteDetails.name;
       const satelliteDetails = this.selectedSatelliteDetails;
+      const title = `${satelliteName} | NORAD ID ${
+        satelliteDetails.number
+      } | Real-time satellite tracking and predictions`;
+      const description = `Tracking and predictions for ${satelliteName}. Norad ID ${
+        satelliteDetails.number
+      }. International id ${satelliteDetails.intldes}. Launched by the ${
+        satelliteDetails.country
+      }. ${satelliteDetails.description}`;
+      const keywords = `${satelliteName}, ${satelliteDetails.number}, ${
+        satelliteDetails.intldes
+      }, ${
+        satelliteDetails.country
+      }, satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite`;
       return {
-        title: `${satelliteName}`,
-        titleTemplate: "%s | uphere.space",
+        title: title,
         link: [
           {
             rel: "canonical",
@@ -56,93 +68,93 @@ export default {
         ],
         meta: [
           {
-            vmid: "description",
             name: "description",
-            content: `Tracking and predictions for ${satelliteName}. Norad ID ${
-              satelliteDetails.number
-            }. International id ${satelliteDetails.intldes}. Launched by the ${
-              satelliteDetails.country
-            }. ${satelliteDetails.description}`
+            content: description
           },
           {
-            vmid: "keywords",
             name: "keywords",
-            content: `${satelliteName}, ${satelliteDetails.number}, ${
-              satelliteDetails.intldes
-            }, ${
-              satelliteDetails.country
-            }, satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite`
+            content: keywords
           },
           // Open Graph
           {
-            vmid: "og:type",
             name: "og:type",
             content: "website"
           },
           {
-            vmid: "og:url",
             name: "og:url",
             content: `${process.env.VUE_APP_URL}/satellites/${
               satelliteDetails.number
             }`
           },
           {
-            vmid: "og:title",
             name: "og:title",
-            content: `Real-time satellite tracking and predictions | ${satelliteName}`
+            content: title
           },
           {
-            vmid: "og:description",
             name: "og:description",
-            content: `Tracking and predictions for ${satelliteName}. Norad ID ${
-              satelliteDetails.number
-            }. International id ${satelliteDetails.intldes}. Launched by the ${
-              satelliteDetails.country
-            }. ${satelliteDetails.description}`
+            content: description
           },
           {
-            vmid: "og:image",
             name: "og:image",
             content: `${
               process.env.VUE_APP_SPACES_URL
             }/images/satellites/${satelliteName}.png`
           },
+          {
+            name: "og:email",
+            content: `${process.env.VUE_APP_EMAIL}`
+          },
           // Twitter
           {
-            vmid: "twitter:card",
             name: "twitter:card",
             content: "summary"
           },
           {
-            vmid: "twitter:site",
             name: "twitter:site",
             content: "@upheredotspace"
           },
           {
-            vmid: "twitter:title",
             name: "twitter:title",
-            content: `Real-time satellite tracking and predictions | ${satelliteName}`
+            content: title
           },
           {
-            vmid: "twitter:description",
             name: "twitter:description",
-            content: `Tracking and predictions for ${satelliteName}. Norad ID ${
-              satelliteDetails.number
-            }. International id ${satelliteDetails.intldes}. Launched by the ${
-              satelliteDetails.country
-            }. ${satelliteDetails.description}`
+            content: description
           },
           {
-            vmid: "twitter:image",
             name: "twitter:image",
             content: `${
               process.env.VUE_APP_SPACES_URL
             }/images/satellites/${satelliteName}.png`
           },
           {
-            vmid: "twitter:image:alt",
             name: "twitter:image:alt",
             content: `${satelliteName} in orbit`
+          },
+          // Google / Schema.org markup:
+          {
+            itemprop: "name",
+            content: title
+          },
+          {
+            itemprop: "description",
+            content: description
+          },
+          {
+            itemprop: "url",
+            content: `${process.env.VUE_APP_URL}/satellites/${
+              satelliteDetails.number
+            }`
+          },
+          {
+            itemprop: "image",
+            content: `${
+              process.env.VUE_APP_SPACES_URL
+            }/images/satellites/${satelliteName}.png`
+          },
+          {
+            itemprop: "keywords",
+            content: keywords
           }
         ]
       };

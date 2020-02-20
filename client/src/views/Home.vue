@@ -117,7 +117,7 @@ export default {
     const description =
       "Real-time tracking and predictions for thousands of satellites for your location. Find the International Space Station, the Hubble Space telescope and many more!";
     const keywords =
-      "satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite,launch,real-time tracking,space";
+      "satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite,launch,real-time tracking,space,uphere";
     return {
       title: title,
       titleTemplate: "%s | uphere.space",
@@ -170,6 +170,10 @@ export default {
           content: `${
             process.env.VUE_APP_SPACES_URL
           }/images/satellites/ISS (ZARYA).png`
+        },
+        {
+          name: "og:email",
+          content: `${process.env.VUE_APP_EMAIL}`
         },
         // Twitter
         {

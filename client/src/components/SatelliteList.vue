@@ -29,9 +29,14 @@ export default {
     };
   },
   metaInfo() {
+    const title =
+      "Satellite List | Real-time satellite tracking and predictions";
+    const description =
+      "List of satellites orbiting earth for tracking and predictions";
+    const keywords =
+      "satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite,launch,real-time tracking,space,uphere";
     return {
-      title: "Live satellite tracking and predictions",
-      titleTemplate: "%s | uphere.space",
+      title: title,
       link: [
         {
           rel: "canonical",
@@ -40,40 +45,31 @@ export default {
       ],
       meta: [
         {
-          vmid: "description",
           name: "description",
-          content:
-            "List of satellites orbiting earth for tracking and predictions"
+          content: description
         },
         {
-          vmid: "keywords",
           name: "keywords",
-          content: "satellite,orbit,tracking,map,mapping,nasa,iss,list"
+          content: keywords
         },
         // Open Graph
         {
-          vmid: "og:type",
           name: "og:type",
           content: "website"
         },
         {
-          vmid: "og:url",
           name: "og:url",
           content: `${process.env.VUE_APP_URL}/list`
         },
         {
-          vmid: "og:title",
           name: "og:title",
-          content: "Satellite list"
+          content: title
         },
         {
-          vmid: "og:description",
           name: "og:description",
-          content:
-            "List of satellites orbiting earth for tracking and predictions"
+          content: description
         },
         {
-          vmid: "og:image",
           name: "og:image",
           content: `${
             process.env.VUE_APP_SPACES_URL
@@ -81,37 +77,53 @@ export default {
         },
         // Twitter
         {
-          vmid: "twitter:card",
           name: "twitter:card",
           content: "summary"
         },
         {
-          vmid: "twitter:site",
           name: "twitter:site",
           content: "@upheredotspace"
         },
         {
-          vmid: "twitter:title",
           name: "twitter:title",
-          content: "Satellite list"
+          content: title
         },
         {
-          vmid: "twitter:description",
           name: "twitter:description",
-          content:
-            "List of satellites orbiting earth for tracking and predictions"
+          content: description
         },
         {
-          vmid: "twitter:image",
           name: "twitter:image",
           content: `${
             process.env.VUE_APP_SPACES_URL
           }/images/satellites/ISS (ZARYA).png`
         },
         {
-          vmid: "twitter:image:alt",
           name: "twitter:image:alt",
           content: `ISS (ZARYA) in orbit`
+        },
+        // Google / Schema.org markup:
+        {
+          itemprop: "name",
+          content: title
+        },
+        {
+          itemprop: "description",
+          content: description
+        },
+        {
+          itemprop: "url",
+          content: `${process.env.VUE_APP_URL}/list`
+        },
+        {
+          itemprop: "image",
+          content: `${
+            process.env.VUE_APP_SPACES_URL
+          }/images/satellites/ISS (ZARYA).png`
+        },
+        {
+          itemprop: "keywords",
+          content: keywords
         }
       ]
     };

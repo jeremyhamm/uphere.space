@@ -53,11 +53,18 @@ const getBasemapUrl = mode => {
       );
     case "satellite":
       return L.tileLayer(
-        "http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         {
-          maxZoom: 18,
+          maxZoom: 18
         }
-      )
+      );
+    case "national_geographic":
+      return L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}",
+        {
+          maxZoom: 16
+        }
+      );
     default:
       return L.tileLayer(
         "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
