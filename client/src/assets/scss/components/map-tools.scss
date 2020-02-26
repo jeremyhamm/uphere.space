@@ -2,7 +2,11 @@
   z-index: 401;
   bottom: 50px;
 }
-#info-toggle, #basemap-toggle, #map-tools-toggle {
+#info-toggle,
+#basemap-toggle,
+#visible-satellites,
+#satellite-options,
+#user-options {
   background-color: $overlay;
   border: 0;
   border-radius: 0;
@@ -23,7 +27,7 @@
     color: $white;
   }
 }
-#map-tools-content.list-group {
+#satellite-options.list-group, #user-options.list-group {
   background-color: rgba(43,62,66,0.7);
   color: $white;
   .list-group-item {

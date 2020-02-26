@@ -1,5 +1,5 @@
 <template>
-  <b-list-group id="map-tools-content">
+  <b-list-group id="satellite-options">
     <!-- Tracking -->
     <b-list-group-item
       class="d-flex justify-content-between align-items-center"
@@ -44,31 +44,6 @@
       <font-awesome-icon icon="toggle-on" size="2x" v-if="mapOptions.shadow" />
       <font-awesome-icon icon="toggle-off" size="2x" v-else />
     </b-list-group-item>
-    <!-- User location -->
-    <b-list-group-item
-      v-if="userLocation"
-      class="d-flex justify-content-between align-items-center"
-      @click="toggleOptions('location')"
-    >
-      Show my location
-      <font-awesome-icon icon="toggle-on" size="2x" v-if="userMarker" />
-      <font-awesome-icon icon="toggle-off" size="2x" v-else />
-    </b-list-group-item>
-    <!-- Toggle units -->
-    <b-list-group-item class="text-left">
-      <b-form-group label="Toggle Units">
-        <b-form-radio-group
-          id="units-toggle"
-          v-model="units"
-          name="units-toggle"
-        >
-          <b-form-radio name="toggle-units" value="imperial"
-            >Imperial</b-form-radio
-          >
-          <b-form-radio name="toggle-units" value="metric">Metric</b-form-radio>
-        </b-form-radio-group>
-      </b-form-group>
-    </b-list-group-item>
   </b-list-group>
 </template>
 
@@ -82,16 +57,6 @@ export default {
       config: process.env
     };
   },
-  computed: {
-    units: {
-      get() {
-        return this.$store.getters["user/getUnits"];
-      },
-      set(val) {
-        this.$store.commit("user/setUnits", val);
-      }
-    }
-  },
   methods: {
     toggleOptions(name) {
       this.mapOptions[name] = !this.mapOptions[name];
@@ -104,9 +69,6 @@ export default {
           break;
         case "shadow":
           this.toggleShadows();
-          break;
-        case "location":
-          this.toggleLocation();
           break;
         default:
           break;

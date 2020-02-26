@@ -30,6 +30,7 @@
         <b-nav-item :to="{ name: 'Privacy' }">Privacy</b-nav-item>
         <b-nav-item :to="{ name: 'Terms' }">Terms</b-nav-item>
         <b-nav-item :to="{ name: 'Contact' }">Contact</b-nav-item>
+        <b-nav-item :to="{ name: 'Sitemap' }">Sitemap</b-nav-item>
       </b-nav>
       <!-- Mobile -->
       <b-nav align="right" class="pr-3 d-lg-none text-right" small>
@@ -51,6 +52,7 @@
           <b-dropdown-item :to="{ name: 'Privacy' }">Privacy</b-dropdown-item>
           <b-dropdown-item :to="{ name: 'Terms' }">Terms</b-dropdown-item>
           <b-dropdown-item :to="{ name: 'Contact' }">Contact</b-dropdown-item>
+          <b-dropdown-item :to="{ name: 'Sitemap' }">Sitemap</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-nav>
     </b-col>

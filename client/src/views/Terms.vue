@@ -123,8 +123,13 @@ export default {
     };
   },
   metaInfo() {
+    const title = "Terms and Conditions";
+    const description =
+      "Terms and Conditions. Real time tracking and predictions for thousands of satellites for your location. Find the International Space Station, the Hubble Space telescope and many more!";
+    const keywords =
+      "terms and conditions, real time tracking, passes, orbit, orbiters, satellite, satellites, satellite tracking, Tracking, Position, ISS, Mir, Hubble, Space shuttle, suitsat, geostationary, GOES, NOAA, TV satellites, weather, Iridium, Intelsat, Globalstar, amateur radio, GPS, Military Satellites, Cubesat, Galileo, Beidou, Mapping, Spacex, Uphere";
     return {
-      title: "Terms and Conditions",
+      title: title,
       titleTemplate: "%s | uphere.space",
       link: [
         {
@@ -136,14 +141,12 @@ export default {
         {
           vmid: "description",
           name: "description",
-          content:
-            "Terms and conditions for uphere.space, the premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!"
+          content: description
         },
         {
           vmid: "keywords",
           name: "keywords",
-          content:
-            "terms,conditions,satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite"
+          content: keywords
         },
         // Open Graph
         {
@@ -159,12 +162,12 @@ export default {
         {
           vmid: "og:title",
           name: "og:title",
-          content: `Terms and Conditions`
+          content: title
         },
         {
           vmid: "og:description",
           name: "og:description",
-          content: `Terms and conditions for uphere.space, the premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
+          content: description
         },
         {
           vmid: "og:image",
@@ -187,12 +190,12 @@ export default {
         {
           vmid: "twitter:title",
           name: "twitter:title",
-          content: `Terms and Conditions`
+          content: title
         },
         {
           vmid: "twitter:description",
           name: "twitter:description",
-          content: `Terms and conditions for uphere.space, the premier real-time tracking and predictor for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!`
+          content: description
         },
         {
           vmid: "twitter:image",
@@ -210,12 +213,33 @@ export default {
           vmid: "twitter:creator",
           name: "twitter:creator",
           content: "@upheredotspace"
+        },
+        // Google / Schema.org markup:
+        {
+          itemprop: "name",
+          content: title
+        },
+        {
+          itemprop: "description",
+          content: description
+        },
+        {
+          itemprop: "url",
+          content: `${process.env.VUE_APP_URL}/terms`
+        },
+        {
+          itemprop: "image",
+          content: `${
+            process.env.VUE_APP_SPACES_URL
+          }/images/satellites/ISS (ZARYA).png`
+        },
+        {
+          itemprop: "keywords",
+          content: keywords
         }
       ]
     };
-  },
-  computed: {},
-  methods: {}
+  }
 };
 </script>
 

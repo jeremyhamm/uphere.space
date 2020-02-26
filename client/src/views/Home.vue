@@ -113,9 +113,9 @@ export default {
     };
   },
   metaInfo() {
-    const title = "Real-time satellite tracking and predictions";
+    const title = "Real time satellite tracking and predictions";
     const description =
-      "Real-time tracking and predictions for thousands of satellites for your location. Find the International Space Station, the Hubble Space telescope and many more!";
+      "Real time tracking and predictions for thousands of satellites for your location. Find the International Space Station, the Hubble Space telescope and many more!";
     const keywords =
       "real time tracking, passes, orbit, orbiters, satellite, satellites, satellite tracking, Tracking, Position, ISS, Mir, Hubble, Space shuttle, suitsat, geostationary, GOES, NOAA, TV satellites, weather, Iridium, Intelsat, Globalstar, amateur radio, GPS, Military Satellites, Cubesat, Galileo, Beidou, Mapping, Spacex, Uphere";
     return {
@@ -186,7 +186,7 @@ export default {
         },
         {
           name: "twitter:title",
-          content: `Real-time tracking and predictions for thousands of satellites currently orbiting earth`
+          content: title
         },
         {
           name: "twitter:description",
@@ -217,7 +217,7 @@ export default {
         },
         {
           itemprop: "url",
-          content: "https://uphere.space"
+          content: `${process.env.VUE_APP_URL}`
         },
         {
           itemprop: "image",

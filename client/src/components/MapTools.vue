@@ -13,11 +13,19 @@
       <h1>{{ selectedSatelliteDetails.name }}</h1>
       <p>{{ selectedSatelliteDetails.description }}</p>
     </b-modal>
-    <!-- Map Tools content -->
-    <b-collapse id="map-tools-collapse" class="mb-1">
+    <!-- Satellite options -->
+    <b-collapse id="satellite-options-collapse" class="mb-1">
       <b-row align-h="end" no-gutters>
         <b-col cols="12" md="6" lg="4" xl="3" class="pl-2 pl-md-0">
           <satellite-options />
+        </b-col>
+      </b-row>
+    </b-collapse>
+    <!-- User options -->
+    <b-collapse id="user-options-collapse" class="mb-1">
+      <b-row align-h="end" no-gutters>
+        <b-col cols="12" md="6" lg="4" xl="3" class="pl-2 pl-md-0">
+          <user-options />
         </b-col>
       </b-row>
     </b-collapse>
@@ -34,9 +42,17 @@
     <b-button id="basemap-toggle" class="mr-3" @click="toggleBasemap()">
       <font-awesome-icon class="toggle-icon" icon="layer-group" size="lg" />
     </b-button>
-    <!-- Map tools button -->
-    <b-button id="map-tools-toggle" v-b-toggle.map-tools-collapse>
+    <!-- Satellite options -->
+    <b-button
+      id="satellite-options"
+      class="mr-3"
+      v-b-toggle.satellite-options-collapse
+    >
       <font-awesome-icon class="toggle-icon" icon="sliders-h" size="lg" />
+    </b-button>
+    <!-- User options -->
+    <b-button id="user-options" v-b-toggle.user-options-collapse>
+      <font-awesome-icon class="toggle-icon" icon="user-cog" size="lg" />
     </b-button>
   </div>
 </template>
@@ -44,12 +60,14 @@
 <script>
 import ImageMixin from "@/mixins/image.mixin";
 import SatelliteOptions from "./SatelliteOptions";
+import UserOptions from "./UserOptions";
 import MapService from "@/services/map.service";
 export default {
   name: "Map-Tools",
   mixins: [ImageMixin],
   components: {
-    "satellite-options": SatelliteOptions
+    "satellite-options": SatelliteOptions,
+    "user-options": UserOptions
   },
   data() {
     return {
