@@ -2,7 +2,7 @@
   <b-container fluid>
     <b-row class="administration justify-content-center">
       <b-col cols="12" md="8" lg="6">
-        <h2 class="text-center mb-4">Terms of Service</h2>
+        <h1 class="text-center mb-4">Terms of Service</h1>
         <h3>1. Terms</h3>
         <p>
           By accessing the website at

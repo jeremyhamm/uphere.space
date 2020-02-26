@@ -2,7 +2,7 @@
   <b-container fluid>
     <b-row class="administration justify-content-center">
       <b-col cols="12" md="8" lg="6">
-        <h2 class="text-center mb-4">Privacy Policy</h2>
+        <h1 class="text-center mb-4">Privacy Policy</h1>
         <p>
           Your privacy is important to us. It is uphere.space's policy to
           respect your privacy regarding any information we may collect from you

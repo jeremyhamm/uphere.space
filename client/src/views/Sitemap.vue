@@ -1,13 +1,44 @@
 <template>
   <b-container fluid>
-    <b-row class="justify-content-center">
+    <b-row class="administration justify-content-center">
       <b-col cols="12" md="8" lg="6">
-        <h1>Sitemap</h1>
+        <h1 class="text-center">Sitemap</h1>
       </b-col>
     </b-row>
-    <b-row class="justify-content-center">
+    <b-row class="justify-content-center text-center">
       <b-col cols="12" md="8" lg="6">
-        
+        <h3><b-link class="text-dark" to="/">Home</b-link></h3>
+        <h3>
+          <b-link class="text-dark" :to="{ name: 'Satellite List' }"
+            >Satellite List</b-link
+          >
+        </h3>
+        <h3>
+          <b-link class="text-dark" :to="{ name: 'API-Overview' }"
+            >API Overview</b-link
+          >
+        </h3>
+        <h3>
+          <b-link class="text-dark" :to="{ name: 'API-Documentation' }"
+            >API Documentation</b-link
+          >
+        </h3>
+        <h3>
+          <b-link class="text-dark" :to="{ name: 'About' }">About</b-link>
+        </h3>
+        <h3>
+          <b-link class="text-dark" :to="{ name: 'Contact' }">Contact</b-link>
+        </h3>
+        <h3>
+          <b-link class="text-dark" :to="{ name: 'Terms' }"
+            >Terms and Conditions</b-link
+          >
+        </h3>
+        <h3>
+          <b-link class="text-dark" :to="{ name: 'Terms' }"
+            >Privacy Policy</b-link
+          >
+        </h3>
       </b-col>
     </b-row>
   </b-container>

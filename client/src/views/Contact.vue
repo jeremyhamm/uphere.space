@@ -3,7 +3,7 @@
     <!-- Intro -->
     <b-row class="justify-content-center" v-if="!success">
       <b-col cols="12" md="6" xl="4">
-        <h2 class="text-center">Contact</h2>
+        <h1 class="text-center">Contact</h1>
         <p class="text-center">
           Have questions? Want to advertise with us? Send us a line and we will
           get back to you as soon as possible.

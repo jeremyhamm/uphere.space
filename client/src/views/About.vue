@@ -3,6 +3,7 @@
     <!-- Welcome -->
     <b-row class="justify-content-center">
       <b-col cols="12" md="10" xl="8" class="text-center content-padding">
+        <h1 class="text-center mb-4">About</h1>
         <h4 class="my-3">
           Welcome to uphere.space, the premier application for real-time
           satellite tracking application. Over 2,800 satellates available to
