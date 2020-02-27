@@ -11,7 +11,7 @@
       <font-awesome-icon icon="toggle-off" size="2x" v-else />
     </b-list-group-item>
     <!-- User location -->
-    <b-button variant="primary">Visible satellites</b-button>
+    <!-- <b-button variant="primary">Visible satellites</b-button> -->
     <!-- Toggle units -->
     <b-list-group-item class="text-left">
       <b-form-group label="Toggle Units">

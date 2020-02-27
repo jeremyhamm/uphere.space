@@ -9,7 +9,7 @@
       <b-col cols="12" md="8" lg="6">
         <h3><b-link class="text-dark" to="/">Home</b-link></h3>
         <h3>
-          <b-link class="text-dark" :to="{ name: 'Satellite List' }"
+          <b-link class="text-dark" :to="{ name: 'List' }"
             >Satellite List</b-link
           >
         </h3>
