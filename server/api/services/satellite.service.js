@@ -194,7 +194,7 @@ exports.getMostViewed = async (params) => {
     JOIN (
       SELECT v.satellite_id, COUNT(v.id) as count
       FROM views v
-      WHERE v.date >= (NOW() - interval '${params.days} day')
+      WHERE v.date >= (NOW() - interval '$1 day')
       GROUP BY v.satellite_id
       ORDER BY count DESC
       LIMIT 6
@@ -207,7 +207,7 @@ exports.getMostViewed = async (params) => {
   
   // Get data
   return await connection.task(async t => {
-    let satellites = await t.query(sql, params);
+    let satellites = await t.query(sql, [Number(params.days)]);
     
     // Format data
     return utils.formatSatelliteCategory(satellites);
@@ -270,4 +270,19 @@ exports.calculateMagnitude = (visibility) => {
   const term_3 = -2.5 * Math.log10(arg);
 
   return term_1 + term_2 + term_3;
+}
+
+/**
+ * Satellite launch sites
+ * 
+ * @return {Array} launch sites
+ */
+exports.launchSites = async () => {
+  const sql = `
+    SELECT *
+    FROM launch_sites
+    WHERE latitude IS NOT NULL AND longitude IS NOT NULL
+    ORDER BY abbreviation ASC
+  `;
+  return await connection.query(sql);
 }

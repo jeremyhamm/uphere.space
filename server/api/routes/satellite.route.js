@@ -12,6 +12,7 @@ router.get("/top", satelliteController.getTopList);
 router.get("/list", rapidAPiMiddleware, satelliteController.getSatelliteList);
 router.get("/list/categories", rapidAPiMiddleware, satelliteController.getCategoryList);
 router.get("/list/countries", rapidAPiMiddleware, satelliteController.getCountryList);
+router.get("/list/launch-sites", rapidAPiMiddleware, satelliteController.getLaunchSites);
 
 // Satellite
 router.get("/:satellite/details", rapidAPiMiddleware, satelliteController.getSatelliteDetails);

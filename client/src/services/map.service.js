@@ -33,6 +33,28 @@ const setAttributionControls = () => {
 };
 
 /**
+ * Conver degrees to tiles for WMTS
+ *
+ * @param  {Number} latDeg
+ * @param  {Number} lonDeg
+ * @param  {Number} zoom
+ * @return {Object}
+ */
+const deg2Coords = (latDeg, lonDeg, zoom) => {
+  const latRadians = latDeg * (Math.PI / 180);
+  const n = Math.pow(2.0, zoom);
+  const xtile = Math.round(((lonDeg + 180.0) / 360.0) * n);
+  const ytile = Math.round(
+    ((1.0 - Math.asinh(Math.tan(latRadians)) / Math.PI) / 2.0) * n
+  );
+
+  return {
+    x: xtile,
+    y: ytile
+  };
+};
+
+/**
  * Toggle basemap
  *
  * @param  {String} mode basemap style
@@ -89,9 +111,10 @@ const toggleUserLocation = (icon, location) => {
 };
 
 export default {
-  setScaleControls: setScaleControls,
-  setZoomContols: setZoomContols,
-  setAttributionControls: setAttributionControls,
-  getBasemapUrl: getBasemapUrl,
-  toggleUserLocation: toggleUserLocation
+  setScaleControls,
+  setZoomContols,
+  setAttributionControls,
+  deg2Coords,
+  getBasemapUrl,
+  toggleUserLocation
 };

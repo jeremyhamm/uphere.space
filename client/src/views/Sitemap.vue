@@ -1,11 +1,11 @@
 <template>
   <b-container fluid>
-    <b-row class="administration justify-content-center">
+    <b-row class="static-title justify-content-center">
       <b-col cols="12" md="8" lg="6">
         <h1 class="text-center">Sitemap</h1>
       </b-col>
     </b-row>
-    <b-row class="justify-content-center text-center">
+    <b-row class="justify-content-center text-center mt-4">
       <b-col cols="12" md="8" lg="6">
         <h3><b-link class="text-dark" to="/">Home</b-link></h3>
         <h3>

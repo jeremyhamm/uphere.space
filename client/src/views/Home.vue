@@ -41,8 +41,37 @@
         </b-row>
       </div>
     </div>
-    <b-row no-gutters v-if="satelliteList" class="justify-content-center mt-3">
-      <b-col cols="12" md="10" xl="8"> </b-col>
+    <!-- Satellite Count -->
+    <b-row no-gutters class="title count justify-content-center text-center">
+      <b-col cols="12" md="4" xl="3" class="my-3 my-md-0">
+        <div class="pb-2">
+          <font-awesome-icon icon="satellite" size="2x" />
+        </div>
+        <h4 class="text-uppercase">
+          Real time Tracking
+        </h4>
+        <p>
+          Real time orbital tracking and prediction for over 3,200 satellites
+        </p>
+      </b-col>
+      <b-col cols="12" md="4" xl="3" class="my-3 my-md-0">
+        <div class="pb-2">
+          <font-awesome-icon icon="rocket" size="2x" />
+        </div>
+        <h4 class="text-uppercase">
+          Updated List
+        </h4>
+        <p>Satellites are added as soon as they are launched</p>
+      </b-col>
+      <b-col cols="12" md="4" xl="3" class="my-3 my-md-0">
+        <div class="pb-2">
+          <font-awesome-icon icon="map-marker-alt" size="2x" />
+        </div>
+        <h4 class="text-uppercase">
+          Your Location
+        </h4>
+        <p>See which satellites are orbiting and visible above you.</p>
+      </b-col>
     </b-row>
     <!-- Popular Satellites -->
     <b-row no-gutters class="justify-content-center mt-5">

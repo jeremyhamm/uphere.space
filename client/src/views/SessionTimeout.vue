@@ -22,10 +22,10 @@
 
 <script>
 export default {
-  name: "FourZeroFour",
+  name: "Session-Timeout",
   metaInfo() {
     return {
-      title: "404",
+      title: "Session Timeout",
       titleTemplate: "%s | uphere.space",
       meta: [
         {

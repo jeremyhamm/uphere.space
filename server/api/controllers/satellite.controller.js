@@ -6,9 +6,9 @@ const satelliteService = require("../services/satellite.service");
 /**
  * Get satellite track for n minutes
  * 
- * @param  {Object} req request object
- * @param  {Object} res response object
- * @return {JSON}       satellite track
+ * @param  {Object}   req request object
+ * @param  {Object}   res response object
+ * @return {Response}     satellite track
  */
 exports.getSatelliteOrbit = (req, res) => {
   client.hgetall(req.params.satellite, (error, result) => {
@@ -29,9 +29,9 @@ exports.getSatelliteOrbit = (req, res) => {
 /**
  * Get current location of selected satellite
  * 
- * @param  {Object} req request object
- * @param  {Object} res response object
- * @return {JSON}       satellite location details
+ * @param  {Object}   req request object
+ * @param  {Object}   res response object
+ * @return {Response}     satellite location details
  */
 exports.getSatelliteLocation = (req, res) => {
   client.hgetall(req.params.satellite, (error, result) => {           
@@ -97,9 +97,9 @@ exports.getSatelliteLocation = (req, res) => {
 /**
  * Get icon for satellite type
  * 
- * @param  {Object} req request object
- * @param  {Object} res response object
- * @return {JSON}       satellite list
+ * @param  {Object}   req request object
+ * @param  {Object}   res response object
+ * @return {Response}     satellite list
  */
 exports.getSatelliteDetails = async (req, res) => {
   try {
@@ -118,9 +118,9 @@ exports.getSatelliteDetails = async (req, res) => {
 /**
  * Get complete list of categories
  * 
- * @param  {Object} req request object
- * @param  {Object} res response object
- * @return {JSON}      category list
+ * @param  {Object}   req request object
+ * @param  {Object}   res response object
+ * @return {Response}     category list
  */
 exports.getCategoryList = async (req, res) => {
   try {
@@ -135,9 +135,9 @@ exports.getCategoryList = async (req, res) => {
 /**
  * Get complete list of countries who have launched satellites
  * 
- * @param  {Object} req request object
- * @param  {Object} res response object
- * @return {JSON}       country list
+ * @param  {Object}   req request object
+ * @param  {Object}   res response object
+ * @return {Response}     country list
  */
 exports.getCountryList = async (req, res) => {
   try {
@@ -152,9 +152,9 @@ exports.getCountryList = async (req, res) => {
 /**
  * Get all trackable satellites
  * 
- * @param  {Object} req request object
- * @param  {Object} res response object
- * @return {JSON}       most viewed satellite data
+ * @param  {Object}   req request object
+ * @param  {Object}   res response object
+ * @return {Response}     most viewed satellite data
  */
 exports.getSatelliteList = async (req, res) => {
   try {
@@ -169,9 +169,9 @@ exports.getSatelliteList = async (req, res) => {
 /**
  * Get most viewed satellites
  * 
- * @param  {Object} req request object
- * @param  {Object} res response object
- * @return {JSON}       most viewed satellite data
+ * @param  {Object}   req request object
+ * @param  {Object}   res response object
+ * @return {Response}     most viewed satellite data
  */
 exports.getTopList = async (req, res) => {
   try {
@@ -186,9 +186,9 @@ exports.getTopList = async (req, res) => {
 /**
  * Get visible passes for x days
  * 
- * @param  {Object} req request object
- * @param  {Object} res response object
- * @return {JSON}      satellite pass for current location
+ * @param  {Object}   req request object
+ * @param  {Object}   res response object
+ * @return {Response}     satellite pass for current location
  */
 exports.getVisiblePasses = (req, res) => {
   client.hgetall(req.params.satellite, (error, result) => {        
@@ -248,3 +248,20 @@ exports.getVisiblePasses = (req, res) => {
     return res.status(200).json(passes);
   });
 };
+
+/**
+ * Get satellite launch sites
+ * 
+ * @param  {Object}   req request object
+ * @param  {Object}   res response object
+ * @return {Response}     satellite launch sites
+ */
+exports.getLaunchSites = async (req, res) => {
+  try {
+    const results = await satelliteService.launchSites();
+    return res.status(200).json(results);
+  }
+  catch(e) {
+    return res.sendStatus(404);
+  }
+}

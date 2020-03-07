@@ -18,13 +18,22 @@
   }
 }
 #info-collapse {
-  .modal-content {
+  max-height: 750px;
+  .modal-header, .modal-content {
     background-color: transparent;
     border: 0;
+    .close {
+      color: $white;
+    }
   }
-  .info-collapse-body {
+  .info-collapse-header, .info-collapse-body {
     background-color: rgba(43,62,66,0.75);
     color: $white;
+  }
+  .list-group {
+    .list-group-item {
+      background-color: transparent;
+    }
   }
 }
 #satellite-options.list-group, #user-options.list-group {
