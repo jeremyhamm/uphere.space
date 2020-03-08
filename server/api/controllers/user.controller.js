@@ -29,9 +29,6 @@ exports.getLocationByIp = async(req, res) => {
       })
       .json(jsonparse);
   } catch(error) {
-    
-    console.log(process.env.IP_DATA_URL + "/" + ip + "?api-key=" + process.env.IP_DATA_API_KEY);
-    
     return res.sendStatus(error.statusCode);
   }
 };
