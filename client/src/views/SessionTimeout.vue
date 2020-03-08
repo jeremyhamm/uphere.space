@@ -25,7 +25,7 @@ export default {
   name: "Session-Timeout",
   metaInfo() {
     return {
-      title: "Session Timeout",
+      title: "Session Timeout",\
       titleTemplate: "%s | uphere.space",
       meta: [
         {

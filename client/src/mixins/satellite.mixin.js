@@ -143,7 +143,7 @@ const satelliteMixin = {
       switch (icon) {
         case "AQUA":
           return "aqua.svg";
-        case "DRAGON CRS-19":
+        case "DRAGON CRS-20":
           return "spacex_dragon.svg";
         case "GOES 17":
           return "goes.svg";
