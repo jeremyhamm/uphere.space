@@ -51,6 +51,9 @@ const satelliteMixin = {
         this.shadows[name] = value;
       }
     },
+    launchSites() {
+      return this.$store.getters["map/getLaunchSites"];
+    },
     userMarker: {
       get() {
         return this.$store.getters["user/getMarker"];
@@ -191,6 +194,29 @@ const satelliteMixin = {
         default:
           return "default.svg";
       }
+    },
+    /**
+     * Add launch site markers
+     *
+     * @param {Object}
+     * @return {Void}
+     */
+    addLaunchSites() {
+      const launchSiteIcon = new L.Icon({
+        iconSize: [40, 40],
+        iconUrl: `${
+          this.config.VUE_APP_SPACES_URL
+        }/images/icons/launch-sites.svg`
+      });
+      this.launchSites.forEach(site => {
+        const siteMarker = L.marker([site.latitude, site.longitude], {
+          icon: launchSiteIcon
+        }).addTo(this.map);
+        siteMarker.bindPopup(`
+          <p class="text-center">${site.abbreviation}</p>
+          <p class="text-center">${site.name}</p>
+        `);
+      });
     },
     /**
      * Add circle(s) representing phases of night

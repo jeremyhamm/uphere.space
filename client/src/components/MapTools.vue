@@ -2,15 +2,15 @@
   <div>
     <!-- Information content -->
     <b-modal
-      id="info-collapse"
+      id="info-modal"
       :title="selectedSatelliteDetails.name"
       :hide-footer="true"
       scrollable
       centered
       size="lg"
       title-class="h1"
-      header-class="info-collapse-header"
-      body-class="info-collapse-body"
+      header-class="info-modal-header"
+      body-class="info-modal-body"
       class="text-wrap"
     >
       <b-row class="pb-4">
@@ -45,57 +45,41 @@
       </b-row>
       <p>{{ selectedSatelliteDetails.description }}</p>
     </b-modal>
-    <!-- Satellite options -->
-    <b-collapse id="satellite-options-collapse" class="mb-1">
-      <b-row align-h="end" no-gutters>
-        <b-col cols="12" md="6" lg="4" xl="3" class="pl-2 pl-md-0">
-          <satellite-options />
-        </b-col>
-      </b-row>
-    </b-collapse>
-    <!-- User options -->
-    <b-collapse id="user-options-collapse" class="mb-1">
-      <b-row align-h="end" no-gutters>
-        <b-col cols="12" md="6" lg="4" xl="3" class="pl-2 pl-md-0">
-          <user-options />
-        </b-col>
-      </b-row>
-    </b-collapse>
+    <!-- Tools -->
+    <b-modal
+      id="tools-modal"
+      :hide-header="true"
+      :ok-only="true"
+      ok-title="done"
+      scrollable
+      centered
+      size="lg"
+      body-class="tools-modal-body"
+      footer-class="tools-modal-footer"
+      class="text-wrap"
+    >
+      <options />
+    </b-modal>
     <!-- Info -->
-    <b-button id="info-toggle" class="mr-3" v-b-modal.info-collapse>
+    <b-button id="info-toggle" class="mr-3" v-b-modal.info-modal>
       <font-awesome-icon class="toggle-icon" icon="info-circle" size="lg" />
     </b-button>
-    <!-- Basemap Toggle -->
-    <b-button id="basemap-toggle" class="mr-3" @click="toggleBasemap()">
-      <font-awesome-icon class="toggle-icon" icon="layer-group" size="lg" />
-    </b-button>
-    <!-- Satellite options -->
-    <b-button
-      id="satellite-options"
-      class="mr-3"
-      v-b-toggle.satellite-options-collapse
-    >
+    <!-- Satellite tools -->
+    <b-button id="satellite-tools" class="mr-3" v-b-modal.tools-modal>
       <font-awesome-icon class="toggle-icon" icon="sliders-h" size="lg" />
-    </b-button>
-    <!-- User options -->
-    <b-button id="user-options" v-b-toggle.user-options-collapse>
-      <font-awesome-icon class="toggle-icon" icon="user-cog" size="lg" />
     </b-button>
   </div>
 </template>
 
 <script>
 import ImageMixin from "@/mixins/image.mixin";
-import SatelliteOptions from "./SatelliteOptions";
-import UserOptions from "./UserOptions";
-import MapService from "@/services/map.service";
+import Options from "./Options";
 import dayjs from "dayjs";
 export default {
   name: "Map-Tools",
   mixins: [ImageMixin],
   components: {
-    "satellite-options": SatelliteOptions,
-    "user-options": UserOptions
+    options: Options
   },
   data() {
     return {
@@ -119,25 +103,6 @@ export default {
     }
   },
   methods: {
-    toggleBasemap() {
-      if (this.basemap === "default") {
-        this.map.removeLayer(MapService.getBasemapUrl("default"));
-        MapService.getBasemapUrl("satellite").addTo(this.map);
-        this.basemap = "satellite";
-      } else if (this.basemap === "satellite") {
-        this.map.removeLayer(MapService.getBasemapUrl("satellite"));
-        MapService.getBasemapUrl("night").addTo(this.map);
-        this.basemap = "night";
-      } else if (this.basemap === "night") {
-        this.map.removeLayer(MapService.getBasemapUrl("night"));
-        MapService.getBasemapUrl("national_geographic").addTo(this.map);
-        this.basemap = "national_geographic";
-      } else {
-        this.map.removeLayer(MapService.getBasemapUrl("national_geographic"));
-        MapService.getBasemapUrl("default").addTo(this.map);
-        this.basemap = "default";
-      }
-    },
     formatDate(date) {
       return dayjs(date).format("MM/DD/YY");
     }

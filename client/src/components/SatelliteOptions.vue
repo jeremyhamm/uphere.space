@@ -8,10 +8,10 @@
       Enable tracking
       <font-awesome-icon
         icon="toggle-on"
-        size="2x"
+        size="lg"
         v-if="mapOptions.tracking"
       />
-      <font-awesome-icon icon="toggle-off" size="2x" v-else />
+      <font-awesome-icon icon="toggle-off" size="lg" v-else />
     </b-list-group-item>
     <!-- Footprint -->
     <b-list-group-item
@@ -21,10 +21,10 @@
       Show Visible Footprint
       <font-awesome-icon
         icon="toggle-on"
-        size="2x"
+        size="lg"
         v-if="mapOptions.footprint"
       />
-      <font-awesome-icon icon="toggle-off" size="2x" v-else />
+      <font-awesome-icon icon="toggle-off" size="lg" v-else />
     </b-list-group-item>
     <!-- Path -->
     <b-list-group-item
@@ -32,8 +32,8 @@
       @click="toggleOptions('path')"
     >
       Show Orbital Path
-      <font-awesome-icon icon="toggle-on" size="2x" v-if="mapOptions.path" />
-      <font-awesome-icon icon="toggle-off" size="2x" v-else />
+      <font-awesome-icon icon="toggle-on" size="lg" v-if="mapOptions.path" />
+      <font-awesome-icon icon="toggle-off" size="lg" v-else />
     </b-list-group-item>
     <!-- Night shadow -->
     <b-list-group-item
@@ -41,8 +41,8 @@
       @click="toggleOptions('shadow')"
     >
       Show Night Shadow
-      <font-awesome-icon icon="toggle-on" size="2x" v-if="mapOptions.shadow" />
-      <font-awesome-icon icon="toggle-off" size="2x" v-else />
+      <font-awesome-icon icon="toggle-on" size="lg" v-if="mapOptions.shadow" />
+      <font-awesome-icon icon="toggle-off" size="lg" v-else />
     </b-list-group-item>
   </b-list-group>
 </template>

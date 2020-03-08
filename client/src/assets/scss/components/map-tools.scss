@@ -1,12 +1,9 @@
+/* Buttons */
 #map-tools {
   z-index: 401;
   bottom: 50px;
 }
-#info-toggle,
-#basemap-toggle,
-#visible-satellites,
-#satellite-options,
-#user-options {
+#info-toggle, #satellite-tools {
   background-color: $overlay;
   border: 0;
   border-radius: 0;
@@ -17,7 +14,8 @@
     box-shadow: none;
   }
 }
-#info-collapse {
+/* Modals */
+#info-modal, #tools-modal {
   max-height: 750px;
   .modal-header, .modal-content {
     background-color: transparent;
@@ -26,26 +24,23 @@
       color: $white;
     }
   }
-  .info-collapse-header, .info-collapse-body {
+  .info-modal-header,
+  .info-modal-body,
+  .tools-modal-body,
+  .tools-modal-footer {
     background-color: rgba(43,62,66,0.75);
     color: $white;
+    border: 0;
+  }
+  .tools-modal-footer {
+    padding-top: 25px;
   }
   .list-group {
     .list-group-item {
       background-color: transparent;
-    }
-  }
-}
-#satellite-options.list-group, #user-options.list-group {
-  background-color: rgba(43,62,66,0.7);
-  color: $white;
-  .list-group-item {
-    background-color: transparent;
-    border: 0;
-    border-radius: 0;
-    &:hover {
-      cursor: pointer;
-      background-color: rgba(43,62,66,0.5);
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }

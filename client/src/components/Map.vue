@@ -161,14 +161,6 @@ export default {
     }
   },
   computed: {
-    basemap: {
-      get() {
-        return this.$store.getters["map/getBasemap"];
-      },
-      set(val) {
-        return this.$store.commit("map/setBasemap", val);
-      }
-    },
     userLocation() {
       return this.$store.getters["user/getLocation"];
     },
@@ -181,6 +173,7 @@ export default {
   },
   methods: {
     init() {
+      this.$store.dispatch("map/launchSites");
       this.$store
         .dispatch("satellite/satelliteDetails", this.selectedSatelliteNumber)
         .then(() => {
@@ -221,11 +214,11 @@ export default {
           accessToken: this.config.VUE_APP_MAPBOX_KEY
         }
       ).addTo(this.map);
-      this.basemap = "default";
       // Add data to map
       this.addSatelliteData();
       this.toggleOrbitalPath();
       this.addAllShadows();
+      this.addLaunchSites();
       if (this.mapOptions["footprint"]) {
         this.toggleViewFootprint();
       }

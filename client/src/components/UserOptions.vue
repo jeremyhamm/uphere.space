@@ -7,8 +7,8 @@
       @click="toggleLocation()"
     >
       Show my location
-      <font-awesome-icon icon="toggle-on" size="2x" v-if="userMarker" />
-      <font-awesome-icon icon="toggle-off" size="2x" v-else />
+      <font-awesome-icon icon="toggle-on" size="lg" v-if="userMarker" />
+      <font-awesome-icon icon="toggle-off" size="lg" v-else />
     </b-list-group-item>
     <!-- Visible satellites -->
     <!-- <b-list-group-item
