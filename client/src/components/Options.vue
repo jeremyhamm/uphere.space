@@ -57,6 +57,20 @@
             />
             <font-awesome-icon icon="toggle-off" size="lg" v-else />
           </b-list-group-item>
+          <!-- Launch Sites -->
+          <b-list-group-item
+            class="d-flex justify-content-between align-items-center"
+            @click="toggleOptions('launchSites')"
+          >
+            Show Launch Sites
+            <font-awesome-icon
+              icon="toggle-on"
+              size="lg"
+              v-if="mapOptions.launchSites"
+            />
+            <font-awesome-icon icon="toggle-off" size="lg" v-else />
+          </b-list-group-item>
+          <!-- User location -->
           <b-list-group-item
             v-if="userLocation"
             class="d-flex justify-content-between align-items-center"
@@ -70,9 +84,9 @@
       </b-col>
       <!-- Toggle units -->
       <b-col cols="12" md="6">
+        <h2 class="mt-4 mb-3">Toggle Units</h2>
         <b-list-group>
           <b-list-group-item class="text-left">
-            <h2 class="mt-4 mb-3">Toggle Units</h2>
             <b-form-group>
               <b-form-radio-group
                 id="units-toggle"
@@ -108,6 +122,9 @@
           thumbnail
           rounded="circle"
           alt="Default basemap"
+          :class="
+            this.basemap['default'] ? 'basemap active-basemap' : 'basemap'
+          "
         >
         </b-img>
         <div class="small pt-2">Default</div>
@@ -128,6 +145,9 @@
           thumbnail
           rounded="circle"
           alt="Default basemap"
+          :class="
+            this.basemap['satellite'] ? 'basemap active-basemap' : 'basemap'
+          "
         >
         </b-img>
         <div class="small pt-2">Satellite Imagery</div>
@@ -144,6 +164,7 @@
           thumbnail
           rounded="circle"
           alt="Default basemap"
+          :class="this.basemap['night'] ? 'basemap active-basemap' : 'basemap'"
         >
         </b-img>
         <div class="small pt-2">Night Lights</div>
@@ -164,6 +185,11 @@
           thumbnail
           rounded="circle"
           alt="Default basemap"
+          :class="
+            this.basemap['national_geographic']
+              ? 'basemap active-basemap'
+              : 'basemap'
+          "
         >
         </b-img>
         <div class="small pt-2">National Geographic</div>
@@ -214,6 +240,9 @@ export default {
           break;
         case "shadow":
           this.toggleShadows();
+          break;
+        case "launchSites":
+          this.toggleLaunchSites();
           break;
         case "location":
           this.toggleLocation();

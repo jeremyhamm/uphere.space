@@ -44,6 +44,17 @@
     }
   }
 }
+.active-basemap {
+  background-color: $primary !important;
+  border-color: $primary !important;
+}
+.basemap {
+  &:hover {
+    background-color: $primary !important;
+    border-color: $primary !important;
+    cursor: pointer;
+  }
+}
 
 /** XS **/
 @media (max-width: 576px) {}

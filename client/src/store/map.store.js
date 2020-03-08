@@ -13,7 +13,8 @@ const map = {
       tracking: false,
       footprint: false,
       path: true,
-      shadow: true
+      shadow: true,
+      launchSites: true
     },
     footprint: null,
     path: null,

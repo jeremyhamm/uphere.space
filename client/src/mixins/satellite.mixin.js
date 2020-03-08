@@ -209,14 +209,26 @@ const satelliteMixin = {
         }/images/icons/launch-sites.svg`
       });
       this.launchSites.forEach(site => {
-        const siteMarker = L.marker([site.latitude, site.longitude], {
+        site.marker = L.marker([site.latitude, site.longitude], {
           icon: launchSiteIcon
         }).addTo(this.map);
-        siteMarker.bindPopup(`
+        site.marker.bindPopup(`
           <p class="text-center">${site.abbreviation}</p>
           <p class="text-center">${site.name}</p>
         `);
       });
+    },
+    /**
+     * Toggle visibility of launch sites
+     */
+    toggleLaunchSites() {
+      if (this.mapOptions["launchSites"]) {
+        this.addLaunchSites();
+      } else {
+        this.launchSites.forEach(key => {
+          key.marker.remove();
+        });
+      }
     },
     /**
      * Add circle(s) representing phases of night
