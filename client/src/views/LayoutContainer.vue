@@ -78,7 +78,7 @@ export default {
         "satellite/setSelectedSatelliteNumber",
         this.$route.params.satellite
       );
-      this.$store.dispatch("user/userLocation");
+      //this.$store.dispatch("user/userLocation");
     }
   }
 };

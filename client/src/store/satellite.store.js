@@ -5,6 +5,7 @@ const satellite = {
     interval: null,
     selectedSatelliteNumber: null,
     selectedSatelliteLocation: null,
+    selectedSatelliteOrbit: null,
     selectedSatelliteDetails: {},
     satellitePageNumber: 1,
     satelliteTextFilter: null,
@@ -28,6 +29,9 @@ const satellite = {
     },
     setSelectedSatelliteLocation(state, data) {
       state.selectedSatelliteLocation = data;
+    },
+    setSelectedSatelliteOrbit(state, data) {
+      state.selectedSatelliteOrbit = data;
     },
     setSelectedSatelliteDetails(state, data) {
       state.selectedSatelliteDetails = data;
@@ -85,6 +89,29 @@ const satellite = {
     }
   },
   actions: {
+    satelliteOrbit({ commit }, params) {
+      return new Promise((resolve, reject) => {
+        axios
+          .get(
+            `${process.env.VUE_APP_API_URL}/satellite/${encodeURIComponent(
+              params.number
+            )}/orbit`,
+            {
+              params: { period: params.period },
+              headers: { "X-RapidAPI-Key": process.env.VUE_APP_API_KEY }
+            }
+          )
+          .then(
+            response => {
+              commit("setSelectedSatelliteOrbit", response.data);
+              resolve(response);
+            },
+            error => {
+              reject(error);
+            }
+          );
+      });
+    },
     satelliteLocation({ commit }, params) {
       return new Promise((resolve, reject) => {
         axios
@@ -222,6 +249,9 @@ const satellite = {
     },
     getSelectedSatelliteLocation: state => {
       return state.selectedSatelliteLocation;
+    },
+    getSelectedSatelliteOrbit: state => {
+      return state.selectedSatelliteOrbit;
     },
     getSelectedSatelliteDetails: state => {
       return state.selectedSatelliteDetails;

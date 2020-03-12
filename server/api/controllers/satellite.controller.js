@@ -83,11 +83,6 @@ exports.getSatelliteLocation = (req, res) => {
         'visibility': visibility,
         'footprint_radius': satelliteService.getVisibleFootprint(positionGd.height)
       };
-      
-      // Add track if request is from app
-      if (!req.query.lat || !req.query.lng) {
-        currentLocation.track = satelliteService.getOrbit(satrec, (req.query.period || 90));
-      }
 
       return res.status(200).json(currentLocation);
     }

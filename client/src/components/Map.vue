@@ -177,6 +177,10 @@ export default {
       this.$store
         .dispatch("satellite/satelliteDetails", this.selectedSatelliteNumber)
         .then(() => {
+          this.$store.dispatch("satellite/satelliteOrbit", {
+            number: this.selectedSatelliteNumber,
+            period: this.selectedSatelliteDetails.orbital_period
+          });
           this.$store
             .dispatch("satellite/satelliteLocation", {
               number: this.selectedSatelliteNumber,

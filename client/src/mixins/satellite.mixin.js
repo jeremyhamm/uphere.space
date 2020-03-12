@@ -82,6 +82,9 @@ const satelliteMixin = {
     selectedSatelliteLocation() {
       return this.$store.getters["satellite/getSelectedSatelliteLocation"];
     },
+    selectedSatelliteOrbit() {
+      return this.$store.getters["satellite/getSelectedSatelliteOrbit"];
+    },
     selectedSatelliteDetails() {
       return this.$store.getters["satellite/getSelectedSatelliteDetails"];
     }
@@ -300,7 +303,10 @@ const satelliteMixin = {
      * Format orbital path array
      */
     formatOrbitalPath() {
-      const track = this.selectedSatelliteLocation.track;
+      const track = this.selectedSatelliteOrbit;
+
+      console.log(track);
+
       const orbitalPath = [];
       track.forEach(val => {
         const latlng = new L.LatLng(val.lat, val.lng);
