@@ -3,9 +3,12 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  .fourzerofour-overlay {
+    background-color: $overlay;
+  }
 }
-#fourzerofour-overlay {
-  background-color: $overlay;
-  height: 100%;
-  width: 100%;
+.attribution {
+  position: absolute;
+  bottom: 52px;
+  left: 10px;
 }

@@ -1,0 +1,14 @@
+#sesson-timeout {
+  background-image: url('https://resources-uphere.sfo2.cdn.digitaloceanspaces.com/images/branding/session-timeout.webp');
+  background-position: 25% 75%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .sesson-timeout-overlay {
+    background-color: $overlay;
+  }
+}
+.attribution {
+  position: absolute;
+  bottom: 52px;
+  left: 10px;
+}

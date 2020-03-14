@@ -1,8 +1,8 @@
 import L from "leaflet";
 import "@/utils/Leaflet.greatCircle";
 import "@/utils/Leaflet.Geodesic";
-import ShadowService from "@/services/shadow.service";
 import MapService from "@/services/map.service";
+import ShadowService from "@/services/shadow.service";
 const satelliteMixin = {
   data() {
     return {
@@ -76,9 +76,6 @@ const satelliteMixin = {
         this.$store.commit("satellite/setInterval", val);
       }
     },
-    selectedSatelliteNumber() {
-      return this.$store.getters["satellite/getSelectedSatelliteNumber"];
-    },
     selectedSatelliteLocation() {
       return this.$store.getters["satellite/getSelectedSatelliteLocation"];
     },
@@ -91,114 +88,6 @@ const satelliteMixin = {
   },
   methods: {
     /**
-     * Get current satellite location
-     */
-    loadLocationData() {
-      this.$store
-        .dispatch("satellite/satelliteLocation", {
-          number: this.selectedSatelliteNumber,
-          period: this.selectedSatelliteDetails.orbital_period
-        })
-        .then(() => {
-          this.setSatelliteSource();
-          if (this.mapOptions.tracking) {
-            this.setMapTracking();
-          }
-          if (this.mapOptions.footprint) {
-            this.footprint.remove();
-            this.toggleViewFootprint();
-          }
-        });
-    },
-    /**
-     * Follow satellite toggle
-     */
-    setMapTracking() {
-      const coords = this.selectedSatelliteLocation.coordinates;
-      this.map.setView([coords[1], coords[0]]);
-    },
-    /**
-     * Add satellite layer to map
-     */
-    setSatelliteSource() {
-      this.realTimeData.remove();
-      this.addSatelliteData();
-    },
-    determineIconSize(icon) {
-      switch (icon) {
-        case "AQUA":
-          return [60, 30];
-        case "DRAGON CRS-19":
-          return [50, 40];
-        case "GOES 17":
-          return [60, 40];
-        case "HST":
-        case "ISS (ZARYA)":
-        case "SWIFT":
-          return [60, 60];
-        case "TERRA":
-          return [40, 60];
-        default:
-          return [40, 40];
-      }
-    },
-    determineIconImage(icon) {
-      switch (icon) {
-        case "AQUA":
-          return "aqua.svg";
-        case "DRAGON CRS-20":
-          return "spacex_dragon.svg";
-        case "GOES 17":
-          return "goes.svg";
-        case "HST":
-          return "hubble.svg";
-        case "ISS (ZARYA)":
-          return "iss.svg";
-        case "SWIFT":
-          return "swift.svg";
-        case "TERRA":
-          return "terra.svg";
-        default:
-          return this.selectSatelliteIcon(this.selectedSatelliteDetails.type);
-      }
-    },
-    /**
-     * Add satellite icon to map
-     */
-    addSatelliteData() {
-      const iconSize = this.determineIconSize(
-        this.selectedSatelliteDetails.name
-      );
-      const iconName = this.determineIconImage(
-        this.selectedSatelliteDetails.name
-      );
-      const smallIcon = new L.Icon({
-        iconSize: iconSize,
-        iconUrl: `${this.config.VUE_APP_SPACES_URL}/images/icons/${iconName}`
-      });
-      const coords = this.selectedSatelliteLocation.coordinates;
-      this.realTimeData = L.marker([coords[1], coords[0]], {
-        icon: smallIcon
-      }).addTo(this.map);
-      this.realTimeData.on("click", () => {
-        this.satelliteClickHandler();
-      });
-    },
-    /**
-     * Select icon by satellite type
-     *
-     * @param {String} satellite type
-     */
-    selectSatelliteIcon(type) {
-      switch (type) {
-        case "ROCKET BODY":
-        case "DEBRIS":
-          return "rocket.svg";
-        default:
-          return "default.svg";
-      }
-    },
-    /**
      * Add launch site markers
      *
      * @param {Object}
@@ -206,7 +95,7 @@ const satelliteMixin = {
      */
     addLaunchSites() {
       const launchSiteIcon = new L.Icon({
-        iconSize: [40, 40],
+        iconSize: [35, 35],
         iconUrl: `${
           this.config.VUE_APP_SPACES_URL
         }/images/icons/launch-sites.svg`
@@ -304,9 +193,6 @@ const satelliteMixin = {
      */
     formatOrbitalPath() {
       const track = this.selectedSatelliteOrbit;
-
-      console.log(track);
-
       const orbitalPath = [];
       track.forEach(val => {
         const latlng = new L.LatLng(val.lat, val.lng);
@@ -331,7 +217,7 @@ const satelliteMixin = {
     },
     toggleLocation() {
       if (!this.userMarker) {
-        this.userMarker = MapService.toggleUserLocation(
+        this.userMarker = MapService.getUserMarker(
           this.userIcon,
           this.userLocation
         ).addTo(this.map);
@@ -355,33 +241,6 @@ const satelliteMixin = {
         this.userMarker.remove();
         this.userMarker = null;
       }
-    },
-    /**
-     * Toggle satellite visibility alert
-     */
-    showVisibilityAlert() {
-      if (
-        this.selectedSatelliteLocation.visibility &&
-        this.selectedSatelliteLocation.visibility.elevation > 0
-      ) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-    /**
-     * Show satellite card on xs
-     */
-    satelliteClickHandler() {
-      this.$store.commit("satellite/setCardVisibility", true);
-    },
-    /**
-     * Update location every 1 seconds
-     */
-    runInterval() {
-      this.interval = setInterval(() => {
-        this.loadLocationData();
-      }, this.config.VUE_APP_REFRESH);
     }
   }
 };

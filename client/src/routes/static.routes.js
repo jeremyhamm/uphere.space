@@ -3,6 +3,7 @@ import Privacy from "../views/Privacy";
 import Terms from "../views/Terms";
 import Contact from "../views/Contact";
 import Sitemap from "../views/Sitemap";
+import Timeout from "../views/SessionTimeout";
 import FourZeroFour from "../views/404";
 
 export default [
@@ -30,6 +31,11 @@ export default [
     path: "/sitemap",
     name: "Sitemap",
     component: Sitemap
+  },
+  {
+    path: "/timeout",
+    name: "Timeout",
+    component: Timeout
   },
   {
     path: "/404",

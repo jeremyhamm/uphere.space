@@ -108,7 +108,7 @@ const getBasemapUrl = mode => {
  * @param  {Number} lng longitude of user location
  * @return {Object}     leaflet marker
  */
-const toggleUserLocation = (icon, location) => {
+const getUserMarker = (icon, location) => {
   const homeIcon = L.icon(icon);
   return L.marker([location.latitude, location.longitude], { icon: homeIcon });
 };
@@ -119,5 +119,5 @@ export default {
   setAttributionControls,
   deg2Coords,
   getBasemapUrl,
-  toggleUserLocation
+  getUserMarker
 };
