@@ -101,7 +101,7 @@ exports.getSatelliteDetails = async (req, res) => {
     const response = await satelliteService.getDetailsByNumber(req.params.satellite);
     
     // Add satellite view
-    if (req.clientIp === '76.167.235.86') {
+    if (req.clientIp !== '76.167.235.86') {
       satelliteService.saveView(req.params.satellite);
     }
           
