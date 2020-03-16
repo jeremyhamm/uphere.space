@@ -101,9 +101,10 @@ exports.getSatelliteDetails = async (req, res) => {
     const response = await satelliteService.getDetailsByNumber(req.params.satellite);
     
     // Add satellite view
-    console.log(req.clientIp);
-    const ip = req.clientIp;
-    satelliteService.saveView(req.params.satellite);
+    const blacklist = ['76.167.235.86'];
+    if (!blacklist.includes(req.clientIp)) {
+      satelliteService.saveView(req.params.satellite);
+    }
           
     return res.status(200).json(response);
   } 
