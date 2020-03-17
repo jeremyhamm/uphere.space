@@ -8,10 +8,14 @@ import json
 from bs4 import BeautifulSoup
 import spacetrack.operators as op
 from spacetrack import SpaceTrackClient
+import datetime
+
+# Integrations
 from satellite_sources import *
 from twitter_integration import *
+from prerender_integration import *
+from google_integration import *
 from wikipedia_integration import *
-import datetime
 
 # Methods
 
@@ -72,7 +76,15 @@ def saveSatellitesToDB(cursor):
           connection.commit()
           
           # Send tweet with my satellite info
-          send_tweet(sat)
+          sendTweet(sat)
+
+          new_url = 'https://uphere.space/satellites/' + sat['number']
+
+          # Prerender new url
+          addPrerenderUrl(new_url)
+
+          # Notify Google of new url
+          addNewUrls(new_url)
         
         except psycopg2.Error:
           print(psycopg2.Error)

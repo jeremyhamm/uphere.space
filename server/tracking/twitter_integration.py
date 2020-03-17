@@ -8,13 +8,13 @@ twitter_credentials = {
   'access_token_secret': 'inCz7I4a5QNVISetL0X1r4Tbgg3ECWDuGat1QrI5sfKUX'
 }
 
-def authenticate_twitter():
+def authenticateTwitter():
   auth = tweepy.OAuthHandler(twitter_credentials['consumer_key'], twitter_credentials['consumer_secret'])
   auth.set_access_token(twitter_credentials['access_token'], twitter_credentials['access_token_secret'])
   api = tweepy.API(auth)
   return api
 
-def send_tweet(satellite):
-  twitter = authenticate_twitter()
-  twitter.update_status("Satellite " + satellite['name'] + " was just launched! Follow its orbit here https://uphere.space/satellites/" + satellite['number'])
+def sendTweet(satellite):
+  twitter = authenticateTwitter()
+  twitter.update_status("Satellite " + satellite['name'] + " was just launched! Follow its orbit here https://uphere.space/satellites/" + satellite['number'] + " #uphere.space #satellitetracking")
 
