@@ -112,7 +112,7 @@
     </b-row>
     <b-row no-gutters v-if="satelliteList" class="justify-content-center mt-3">
       <b-col cols="12" md="10" xl="8">
-        <div class="wrapper justify-content-center">
+        <div v-if="satelliteList.length" class="wrapper justify-content-center">
           <div
             v-for="satellite in satelliteList"
             :key="satellite.number"
@@ -120,6 +120,11 @@
           >
             <satellite-card-details :satellite="satellite" />
           </div>
+        </div>
+        <div v-else>
+          <h3 class="text-center py-4">
+            No views
+          </h3>
         </div>
       </b-col>
     </b-row>
