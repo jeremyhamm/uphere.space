@@ -197,6 +197,10 @@ const satelliteMixin = {
       track.forEach(val => {
         const latlng = new L.LatLng(val.lat, val.lng);
         orbitalPath.push(latlng);
+        // Add orbital timestamps every 3rd
+        // if (index % 3 === 0) {
+        //   this.addOrbitalPathLabels(val);
+        // }
       });
       return orbitalPath;
     },
@@ -215,6 +219,21 @@ const satelliteMixin = {
         this.path.remove();
       }
     },
+    /**
+     * Add markers and labels for orbital path time frame
+     */
+    // addOrbitalPathLabels(location) {
+    //   const myIcon = L.divIcon({
+    //     iconSize: [37, 15],
+    //     className: "orbital-path-label",
+    //     html: `<p class="small">${location.date}</p>`
+    //   });
+    //   L.marker([location.lat, location.lng], { icon: myIcon })
+    //     .addTo(this.map);
+    // },
+    /**
+     * Toggle user location icon
+     */
     toggleLocation() {
       if (!this.userMarker) {
         this.userMarker = MapService.getUserMarker(

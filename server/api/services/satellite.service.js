@@ -50,7 +50,8 @@ exports.getOrbit = (satrec, period) => {
     const longitude = satellite.degreesLong(positionGd.longitude);   
     trackList.push({
       "lat": latitude,
-      "lng": longitude
+      "lng": longitude,
+      "date": trackProjection.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' } )
     });
   }
   return trackList;

@@ -12,6 +12,14 @@
   width: 50%;
 }
 
+.orbital-path-label {
+  display: flex;
+  padding-left: 5px;
+  color: $white;
+  background-color: $overlay;
+  z-index: 0;
+}
+
 /* Leaflet Specific Styles */
 .leaflet-touch .leaflet-bar {
   border: 0 !important;

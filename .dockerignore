@@ -4,5 +4,5 @@ npm-debug.log
 .gitignore
 
 # Directories
-/client
+/client/node_modules
 /server/api/node_modules
