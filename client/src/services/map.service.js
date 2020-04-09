@@ -91,10 +91,7 @@ const getBasemapUrl = mode => {
       return L.tileLayer(
         "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
         {
-          tileSize: 512,
-          maxZoom: 18,
-          zoomOffset: -1,
-          id: "mapbox/streets-v11",
+          id: "mapbox.streets",
           accessToken: process.env.VUE_APP_MAPBOX_KEY
         }
       );
