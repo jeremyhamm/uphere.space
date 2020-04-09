@@ -89,7 +89,7 @@ const getBasemapUrl = mode => {
       );
     default:
       return L.tileLayer(
-        "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+        "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
         {
           tileSize: 512,
           maxZoom: 18,

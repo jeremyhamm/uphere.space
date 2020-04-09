@@ -320,6 +320,7 @@ export default {
       if (this.mapOptions["footprint"]) {
         this.toggleViewFootprint();
       }
+      // L.geoJSON(`https://resources-uphere.sfo2.cdn.digitaloceanspaces.com/geojson/countries.geojson`).addTo(this.map);
       // Start real-time data
       this.runInterval();
     },

@@ -4,7 +4,7 @@
     <router-view />
     <app-footer
       :class="
-        $route.name === 'Home' ? 'position-absolute no-gutters' : 'fixed-bottom'
+        $route.name === 'Home' ? 'position-relative no-gutters' : 'fixed-bottom'
       "
     />
   </div>
