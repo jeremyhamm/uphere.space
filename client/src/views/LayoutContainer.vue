@@ -11,7 +11,7 @@
         :style="cardVisibility === true ? '' : ''"
       >
         <sidebar />
-        <map-advertising />
+        <!-- <map-advertising /> -->
       </b-col>
       <!-- Map -->
       <b-col cols="12" md="9" xl="10" class="max-height px-0 flex-fill">

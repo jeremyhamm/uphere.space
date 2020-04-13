@@ -1,21 +1,33 @@
 <template>
   <b-container fluid>
-    <!-- Intro -->
     <b-row class="content-top justify-content-center">
-      <b-col cols="12" md="10" xl="8" class="text-justify">
-        <h1 class="pb-2 text-center">
-          <img
-            :src="`${config.VUE_APP_SPACES_URL}/images/branding/logo.svg`"
-            class="img-fluid logo-filter mr-2"
-            height="35"
-            width="35"
-          />
-          API Documentation
-        </h1>
-        <!-- Overview -->
-        <b-row class="text-center mt-5">
+      <b-col cols="12">
+        <!-- Intro -->
+        <b-row class="content-top justify-content-center">
           <b-col cols="12">
-            <p>Coming Soon!</p>
+            <h1 class="pb-2 text-center">
+              <img
+                :src="`${config.VUE_APP_SPACES_URL}/images/branding/logo.svg`"
+                class="img-fluid logo-filter mr-2"
+                height="35"
+                width="35"
+              />
+              API Documentation
+            </h1>
+          </b-col>
+        </b-row>
+        <!-- Overview -->
+        <b-row class="mt-5">
+          <b-col class="col-12 col-xl-8 offset-xl-2">
+            <h4 class="text-uppercase font-weight-bold">Getting Started</h4>
+          </b-col>
+        </b-row>
+        <b-row class="mt-3 d-flex justify-content-center">
+          <b-col class="col-12 col-xl-4 offset-xl-2">
+            <p>Base Url</p>
+          </b-col>
+          <b-col cols="12" md="6" xl="4">
+            <p><code>https://uphere.space/api</code></p>
           </b-col>
         </b-row>
       </b-col>

@@ -320,7 +320,6 @@ export default {
       if (this.mapOptions["footprint"]) {
         this.toggleViewFootprint();
       }
-      // L.geoJSON(`https://resources-uphere.sfo2.cdn.digitaloceanspaces.com/geojson/countries.geojson`).addTo(this.map);
       // Start real-time data
       this.runInterval();
     },
@@ -367,7 +366,7 @@ export default {
         case "GOES 17":
           return [60, 40];
         case "HST":
-        case "ISS (ZARYA)":
+        case "SPACE STATION":
         case "SWIFT":
           return [60, 60];
         case "TERRA":
@@ -386,7 +385,7 @@ export default {
           return "goes.svg";
         case "HST":
           return "hubble.svg";
-        case "ISS (ZARYA)":
+        case "SPACE STATION":
           return "iss.svg";
         case "SWIFT":
           return "swift.svg";
