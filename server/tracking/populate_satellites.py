@@ -149,7 +149,7 @@ def addAdditionalProperties(cursor):
   leo_satellites = getLaunchData()
   for sat in leo_satellites:
     print(sat)
-    cursor.execute('SELECT name FROM satellites WHERE number = %(sat_number)s AND number <> 25544', {'sat_number': sat['number']})
+    cursor.execute('SELECT name FROM satellites WHERE number = %(sat_number)s AND number != \'25544\'', {'sat_number': sat['number']})
     data = cursor.fetchall()
     if data:
       cursor.execute(
