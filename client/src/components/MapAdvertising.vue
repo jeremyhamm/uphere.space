@@ -1,7 +1,11 @@
 <template>
   <b-row id="ads" class="position-absolute pl-2">
     <b-col cols="12">
-      <h3><b-link class="add-link text-center" to="/adopt">Adopt this satellite</b-link></h3>
+      <h3>
+        <b-link class="add-link text-center" to="/adopt"
+          >Adopt this satellite</b-link
+        >
+      </h3>
     </b-col>
   </b-row>
 </template>

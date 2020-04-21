@@ -130,7 +130,7 @@ export default {
       config: process.env,
       close: false,
       satelliteExtraList: [
-        "ISS (ZARYA)",
+        "SPACE STATION",
         "GOES 17",
         "GOES 16 [+]",
         "DRAGON CRS-19"

@@ -28,7 +28,7 @@
         width="100%"
         height="455"
         frameborder="0"
-        v-if="selectedSatelliteDetails.name === 'ISS (ZARYA)'"
+        v-if="selectedSatelliteDetails.name === 'SPACE STATION'"
       />
       <img
         src="https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/678x678.jpg"
@@ -68,7 +68,7 @@ export default {
   methods: {
     configureButtonText() {
       switch (this.selectedSatelliteDetails.name) {
-        case "ISS (ZARYA)":
+        case "SPACE STATION":
           return "video";
         case "GOES 17":
         case "GOES 16 [+]":

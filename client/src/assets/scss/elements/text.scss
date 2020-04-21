@@ -7,6 +7,7 @@ a {
   color: $white !important;
   &:hover {
     color: $primary !important;
+    text-decoration: none !important;
   }
 }
 .text-color-dark {
@@ -17,4 +18,8 @@ a {
 }
 .text-primary {
   color: $primary !important;
+}
+code {
+  color: $primary !important;
+  font-weight: bolder;
 }

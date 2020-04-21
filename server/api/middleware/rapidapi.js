@@ -28,14 +28,14 @@ const ipValidation = (ip) => {
  * @param {*} next 
  */
 const rapidApiValidation = (req, res, next) => {
-  if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'development') {
     return next();
   }
 
   // Run validations
   if (
-    headerValidation(req.get('X-RapidAPI-Proxy-Secret')) &&
-    ipValidation(req.ip)
+    headerValidation(req.headers['x-rapidapi-proxy-secret']) &&
+    ipValidation(req.headers['cf-connecting-ip'])
   ) {
     return next();
   } else {

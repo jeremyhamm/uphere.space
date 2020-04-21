@@ -79,7 +79,7 @@ export default {
   name: "Map-Tools",
   mixins: [ImageMixin],
   components: {
-    "options": Options
+    options: Options
   },
   data() {
     return {
