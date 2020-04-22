@@ -47,7 +47,9 @@ const map = {
     launchSites({ commit }) {
       return new Promise((resolve, reject) => {
         axios
-          .get(process.env.VUE_APP_API_URL + "/satellite/list/launch-sites")
+          .get(process.env.VUE_APP_API_URL + "/satellite/list/launch-sites", {
+            headers: { "X-RapidAPI-Key": process.env.VUE_APP_API_KEY }
+          })
           .then(
             response => {
               commit("setLaunchSites", response.data);

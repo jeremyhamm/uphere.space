@@ -49,7 +49,7 @@ const user = {
   actions: {
     userLocation({ commit }) {
       return new Promise((resolve, reject) => {
-        axios.get(process.env.VUE_APP_API_URL + "/user/location").then(
+        axios.get("https://uphere.space/api/user/location").then(
           response => {
             commit("setLocation", response.data);
             resolve(response);

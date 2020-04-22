@@ -34,14 +34,14 @@
 import sidebar from "@/components/Sidebar";
 import mapContainer from "@/components/Map";
 import SatelliteCard from "@/components/SatelliteCard";
-import MapAdvertising from "@/components/MapAdvertising";
+//import MapAdvertising from "@/components/MapAdvertising";
 export default {
   name: "Layout-Container",
   components: {
     sidebar: sidebar,
     "map-container": mapContainer,
-    "satellite-card": SatelliteCard,
-    "map-advertising": MapAdvertising
+    "satellite-card": SatelliteCard
+    //"map-advertising": MapAdvertising
   },
   data() {
     return {

@@ -140,12 +140,16 @@
           </dt>
           <dd class="col-12 col-lg-4 col-xl-6">
             <div class="float-right">
-              <span class="text-muted small font-weight-bold">NUMBER (optional)</span>
+              <span class="text-muted small font-weight-bold"
+                >NUMBER (optional)</span
+              >
               <code class="ml-2">lng</code>
             </div>
             <br />
             <div class="float-right pt-2">
-              <span class="text-muted small font-weight-bold">NUMBER (optional)</span>
+              <span class="text-muted small font-weight-bold"
+                >NUMBER (optional)</span
+              >
               <code class="ml-2">lat</code>
             </div>
           </dd>
@@ -231,7 +235,9 @@
           </dt>
           <dd class="col-12 col-lg-4 col-xl-6">
             <div class="float-right">
-              <span class="text-muted small font-weight-bold">NUMBER (required)</span>
+              <span class="text-muted small font-weight-bold"
+                >NUMBER (required)</span
+              >
               <code class="ml-2">period (minutes)</code>
             </div>
           </dd>
