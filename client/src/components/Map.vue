@@ -306,11 +306,7 @@ export default {
       MapService.setScaleControls("imperial").addTo(this.map);
       // Add default basemap
       L.tileLayer(
-        "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
-        {
-          id: "mapbox.streets",
-          accessToken: this.config.VUE_APP_MAPBOX_KEY
-        }
+        "https://services.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
       ).addTo(this.map);
       // Add data to map
       this.addSatelliteData();

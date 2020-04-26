@@ -19,7 +19,7 @@
       </b-col>
     </b-row>
     <!-- Background attribution -->
-    <b-row class="attribution position-absolute">
+    <b-row class="attribution">
       <b-col cols="12">
         <a
           style='background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px'
