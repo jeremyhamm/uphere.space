@@ -243,19 +243,22 @@ const satelliteMixin = {
         this.userMarker
           .bindPopup(
             `
-            <p class="text-center">${this.userLocation.city}, ${
-              this.userLocation.region_code
-            }</p>
-            <p class="text-center"><img src="${
-              this.userLocation.flag
-            }" alt="country_flag" /></p>
+            <div>City: <span style="font-weight: bold">${
+              this.userLocation.city
+            }</span></div>
+            <div>Region: <span style="font-weight: bold">${
+              this.userLocation.region
+            }</span></div>
+            <div>Country: <span style="font-weight: bold">${
+              this.userLocation.countryCode
+            }</span></div>
+            <div>Time Zone: <span style="font-weight: bold">${
+              this.userLocation.timezone
+            }</span></div>
           `
           )
           .openPopup();
-        this.map.setView([
-          this.userLocation.latitude,
-          this.userLocation.longitude
-        ]);
+        this.map.setView([this.userLocation.lat, this.userLocation.lon]);
       } else {
         this.userMarker.remove();
         this.userMarker = null;

@@ -111,7 +111,7 @@ const getBasemapUrl = mode => {
  */
 const getUserMarker = (icon, location) => {
   const homeIcon = L.icon(icon);
-  return L.marker([location.latitude, location.longitude], { icon: homeIcon });
+  return L.marker([location.lat, location.lon], { icon: homeIcon });
 };
 
 export default {

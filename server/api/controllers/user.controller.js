@@ -12,15 +12,16 @@ exports.getLocationByIp = async(req, res) => {
   if (process.env.NODE_ENV === 'development') {
     return res.status(200);
   }
-  const ip = req.clientIp;
+  //const ip = `76.167.235.86`;
   //const url = `${process.env.IP_DATA_URL}/${ip}?api-key=${process.env.IP_DATA_API_KEY}`;
+  const ip = req.clientIp;
   const url = `${process.env.IP_API_URL}/${ip}`;
   try {
     let response = await request.get(url);
     let jsonparse = JSON.parse(response);
     const location = {
-      latitude: jsonparse.latitude,
-      longitude: jsonparse.longitude
+      latitude: jsonparse.lat,
+      longitude: jsonparse.lon
     };
     return res
       .status(200)
