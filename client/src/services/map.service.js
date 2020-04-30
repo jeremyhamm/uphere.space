@@ -91,14 +91,6 @@ const getBasemapUrl = mode => {
       return L.tileLayer(
         "https://services.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
       );
-    // default:
-    //   return L.tileLayer(
-    //     "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-    //     {
-    //       id: "mapbox/streets-v11",
-    //       accessToken: process.env.VUE_APP_MAPBOX_KEY
-    //     }
-    //   );
   }
 };
 

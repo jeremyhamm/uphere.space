@@ -16,7 +16,7 @@ const satellite = {
     satelliteList: null,
     categoryList: null,
     countryList: null,
-    cardVisibility: false,
+    cardVisibility: true,
     topList: [],
     topListTimeRange: 1
   },

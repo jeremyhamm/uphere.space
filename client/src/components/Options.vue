@@ -108,6 +108,7 @@
     <!-- Basemap -->
     <h2 class="mt-4 mb-3">Select Basemap</h2>
     <b-row class="d-flex justify-content-center">
+      <!-- Default -->
       <b-col
         class="text-center pt-4 pt-md-0"
         cols="12"
@@ -129,6 +130,8 @@
         </b-img>
         <div class="small pt-2">Default</div>
       </b-col>
+      <!-- Labeled Satellite -->
+      <!-- Satellite -->
       <b-col
         class="text-center pt-4 pt-md-0"
         cols="12"
@@ -152,6 +155,7 @@
         </b-img>
         <div class="small pt-2">Satellite Imagery</div>
       </b-col>
+      <!-- Night -->
       <b-col
         class="text-center pt-4 pt-md-0"
         cols="12"
@@ -169,6 +173,7 @@
         </b-img>
         <div class="small pt-2">Night Lights</div>
       </b-col>
+      <!-- Nat Geo -->
       <b-col
         class="text-center pt-4 pt-md-0"
         cols="12"

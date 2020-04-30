@@ -54,8 +54,6 @@
             </a>
           </b-col>
         </b-row>
-        <!-- Advertising -->
-        <advertising class="my-5" />
       </b-col>
     </b-row>
     <!-- Background attribution -->
@@ -85,12 +83,8 @@
 </template>
 
 <script>
-import LandingPageAdvertising from "@/components/LandingPageAdvertising";
 export default {
   name: "About",
-  components: {
-    advertising: LandingPageAdvertising
-  },
   data() {
     return {
       config: process.env
@@ -220,7 +214,7 @@ export default {
   }
 }
 .content-padding {
-  margin-top: 100px;
+  margin-top: 150px;
 }
 
 .bmc-button img {

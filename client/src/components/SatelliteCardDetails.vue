@@ -81,13 +81,11 @@
 <script>
 import ListMixin from "@/mixins/list.mixin";
 import ImageMixin from "@/mixins/image.mixin";
+import UtilsMixin from "@/mixins/utils.mixin";
 import SatelliteCategories from "@/components/SatelliteCategories";
-import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc";
-dayjs.extend(utc);
 export default {
   name: "SatelliteList",
-  mixins: [ListMixin, ImageMixin],
+  mixins: [ListMixin, ImageMixin, UtilsMixin],
   components: {
     "satellite-categories": SatelliteCategories
   },
@@ -110,11 +108,6 @@ export default {
   methods: {
     trackSatellite(satellite) {
       this.$router.push({ name: "Map", params: { satellite: satellite } });
-    },
-    formatLaunchDate(date) {
-      return dayjs(date)
-        .utc()
-        .format("MM/DD/YY");
     }
   }
 };

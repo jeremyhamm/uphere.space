@@ -15,15 +15,14 @@
       </b-col>
       <!-- Map -->
       <b-col cols="12" md="9" xl="10" class="max-height px-0 flex-fill">
-        <div
-          id="satellite-card-sm-container"
-          class="position-absolute d-flex d-md-none justify-content-center w-100 overflow-auto"
-        >
-          <satellite-card
-            v-if="selectedSatelliteLocation && cardVisibility"
-            class="satellite-card-sm"
-          />
-        </div>
+        <satellite-card-mobile
+          v-if="
+            selectedSatelliteLocation &&
+              selectedSatelliteDetails &&
+              cardVisibility
+          "
+          class="satellite-card-mobile position-absolute d-md-none overflow-auto p-1"
+        />
         <map-container />
       </b-col>
     </b-row>
@@ -33,14 +32,14 @@
 <script>
 import sidebar from "@/components/Sidebar";
 import mapContainer from "@/components/Map";
-import SatelliteCard from "@/components/SatelliteCard";
+import SatelliteCardMobile from "@/components/SatelliteCardMobile";
 //import MapAdvertising from "@/components/MapAdvertising";
 export default {
   name: "Layout-Container",
   components: {
     sidebar: sidebar,
     "map-container": mapContainer,
-    "satellite-card": SatelliteCard
+    "satellite-card-mobile": SatelliteCardMobile
     //"map-advertising": MapAdvertising
   },
   data() {
@@ -63,6 +62,9 @@ export default {
     },
     selectedSatelliteLocation() {
       return this.$store.getters["satellite/getSelectedSatelliteLocation"];
+    },
+    selectedSatelliteDetails() {
+      return this.$store.getters["satellite/getSelectedSatelliteDetails"];
     }
   },
   beforeRouteLeave(to, from, next) {
@@ -84,4 +86,11 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.satellite-card-mobile {
+  top: 60px;
+  z-index: 999;
+  min-width: 50%;
+  max-width: 50%;
+}
+</style>
