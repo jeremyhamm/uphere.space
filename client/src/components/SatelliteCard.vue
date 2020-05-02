@@ -135,6 +135,9 @@ export default {
       ]
     };
   },
+  mounted() {
+    this.$refs.card.querySelector("img").onerror = this.showDefault;
+  },
   computed: {
     selectedSatelliteDetails() {
       return this.$store.getters["satellite/getSelectedSatelliteDetails"];
@@ -144,16 +147,6 @@ export default {
     },
     units() {
       return this.$store.getters["user/getUnits"];
-    }
-  },
-  mounted() {
-    this.$refs.card.querySelector("img").onerror = this.showDefault;
-  },
-  methods: {
-    showDefault(evt) {
-      evt.target.src =
-        this.config.VUE_APP_SPACES_URL +
-        "/images/satellites_numbers/default.webp";
     }
   }
 };

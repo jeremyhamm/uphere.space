@@ -174,6 +174,10 @@ exports.getSatellites = async (params) => {
   sql += " LIMIT $1" +
       " OFFSET $2";
 
+  console.log(`LIMIT: ${sql_params.limit}`);
+  console.log(`OFFSET: ${sql_params.offset}`);
+  console.log("-----");
+
   // Get data
   return await connection.task(async t => {
     let satellites = await t.query(sql, [sql_params.limit, sql_params.offset, sql_params.text, sql_params.categories, sql_params.country]);

@@ -48,7 +48,7 @@ exports.formatSortQuery = (val) => {
   case "launch":
     return " ORDER BY s.launch_date DESC";
   case "popular":
-    return " ORDER BY count DESC";
+    return " ORDER BY count DESC, s.name ASC";
   default:
     return " ORDER BY s.id ASC";
   }

@@ -158,6 +158,7 @@ const satellite = {
       });
     },
     fetchSatelliteList({ state, commit }) {
+      console.log("FETCH LIST !!!!");
       let params = {
         page: state.satellitePageNumber,
         text: state.satelliteTextFilter,

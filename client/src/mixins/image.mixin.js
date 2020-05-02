@@ -21,6 +21,11 @@ const imageMixin = {
       return `${
         this.config.VUE_APP_SPACES_URL
       }/images/satellites_numbers/${number}.webp`;
+    },
+    showDefault(evt) {
+      evt.target.src =
+        this.config.VUE_APP_SPACES_URL +
+        "/images/satellites_numbers/default.webp";
     }
   }
 };

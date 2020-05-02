@@ -169,9 +169,14 @@ export default {
       document.querySelector(".navbar-toggler").classList.toggle("open");
     },
     satelliteListNav() {
-      return this.satelliteTextFilter
-        ? { name: "List", query: { search: this.satelliteTextFilter } }
-        : { name: "List" };
+      if (this.satelliteTextFilter) {
+        return {
+          name: "List",
+          query: { search: this.satelliteTextFilter }
+        };
+      } else {
+        return { name: "List" };
+      }
     },
     searchSubmit() {
       this.$store.commit("satellite/setSatellitePage", 1);

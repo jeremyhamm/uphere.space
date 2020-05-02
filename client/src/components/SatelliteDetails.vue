@@ -31,17 +31,18 @@
         </b-list-group>
       </b-col>
       <b-col cols="12" lg="6" class="pt-3 pt-lg-0">
-        <b-img
-          :img-src="
+        <b-img-lazy
+          ref="detailsImage"
+          :src="
             satelliteImage(
               selectedSatelliteDetails.number,
               selectedSatelliteDetails.name
             )
           "
           fluid
-          :img-alt="`${selectedSatelliteDetails.name} image`"
+          :alt="`${selectedSatelliteDetails.name} image`"
         >
-        </b-img>
+        </b-img-lazy>
       </b-col>
     </b-row>
     <p>{{ selectedSatelliteDetails.description }}</p>
@@ -64,7 +65,9 @@ export default {
       return this.$store.getters["satellite/getSelectedSatelliteDetails"];
     }
   },
-  methods: {}
+  mounted() {
+    this.$refs.detailsImage.$el.onerror = this.showDefault;
+  }
 };
 </script>
 

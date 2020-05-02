@@ -73,10 +73,10 @@
         </b-row>
         <!-- Base Url -->
         <b-row class="mt-3 d-flex justify-content-center">
-          <b-col cols="12" lg="4" xl="3">
+          <b-col cols="6" lg="4" xl="3">
             <p class="text-uppercase font-weight-bold">Base Url</p>
           </b-col>
-          <b-col cols="12" lg="6" xl="6">
+          <b-col cols="6" lg="6" xl="6">
             <code class="float-right">https://uphere.space/api</code>
           </b-col>
         </b-row>
@@ -109,23 +109,23 @@
         </b-row>
         <!-- Method -->
         <dl class="row mt-3 justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-3">
+          <dt class="col-6 col-lg-4 col-xl-3">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >METHOD</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-6">
+          <dd class="col-6 col-lg-4 col-xl-6">
             <code class="float-right">GET</code>
           </dd>
         </dl>
         <!-- Url -->
         <dl class="row justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-3">
+          <dt class="col-2 col-lg-4 col-xl-3">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >URL</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-6">
+          <dd class="col-10 col-lg-4 col-xl-6">
             <code class="float-right"
               >/satellites/{satellite_number}/location</code
             >
@@ -133,12 +133,12 @@
         </dl>
         <!-- Query Params -->
         <dl class="row justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-3">
+          <dt class="col-5 col-lg-4 col-xl-3">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >QUERY PARAMS</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-6">
+          <dd class="col-7 col-lg-4 col-xl-6">
             <div class="float-right">
               <span class="text-muted small font-weight-bold"
                 >NUMBER (optional)</span
@@ -156,31 +156,29 @@
         </dl>
         <!-- Return -->
         <dl class="row justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-2">
+          <dt class="col-2 col-lg-4 col-xl-2">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >RETURN</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-7">
-            <span class="float-right">
-              <span class="text-muted small font-weight-bold float-right"
-                >JSON</span
-              >
-              <pre>
-                <code>
-                  {
-                    "coordinates": [-69.34455439843211,-2.834841089920333],
-                    "norad_id":"20580","height":332.558835040733,
-                    "speed":16996.970517404618,
-                    "visibility":{
-                      "azimuth":16.32274243382461,
-                      "elevation":-65.93303612662568
-                    },
-                    "footprint_radius":2524684.5107199484
-                  }
-                </code>
-              </pre>
-            </span>
+          <dd class="col-10 col-lg-4 col-xl-7">
+            <span class="text-muted small font-weight-bold float-right"
+              >JSON</span
+            >
+            <pre>
+              <code>
+                {
+                  "coordinates": [-69.34455439843211,-2.834841089920333],
+                  "norad_id":"20580","height":332.558835040733,
+                  "speed":16996.970517404618,
+                  "visibility":{
+                    "azimuth":16.32274243382461,
+                    "elevation":-65.93303612662568
+                  },
+                  "footprint_radius":2524684.5107199484
+                }
+              </code>
+            </pre>
           </dd>
         </dl>
         <!-- 
@@ -204,23 +202,23 @@
         </b-row>
         <!-- Method -->
         <dl class="row mt-3 justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-3">
+          <dt class="col-6 col-lg-4 col-xl-3">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >METHOD</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-6">
+          <dd class="col-6 col-lg-4 col-xl-6">
             <code class="float-right">GET</code>
           </dd>
         </dl>
         <!-- Url -->
         <dl class="row justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-3">
+          <dt class="col-2 col-lg-4 col-xl-3">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >URL</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-6">
+          <dd class="col-10 col-lg-4 col-xl-6">
             <code class="float-right"
               >/satellites/{satellite_number}/orbit</code
             >
@@ -228,12 +226,12 @@
         </dl>
         <!-- Query Params -->
         <dl class="row justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-3">
+          <dt class="col-3 col-lg-4 col-xl-3">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >QUERY PARAMS</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-6">
+          <dd class="col-9 col-lg-4 col-xl-6">
             <div class="float-right">
               <span class="text-muted small font-weight-bold"
                 >NUMBER (required)</span
@@ -244,38 +242,36 @@
         </dl>
         <!-- Return -->
         <dl class="row justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-2">
+          <dt class="col-2 col-lg-4 col-xl-2">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >RETURN</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-7">
-            <span class="float-right">
-              <span class="text-muted small font-weight-bold float-right"
-                >ARRAY</span
-              >
-              <pre>
-                <code>
-                  [
-                    {
-                      "lat":-33.93133532271444,
-                      "lng":-44.60116050969679,
-                      "date":"17:47"
-                    },
-                    {
-                      "lat":-31.305458724687607,
-                      "lng":-41.48076241844742,
-                      "date":"17:48"
-                    },
-                    {
-                      "lat":-28.594418883809514,
-                      "lng":-38.54422396404904,
-                      "date":"17:49"
-                    }
-                  ]
-                </code>
-              </pre>
-            </span>
+          <dd class="col-10 col-lg-4 col-xl-7">
+            <span class="text-muted small font-weight-bold float-right"
+              >ARRAY</span
+            >
+            <pre>
+              <code>
+                [
+                  {
+                    "lat":-33.93133532271444,
+                    "lng":-44.60116050969679,
+                    "date":"17:47"
+                  },
+                  {
+                    "lat":-31.305458724687607,
+                    "lng":-41.48076241844742,
+                    "date":"17:48"
+                  },
+                  {
+                    "lat":-28.594418883809514,
+                    "lng":-38.54422396404904,
+                    "date":"17:49"
+                  }
+                ]
+              </code>
+            </pre>
           </dd>
         </dl>
         <!-- 
@@ -298,23 +294,23 @@
         </b-row>
         <!-- Method -->
         <dl class="row mt-3 justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-3">
+          <dt class="col-6 col-lg-4 col-xl-3">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >METHOD</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-6">
+          <dd class="col-6 col-lg-4 col-xl-6">
             <code class="float-right">GET</code>
           </dd>
         </dl>
         <!-- Url -->
         <dl class="row justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-3">
+          <dt class="col-2 col-lg-4 col-xl-3">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >URL</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-6">
+          <dd class="col-10 col-lg-4 col-xl-6">
             <code class="float-right"
               >/satellites/{satellite_number}/details</code
             >
@@ -322,36 +318,34 @@
         </dl>
         <!-- Return -->
         <dl class="row justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-2">
+          <dt class="col-2 col-lg-4 col-xl-2">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >RETURN</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-7">
-            <span class="float-right">
-              <span class="text-muted small font-weight-bold float-right"
-                >JSON</span
-              >
-              <pre>
-                <code>
-                  {
-                    "name":"GOES 17",
-                    "number":"43226",
-                    "type":"PAYLOAD",
-                    "country":"US",
-                    "intldes":"2018-022A",
-                    "orbital_period":"1436.11",
-                    "launch_date":"2018-03-01T00:00:00.000Z",
-                    "links":[
-                      {
-                        "link_name":"wikipedia",
-                        "link_url":"https://en.wikipedia.org/wiki/GOES-17"
-                      }
-                    ]
-                  }
-                </code>
-              </pre>
-            </span>
+          <dd class="col-10 col-lg-4 col-xl-7">
+            <span class="text-muted small font-weight-bold float-right"
+              >JSON</span
+            >
+            <pre>
+              <code>
+                {
+                  "name":"GOES 17",
+                  "number":"43226",
+                  "type":"PAYLOAD",
+                  "country":"US",
+                  "intldes":"2018-022A",
+                  "orbital_period":"1436.11",
+                  "launch_date":"2018-03-01T00:00:00.000Z",
+                  "links":[
+                    {
+                      "link_name":"wikipedia",
+                      "link_url":"https://en.wikipedia.org/wiki/GOES-17"
+                    }
+                  ]
+                }
+              </code>
+            </pre>
           </dd>
         </dl>
         <!-- 
@@ -371,34 +365,34 @@
         </b-row>
         <!-- Method -->
         <dl class="row mt-3 justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-3">
+          <dt class="col-6 col-lg-4 col-xl-3">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >METHOD</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-6">
+          <dd class="col-6 col-lg-4 col-xl-6">
             <code class="float-right">GET</code>
           </dd>
         </dl>
         <!-- Url -->
         <dl class="row justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-3">
+          <dt class="col-2 col-lg-4 col-xl-3">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >URL</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-6">
+          <dd class="col-10 col-lg-4 col-xl-6">
             <code class="float-right">/satellite/list</code>
           </dd>
         </dl>
         <!-- Query Params -->
         <dl class="row justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-3">
+          <dt class="col-4 col-lg-4 col-xl-3">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >QUERY PARAMS</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-6">
+          <dd class="col-8 col-lg-4 col-xl-6">
             <div class="float-right">
               <span class="text-muted small font-weight-bold"
                 >NUMBER (required)</span
@@ -423,36 +417,34 @@
         </dl>
         <!-- Return -->
         <dl class="row justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-2">
+          <dt class="col-2 col-lg-4 col-xl-2">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >RETURN</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-7">
-            <span class="float-right">
-              <span class="text-muted small font-weight-bold float-right"
-                >ARRAY</span
-              >
-              <pre>
-                <code>
-                  [
-                    {
-                      "name":"GOES 17"
-                      "number":"43226"
-                      "classification":"U"
-                      "launch_date":"2018-03-01T00:00:00.000Z"
-                      "country":"US"
-                      "type":"PAYLOAD"
-                      "size":"LARGE"
-                      "orbital_period":"1436.11"
-                      "intldes":"2018-022A"
-                      "selected":true
-                      "categories":[]
-                    }
-                  ]
-                </code>
-              </pre>
-            </span>
+          <dd class="col-10 col-lg-4 col-xl-7">
+            <span class="text-muted small font-weight-bold float-right"
+              >ARRAY</span
+            >
+            <pre>
+              <code>
+                [
+                  {
+                    "name":"GOES 17"
+                    "number":"43226"
+                    "classification":"U"
+                    "launch_date":"2018-03-01T00:00:00.000Z"
+                    "country":"US"
+                    "type":"PAYLOAD"
+                    "size":"LARGE"
+                    "orbital_period":"1436.11"
+                    "intldes":"2018-022A"
+                    "selected":true
+                    "categories":[]
+                  }
+                ]
+              </code>
+            </pre>
           </dd>
         </dl>
         <!-- 
@@ -469,61 +461,59 @@
         </b-row>
         <!-- Method -->
         <dl class="row mt-3 justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-3">
+          <dt class="col-6 col-lg-4 col-xl-3">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >METHOD</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-6">
+          <dd class="col-6 col-lg-4 col-xl-6">
             <code class="float-right">GET</code>
           </dd>
         </dl>
         <!-- Url -->
         <dl class="row justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-3">
+          <dt class="col-2 col-lg-4 col-xl-3">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >URL</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-6">
+          <dd class="col-10 col-lg-4 col-xl-6">
             <code class="float-right">/satellite/list/launch-sites</code>
           </dd>
         </dl>
         <!-- Return -->
         <dl class="row justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-2">
+          <dt class="col-2 col-lg-4 col-xl-2">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >RETURN</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-7">
-            <span class="float-right">
-              <span class="text-muted small font-weight-bold float-right"
-                >ARRAY</span
-              >
-              <pre>
-                <code>
-                  [
-                    {
-                      "id":"1"
-                      "abbreviation":"AFETR"
-                      "name":"Air Force Eastern Test Range, Florida, USA"
-                      "description":NULL
-                      "latitude":28.4929137
-                      "longitude":-80.6013383
-                    }
-                    {
-                      "id":"2"
-                      "abbreviation":"AFWTR"
-                      "name":"Air Force Western Test Range, California, USA"
-                      "description":NULL
-                      "latitude":34.7244835
-                      "longitude":-120.59294
-                    }
-                  ]
-                </code>
-              </pre>
-            </span>
+          <dd class="col-10 col-lg-4 col-xl-7">
+            <span class="text-muted small font-weight-bold float-right"
+              >ARRAY</span
+            >
+            <pre>
+              <code>
+                [
+                  {
+                    "id":"1"
+                    "abbreviation":"AFETR"
+                    "name":"Air Force Eastern Test Range, Florida, USA"
+                    "description":NULL
+                    "latitude":28.4929137
+                    "longitude":-80.6013383
+                  }
+                  {
+                    "id":"2"
+                    "abbreviation":"AFWTR"
+                    "name":"Air Force Western Test Range, California, USA"
+                    "description":NULL
+                    "latitude":34.7244835
+                    "longitude":-120.59294
+                  }
+                ]
+              </code>
+            </pre>
           </dd>
         </dl>
         <!-- 
@@ -541,55 +531,53 @@
         </b-row>
         <!-- Method -->
         <dl class="row mt-3 justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-3">
+          <dt class="col-6 col-lg-4 col-xl-3">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >METHOD</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-6">
+          <dd class="col-6 col-lg-4 col-xl-6">
             <code class="float-right">GET</code>
           </dd>
         </dl>
         <!-- Url -->
         <dl class="row justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-3">
+          <dt class="col-2 col-lg-4 col-xl-3">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >URL</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-6">
+          <dd class="col-10 col-lg-4 col-xl-6">
             <code class="float-right">/satellite/list/countries</code>
           </dd>
         </dl>
         <!-- Return -->
         <dl class="row justify-content-center">
-          <dt class="col-12 col-lg-4 col-xl-2">
+          <dt class="col-2 col-lg-4 col-xl-2">
             <span class="text-muted small font-weight-bold pr-1 float-left"
               >RETURN</span
             >
           </dt>
-          <dd class="col-12 col-lg-4 col-xl-7">
-            <span class="float-right">
-              <span class="text-muted small font-weight-bold float-right"
-                >ARRAY</span
-              >
-              <pre>
-                <code>
-                  [
-                    {
-                      "id":"1"
-                      "name":"ARGENTINA"
-                      "abbreviation":"ARGN"
-                    }
-                    {
-                      "id":"2"
-                      "name":"AUSTRIA"
-                      "abbreviation":"ASRA"
-                    }
-                  ]
-                </code>
-              </pre>
-            </span>
+          <dd class="col-10 col-lg-4 col-xl-7">
+            <span class="text-muted small font-weight-bold float-right"
+              >ARRAY</span
+            >
+            <pre>
+              <code>
+                [
+                  {
+                    "id":"1"
+                    "name":"ARGENTINA"
+                    "abbreviation":"ARGN"
+                  }
+                  {
+                    "id":"2"
+                    "name":"AUSTRIA"
+                    "abbreviation":"ASRA"
+                  }
+                ]
+              </code>
+            </pre>
           </dd>
         </dl>
       </b-col>

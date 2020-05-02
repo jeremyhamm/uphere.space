@@ -139,8 +139,13 @@ export default {
         this.$store.commit("satellite/setSatelliteSort", val);
       }
     },
-    satelliteList() {
-      return this.$store.getters["satellite/getSatelliteList"];
+    satelliteList: {
+      get() {
+        return this.$store.getters["satellite/getSatelliteList"];
+      },
+      set(val) {
+        this.$store.commit("satellite/setSatelliteList", val);
+      }
     },
     categoryList() {
       return this.$store.getters["satellite/getCategoryList"];
