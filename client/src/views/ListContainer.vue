@@ -26,6 +26,31 @@
       </b-nav-item-dropdown>
     </b-nav>
     <satellite-filters @filters="closeFilters" v-show="filters" />
+    <!-- Advertising -->
+    <b-row class="justify-content-center advertising">
+      <b-col cols="12" md="9" xl="8">
+        <a
+          class="d-none d-md-flex justify-content-center"
+          href="https://www.bluehost.com/track/upheredotspace/"
+          target="_blank"
+        >
+          <img
+            border="0"
+            src="https://bluehost-cdn.com/media/partner/images/upheredotspace/488x160/488x160BW.png"
+          />
+        </a>
+        <a
+          class="d-flex d-md-none justify-content-center"
+          href="https://www.bluehost.com/track/upheredotspace/"
+          target="_blank"
+        >
+          <img
+            border="0"
+            src="https://bluehost-cdn.com/media/partner/images/upheredotspace/125x125/125x125BW.png"
+          />
+        </a>
+      </b-col>
+    </b-row>
     <!-- List -->
     <b-row v-if="satelliteList && categoryList" class="justify-content-center">
       <b-col cols="12" md="9" xl="8" class="mt-5">

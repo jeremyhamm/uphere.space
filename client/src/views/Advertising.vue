@@ -1,11 +1,14 @@
 <template>
-  <b-container fluid>
-    <b-row class="heading justify-content-center">
-      <b-col cols="12">
-        <h1 class="text-center mb-4">Adopt a satellite</h1>
-      </b-col>
-    </b-row>
-  </b-container>
+  <b-row class="justify-content-center text-center advertising">
+    <b-col cols="12" md="9" xl="8">
+      <a href="https://www.bluehost.com/track/upheredotspace/" target="_blank">
+        <img
+          border="0"
+          src="https://bluehost-cdn.com/media/partner/images/upheredotspace/488x160/488x160BW.png"
+        />
+      </a>
+    </b-col>
+  </b-row>
 </template>
 
 <script>
@@ -15,15 +18,13 @@ export default {
     return {
       config: process.env
     };
-  },
-  computed: {},
-  methods: {}
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "./../assets/scss/variables.scss";
-.heading {
-  padding-top: 100px;
+.advertising {
+  margin-top: 100px;
 }
 </style>

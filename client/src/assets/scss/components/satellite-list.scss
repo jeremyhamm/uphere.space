@@ -38,6 +38,9 @@
     }
   }
 }
+.advertising {
+  margin-top: 110px;
+}
 #filters-container {
   top: 102px;
   left: 0;
@@ -105,6 +108,9 @@
     left: 0;
     width: 100%;
   }
+  .advertising {
+    margin-top: 75px;
+  }
 }
 
 /** SM **/
@@ -123,6 +129,9 @@
   #filters-submit {
     left: 0;
     width: 100%;
+  }
+  .advertising {
+    margin-top: 75px;
   }
 }
 

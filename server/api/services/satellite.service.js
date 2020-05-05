@@ -1,10 +1,5 @@
-// Postgres
 const connection = require("../database/postgres.connection");
-
-// Satellite.js
 const satellite = require("satellite.js");
-
-// Utils
 const utils = require("./utils.service");
 
 /**
@@ -262,11 +257,8 @@ exports.calculateMagnitude = (visibility) => {
   const phaseAngleDegrees = visibility.elevation; //Angle from sun->satellite->observer
   const pa = phaseAngleDegrees * 0.0174533; //Convert the phase angle to radians
   const intrinsicMagnitude = -1.8; //-1.8 is std. mag for iss
-
-
   const term_1 = intrinsicMagnitude;
   const term_2 = 5.0 * Math.log10(distanceToSatellite / 1000.0);
-
   const arg = Math.sin(pa) + (Math.PI - pa) * Math.cos(pa);
   const term_3 = -2.5 * Math.log10(arg);
 

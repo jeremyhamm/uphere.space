@@ -128,6 +128,31 @@
         </div>
       </b-col>
     </b-row>
+    <!-- Advertising -->
+    <b-row no-gutters class="my-4">
+      <b-col cols="12">
+        <a
+          class="d-none d-md-flex justify-content-center"
+          href="https://www.bluehost.com/track/upheredotspace/"
+          target="_blank"
+        >
+          <img
+            border="0"
+            src="https://bluehost-cdn.com/media/partner/images/upheredotspace/760x80/760x80BW.png"
+          />
+        </a>
+        <a
+          class="d-flex d-md-none justify-content-center"
+          href="https://www.bluehost.com/track/upheredotspace/"
+          target="_blank"
+        >
+          <img
+            border="0"
+            src="https://bluehost-cdn.com/media/partner/images/upheredotspace/125x125/125x125PW.png"
+          />
+        </a>
+      </b-col>
+    </b-row>
   </div>
 </template>
 

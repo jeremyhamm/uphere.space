@@ -1,6 +1,7 @@
 // Imports
 const client = require("../database/redis.connection");
 const satellite = require("satellite.js");
+const SunCalc = require('suncalc');
 const satelliteService = require("../services/satellite.service");
 
 /**
@@ -59,6 +60,9 @@ exports.getSatelliteLocation = (req, res) => {
       
       // Get user visibility
       let visibility = null;
+
+      
+
       if (req.cookies.location) {
         const coords = JSON.parse(req.cookies.location);
         const location = {
@@ -196,11 +200,6 @@ exports.getVisiblePasses = (req, res) => {
     const tleLine2 = result.tle2;
     const satrec = satellite.twoline2satrec(tleLine1, tleLine2);
 
-    // Only calculate visible passes for ISS
-    if (satrec.satnum !== '25544') {
-      return res.sendStatus(400); 
-    }
-
     let passes = [];
     const passTime = new Date();
     
@@ -235,7 +234,14 @@ exports.getVisiblePasses = (req, res) => {
       }
 
       if (visibility.elevation > 0) {
+        const sunPosition = SunCalc.getPosition(finalTime, -117.1366, 32.7794);
+        
+        if (sunPosition.altitude > 0) {
+          visibility.sunPosition = sunPosition.altitude;
+        }
+        
         const magnitude = satelliteService.calculateMagnitude(visibility);
+        visibility.magnitude = magnitude;
         passes.push(visibility);
       }
     }
