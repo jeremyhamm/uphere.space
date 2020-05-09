@@ -8,8 +8,7 @@
       <b-col cols="12" class="text-center text-color-light">
         <h1 class="font-weight-bold">Session Timeout</h1>
         <p>
-          Sessions are limited to 30 minutes to save bandwidth. Please refresh
-          to continue.
+          Sessions are limited to 30 minutes to save bandwidth.
         </p>
         <b-nav align="center">
           <b-nav-item to="/">Home</b-nav-item>
