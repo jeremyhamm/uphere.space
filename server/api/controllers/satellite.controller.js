@@ -60,7 +60,6 @@ exports.getSatelliteLocation = (req, res) => {
       
       // Get user visibility
       let visibility = null;
-
       if (req.cookies.location) {
         const coords = JSON.parse(req.cookies.location);
         const location = {

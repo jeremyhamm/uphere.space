@@ -32,7 +32,7 @@ exports.getLocationByIp = async(req, res) => {
         path: "/",
         sameSite: 'lax',
         secure: true, 
-        httpOnly: true 
+        httpOnly: false 
       })
       .json(jsonparse);
   } catch(error) {
