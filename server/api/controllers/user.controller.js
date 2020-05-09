@@ -35,7 +35,7 @@ exports.getLocationByIp = async(req, res) => {
       })
       .cookie("rapid-api-location", JSON.stringify(location), {
         expires: new Date(Date.now() + (365 * 3600000)),
-        domain: "rapidapi.com/uphere.space",
+        domain: ".rapidapi.com",
         path: "/",
         secure: true, 
         httpOnly: true
