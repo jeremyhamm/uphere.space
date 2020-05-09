@@ -30,7 +30,7 @@ exports.getLocationByIp = async(req, res) => {
         expires: new Date(Date.now() + (365 * 3600000)), 
         domain: ".uphere.space", 
         path: "/",
-        SameSite: 'Strict',
+        SameSite: Strict,
         secure: true, 
         httpOnly: true 
       })
