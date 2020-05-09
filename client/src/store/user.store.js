@@ -49,7 +49,7 @@ const user = {
   actions: {
     userLocation({ commit }) {
       return new Promise((resolve, reject) => {
-        axios.get("https://uphere.space/api/user/location").then(
+        axios.get(`${process.env.VUE_APP_API_URL}/user/location`).then(
           response => {
             commit("setLocation", response.data);
             resolve(response);
@@ -60,10 +60,25 @@ const user = {
         );
       });
     },
+    getVisibleSatellites({ commit }) {
+      return new Promise((resolve, reject) => {
+        axios
+          .get(`${process.env.VUE_APP_API_URL}/user/visible`)
+          .then(
+            response => {
+              commit("setLocation", response.data);
+              resolve(response);
+            },
+            error => {
+              reject(error);
+            }
+          );
+      });
+    },
     // eslint-disable-next-line
     sendContactMessage({}, message) {
       return new Promise((resolve, reject) => {
-        axios.post(process.env.VUE_APP_API_URL + "/user/contact", message).then(
+        axios.post(`${process.env.VUE_APP_API_URL}/user/contact`, message).then(
           response => {
             resolve(response);
           },

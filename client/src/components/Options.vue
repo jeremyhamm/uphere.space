@@ -112,7 +112,8 @@
       <b-col
         class="text-center pt-4 pt-md-0"
         cols="12"
-        md="3"
+        md="6"
+        xl="2"
         @click="toggleBasemap('default')"
       >
         <b-img
@@ -135,7 +136,8 @@
       <b-col
         class="text-center pt-4 pt-md-0"
         cols="12"
-        md="3"
+        md="6"
+        xl="2"
         @click="toggleBasemap('satellite')"
       >
         <b-img
@@ -147,7 +149,7 @@
           fluid
           thumbnail
           rounded="circle"
-          alt="Default basemap"
+          alt="Satellite basemap"
           :class="
             this.basemap['satellite'] ? 'basemap active-basemap' : 'basemap'
           "
@@ -159,7 +161,8 @@
       <b-col
         class="text-center pt-4 pt-md-0"
         cols="12"
-        md="3"
+        md="6"
+        xl="2"
         @click="toggleBasemap('night')"
       >
         <b-img
@@ -167,7 +170,7 @@
           fluid
           thumbnail
           rounded="circle"
-          alt="Default basemap"
+          alt="Night basemap"
           :class="this.basemap['night'] ? 'basemap active-basemap' : 'basemap'"
         >
         </b-img>
@@ -177,7 +180,8 @@
       <b-col
         class="text-center pt-4 pt-md-0"
         cols="12"
-        md="3"
+        md="6"
+        xl="2"
         @click="toggleBasemap('national_geographic')"
       >
         <b-img
@@ -189,7 +193,7 @@
           fluid
           thumbnail
           rounded="circle"
-          alt="Default basemap"
+          alt="Nat Geo basemap"
           :class="
             this.basemap['national_geographic']
               ? 'basemap active-basemap'
@@ -198,6 +202,52 @@
         >
         </b-img>
         <div class="small pt-2">National Geographic</div>
+      </b-col>
+      <!-- Terrain -->
+      <b-col
+        class="text-center pt-4 pt-md-0"
+        cols="12"
+        md="6"
+        xl="2"
+        @click="toggleBasemap('terrain')"
+      >
+        <b-img
+          :src="
+            `${this.config.VUE_APP_SPACES_URL}/images/basemaps/terrain.webp`
+          "
+          fluid
+          thumbnail
+          rounded="circle"
+          alt="Terrain basemap"
+          :class="
+            this.basemap['terrain'] ? 'basemap active-basemap' : 'basemap'
+          "
+        >
+        </b-img>
+        <div class="small pt-2">Terrain</div>
+      </b-col>
+      <!-- Open Topo Map -->
+      <b-col
+        class="text-center pt-4 pt-md-0"
+        cols="12"
+        md="6"
+        xl="2"
+        @click="toggleBasemap('open_topo')"
+      >
+        <b-img
+          :src="
+            `${this.config.VUE_APP_SPACES_URL}/images/basemaps/open-topo.webp`
+          "
+          fluid
+          thumbnail
+          rounded="circle"
+          alt="Open Topo basemap"
+          :class="
+            this.basemap['open_topo'] ? 'basemap active-basemap' : 'basemap'
+          "
+        >
+        </b-img>
+        <div class="small pt-2">Open Topo</div>
       </b-col>
     </b-row>
   </div>

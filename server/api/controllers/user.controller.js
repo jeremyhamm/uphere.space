@@ -1,5 +1,6 @@
 const request = require("request-promise");
 const nodemailer = require("nodemailer");
+const userService = require("../services/user.service");
 
 /**
  * Get current location by IP
@@ -27,16 +28,40 @@ exports.getLocationByIp = async(req, res) => {
       .status(200)
       .cookie("location", JSON.stringify(location), {
         expires: new Date(Date.now() + (365 * 3600000)), 
-        domain: "uphere.space", 
+        domain: ".uphere.space", 
         path: "/", 
         secure: true, 
         httpOnly: true 
       })
+      .cookie("rapid-api-location", JSON.stringify(location), {
+        expires: new Date(Date.now() + (365 * 3600000)),
+        domain: "rapidapi.com/uphere.space",
+        path: "/",
+        secure: true, 
+        httpOnly: true
+      })
       .json(jsonparse);
   } catch(error) {
+    console.log(error.error);
     return res.sendStatus(error.statusCode);
   }
 };
+
+/**
+ * Get satellites visible to user
+ * 
+ * @param  {Object}   req request object
+ * @param  {Object}   res response object
+ * @return {Response}     http response
+ */
+exports.getVisibleSatellites = (req, res) => {
+  if ( req.cookies.location || ( req.lat && req.lng ) ) {
+    const coords = req.cookies.location || { "lat": req.lat, "lng": req.lng };
+    userService.getVisibleSatellites(coords);
+  } else {
+    return res.sendStatus(400);
+  }
+}
 
 /**
  * Send message from contact form

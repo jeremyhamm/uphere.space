@@ -10,6 +10,7 @@ const userController = require("../controllers/user.controller");
 
 // Routes
 router.get("/location", userController.getLocationByIp);
+router.get("/visible", userController.getVisibleSatellites);
 router.post("/contact", userController.sendMessage);
 
 module.exports = router;

@@ -30,6 +30,14 @@
     >
       <options />
     </b-modal>
+    <!-- Nearby Satellites -->
+    <!-- <b-button
+      id="visible-satellites"
+      class="mr-3 toggle-icon"
+      @click="showVisibleSatellites()"
+    >
+      Visible Satellites
+    </b-button> -->
     <!-- Info -->
     <b-button id="info-toggle" class="mr-3" v-b-modal.info-modal>
       <font-awesome-icon class="toggle-icon" icon="info-circle" size="lg" />
@@ -77,6 +85,9 @@ export default {
   methods: {
     formatDate(date) {
       return dayjs(date).format("MM/DD/YY");
+    },
+    showVisibleSatellites() {
+      this.$store.dispatch("user/getVisibleSatellites");
     }
   }
 };

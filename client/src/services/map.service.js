@@ -80,6 +80,13 @@ const getBasemapUrl = mode => {
           maxZoom: 18
         }
       );
+    case "terrain":
+      return L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
+        {
+          maxZoom: 18
+        }
+      );
     case "national_geographic":
       return L.tileLayer(
         "https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}",
@@ -87,6 +94,10 @@ const getBasemapUrl = mode => {
           maxZoom: 16
         }
       );
+    case "open_topo":
+      return L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {
+        maxZoom: 17
+      });
     default:
       return L.tileLayer(
         "https://services.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
