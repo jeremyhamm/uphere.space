@@ -26,7 +26,7 @@ def findArticles(term):
   return json.loads(r.text)['docs']
 
 def findNews(cursor):
-  cursor.execute('SELECT name, number FROM satellites')
+  cursor.execute('SELECT name, number FROM satellites WHERE name LIKE\'%SPACE STATION%\'')
   data = cursor.fetchall()
   for sat in data:
     term = sat[0]
@@ -34,17 +34,16 @@ def findNews(cursor):
     
     articles = findArticles(term)
     for article in articles:
-      cursor.execute('SELECT article_id FROM news')
-      existing_articles = cursor.fetchall()
-
-      found = False
-      for existing in existing_articles:
-        
-        print(str(existing))
-        print(''.join(article['_id']))
-        
-        if (str(existing) == str(article['_id'])):
-          print("here")
+      cursor.execute('SELECT article_id FROM news WHERE article_id = %(article_id)s', {'article_id': article['_id']})
+      existing_article = cursor.fetchall()
+      
+      if not existing_article:
+        print(article['news_site'])
+        print(article['title'])
+        print(article['url'])
+        print(article['featured_image'])
+        print(article['_id'])
+        print("-----")
 
       # cursor.execute(
       #   """
