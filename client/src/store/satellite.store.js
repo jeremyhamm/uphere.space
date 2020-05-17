@@ -120,7 +120,10 @@ const satellite = {
               process.env.VUE_APP_RAPID_API_URL
             }/satellite/${encodeURIComponent(params.number)}/location`,
             {
-              params: { period: params.period },
+              params: {
+                lng: params.lng,
+                lat: params.lat
+              },
               headers: { "X-RapidAPI-Key": process.env.VUE_APP_API_KEY }
             }
           )

@@ -1,8 +1,5 @@
 <template>
   <div class="details-container py-2">
-    <div class="details-close" @click="closeDetails()">
-      <font-awesome-icon icon="times" />
-    </div>
     <h4 class="pl-2 text-center text-truncate">
       {{ selectedSatelliteDetails.name }}
     </h4>
@@ -37,28 +34,34 @@
           <small class="text-uppercase ml-1">min</small>
         </small>
       </b-list-group-item>
-    </b-list-group>
-    <!-- Azimuth & Elevation -->
-    <!-- <div>
-      <small class="float-left text-uppercase">azimuth</small>
-      <span class="float-right">
-        {{ formatFloat(selectedSatelliteLocation.visibility.azimuth) }}
-        <small class="text-uppercase ml-1">
-          {{
-            getCompassDirection(
-              selectedSatelliteLocation.visibility.azimuth
-            )
-          }}
+      <!-- Azimuth -->
+      <b-list-group-item v-if="selectedSatelliteLocation.visibility">
+        <small class="float-left text-uppercase">azimuth</small>
+        <small class="float-right">
+          {{ formatFloat(selectedSatelliteLocation.visibility.azimuth) }}
+          <small class="text-uppercase ml-1">
+            {{
+              getCompassDirection(selectedSatelliteLocation.visibility.azimuth)
+            }}
+          </small>
         </small>
-      </span>
-    </div>
-    <div>
-      <small class="float-left text-uppercase">elevation</small>
-      <span class="float-right">
-        {{ formatFloat(selectedSatelliteLocation.visibility.elevation) }}
-        &#176;
-      </span>
-    </div> -->
+      </b-list-group-item>
+      <!-- Elevation -->
+      <b-list-group-item v-if="selectedSatelliteLocation.visibility">
+        <small class="float-left text-uppercase">elevation</small>
+        <small class="float-right">
+          {{ formatFloat(selectedSatelliteLocation.visibility.elevation) }}
+          <small class="text-uppercase ml-1">&#176;</small>
+        </small>
+      </b-list-group-item>
+    </b-list-group>
+    <b-row no-gutters>
+      <b-col cols="12" class="text-center">
+        <b-button size="sm" variant="primary" @click="closeDetails()"
+          >Close</b-button
+        >
+      </b-col>
+    </b-row>
   </div>
 </template>
 
@@ -105,7 +108,7 @@ export default {
   .details-close {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 10px;
     &:hover {
       cursor: pointer;
     }

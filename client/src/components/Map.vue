@@ -4,15 +4,6 @@
       id="map-tools"
       class="fixed-bottom text-right pr-2 pb-2 pb-md-0"
     />
-    <b-alert
-      v-if="selectedSatelliteLocation"
-      :show="showVisibilityAlert()"
-      class="visible-alert text-uppercase text-center"
-      variant="primary"
-      dismissible
-    >
-      Visible Overhead
-    </b-alert>
   </div>
 </template>
 
@@ -265,11 +256,15 @@ export default {
       this.$store
         .dispatch("satellite/satelliteDetails", this.selectedSatelliteNumber)
         .then(() => {
+          const params = this.userLocation
+            ? {
+                number: this.selectedSatelliteNumber,
+                lng: this.userLocation.lon,
+                lat: this.userLocation.lat
+              }
+            : { number: this.selectedSatelliteNumber };
           this.$store
-            .dispatch("satellite/satelliteLocation", {
-              number: this.selectedSatelliteNumber,
-              period: this.selectedSatelliteDetails.orbital_period
-            })
+            .dispatch("satellite/satelliteLocation", params)
             .then(() => {
               this.$store
                 .dispatch("satellite/satelliteOrbit", {
@@ -316,6 +311,10 @@ export default {
       if (this.mapOptions["footprint"]) {
         this.toggleViewFootprint();
       }
+      // Show user location is query parm exists
+      if (this.$route.query.location) {
+        this.toggleLocation();
+      }
       // Start real-time data
       this.runInterval();
     },
@@ -323,21 +322,23 @@ export default {
      * Get current satellite location
      */
     loadLocationData() {
-      this.$store
-        .dispatch("satellite/satelliteLocation", {
-          number: this.selectedSatelliteNumber,
-          period: this.selectedSatelliteDetails.orbital_period
-        })
-        .then(() => {
-          this.setSatelliteSource();
-          if (this.mapOptions.tracking) {
-            this.setMapTracking();
+      const params = this.userLocation
+        ? {
+            number: this.selectedSatelliteNumber,
+            lng: this.userLocation.lon,
+            lat: this.userLocation.lat
           }
-          if (this.mapOptions.footprint) {
-            this.footprint.remove();
-            this.toggleViewFootprint();
-          }
-        });
+        : { number: this.selectedSatelliteNumber };
+      this.$store.dispatch("satellite/satelliteLocation", params).then(() => {
+        this.setSatelliteSource();
+        if (this.mapOptions.tracking) {
+          this.setMapTracking();
+        }
+        if (this.mapOptions.footprint) {
+          this.footprint.remove();
+          this.toggleViewFootprint();
+        }
+      });
     },
     /**
      * Follow satellite toggle
@@ -425,19 +426,6 @@ export default {
           return "rocket.svg";
         default:
           return "default.svg";
-      }
-    },
-    /**
-     * Toggle satellite visibility alert
-     */
-    showVisibilityAlert() {
-      if (
-        this.selectedSatelliteLocation.visibility &&
-        this.selectedSatelliteLocation.visibility.elevation > 0
-      ) {
-        return true;
-      } else {
-        return false;
       }
     },
     /**

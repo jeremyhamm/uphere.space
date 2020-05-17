@@ -23,7 +23,8 @@ const user = {
       iconAnchor: [25, 50],
       popupAnchor: [0, -50]
     },
-    units: "imperial"
+    units: "imperial",
+    visibleSatellites: []
   },
   mutations: {
     setUTCTime(state) {
@@ -44,6 +45,9 @@ const user = {
     },
     setUnits(state, val) {
       state.units = val;
+    },
+    setVisibleSatellites(state, val) {
+      state.visibleSatellites = val;
     }
   },
   actions: {
@@ -60,13 +64,18 @@ const user = {
         );
       });
     },
-    getVisibleSatellites({ commit }) {
+    getVisibleSatellites({ commit }, params) {
       return new Promise((resolve, reject) => {
         axios
-          .get(`${process.env.VUE_APP_API_URL}/user/visible`)
+          .get(`${process.env.VUE_APP_API_URL}/user/visible`, {
+            params: {
+              lng: params.lng,
+              lat: params.lat
+            }
+          })
           .then(
             response => {
-              commit("setLocation", response.data);
+              commit("setVisibleSatellites", response.data);
               resolve(response);
             },
             error => {
@@ -110,6 +119,9 @@ const user = {
     },
     getUnits: state => {
       return state.units;
+    },
+    getVisibleSatellites: state => {
+      return state.visibleSatellites;
     }
   }
 };

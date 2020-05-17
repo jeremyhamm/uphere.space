@@ -5,13 +5,6 @@
   height: -webkit-calc(100% - 96px); /* Chrome, Safari */
   height: calc(100% - 96px); /* IE9+ and future browsers */
 }
-.visible-alert {
-  z-index: 401;
-  top: 20px;
-  margin: 0 auto;
-  width: 50%;
-}
-
 .orbital-path-label {
   display: flex;
   padding-left: 5px;

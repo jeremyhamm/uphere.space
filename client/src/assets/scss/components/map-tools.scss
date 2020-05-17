@@ -1,3 +1,9 @@
+/* Visible Message */
+#visible-alert {
+  padding: 0.375rem 0.75rem;
+  background-color: $secondary-overlay;
+  color: $white;
+}
 /* Buttons */
 #map-tools {
   z-index: 401;
@@ -15,7 +21,7 @@
   }
 }
 /* Modals */
-#info-modal, #tools-modal {
+#visible-satellite-modal, #info-modal, #tools-modal {
   max-height: 750px;
   .modal-header, .modal-content {
     background-color: transparent;
