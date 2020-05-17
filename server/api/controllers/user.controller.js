@@ -5,17 +5,16 @@ const userService = require("../services/user.service");
 /**
  * Get current location by IP
  * 
- * @param  {Object} req request object
- * @param  {Object} res response object
- * @return {JSON}       json location information
+ * @param {Object} req request object
+ * @param {Object} res response object
+ * @return {JSON} json location information
  */
 exports.getLocationByIp = async(req, res) => {
-  if (process.env.NODE_ENV === 'development') {
-    return res.status(200);
-  }
-  //const ip = `76.167.235.86`;
-  //const url = `${process.env.IP_DATA_URL}/${ip}?api-key=${process.env.IP_DATA_API_KEY}`;
-  const ip = req.clientIp;
+  // if (process.env.NODE_ENV === 'development') {
+  //   return res.status(200);
+  // }
+  const ip = '157.230.146.22';
+  //const ip = req.clientIp;
   const url = `${process.env.IP_API_URL}/${ip}`;
   try {
     let response = await request.get(url);
@@ -36,22 +35,31 @@ exports.getLocationByIp = async(req, res) => {
       })
       .json(jsonparse);
   } catch(error) {
-    console.log(error.error);
-    return res.sendStatus(error.statusCode);
+    return res.sendStatus(400);
   }
 };
 
 /**
  * Get satellites visible to user
  * 
- * @param  {Object}   req request object
- * @param  {Object}   res response object
- * @return {Response}     http response
+ * @param {Object} req request object
+ * @param {Object} res response object
+ * @return {Response} http response
  */
-exports.getVisibleSatellites = (req, res) => {
-  if ( req.cookies.location || ( req.lat && req.lng ) ) {
-    const coords = req.cookies.location || { "lat": req.lat, "lng": req.lng };
-    userService.getVisibleSatellites(coords);
+exports.getVisibleSatellites = async (req, res) => {
+  if ( req.query.lat && req.query.lng ) {
+    const coords = { "latitude": req.query.lat, "longitude": req.query.lng };
+    const satellites = await userService.getBrightestSatellites();
+    userService.getVisibleSatellites(coords, satellites).then(results => {
+      if (results) {
+        return res.status(200).json(results);
+      } else {
+        return res.sendStatus(200);
+      }
+    }).catch(err => {
+      console.log(err);
+      return res.status(400);
+    });
   } else {
     return res.sendStatus(400);
   }
@@ -60,9 +68,9 @@ exports.getVisibleSatellites = (req, res) => {
 /**
  * Send message from contact form
  * 
- * @param  {Object}   req request object
- * @param  {Object}   res response object
- * @return {Response}     http response
+ * @param {Object} req request object
+ * @param {Object} res response object
+ * @return {Response} http response
  */
 exports.sendMessage = async (req, res) => {
   let transporter = nodemailer.createTransport({
