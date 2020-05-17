@@ -10,11 +10,11 @@ const userService = require("../services/user.service");
  * @return {JSON} json location information
  */
 exports.getLocationByIp = async(req, res) => {
-  // if (process.env.NODE_ENV === 'development') {
-  //   return res.status(200);
-  // }
-  const ip = '157.230.146.22';
-  //const ip = req.clientIp;
+  if (process.env.NODE_ENV === 'development') {
+    return res.status(200);
+  }
+  //const ip = '157.230.146.22';
+  const ip = req.clientIp;
   const url = `${process.env.IP_API_URL}/${ip}`;
   try {
     let response = await request.get(url);
