@@ -24,7 +24,7 @@
     <b-col cols="6">
       <!-- Desktop -->
       <b-nav align="right" class="pr-3 d-none d-lg-flex" small>
-        <b-nav-item :to="{ name: 'API-Overview' }">API</b-nav-item>
+        <b-nav-item :to="{ name: 'API-Documentation' }">API</b-nav-item>
         <b-nav-item :to="{ name: 'List' }">Satellites</b-nav-item>
         <b-nav-item :to="{ name: 'About' }">About</b-nav-item>
         <b-nav-item :to="{ name: 'Privacy' }">Privacy</b-nav-item>
@@ -46,7 +46,9 @@
           toggle-class="nav-link-custom"
           right
         >
-          <b-dropdown-item :to="{ name: 'API-Overview' }">API</b-dropdown-item>
+          <b-dropdown-item :to="{ name: 'API-Documentation' }"
+            >API</b-dropdown-item
+          >
           <b-dropdown-item :to="{ name: 'List' }">Satellites</b-dropdown-item>
           <b-dropdown-item :to="{ name: 'About' }">About</b-dropdown-item>
           <b-dropdown-item :to="{ name: 'Privacy' }">Privacy</b-dropdown-item>

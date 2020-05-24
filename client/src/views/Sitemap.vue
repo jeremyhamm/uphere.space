@@ -14,11 +14,6 @@
           >
         </h3>
         <h3>
-          <b-link class="text-dark" :to="{ name: 'API-Overview' }"
-            >API Overview</b-link
-          >
-        </h3>
-        <h3>
           <b-link class="text-dark" :to="{ name: 'API-Documentation' }"
             >API Documentation</b-link
           >

@@ -55,7 +55,10 @@
         <b-nav-item :to="satelliteListNav()" class="font-weight-bold">
           SATELLITES
         </b-nav-item>
-        <b-nav-item :to="{ name: 'API-Overview' }" class="font-weight-bold">
+        <b-nav-item
+          :to="{ name: 'API-Documentation' }"
+          class="font-weight-bold"
+        >
           API
         </b-nav-item>
         <b-nav-text>
@@ -97,7 +100,7 @@
       >
         Satellites
       </b-nav-item>
-      <b-nav-item :to="{ name: 'API-Overview' }" class="font-weight-bold">
+      <b-nav-item :to="{ name: 'API-Documentation' }" class="font-weight-bold">
         API
       </b-nav-item>
       <b-nav-item

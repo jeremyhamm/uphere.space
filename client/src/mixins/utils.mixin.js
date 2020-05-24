@@ -68,7 +68,7 @@ const utilsMixin = {
         case deg >= 326.26 && deg <= 348.75:
           return "NNW";
         default:
-          return "N/A";
+          return "N";
       }
     },
     formatMetricUnits(val) {

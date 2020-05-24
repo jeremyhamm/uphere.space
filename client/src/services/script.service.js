@@ -4,9 +4,11 @@
  * @param  {String} url script to load
  * @return {Void}
  */
-const loadScript = url => {
+const loadScript = attributes => {
   let script = document.createElement("script");
-  script.setAttribute("src", url);
+  for (const property in attributes) {
+    script.setAttribute(property, attributes[property]);
+  }
   document.head.appendChild(script);
 };
 

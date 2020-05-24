@@ -37,11 +37,28 @@
               resources. Rapid API also provides live endpoint testing. This API
               is a freemium model WITH 10,000 requests per month for free.
             </p>
+            <!-- Get Access -->
+            <b-row>
+              <b-col cols="12" class="justify-content-center text-center">
+                <a
+                  class="text-center"
+                  :href="config.VUE_APP_API_DOCS"
+                  target="_blank"
+                >
+                  <img
+                    src="https://storage.googleapis.com/code-snippets/connect-on-rapidapi-light.png"
+                    width="215"
+                    alt="Connect on RapidAPI"
+                  />
+                  <p class="text-dark font-weight-bold pt-1">Get access now!</p>
+                </a>
+              </b-col>
+            </b-row>
           </b-col>
         </b-row>
         <!-- SECTION BREAK -->
         <!-- Authentication -->
-        <b-row class="mt-5 d-flex justify-content-center">
+        <b-row class="mt-4 d-flex justify-content-center">
           <b-col cols="12" lg="10" xl="9">
             <h4 class="text-uppercase font-weight-bold">Authentication</h4>
           </b-col>
@@ -77,7 +94,9 @@
             <p class="text-uppercase font-weight-bold">Base Url</p>
           </b-col>
           <b-col cols="6" lg="6" xl="6">
-            <code class="float-right">https://uphere.space/api</code>
+            <code class="float-right"
+              >https://uphere-space1.p.rapidapi.com</code
+            >
           </b-col>
         </b-row>
         <!-- SECTION BREAK -->
@@ -441,6 +460,99 @@
                     "intldes":"2018-022A"
                     "selected":true
                     "categories":[]
+                  }
+                ]
+              </code>
+            </pre>
+          </dd>
+        </dl>
+        <!-- 
+          Visible Satellites
+        -->
+        <b-row class="mt-3 d-flex justify-content-center">
+          <b-col cols="12" lg="10" xl="9">
+            <p class="text-uppercase font-weight-bold">Visible Satellites</p>
+            <p>
+              Get a list of satellites visible from a specific location
+              (latitude & longitude). The return will include the name, norad id
+              (number) and coordinates (latitude & longitude) of the satelltie.
+            </p>
+          </b-col>
+        </b-row>
+        <!-- Method -->
+        <dl class="row mt-3 justify-content-center">
+          <dt class="col-6 col-lg-4 col-xl-3">
+            <span class="text-muted small font-weight-bold pr-1 float-left"
+              >METHOD</span
+            >
+          </dt>
+          <dd class="col-6 col-lg-4 col-xl-6">
+            <code class="float-right">GET</code>
+          </dd>
+        </dl>
+        <!-- Url -->
+        <dl class="row justify-content-center">
+          <dt class="col-2 col-lg-4 col-xl-3">
+            <span class="text-muted small font-weight-bold pr-1 float-left"
+              >URL</span
+            >
+          </dt>
+          <dd class="col-10 col-lg-4 col-xl-6">
+            <code class="float-right">/user/visible</code>
+          </dd>
+        </dl>
+        <!-- Query Params -->
+        <dl class="row justify-content-center">
+          <dt class="col-4 col-lg-4 col-xl-3">
+            <span class="text-muted small font-weight-bold pr-1 float-left"
+              >QUERY PARAMS</span
+            >
+          </dt>
+          <dd class="col-8 col-lg-4 col-xl-6">
+            <div class="float-right">
+              <span class="text-muted small font-weight-bold"
+                >STRING (required)</span
+              >
+              <code class="ml-2">lat</code>
+            </div>
+            <br />
+            <div class="float-right">
+              <span class="text-muted small font-weight-bold"
+                >STRING (required)</span
+              >
+              <code class="ml-2">lng</code>
+            </div>
+          </dd>
+        </dl>
+        <!-- Return -->
+        <dl class="row justify-content-center">
+          <dt class="col-2 col-lg-4 col-xl-2">
+            <span class="text-muted small font-weight-bold pr-1 float-left"
+              >RETURN</span
+            >
+          </dt>
+          <dd class="col-10 col-lg-4 col-xl-7">
+            <span class="text-muted small font-weight-bold float-right"
+              >ARRAY</span
+            >
+            <pre>
+              <code>
+                [
+                  {
+                    "name":"METEOR PRIRODA"
+                    "number":"12585"
+                    "coordinates":[
+                      -105.93079370651662
+                      21.699517316861932
+                    ]
+                  },
+                  {
+                    "name":"COSMOS 1833"
+                    "number":"17589"
+                    "coordinates":[
+                      -115.69815916308607
+                      38.39121740128685
+                    ]
                   }
                 ]
               </code>
