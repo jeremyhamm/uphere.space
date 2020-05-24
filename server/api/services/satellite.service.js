@@ -191,7 +191,7 @@ exports.getMostViewed = async (params) => {
       SELECT v.satellite_id, COUNT(v.id) as count
       FROM views v
       join satellites s on s.id = v.satellite_id AND s.active
-      WHERE v.date >= (NOW() - interval '1 day')
+      WHERE v.date >= (NOW() - interval '$1 day')
       GROUP BY v.satellite_id
       ORDER BY count DESC
       LIMIT 6
