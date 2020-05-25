@@ -6,15 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>uphere.space satellite tracking</title>
 
-    <!-- Leaflet css/js -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="*"/>
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin="*"></script> 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="anonymous"/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin="anonymous"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.geodesic"></script>
+
+    <!-- Map Function -->
+    <script src="satellite-utils.js"></script>
     
     <!-- Global styles -->
     <style>
-      #map {
-        height: 500px;
-        width: 500px;
+      html, body {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        margin: 0;
+      }
+      #stats {
+        position: absolute;
+        width: 100%;
+        color: black;
       }
     </style>
 
@@ -22,15 +39,61 @@
 
   <body>
     <div id="map"></div>
+    <div id="stats">
+      <p>
+        <a href="https://uphere.space" target="_blank">uphere.space</a>
+      </p>
+    </div>
     <script>
+      
+      // Map style
       const mapStyle = document.getElementById('map');
-      mapStyle.height = `${window.innerHeight}px`;
-      mapStyle.width = `${window.innerWidth}px`;
+      mapStyle.style.height = `${window.innerHeight - 50}px`;
+      mapStyle.style.width = `${window.innerWidth}px`;
+      mapStyle.style.position = 'absolute';
 
-      console.log(mapStyle);
+      // Get satellite
+      const urlParams = new URLSearchParams(window.location.search);
+      const satellite = urlParams.get('satellite') ? urlParams.get('satellite') : '25544';
+      
+      // Get satellite location
+      const mapPromise = loadMap(satellite);
+      const orbitPromise = loadOrbit(satellite);
+      Promise.all([mapPromise, orbitPromise]).then((values) => {
+        const location = values[0]; 
+        
+        // Load map
+        const map = L.map("map", {
+          center: [location.coordinates[1], location.coordinates[0]],
+          zoom: 4,
+          attributionControl: false,
+          worldCopyJump: true
+        });
+        L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}').addTo(map);
+        map.setView([location.coordinates[1], location.coordinates[0]]);
+        
+        // Add satellite icon
+        const satelliteIcon = new L.Icon({
+          iconSize: [40, 40],
+          iconUrl: `https://resources-uphere.sfo2.digitaloceanspaces.com/images/icons/default.svg`
+        });
+        L.marker([location.coordinates[1], location.coordinates[0]], {
+          icon: satelliteIcon
+        }).addTo(map);
 
-      const mymap = L.map('map').setView([51.505, -0.09], 13);
-      L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {}).addTo(mymap);
+        // Add orbital path
+        L.geodesic([values[1]], {
+          color: "yellow",
+          weight: 4,
+          opacity: 0.6,
+          steps: 50
+        }).addTo(map);
+      });
+
+      // Stats display
+      const statsStyle = document.getElementById('stats');
+      statsStyle.style.top = `${window.innerHeight - 50}px`;
+      statsStyle.style.height = '48px';
     </script>
   </body>
 </html>
