@@ -26,7 +26,7 @@
         <b-row class="d-flex justify-content-center">
           <b-col cols="12" lg="10" xl="9">
             <p class="py-4">
-              Thi API is hosted on
+              This API is hosted on
               <a
                 class="text-color-dark font-weight-bold"
                 href="https://rapidapi.com/uphere.space/api/uphere-space1"
@@ -35,7 +35,7 @@
                 Rapid API</a
               >. You will need an account there before accessing any of the
               resources. Rapid API also provides live endpoint testing. This API
-              is a freemium model WITH 10,000 requests per month for free.
+              is a freemium model with 1,000 requests per month for free.
             </p>
             <!-- Get Access -->
             <b-row>
@@ -188,7 +188,8 @@
               <code>
                 {
                   "coordinates": [-69.34455439843211,-2.834841089920333],
-                  "norad_id":"20580","height":332.558835040733,
+                  "norad_id":"20580",
+                  "height":332.558835040733,
                   "speed":16996.970517404618,
                   "visibility":{
                     "azimuth":16.32274243382461,
@@ -726,7 +727,7 @@ export default {
           vmid: "keywords",
           name: "keywords",
           content:
-            "api,documentation,satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite"
+            "api,documentation,satellite,orbit,tracking,map,mapping,nasa,iss,spacex,us satellite,us weather satellite,rapidapi"
         },
         // Open Graph
         {
@@ -796,8 +797,7 @@ export default {
         }
       ]
     };
-  },
-  methods: {}
+  }
 };
 </script>
 

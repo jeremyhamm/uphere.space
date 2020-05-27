@@ -73,6 +73,37 @@
         <p>See which satellites are orbiting and visible above you.</p>
       </b-col>
     </b-row>
+    <!-- Connect to API -->
+    <b-row no-gutters class="title api justify-content-center">
+      <b-col cols="12" class="text-center">
+        <h3 class="p-2">Need real time data?</h3>
+        <p>
+          Our API is hosted on
+          <a
+            class="font-weight-bold"
+            href="https://rapidapi.com/uphere.space/api/uphere-space1"
+            target="_blank"
+            >RapidAPI</a
+          >
+          and can be tried for free. For more information checkout the
+          <b-link class="font-weight-bold" :to="{ name: 'API-Documentation' }"
+            >documentation</b-link
+          >
+          page.
+        </p>
+        <a
+          class="font-weight-bold"
+          href="https://rapidapi.com/uphere.space/api/uphere-space1"
+          target="_blank"
+        >
+          <img
+            src="https://storage.googleapis.com/code-snippets/connect-on-rapidapi-light.png"
+            width="215"
+            alt="Connect on RapidAPI"
+          />
+        </a>
+      </b-col>
+    </b-row>
     <!-- Popular Satellites -->
     <b-row no-gutters class="justify-content-center mt-5">
       <b-col cols="12">
