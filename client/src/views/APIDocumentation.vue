@@ -160,6 +160,13 @@
           <dd class="col-7 col-lg-4 col-xl-6">
             <div class="float-right">
               <span class="text-muted small font-weight-bold"
+                >ENUM (optional)</span
+              >
+              <code class="ml-2">units (metric, imperial(default))</code>
+            </div>
+            <br />
+            <div class="float-right">
+              <span class="text-muted small font-weight-bold"
                 >NUMBER (optional)</span
               >
               <code class="ml-2">lng</code>
@@ -195,7 +202,7 @@
                     "azimuth":16.32274243382461,
                     "elevation":-65.93303612662568
                   },
-                  "footprint_radius":2524684.5107199484
+                  "footprint_radius":2524684.5107199484 (meters)
                 }
               </code>
             </pre>

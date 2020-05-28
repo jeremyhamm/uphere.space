@@ -121,6 +121,7 @@ const satellite = {
             }/satellite/${encodeURIComponent(params.number)}/location`,
             {
               params: {
+                units: 'imperial',
                 lng: params.lng,
                 lat: params.lat
               },

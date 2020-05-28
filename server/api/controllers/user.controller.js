@@ -10,29 +10,17 @@ const userService = require("../services/user.service");
  * @return {JSON} json location information
  */
 exports.getLocationByIp = async(req, res) => {
-  // if (process.env.NODE_ENV === 'development') {
-  //   return res.status(200);
-  // }
-  const ip = '157.230.146.22';
-  //const ip = req.clientIp;
+  if (process.env.NODE_ENV === 'development') {
+    return res.status(200);
+  }
+  //const ip = '157.230.146.22';
+  const ip = req.clientIp;
   const url = `${process.env.IP_API_URL}/${ip}`;
   try {
     let response = await request.get(url);
     let jsonparse = JSON.parse(response);
-    const location = {
-      latitude: jsonparse.lat,
-      longitude: jsonparse.lon
-    };
     return res
       .status(200)
-      .cookie("location", JSON.stringify(location), {
-        expires: new Date(Date.now() + (365 * 3600000)), 
-        domain: ".uphere.space", 
-        path: "/",
-        sameSite: 'lax',
-        secure: true, 
-        httpOnly: true 
-      })
       .json(jsonparse);
   } catch(error) {
     return res.sendStatus(400);

@@ -39,7 +39,7 @@ exports.getSatelliteLocation = (req, res) => {
     if (error || !result) {
       return res.sendStatus(404);
     } else {
-      
+
       // TLE data
       const tleLine1 = result.tle1;
       const tleLine2 = result.tle2;
@@ -55,19 +55,13 @@ exports.getSatelliteLocation = (req, res) => {
       const positionGd = satellite.eciToGeodetic(positionEci, gmst);
       
       // Get current telemetry
-      let satelliteHeight = satelliteService.convertUnits(positionGd.height);
-      let satelliteSpeed = satelliteService.convertVelocity(velocityEci);
+      const units = req.query.units || 'imperial';
+      let satelliteHeight = units === 'imperial' ? satelliteService.convertUnits(positionGd.height) : positionGd.height;
+      let satelliteSpeed = satelliteService.convertVelocity(velocityEci, units);
       
       // Get user visibility
       let visibility = null;
-      if (req.cookies.location) {
-        const coords = JSON.parse(req.cookies.location);
-        const location = {
-          'latitude': coords.latitude,
-          'longitude': coords.longitude
-        }
-        visibility = satelliteService.getVisibility(positionEcf, location);
-      } else if (req.query.lat && req.query.lng) {
+      if (req.query.lat && req.query.lng) {
         const location = {
           'latitude': req.query.lat,
           'longitude': req.query.lng

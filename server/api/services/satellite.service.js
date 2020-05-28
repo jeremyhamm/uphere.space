@@ -6,18 +6,32 @@ const utils = require("./utils.service");
  * Convert Euclidean vector (km/s) to mph
  * (https://en.wikipedia.org/wiki/Euclidean_vector)
  * 
- * @param   {Object} velocityEci velocity
- * @returns {Int}                Converted velocity
+ * @param {Object} velocityEci velocity
+ * @returns {Int} Converted velocity
  */
-exports.convertVelocity = (velocityEci) => {
-  return Math.sqrt((velocityEci.x * velocityEci.x) + (velocityEci.y * velocityEci.y) + (velocityEci.z * velocityEci.z)) * 2236.9362920544;
+exports.convertVelocity = (velocityEci, units) => {
+  if (units === 'metric') {
+    return Math.sqrt((velocityEci.x * velocityEci.x) + (velocityEci.y * velocityEci.y) + (velocityEci.z * velocityEci.z)) * 5793.64;
+  } else {
+    return Math.sqrt((velocityEci.x * velocityEci.x) + (velocityEci.y * velocityEci.y) + (velocityEci.z * velocityEci.z)) * 2236.9362920544;
+  }
+};
+
+/**
+ * Convert km to mi
+ * 
+ * @param {Number} val number in kilometers to convert to miles
+ * @return {Number} converted units
+ */
+exports.convertUnits = (val) => {
+  return val * 0.621371;
 };
 
 /**
  * Calculate radius of visible footprint on earth surface in meters
  * 
- * @param  {Int} height of satellite
- * @return {Int}        radius of visible sphere
+ * @param {Int} height of satellite
+ * @return {Int} radius of visible sphere
  */
 exports.getVisibleFootprint = (height) => {
   const tangent = Math.sqrt(height * (height + 2 * 6371));
@@ -29,8 +43,8 @@ exports.getVisibleFootprint = (height) => {
 /**
  * Get future satellite track
  * 
- * @param  {Object} satrec current satellite track
- * @return {Object}        tracklist
+ * @param {Object} satrec current satellite track
+ * @return {Object} tracklist
  */
 exports.getOrbit = (satrec, period) => {
   let trackList = [];
@@ -70,16 +84,6 @@ exports.getVisibility = (positionEcf, location) => {
 }
 
 /**
- * Convert km to mi
- * 
- * @param  {Number} val number in kilometers to convert to miles
- * @return {Number}     converted units
- */
-exports.convertUnits = (val) => {
-  return val * 0.621371;
-};
-
-/**
  * Get total number of satellites in DB (for pagination)
  * 
  * @return {Array} total count of satellites
@@ -91,8 +95,8 @@ exports.getSatelliteTotal = async () => {
 /**
  * Get satellite details by number
  * 
- * @param  {String} number satellite number for query param
- * @return {Array}
+ * @param {String} number satellite number for query param
+ * @return {Array} satellite details array
  */
 exports.getDetailsByNumber = async (number) => {
   const satellite = await connection.one(`
@@ -120,8 +124,8 @@ exports.getDetailsByNumber = async (number) => {
 /**
  * Get list of satellites and corresponding categories
  * 
- * @param  {Object} params query params
- * @return {Array}         satellite list
+ * @param {Object} params query params
+ * @return {Array} satellite list
  */
 exports.getSatellites = async (params) => {
   const sql_params = {
@@ -230,8 +234,8 @@ exports.saveView = (number) => {
 /**
  * Get complete category list
  * 
- * @param  {String} sort direction to sort list
- * @return {Array}       category list
+ * @param {String} sort direction to sort list
+ * @return {Array} category list
  */
 exports.getCategoryList = async () => {
   return await connection.query(`SELECT * FROM categories ORDER BY name ASC`);  
