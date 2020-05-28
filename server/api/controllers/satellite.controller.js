@@ -56,7 +56,7 @@ exports.getSatelliteLocation = (req, res) => {
       
       // Get current telemetry
       const units = req.query.units || 'imperial';
-      let satelliteHeight = units === 'imperial' ? satelliteService.convertUnits(positionGd.height) : positionGd.height;
+      let satelliteHeight = units === 'metric' ? positionGd.height ? satelliteService.convertUnits(positionGd.height);
       let satelliteSpeed = satelliteService.convertVelocity(velocityEci, units);
       
       // Get user visibility
