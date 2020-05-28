@@ -10,10 +10,11 @@ const utils = require("./utils.service");
  * @returns {Int} Converted velocity
  */
 exports.convertVelocity = (velocityEci, units) => {
+  let velocity = Math.sqrt((velocityEci.x * velocityEci.x) + (velocityEci.y * velocityEci.y) + (velocityEci.z * velocityEci.z));
   if (units === 'metric') {
-    return Math.sqrt((velocityEci.x * velocityEci.x) + (velocityEci.y * velocityEci.y) + (velocityEci.z * velocityEci.z)) * 5793.64;
+    return ((velocity * 2236.9362920544) * 1.60934);
   } else {
-    return Math.sqrt((velocityEci.x * velocityEci.x) + (velocityEci.y * velocityEci.y) + (velocityEci.z * velocityEci.z)) * 2236.9362920544;
+    return velocity * 2236.9362920544;
   }
 };
 
