@@ -132,6 +132,7 @@ export default {
     },
     showVisibilityAlert() {
       if (
+        this.selectedSatelliteLocation &&
         this.selectedSatelliteLocation.visibility &&
         this.selectedSatelliteLocation.visibility.elevation > 0
       ) {

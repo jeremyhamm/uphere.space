@@ -25,6 +25,7 @@
   <url><loc>https://uphere.space/satellites/02802</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/02807</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/02826</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/02866</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/02872</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/02874</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/02909</loc><priority>0.9</priority></url>
@@ -40,7 +41,7 @@
   <url><loc>https://uphere.space/satellites/05118</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/05398</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/05560</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/05730</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/5730</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/06073</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/06153</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/06155</loc><priority>0.9</priority></url>
@@ -196,10 +197,12 @@
   <url><loc>https://uphere.space/satellites/19574</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/19596</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/19650</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/19751</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/19765</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/19807</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/19822</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/19928</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/20026</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/20083</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/20107</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/20253</loc><priority>0.9</priority></url>
@@ -208,7 +211,6 @@
   <url><loc>https://uphere.space/satellites/20263</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/20303</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/20323</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/20362</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/20367</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/20442</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/20443</loc><priority>0.9</priority></url>
@@ -250,7 +252,6 @@
   <url><loc>https://uphere.space/satellites/21922</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/21938</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/22041</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/22049</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/22178</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/22195</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/22219</loc><priority>0.9</priority></url>
@@ -269,6 +270,7 @@
   <url><loc>https://uphere.space/satellites/22787</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/22803</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/22824</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/22825</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/22826</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/22830</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/22836</loc><priority>0.9</priority></url>
@@ -316,7 +318,6 @@
   <url><loc>https://uphere.space/satellites/24713</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/24732</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/24737</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/24753</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/24786</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/24793</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/24795</loc><priority>0.9</priority></url>
@@ -405,7 +406,7 @@
   <url><loc>https://uphere.space/satellites/25485</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/25504</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/25527</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/25544</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/25544</loc><priority>1.0</priority></url>
   <url><loc>https://uphere.space/satellites/25560</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/25590</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/25621</loc><priority>0.9</priority></url>
@@ -544,7 +545,6 @@
   <url><loc>https://uphere.space/satellites/27057</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/27168</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/27370</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/27376</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/27378</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/27380</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/27386</loc><priority>0.9</priority></url>
@@ -559,7 +559,6 @@
   <url><loc>https://uphere.space/satellites/27432</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/27436</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/27438</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/27441</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/27445</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/27453</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/27460</loc><priority>0.9</priority></url>
@@ -835,7 +834,6 @@
   <url><loc>https://uphere.space/satellites/33408</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/33409</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/33412</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/33414</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/33433</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/33434</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/33436</loc><priority>0.9</priority></url>
@@ -1053,7 +1051,6 @@
   <url><loc>https://uphere.space/satellites/38049</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/38070</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/38077</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/38078</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/38087</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/38091</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/38093</loc><priority>0.9</priority></url>
@@ -1151,7 +1148,6 @@
   <url><loc>https://uphere.space/satellites/39120</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/39122</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/39127</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/39132</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/39134</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/39135</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/39136</loc><priority>0.9</priority></url>
@@ -1287,23 +1283,12 @@
   <url><loc>https://uphere.space/satellites/40019</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/40020</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/40021</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/40023</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/40024</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/40025</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/40026</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/40027</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/40029</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/40030</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/40031</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/40032</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/40033</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/40035</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/40036</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/40037</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/40038</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/40039</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/40040</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/40041</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/40042</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/40043</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/40044</loc><priority>0.9</priority></url>
@@ -1542,7 +1527,6 @@
   <url><loc>https://uphere.space/satellites/41458</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41459</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41460</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41463</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41464</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41465</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41466</loc><priority>0.9</priority></url>
@@ -1572,16 +1556,10 @@
   <url><loc>https://uphere.space/satellites/41605</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41606</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41607</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41608</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41609</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41610</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41611</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41612</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41613</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41614</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41615</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41616</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41617</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41618</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41619</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41622</loc><priority>0.9</priority></url>
@@ -1683,41 +1661,18 @@
   <url><loc>https://uphere.space/satellites/41950</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41951</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41952</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41953</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41954</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41955</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41956</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41957</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41958</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41959</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41960</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41961</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41962</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41963</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41964</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41965</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41966</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41967</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41968</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41969</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41970</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41971</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41972</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41973</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41974</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41975</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41976</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41977</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41978</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41979</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41980</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41981</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41982</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41983</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41984</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41985</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41986</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/41987</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41988</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41989</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/41990</loc><priority>0.9</priority></url>
@@ -1732,56 +1687,32 @@
   <url><loc>https://uphere.space/satellites/41999</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42000</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42001</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42002</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42003</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42004</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42005</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42006</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42007</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42008</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42009</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42010</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42011</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42012</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42013</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42014</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42015</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42016</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42017</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42018</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42019</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42020</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42021</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42022</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42023</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42024</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42025</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42026</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42027</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42028</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42029</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42030</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42031</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42032</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42033</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42034</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42035</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42036</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42037</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42038</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42039</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42040</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42041</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42042</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42043</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42044</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42045</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42046</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42047</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42048</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42049</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42050</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42051</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42061</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42063</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42070</loc><priority>0.9</priority></url>
@@ -1794,7 +1725,6 @@
   <url><loc>https://uphere.space/satellites/42698</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42709</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42719</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42726</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42738</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42740</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42741</loc><priority>0.9</priority></url>
@@ -1880,23 +1810,14 @@
   <url><loc>https://uphere.space/satellites/42849</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42850</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42851</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42852</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42853</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42854</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42855</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42856</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42857</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42858</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42859</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42860</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42861</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42862</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42863</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42864</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42865</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42866</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42867</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42868</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42869</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42870</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42871</loc><priority>0.9</priority></url>
@@ -1904,23 +1825,13 @@
   <url><loc>https://uphere.space/satellites/42873</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42874</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42875</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42876</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42877</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42878</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42879</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42880</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42881</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42882</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42883</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42884</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42885</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42886</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42887</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42888</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42889</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42890</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42891</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42892</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42893</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42894</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42895</loc><priority>0.9</priority></url>
@@ -1964,8 +1875,6 @@
   <url><loc>https://uphere.space/satellites/42990</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42991</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42992</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42995</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/42996</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42997</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/42998</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43001</loc><priority>0.9</priority></url>
@@ -1981,7 +1890,6 @@
   <url><loc>https://uphere.space/satellites/43017</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43018</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43019</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/43020</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43021</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43022</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43023</loc><priority>0.9</priority></url>
@@ -2145,7 +2053,6 @@
   <url><loc>https://uphere.space/satellites/43463</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43466</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43467</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/43468</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43476</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43477</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43478</loc><priority>0.9</priority></url>
@@ -2169,7 +2076,6 @@
   <url><loc>https://uphere.space/satellites/43547</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43548</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43549</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/43550</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43551</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43552</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43553</loc><priority>0.9</priority></url>
@@ -2272,7 +2178,6 @@
   <url><loc>https://uphere.space/satellites/43723</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43724</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43725</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/43726</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43727</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43728</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43729</loc><priority>0.9</priority></url>
@@ -2281,7 +2186,6 @@
   <url><loc>https://uphere.space/satellites/43732</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43733</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43734</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/43735</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43736</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43737</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43738</loc><priority>0.9</priority></url>
@@ -2293,9 +2197,6 @@
   <url><loc>https://uphere.space/satellites/43745</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43746</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43747</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/43748</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/43749</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/43750</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43751</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43752</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43753</loc><priority>0.9</priority></url>
@@ -2415,7 +2316,6 @@
   <url><loc>https://uphere.space/satellites/43899</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43901</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43902</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/43903</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43904</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43905</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/43906</loc><priority>0.9</priority></url>
@@ -2454,7 +2354,6 @@
   <url><loc>https://uphere.space/satellites/44029</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44030</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44031</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/44032</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44033</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44034</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44035</loc><priority>0.9</priority></url>
@@ -2490,8 +2389,6 @@
   <url><loc>https://uphere.space/satellites/44088</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44089</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44090</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/44091</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/44092</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44093</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44094</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44095</loc><priority>0.9</priority></url>
@@ -2500,7 +2397,6 @@
   <url><loc>https://uphere.space/satellites/44098</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44099</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44100</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/44101</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44102</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44103</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44104</loc><priority>0.9</priority></url>
@@ -2562,7 +2458,6 @@
   <url><loc>https://uphere.space/satellites/44275</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44276</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44277</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/44278</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44279</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44280</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44281</loc><priority>0.9</priority></url>
@@ -2713,7 +2608,6 @@
   <url><loc>https://uphere.space/satellites/44542</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44543</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44547</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/44550</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44552</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44622</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44624</loc><priority>0.9</priority></url>
@@ -2721,7 +2615,6 @@
   <url><loc>https://uphere.space/satellites/44628</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44634</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44637</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/44701</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44703</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44704</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44705</loc><priority>0.9</priority></url>
@@ -2822,7 +2715,6 @@
   <url><loc>https://uphere.space/satellites/44819</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44824</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44827</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/44828</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44829</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44830</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44831</loc><priority>0.9</priority></url>
@@ -2869,7 +2761,6 @@
   <url><loc>https://uphere.space/satellites/44905</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44906</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44907</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/44908</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44910</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44914</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44915</loc><priority>0.9</priority></url>
@@ -2905,7 +2796,6 @@
   <url><loc>https://uphere.space/satellites/44945</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44946</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44947</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/44948</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44949</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44950</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44951</loc><priority>0.9</priority></url>
@@ -2922,7 +2812,6 @@
   <url><loc>https://uphere.space/satellites/44962</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44963</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44964</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/44965</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44966</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44967</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44968</loc><priority>0.9</priority></url>
@@ -2931,10 +2820,6 @@
   <url><loc>https://uphere.space/satellites/44971</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44972</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44973</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/44974</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/44975</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/44976</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/44977</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/44978</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/45016</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/45017</loc><priority>0.9</priority></url>
@@ -3004,10 +2889,6 @@
   <url><loc>https://uphere.space/satellites/45101</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/45102</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/45103</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/45104</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/45105</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/45106</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/45107</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/45113</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/45114</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/45115</loc><priority>0.9</priority></url>
@@ -3055,7 +2936,6 @@
   <url><loc>https://uphere.space/satellites/45164</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/45174</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/45175</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/45176</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/45178</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/45179</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/45180</loc><priority>0.9</priority></url>
@@ -3089,7 +2969,6 @@
   <url><loc>https://uphere.space/satellites/45208</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/45209</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/45210</loc><priority>0.9</priority></url>
-  <url><loc>https://uphere.space/satellites/45211</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/45212</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/45213</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/45214</loc><priority>0.9</priority></url>
@@ -3107,4 +2986,207 @@
   <url><loc>https://uphere.space/satellites/45226</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/45227</loc><priority>0.9</priority></url>
   <url><loc>https://uphere.space/satellites/45228</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45229</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45230</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45231</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45232</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45233</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45234</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45235</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45236</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45237</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45245</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45246</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45249</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45250</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45251</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45252</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45254</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45256</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45257</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45258</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45259</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45260</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45261</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45262</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45263</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45264</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45265</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45344</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45358</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45360</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45361</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45362</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45363</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45364</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45365</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45366</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45367</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45368</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45369</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45370</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45371</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45372</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45373</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45374</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45375</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45376</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45377</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45378</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45379</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45380</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45381</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45382</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45383</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45384</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45385</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45386</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45387</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45388</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45389</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45390</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45391</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45392</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45393</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45394</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45395</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45396</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45397</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45398</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45399</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45400</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45401</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45402</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45403</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45404</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45405</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45406</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45407</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45408</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45409</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45410</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45411</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45412</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45413</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45414</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45415</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45416</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45417</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45418</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45419</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45424</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45425</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45426</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45427</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45428</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45429</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45430</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45431</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45432</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45433</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45434</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45435</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45436</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45437</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45438</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45439</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45440</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45441</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45442</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45443</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45444</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45445</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45446</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45447</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45448</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45449</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45450</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45451</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45452</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45453</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45454</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45455</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45456</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45457</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45460</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45461</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45462</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45465</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45476</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45528</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45529</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45531</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45532</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45533</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45534</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45535</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45536</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45537</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45538</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45539</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45540</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45541</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45542</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45543</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45544</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45545</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45546</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45547</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45548</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45549</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45550</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45551</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45552</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45553</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45554</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45555</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45556</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45557</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45558</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45559</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45560</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45561</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45562</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45563</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45564</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45565</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45566</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45567</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45568</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45569</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45570</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45571</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45572</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45573</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45574</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45575</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45576</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45577</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45578</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45579</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45580</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45581</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45582</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45583</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45584</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45585</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45586</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45587</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45588</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45589</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45590</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45595</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45597</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45598</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45602</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45603</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45604</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45605</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45607</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45608</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45609</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45611</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45612</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45613</loc><priority>0.9</priority></url>
+  <url><loc>https://uphere.space/satellites/45623</loc><priority>1.0</priority></url>
 </urlset>
