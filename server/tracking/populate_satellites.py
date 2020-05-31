@@ -149,7 +149,7 @@ def addAdditionalProperties(cursor):
   leo_satellites = getLaunchData()
   for sat in leo_satellites:
     print(sat)
-    cursor.execute('SELECT name FROM satellites WHERE number = %(sat_number)s AND number != \'25544\'', {'sat_number': sat['number']})
+    cursor.execute('SELECT name FROM satellites WHERE number = %(sat_number)s AND number != \'25544\' OR number != \'45623\'', {'sat_number': sat['number']})
     data = cursor.fetchall()
     if data:
       cursor.execute(
@@ -335,4 +335,4 @@ addCategories(cursor)
 # 7.
 # Add Wikipedia summary
 print("STEP 7 - Add wikipedia summary to satellite")
-addSummaryToSatellite(cursor)
+#addSummaryToSatellite(cursor)
