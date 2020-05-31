@@ -17,6 +17,11 @@ https://bootstrap-vue.js.org/docs/components/button
 	  box-shadow: none;
   }
 }
+.btn.btn-danger {
+  &:hover {
+    color: $white !important;
+  }
+}
 
 // Outline
 .btn.btn-outline-primary {

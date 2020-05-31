@@ -376,7 +376,7 @@ export default {
       switch (icon) {
         case "AQUA":
           return "aqua.svg";
-        case "DRAGON CRS-20":
+        case "SPACEX DRAGON":
           return "spacex_dragon.svg";
         case "GOES 17":
           return "goes.svg";
