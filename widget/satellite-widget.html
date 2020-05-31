@@ -11,15 +11,24 @@
 
     <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="anonymous"/>
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin="anonymous"></script> 
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.geodesic"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin="anonymous"></script>
+    <script src="leaflet.geodesic.js" async></script>
 
     <!-- Map Function -->
     <script src="satellite-utils.js"></script>
     
     <!-- Global styles -->
     <style>
+      @font-face {
+        font-family: 'Sunflower';
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url(https://resources-uphere.sfo2.cdn.digitaloceanspaces.com/fonts/sunflower/Sunflower-Light.woff) format('woff');
+      }
       html, body {
+        font-family: 'Sunflower', sans-serif;
+        color: #212121;
         position: absolute;
         top: 0;
         left: 0;
@@ -27,11 +36,25 @@
         width: 100%;
         overflow: hidden;
         margin: 0;
+        background-color: #dce4ef;
+      }
+      a {
+        color: #105bd8;
       }
       #stats {
         position: absolute;
         width: 100%;
-        color: black;
+        color: #212121;
+      }
+      #details {
+        margin-top: 2px;
+      }
+      .list-group.list-group-flush .list-group-item {
+        padding: 6px;
+        background-color: #dce4ef;
+      }
+      .labels {
+        font-size: 0.80em;
       }
     </style>
 
@@ -40,15 +63,13 @@
   <body>
     <div id="map"></div>
     <div id="stats">
-      <p>
-        <a href="https://uphere.space" target="_blank">uphere.space</a>
-      </p>
+      <div id="details"></div>
     </div>
     <script>
       
       // Map style
       const mapStyle = document.getElementById('map');
-      mapStyle.style.height = `${window.innerHeight - 50}px`;
+      mapStyle.style.height = `${window.innerHeight - 100}px`;
       mapStyle.style.width = `${window.innerWidth}px`;
       mapStyle.style.position = 'absolute';
 
@@ -57,10 +78,12 @@
       const satellite = urlParams.get('satellite') ? urlParams.get('satellite') : '25544';
       
       // Get satellite location
+      let loading = true;
       const mapPromise = loadMap(satellite);
       const orbitPromise = loadOrbit(satellite);
-      Promise.all([mapPromise, orbitPromise]).then((values) => {
-        const location = values[0]; 
+      const detailsPromise = loadDetails(satellite);
+      Promise.all([mapPromise, orbitPromise, detailsPromise]).then((values) => {
+        const location = values[0];
         
         // Load map
         const map = L.map("map", {
@@ -77,23 +100,87 @@
           iconSize: [40, 40],
           iconUrl: `https://resources-uphere.sfo2.digitaloceanspaces.com/images/icons/default.svg`
         });
-        L.marker([location.coordinates[1], location.coordinates[0]], {
+        const marker = L.marker([location.coordinates[1], location.coordinates[0]], {
           icon: satelliteIcon
         }).addTo(map);
 
+        // Get new satellite location every 2 seconds
+        setInterval(() => {
+          loadMap(satellite).then(
+            response => {
+              const newLatLng = new L.LatLng(response.coordinates[1], response.coordinates[0]);
+              marker.setLatLng(newLatLng); 
+              map.setView(newLatLng);
+            }
+          )
+        }, 2000);
+
         // Add orbital path
-        L.geodesic([values[1]], {
+        const orbit = values[1];
+        let orbitTrack = L.geodesic(orbit, {
           color: "yellow",
           weight: 4,
           opacity: 0.6,
           steps: 50
         }).addTo(map);
+
+        // Get new orbital path every 9 min
+        setInterval(() => {
+          orbitTrack.remove();
+          loadOrbit(satellite).then(
+            response => {
+              orbitTrack = L.geodesic(orbit, {
+                color: "yellow",
+                weight: 4,
+                opacity: 0.6,
+                steps: 50
+              }).addTo(map);
+            }
+          )
+        }, 540000);
+
+
+        loading = false;
+
+        // Set details
+        const details = values[2];
+        const detailsContainer = document.getElementById('details');
+        detailsContainer.innerHTML = `
+          <ul class="list-group list-group-flush small">
+            <li class="list-group-item">
+              <div class="d-flex w-100 justify-content-between">
+                <span class="font-weight-bold">${details.name}</span>
+                <span><span class="labels">NORAD ID</span> ${details.number}</span>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="d-flex w-100 justify-content-between">
+                <span><span class="labels">HEIGHT</span> ${Math.round(location.height)} <span class="labels">MI</span></span>
+                <span><span class="labels">SPEED</span> ${Math.round(location.speed)} <span class="labels">MPH</span></span>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="d-flex w-100 justify-content-between">
+                <a href="https://uphere.space" target="_blank">uphere.space</a>
+                <span>
+                  <a href="https://twitter.com/upheredotspace" target="_blank">
+                    <img src="fontawesome/svgs/brands/twitter.svg" alt="twitter" height="15" width="15">
+                  </a>
+                  <a href="https://www.facebook.com/Upherespace-107025020996619" target="_blank" class="pl-1">
+                    <img src="fontawesome/svgs/brands/facebook.svg" alt="twitter" height="15" width="15">
+                  </a>
+                </span>
+              </div>
+            </li>
+          </ul>
+        `;
+
       });
 
       // Stats display
       const statsStyle = document.getElementById('stats');
-      statsStyle.style.top = `${window.innerHeight - 50}px`;
-      statsStyle.style.height = '48px';
+      statsStyle.style.top = `${window.innerHeight - 100}px`;
+      statsStyle.style.height = '100px';
     </script>
   </body>
 </html>
