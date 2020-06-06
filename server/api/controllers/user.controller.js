@@ -7,14 +7,16 @@ const userService = require("../services/user.service");
  * 
  * @param {Object} req request object
  * @param {Object} res response object
+ * 
  * @return {JSON} json location information
  */
 exports.getLocationByIp = async(req, res) => {
+  let ip;
   if (process.env.NODE_ENV === 'development') {
-    return res.status(200);
+    ip = '157.230.146.22';
+  } else {
+    ip = req.clientIp;
   }
-  //const ip = '157.230.146.22';
-  const ip = req.clientIp;
   const url = `${process.env.IP_API_URL}/${ip}`;
   try {
     let response = await request.get(url);
@@ -32,6 +34,7 @@ exports.getLocationByIp = async(req, res) => {
  * 
  * @param {Object} req request object
  * @param {Object} res response object
+ * 
  * @return {Response} http response
  */
 exports.getVisibleSatellites = async (req, res) => {
@@ -58,6 +61,7 @@ exports.getVisibleSatellites = async (req, res) => {
  * 
  * @param {Object} req request object
  * @param {Object} res response object
+ * 
  * @return {Response} http response
  */
 exports.sendMessage = async (req, res) => {

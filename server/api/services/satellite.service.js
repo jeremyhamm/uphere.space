@@ -1,6 +1,9 @@
 const connection = require("../database/postgres.connection");
 const satellite = require("satellite.js");
 const utils = require("./utils.service");
+const dayjs = require('dayjs');
+const utc = require('dayjs/plugin/utc');
+dayjs.extend(utc);
 
 /**
  * Convert Euclidean vector (km/s) to mph
@@ -255,9 +258,10 @@ exports.getCountryList = async () => {
  * Calculate satellite magnitude for visible pass
  * 
  * @param {Object} visibility azimuth and elevation properties
- * @return
+ * 
+ * @return {Number} apparent magnitude
  */
-exports.calculateMagnitude = (visibility) => {
+exports.calculateMagnitude = (visibility, sunPosition) => {
   const distanceToSatellite = visibility.height; //This is in KM
   const phaseAngleDegrees = visibility.elevation; //Angle from sun->satellite->observer
   const pa = phaseAngleDegrees * 0.0174533; //Convert the phase angle to radians
@@ -268,6 +272,23 @@ exports.calculateMagnitude = (visibility) => {
   const term_3 = -2.5 * Math.log10(arg);
 
   return term_1 + term_2 + term_3;
+}
+
+/**
+ * Extract valid visible passes from list
+ * 
+ * @param {Array} passes list of visible passes
+ * 
+ * @return {Array} valid visible passes
+ */
+exports.extractValidPasses = (passes) => {
+  let extractedPasses = [];
+  for (pass of passes) {
+    if (pass.sunPosition.altitude <= 0) {
+      extractedPasses.push(pass);
+    }
+  }
+  return extractedPasses;
 }
 
 /**

@@ -9,6 +9,8 @@ const satelliteService = require("./satellite.service");
  * Get all visible satellites for specific location
  * 
  * @param {Coords} coords lat and lng for location to get satellite visibility
+ * 
+ * @return {Array} currently visible satellites relative to coords
  */
 exports.getBrightestSatellites = async () => {
   const sql = `

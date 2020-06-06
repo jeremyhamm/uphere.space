@@ -3,13 +3,17 @@ const client = require("../database/redis.connection");
 const satellite = require("satellite.js");
 const SunCalc = require('suncalc');
 const satelliteService = require("../services/satellite.service");
+const dayjs = require('dayjs');
+const utc = require('dayjs/plugin/utc');
+dayjs.extend(utc);
 
 /**
  * Get satellite track for n minutes
  * 
- * @param  {Object}   req request object
- * @param  {Object}   res response object
- * @return {Response}     satellite track
+ * @param {Object} req request object
+ * @param {Object} res response object
+ * 
+ * @return {Response} satellite track
  */
 exports.getSatelliteOrbit = (req, res) => {
   client.hgetall(req.params.satellite, (error, result) => {
@@ -30,9 +34,10 @@ exports.getSatelliteOrbit = (req, res) => {
 /**
  * Get current location of selected satellite
  * 
- * @param  {Object}   req request object
- * @param  {Object}   res response object
- * @return {Response}     satellite location details
+ * @param  {Object} req request object
+ * @param  {Object} res response object
+ * 
+ * @return {Response} satellite location details
  */
 exports.getSatelliteLocation = (req, res) => {
   client.hgetall(req.params.satellite, (error, result) => {           
@@ -87,9 +92,10 @@ exports.getSatelliteLocation = (req, res) => {
 /**
  * Get icon for satellite type
  * 
- * @param  {Object}   req request object
- * @param  {Object}   res response object
- * @return {Response}     satellite list
+ * @param  {Object} req request object
+ * @param  {Object} res response object
+ * 
+ * @return {Response} satellite list
  */
 exports.getSatelliteDetails = async (req, res) => {
   try {
@@ -108,9 +114,10 @@ exports.getSatelliteDetails = async (req, res) => {
 /**
  * Get complete list of categories
  * 
- * @param  {Object}   req request object
- * @param  {Object}   res response object
- * @return {Response}     category list
+ * @param {Object} req request object
+ * @param {Object} res response object
+ * 
+ * @return {Response} category list
  */
 exports.getCategoryList = async (req, res) => {
   try {
@@ -125,9 +132,10 @@ exports.getCategoryList = async (req, res) => {
 /**
  * Get complete list of countries who have launched satellites
  * 
- * @param  {Object}   req request object
- * @param  {Object}   res response object
- * @return {Response}     country list
+ * @param {Object} req request object
+ * @param {Object} res response object
+ * 
+ * @return {Response} country list
  */
 exports.getCountryList = async (req, res) => {
   try {
@@ -142,9 +150,10 @@ exports.getCountryList = async (req, res) => {
 /**
  * Get all trackable satellites
  * 
- * @param  {Object}   req request object
- * @param  {Object}   res response object
- * @return {Response}     most viewed satellite data
+ * @param {Object} req request object
+ * @param {Object} res response object
+ * 
+ * @return {Response} most viewed satellite data
  */
 exports.getSatelliteList = async (req, res) => {
   try {
@@ -159,9 +168,10 @@ exports.getSatelliteList = async (req, res) => {
 /**
  * Get most viewed satellites
  * 
- * @param  {Object}   req request object
- * @param  {Object}   res response object
- * @return {Response}     most viewed satellite data
+ * @param {Object} req request object
+ * @param {Object} res response object
+ * 
+ * @return {Response} most viewed satellite data
  */
 exports.getTopList = async (req, res) => {
   try {
@@ -176,9 +186,10 @@ exports.getTopList = async (req, res) => {
 /**
  * Get visible passes for x days
  * 
- * @param  {Object}   req request object
- * @param  {Object}   res response object
- * @return {Response}     satellite pass for current location
+ * @param {Object} req request object
+ * @param {Object} res response object
+ * 
+ * @return {Response} satellite pass for current location
  */
 exports.getVisiblePasses = (req, res) => {
   client.hgetall(req.params.satellite, (error, result) => {        
@@ -192,16 +203,14 @@ exports.getVisiblePasses = (req, res) => {
     const satrec = satellite.twoline2satrec(tleLine1, tleLine2);
 
     let passes = [];
-    const passTime = new Date();
-    
-    for (let i = 0; i <= 1440; i++) {
-      let finalTime = passTime.setTime(passTime.getTime() + 1000 * 60);
 
+    // 1440 min === 1 day
+    for (let i = 0; i <= 14400; i++) {
+      const passTime = dayjs().add(i, 'minutes').utc().toDate()
       const positionAndVelocity = satellite.propagate(satrec, passTime);
       const positionEci = positionAndVelocity.position;
-      const positionEcf = satellite.eciToEcf(positionEci, passTime);
-      
-      const gmst = satellite.gstime(passTime);
+      const positionEcf = satellite.eciToEcf(positionEci, new Date());
+      const gmst = satellite.gstime(new Date());
       const positionGd = satellite.eciToGeodetic(positionEci, gmst);
 
       // Get user visibility
@@ -210,43 +219,55 @@ exports.getVisiblePasses = (req, res) => {
         "elevation": null,
         "date": null
       };
-      if (req.cookies.location) {
-        const coords = JSON.parse(req.cookies.location);
+
+      // Check for both lng & lat
+      if (req.query.lng && req.query.lat) {
+        const coords = {
+          "lng": req.query.lng,
+          "lat": req.query.lat
+        };
         const observerGd = {
-          longitude: satellite.degreesToRadians(-117.1366),
-          latitude: satellite.degreesToRadians(32.7794),
+          longitude: satellite.degreesToRadians(coords.lng),
+          latitude: satellite.degreesToRadians(coords.lat),
           height: 0
         };
         const lookAngles = satellite.ecfToLookAngles(observerGd, positionEcf);
         visibility.azimuth = lookAngles.azimuth * 180 / Math.PI;
         visibility.elevation = lookAngles.elevation * 180 / Math.PI;
-        visibility.date = new Date(finalTime);
+        visibility.date = passTime;
         visibility.height = positionGd.height;
-      }
 
-      if (visibility.elevation > 0) {
-        const sunPosition = SunCalc.getPosition(finalTime, -117.1366, 32.7794);
-        
-        if (sunPosition.altitude > 0) {
-          visibility.sunPosition = sunPosition.altitude;
+        if (visibility.elevation > 0) {
+          
+          // Get position of sun relative to coords
+          const sunPosition = SunCalc.getPosition(passTime, coords.lng, coords.lat);
+          visibility.sunPosition = sunPosition;
+          
+          // Calculate satellite magnitude
+          const magnitude = satelliteService.calculateMagnitude(visibility);
+          visibility.magnitude = magnitude;
+
+          passes.push(visibility);
         }
-        
-        const magnitude = satelliteService.calculateMagnitude(visibility);
-        visibility.magnitude = magnitude;
-        passes.push(visibility);
+
+      } else {
+        return res.status(400).send('Must include both longitude and latitude');
       }
     }
 
-    return res.status(200).json(passes);
+    const filteredPasses = satelliteService.extractValidPasses(passes);
+
+    return res.status(200).json(filteredPasses);
   });
 };
 
 /**
  * Get satellite launch sites
  * 
- * @param  {Object}   req request object
- * @param  {Object}   res response object
- * @return {Response}     satellite launch sites
+ * @param {Object} req request object
+ * @param {Object} res response object
+ * 
+ * @return {Response} satellite launch sites
  */
 exports.getLaunchSites = async (req, res) => {
   try {
