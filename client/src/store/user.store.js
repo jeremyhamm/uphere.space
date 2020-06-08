@@ -67,11 +67,12 @@ const user = {
     getVisibleSatellites({ commit }, params) {
       return new Promise((resolve, reject) => {
         axios
-          .get(`${process.env.VUE_APP_API_URL}/user/visible`, {
+          .get(`${process.env.VUE_APP_RAPID_API_URL}/user/visible`, {
             params: {
               lng: params.lng,
               lat: params.lat
-            }
+            },
+            headers: { "X-RapidAPI-Key": process.env.VUE_APP_API_KEY }
           })
           .then(
             response => {
