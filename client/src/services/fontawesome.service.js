@@ -41,6 +41,7 @@ import {
   faToggleOn,
   faToggleOff,
   faTv,
+  faUser,
   faUserCog,
   faVideo
 } from "@fortawesome/free-solid-svg-icons";
@@ -95,6 +96,7 @@ export default [
     faToggleOff,
     faTv,
     faTwitter,
+    faUser,
     faUserCog,
     faVideo
   )

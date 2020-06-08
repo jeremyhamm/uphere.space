@@ -216,7 +216,6 @@ export default {
 .content-padding {
   margin-top: 150px;
 }
-
 .bmc-button img {
   width: 35px !important;
   margin-bottom: 1px !important;

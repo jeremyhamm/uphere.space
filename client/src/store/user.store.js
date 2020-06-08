@@ -96,6 +96,19 @@ const user = {
           }
         );
       });
+    },
+    // eslint-disable-next-line
+    googleSignin({}) {
+      return new Promise((resolve, reject) => {
+        axios.post(`${process.env.VUE_APP_API_URL}/user/signin/google`).then(
+          response => {
+            resolve(response);
+          },
+          error => {
+            reject(error);
+          }
+        );
+      });
     }
   },
   getters: {

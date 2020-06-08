@@ -3,9 +3,12 @@ require("dotenv").config();
 // Init
 const app = require("express")();
 const http = require("http").createServer(app);
+const cookieParser = require('cookie-parser');
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
+
+// Cookie Parser
+app.use(cookieParser());
 
 // Compression
 const compression = require('compression');
@@ -18,9 +21,6 @@ app.use(helmet());
 // CORS
 app.use(cors());
 app.options(process.env.APP_URL, cors());
-
-// Cookie Parser
-app.use(cookieParser());
 
 // API
 const satelliteRoutes = require("./routes/satellite.route");

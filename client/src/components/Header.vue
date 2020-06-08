@@ -61,6 +61,10 @@
         >
           API
         </b-nav-item>
+        <b-nav-item :to="{ name: 'Signin' }" class="font-weight-bold">
+          <font-awesome-icon icon="user" />
+          SIGN IN
+        </b-nav-item>
         <b-nav-text>
           <small class="ml-4 mr-2">UTC {{ utcTime }}</small>
         </b-nav-text>
@@ -94,6 +98,13 @@
         </b-button>
       </b-nav-form>
       <!-- Links -->
+      <b-nav-item
+        :to="{ name: 'Signin' }"
+        class="font-weight-bold text-uppercase"
+      >
+        <font-awesome-icon icon="user" />
+        Sign In
+      </b-nav-item>
       <b-nav-item
         :to="{ name: 'List' }"
         class="font-weight-bold text-uppercase"
