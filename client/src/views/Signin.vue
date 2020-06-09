@@ -107,7 +107,12 @@ export default {
   },
   methods: {
     googleSignin() {
-      this.$store.dispatch("user/googleSignin");
+      this.$store.dispatch("user/googleSignin")
+        .then(
+          response => {
+            window.location.replace(response.data);
+          }
+        )
     },
     facebookSignin() {
 

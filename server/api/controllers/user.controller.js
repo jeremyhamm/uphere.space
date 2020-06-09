@@ -111,10 +111,13 @@ const googleSignin = (req, res) => {
   // Generate the url that will be used for the consent dialog.
   const authorizeUrl = oAuth2Client.generateAuthUrl({
     access_type: 'offline',
-    scope: 'https://www.googleapis.com/auth/userinfo.profile',
+    scope: [
+      'https://www.googleapis.com/auth/userinfo.profile',
+      'https://www.googleapis.com/auth/userinfo.email'
+    ]      
   });
 
-  return res.location(authorizeUrl).end();
+  return res.status(200).json(authorizeUrl);
 };
 
 /**
@@ -131,7 +134,8 @@ const googleSigninRedirect = async (req, res) => {
 
   const r = await oAuth2Client.getToken(code);
   oAuth2Client.setCredentials(r.tokens);
-  console.info('Tokens acquired.');
+
+  console.log(r);
 }
 
 module.exports = {
