@@ -130,12 +130,20 @@ const googleSignin = (req, res) => {
  */
 const googleSigninRedirect = async (req, res) => {
   const code = req.query.code;
-  const scope = req.query.scope;
 
   const r = await oAuth2Client.getToken(code);
   oAuth2Client.setCredentials(r.tokens);
 
-  console.log(r);
+  const url = 'https://www.googleapis.com/oauth2/v1/userinfo?alt=json';
+  let profile = await oAuth2Client.request({url});
+
+  // Check for exisitng user
+  const existingUser = await userService.findUser(profile.data.email);
+
+  // Create new user if not found
+  if (existingUser.length === 0) {
+    userService.createUser(profile.data, 'google');
+  }
 }
 
 module.exports = {

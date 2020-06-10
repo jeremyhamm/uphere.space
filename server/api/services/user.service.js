@@ -4,6 +4,25 @@ const { promisify } = require("util");
 const getAsync = promisify(redisConnection.hgetall).bind(redisConnection);
 const satellite = require("satellite.js");
 const satelliteService = require("./satellite.service");
+const dayjs = require('dayjs');
+const utc = require('dayjs/plugin/utc');
+dayjs.extend(utc);
+
+/**
+ * Get brightest satellites for visibility test
+ * 
+ * @return {Array} currently visible satellites relative to coords
+ */
+const getBrightestSatellites = async () => {
+  const sql = `
+    SELECT s.number, s.name, s.orbital_period
+    FROM satellites s 
+    JOIN satellite_categories sc on s.id = sc.satellite_id
+    WHERE sc.category_id = 3
+    ORDER by s.number asc;
+  `;
+  return await dbConnection.query(sql);
+}
 
 /**
  * Get all visible satellites for specific location
@@ -12,18 +31,7 @@ const satelliteService = require("./satellite.service");
  * 
  * @return {Array} currently visible satellites relative to coords
  */
-exports.getBrightestSatellites = async () => {
-  const sql = `
-    SELECT s.number, s.name, s.orbital_period
-    FROM satellites s 
-    JOIN satellite_categories sc on s.id = sc.satellite_id
-    WHERE sc.category_id = 3
-    ORDER by s.number asc;
-  `;
-  return  await dbConnection.query(sql);
-}
-
-exports.getVisibleSatellites = async (coords, satellites) => {
+const getVisibleSatellites = async (coords, satellites) => {
   const visibleSatellites = [];
   for (const item of satellites) {
     const result = await getAsync(item.number);
@@ -52,6 +60,66 @@ exports.getVisibleSatellites = async (coords, satellites) => {
   }
 
   return visibleSatellites;
+}
+
+/**
+ * Find user by email
+ * 
+ * @param {String} email users email
+ * 
+ * @return {Array}
+ */
+const findUser = async (email) => {
+  const sql = `
+    SELECT *
+    FROM users
+    WHERE email = $1;
+  `;
+  return await dbConnection.query(sql, [email]);
+}
+
+/**
+ * Format profile data for saving new user
+ * 
+ * @param {Object} data profile data from oauth provider
+ * 
+ * @return {Object} formatted profile data
+ */
+const formatProfileData = (data, provider) => {
+  switch(provider) {
+    case 'google':
+      return [ data.email, data.given_name, data.family_name, data.picture, data.id, 'google', data.locale, dayjs().toISOString() ];
+    case 'facebook':
+      return [ data.email, data.given_name, data.family_name, data.picture, data.id, 'google', data.locale, dayjs().toISOString() ]; 
+  }
+}
+
+/**
+ * Create new user
+ * 
+ * @param {Object} profile user data
+ * 
+ * @return {Array}
+ */
+const createUser = async (profile, provider) => {
+  const userData = formatProfileData(profile, provider);
+  try {
+    const sql = `
+      INSERT INTO users(email, first_name, last_name, picture, provider_id, provider_name, locale, created_at)
+      VALUES($1, $2, $3, $4, $5, $6, $7, $8)
+    `;
+    return await dbConnection.one(sql, userData);
+  }
+  catch(error) {
+    console.error(error);
+  }
+}
+
+module.exports = {
+  getBrightestSatellites,
+  getVisibleSatellites,
+  findUser,
+  createUser
 }
 
 
