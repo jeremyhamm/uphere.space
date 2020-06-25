@@ -6,6 +6,7 @@ dayjs.extend(utc);
 const user = {
   namespaced: true,
   state: {
+    details: null,
     utcTime: dayjs()
       .utc()
       .format("H:mm:ss"),
@@ -27,6 +28,9 @@ const user = {
     visibleSatellites: []
   },
   mutations: {
+    setDetails(state, val) {
+      state.details = val;
+    },
     setUTCTime(state) {
       state.utcTime = dayjs()
         .utc()
@@ -109,9 +113,29 @@ const user = {
           }
         );
       });
+    },
+    userDetails({ commit }) {
+      return new Promise((resolve, reject) => {
+        axios
+          .get(`${process.env.VUE_APP_API_URL}/user/details`, {
+            headers: { Authorization: `Bearer ${$cookies.get("access_token")}` } // eslint-disable-line
+          })
+          .then(
+            response => {
+              commit("setDetails", response);
+              resolve(response);
+            },
+            error => {
+              reject(error);
+            }
+          );
+      });
     }
   },
   getters: {
+    getDetails: state => {
+      return state.details;
+    },
     getUTCTime: state => {
       return state.utcTime;
     },

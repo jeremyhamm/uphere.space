@@ -6,7 +6,7 @@ const rapidAPiMiddleware = require('../middleware/rapidapi');
 const satelliteController = require("../controllers/satellite.controller");
 
 // Misc
-router.get("/top", satelliteController.getTopList);
+router.get("/top", rapidAPiMiddleware, satelliteController.getTopList);
 
 // List
 router.get("/list", rapidAPiMiddleware, satelliteController.getSatelliteList);

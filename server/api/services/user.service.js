@@ -63,19 +63,20 @@ const getVisibleSatellites = async (coords, satellites) => {
 }
 
 /**
- * Find user by email
+ * Find user by field and value
  * 
- * @param {String} email users email
+ * @param {String} field database field tro query from
+ * @param {String} value
  * 
  * @return {Array}
  */
-const findUser = async (email) => {
+const findUser = async (field, value) => {
   const sql = `
     SELECT *
     FROM users
-    WHERE email = $1;
+    WHERE $1:name = $2;
   `;
-  return await dbConnection.query(sql, [email]);
+  return await dbConnection.query(sql, [field, value]);
 }
 
 /**

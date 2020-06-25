@@ -1,12 +1,17 @@
-const request = require("request-promise");
-const nodemailer = require("nodemailer");
-const userService = require("../services/user.service");
+const userService = require('../services/user.service');
+const request = require('request-promise');
+const nodemailer = require('nodemailer');
+const dayjs = require('dayjs');
+const utc = require('dayjs/plugin/utc');
+dayjs.extend(utc);
+const jwt = require('jsonwebtoken');
 const {OAuth2Client} = require('google-auth-library');
 const oAuth2Client = new OAuth2Client(
   process.env.GOOGLE_CLIENT_ID,
   process.env.GOOGLE_CLIENT_SECRET,
   process.env.GOOGLE_REDIRECT_URL
 );
+
 
 /**
  * Get current location by IP
@@ -45,7 +50,7 @@ const getLocationByIp = async(req, res) => {
  */
 const getVisibleSatellites = async (req, res) => {
   if ( req.query.lat && req.query.lng ) {
-    const coords = { "latitude": req.query.lat, "longitude": req.query.lng };
+    const coords = { 'latitude': req.query.lat, 'longitude': req.query.lng };
     const satellites = await userService.getBrightestSatellites();
     userService.getVisibleSatellites(coords, satellites).then(results => {
       if (results) {
@@ -72,7 +77,7 @@ const getVisibleSatellites = async (req, res) => {
  */
 const sendMessage = async (req, res) => {
   let transporter = nodemailer.createTransport({
-    host: "smtp.zoho.com",
+    host: 'smtp.zoho.com',
     port: 465,
     secure: true,
     auth: {
@@ -86,7 +91,7 @@ const sendMessage = async (req, res) => {
     from: process.env.ZOHO_USERNAME,
     to: process.env.ZOHO_EMAIL,
     replyTo: req.body.email,
-    subject: "Hello from " + req.body.name,
+    subject: 'Hello from ' + req.body.name,
     text: req.body.message
   };
 
@@ -138,12 +143,43 @@ const googleSigninRedirect = async (req, res) => {
   let profile = await oAuth2Client.request({url});
 
   // Check for exisitng user
-  const existingUser = await userService.findUser(profile.data.email);
+  let user = await userService.findUser('email', profile.data.email);
 
   // Create new user if not found
-  if (existingUser.length === 0) {
-    userService.createUser(profile.data, 'google');
+  if (user.length === 0) {
+    user = userService.createUser(profile.data, 'google');
   }
+
+  const token = jwt.sign({ user: user[0].id }, process.env.APP_JWT_PRIVATE_KEY, { expiresIn: '180d' });
+  
+  return res
+    .status(200)
+    .cookie(
+      'access_token', 
+      token, 
+      { 
+        domain: false,
+        maxAge: 15552000 * 1000,
+        path: '/',
+        secure: true
+      }
+    )
+    .redirect(301, process.env.APP_URL);
+}
+
+/**
+ * Get user details
+ * 
+ * @param {Object} req request object
+ * @param {Object} res response object
+ * 
+ * @return {Response} http response
+ */
+const getUserDetails = async (req, res) => {
+  const user = await userService.findUser('id', req.userId);
+  return res
+    .status(200)
+    .json(user);
 }
 
 module.exports = {
@@ -151,5 +187,6 @@ module.exports = {
   getVisibleSatellites,
   sendMessage,
   googleSignin,
-  googleSigninRedirect
+  googleSigninRedirect,
+  getUserDetails
 }

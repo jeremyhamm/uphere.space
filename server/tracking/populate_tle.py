@@ -24,8 +24,8 @@ def connect_redis():
   #   port=6379
   # )
   pool = redis.ConnectionPool(
-    host='satellite-list-do-user-6401666-0.db.ondigitalocean.com',
-    password="du4riwzdieyv098q",
+    host='uphere-space-sattelite-list-do-user-1621323-0.a.db.ondigitalocean.com',
+    password="vycqi41k2bccix7c",
     port=25061,
     connection_class=redis.SSLConnection
   )

@@ -1,6 +1,6 @@
 <template>
   <b-container fluid>
-    <b-row class="max-height">
+    <b-row  >
       <!-- Sidebar -->
       <b-col
         id="sidebar"

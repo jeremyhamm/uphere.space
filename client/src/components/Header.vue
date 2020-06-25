@@ -61,7 +61,13 @@
         >
           API
         </b-nav-item>
-        <b-nav-item :to="{ name: 'Signin' }" class="font-weight-bold">
+        <b-nav-item v-if="authenticated">
+          <b-avatar
+            variant="info"
+            src="https://placekitten.com/300/300"
+          ></b-avatar>
+        </b-nav-item>
+        <b-nav-item :to="{ name: 'Signin' }" class="font-weight-bold" v-else>
           <font-awesome-icon icon="user" />
           SIGN IN
         </b-nav-item>
@@ -154,6 +160,9 @@ export default {
     this.init();
   },
   computed: {
+    userDetails() {
+      return this.$store.getters["user/getDetails"];
+    },
     utcTime() {
       return this.$store.getters["user/getUTCTime"];
     },

@@ -60,7 +60,8 @@
           </b-button>
         </div>
         <div class="small mt-3 text-light">
-          <b-link class="text-center" to="/privacy">Privacy policy</b-link> | <b-link class="text-center" to="/terms">Terms of Service</b-link>
+          <b-link class="text-center" to="/privacy">Privacy policy</b-link> |
+          <b-link class="text-center" to="/terms">Terms of Service</b-link>
         </div>
       </b-col>
     </b-row>
@@ -107,16 +108,11 @@ export default {
   },
   methods: {
     googleSignin() {
-      this.$store.dispatch("user/googleSignin")
-        .then(
-          response => {
-            window.location.replace(response.data);
-          }
-        )
+      this.$store.dispatch("user/googleSignin").then(response => {
+        window.location.replace(response.data);
+      });
     },
-    facebookSignin() {
-
-    }
+    facebookSignin() {}
   }
 };
 </script>
