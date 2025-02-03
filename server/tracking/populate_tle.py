@@ -19,16 +19,7 @@ def read_satellite_file(url):
   return satelliteNumbers
 
 def connect_redis():
-  # pool = redis.ConnectionPool(
-  #   host='redis',
-  #   port=6379
-  # )
-  pool = redis.ConnectionPool(
-    host='uphere-space-sattelite-list-do-user-1621323-0.a.db.ondigitalocean.com',
-    password="vycqi41k2bccix7c",
-    port=25061,
-    connection_class=redis.SSLConnection
-  )
+  pool = redis.ConnectionPool()
   return redis.Redis(connection_pool=pool)
 
 def save_to_redis(number, elements):
