@@ -1,12 +1,7 @@
 import tweepy
 
 # Twitter credentials
-twitter_credentials = {
-  'consumer_key': 'tD6sFxHUTczoSOnvnztFwIIs9',
-  'consumer_secret': 'L51qGSMMDbxeXAZqZ2JLPkqdMiYYamJcjW1kMTVK2QZzK9ylGS',
-  'access_token': '1183116222159716352-AEW6Yh8ZkUKHZFI7chQJVYBmvuoxWO',
-  'access_token_secret': 'inCz7I4a5QNVISetL0X1r4Tbgg3ECWDuGat1QrI5sfKUX'
-}
+twitter_credentials = {}
 
 def authenticateTwitter():
   auth = tweepy.OAuthHandler(twitter_credentials['consumer_key'], twitter_credentials['consumer_secret'])
